@@ -1,15 +1,15 @@
 <template>
-    <v-layout column wrap>
-        <v-row>
-            <v-col col="6" class="col-sm-6 col-md-6 col-lg-6 ">
+    <v-container>
+    <v-layout row >
+            <v-flex class="sm-12 md-6 lg-3 ">
                 <div class="login-card ">
 
                     <div class="mx-auto">
 
                         <ValidationObserver v-slot="{ handleSubmit }">
                             <v-form class="login-form" @submit.prevent="handleSubmit(handleLogin)">
-                                <h3 class="login-title">Reset your</h3>
-                                <h3 class="login-title">password</h3>
+                                <h4 class="login-title">Reset your password</h4>
+                                <h4 class="login-title"></h4>
                                 <div v-if="errorMsg">
                                     <span class="err text-xl-center">{{errorMsg}}</span>
                                 </div>
@@ -27,19 +27,21 @@
                                     ></v-text-field>
                                 </ValidationProvider>
                                 <SubmitButton button-name="Send email with reset password link" class="login-btn" />
-                                <v-btn text class="red--text pt-9 ml-16" link to="#">Back to Login</v-btn>
+                                <v-btn text class="link red--text " link to="/login">Back to Login</v-btn>
                             </v-form>
                         </ValidationObserver>
                     </div>
                 </div>
-            </v-col>
-            <v-col cols="6" class="right-col col-sm-6 col-md-6 col-lg-6">
+            </v-flex>
+            <v-row>
+            <v-flex class="right-col sm-12 md-6 lg-3">
                 <v-responsive>
-                    <img  class="align-center" src="../../assets/desk-illo.png" width="600px" alt="dispaly">
+                    <img  class="align-center" src="../../assets/desk-illo.png" width="602px" alt="dispaly">
                 </v-responsive>
-            </v-col>
+            </v-flex>
         </v-row>
     </v-layout>
+    </v-container>
 </template>
 
 <script>
@@ -99,6 +101,7 @@
     .login-card {
         margin-top: 80px;
         width: 500px;
+        margin-right: 105px;
 
         /*border: 1px solid #F8F8F8;*/
         /*box-sizing: border-box;*/
@@ -108,7 +111,7 @@
     .login-title {
         font-style: normal;
         font-weight: 500;
-        font-size: 30px;
+        font-size: 20px;
         line-height: 50px;
         /* identical to box height, or 167% */
 
@@ -121,7 +124,7 @@
         color: #2b1c1c;
     }
     .login-form {
-        margin-left: 35% !important;
+        margin-left: 10% !important;
     }
     .login-btn {
         margin-top: 20px !important;
@@ -136,16 +139,20 @@
         background-color: #FFF0CE !important;
         height: 565px;
 
+
+    }
+    .link{
+        margin-left: 35% !important;
+
     }
     .align-center{
-        margin-left: 10%;
         margin-top: 13%;
     }
 
     @media only screen and (max-width: 600px) {
         .login-form {
-            margin-left: 10%;
-            margin-right: 10%;
+            margin-left: 3%;
+            margin-right: 3%;
         }
         .login-card {
             width: 390px ;
@@ -158,6 +165,9 @@
         .right-col{
             display: none;
         }
+       .login-btn{
+           font-size:100%;
+       }
 
 
     }
