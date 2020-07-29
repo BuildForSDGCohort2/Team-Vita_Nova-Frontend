@@ -1,5 +1,4 @@
 
-import Home from "../views/Home.vue";
 
 export default [
     {
@@ -28,5 +27,11 @@ export default [
         name: "registration_successful",
 
         component: () => import("../components/splashPages/ConfirmEmailPage")
+    },
+    {
+        path: "/resetpassword",
+        name: "reset_password",
+
+        component: () => import("../views/onboarding/ResetPassword")
     }
 ]
