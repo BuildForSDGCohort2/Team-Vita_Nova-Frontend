@@ -8,7 +8,8 @@
 
                         <ValidationObserver v-slot="{ handleSubmit }">
                             <v-form class="login-form" @submit.prevent="handleSubmit(handleLogin)">
-                                <h3 class="login-title">Welcome back</h3>
+                                <h3 class="login-title">Reset your</h3>
+                                <h3 class="login-title">password</h3>
                                 <div v-if="errorMsg">
                                     <span class="err text-xl-center">{{errorMsg}}</span>
                                 </div>
@@ -25,21 +26,8 @@
                                             class="register-input"
                                     ></v-text-field>
                                 </ValidationProvider>
-                                <ValidationProvider name="password" rules="required|min:6" v-slot="{ errors }">
-                                    <span class="err">{{ errors[0] }}</span>
-                                    <v-text-field
-                                            :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
-                                            @click:append="() => (value = !value)"
-                                            :type="value ? 'password' : 'text'"
-                                            label="Password"
-                                            name="password"
-                                            v-model="user.password"
-                                            outlined
-                                            color="red"
-                                            class="register-input"
-                                    ></v-text-field>
-                                </ValidationProvider>
-                                <SubmitButton button-name="Login" class="login-btn" />
+                                <SubmitButton button-name="Send email with reset password link" class="login-btn" />
+                                <v-btn text class="red--text pt-9 ml-16" link to="#">Back to Login</v-btn>
                             </v-form>
                         </ValidationObserver>
                     </div>
@@ -68,7 +56,8 @@
                 loading: false,
                 message: ".",
                 errorMsg: "",
-                value: true
+                value: true,
+                link:'/login'
             };
         },
         computed: {
@@ -106,6 +95,7 @@
 </script>
 
 <style scoped>
+
     .login-card {
         margin-top: 80px;
         width: 500px;
@@ -131,7 +121,7 @@
         color: #2b1c1c;
     }
     .login-form {
-        margin-left: 27%;
+        margin-left: 35% !important;
     }
     .login-btn {
         margin-top: 20px !important;
@@ -151,32 +141,16 @@
         margin-left: 10%;
         margin-top: 13%;
     }
-    @media only screen and (min-width: 600px) {
-        /* For tablets: */
-        .login-form {
-            margin-left: 17%;
-            margin-right: 17%;
-        }
-        .login-card {
-            width: 390px !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-        }
-        .align-center{
-            margin-left: 10%;
-            margin-top: 29%;
-            width: 75%;
-        }
-    }
+
     @media only screen and (max-width: 600px) {
         .login-form {
-            margin-left: 17%;
-            margin-right: 17%;
+            margin-left: 10%;
+            margin-right: 10%;
         }
         .login-card {
-            width: 390px !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
+            width: 390px ;
+            border-radius: 0 ;
+            box-shadow: none ;
         }
         .login-title {
             font-size: 20px;
@@ -185,5 +159,7 @@
             display: none;
         }
 
+
     }
+
 </style>
