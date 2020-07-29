@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app color="rgba(255, 242, 199, 0.25)" elevate-on-scroll>
+    <v-app-bar color="rgba(255, 242, 199, 0.25)" elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-flex d-sm-flex d-md-none"></v-app-bar-nav-icon>
       <span class="title">Semicolon&nbsp;</span>
 
