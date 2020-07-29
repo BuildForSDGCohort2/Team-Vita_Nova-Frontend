@@ -1,7 +1,7 @@
 <template>
-    <v-container>
+    <v-main class="pa-0">
     <v-layout row >
-            <v-flex class="sm-12 md-6 lg-3 ">
+            <v-flex class="sm-12 md-3 lg-3 ">
                 <div class="login-card ">
 
                     <div class="mx-auto">
@@ -34,14 +34,14 @@
                 </div>
             </v-flex>
             <v-row>
-            <v-flex class="right-col sm-12 md-6 lg-3">
+            <v-flex class="right-col sm-12 md-8 lg-8">
                 <v-responsive>
-                    <img  class="align-center" src="../../assets/desk-illo.png" width="602px" alt="dispaly">
+                    <img  class="align-center" src="../../assets/desk-illo.png" width="784px" alt="dispaly">
                 </v-responsive>
             </v-flex>
         </v-row>
     </v-layout>
-    </v-container>
+    </v-main>
 </template>
 
 <script>
@@ -59,7 +59,6 @@
                 message: ".",
                 errorMsg: "",
                 value: true,
-                link:'/login'
             };
         },
         computed: {
@@ -124,7 +123,7 @@
         color: #2b1c1c;
     }
     .login-form {
-        margin-left: 10% !important;
+        margin-left: 17% !important;
     }
     .login-btn {
         margin-top: 20px !important;
@@ -140,6 +139,8 @@
         height: 565px;
 
 
+
+
     }
     .link{
         margin-left: 35% !important;
@@ -149,10 +150,11 @@
         margin-top: 13%;
     }
 
+
     @media only screen and (max-width: 600px) {
         .login-form {
-            margin-left: 3%;
-            margin-right: 3%;
+            margin-left: 5%;
+            margin-right: 5%;
         }
         .login-card {
             width: 390px ;
