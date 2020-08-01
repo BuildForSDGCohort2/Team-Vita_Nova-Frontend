@@ -1,8 +1,22 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app color="#FAFAFA">
+    <v-app-bar app color="white" light elevate-on-scroll clipped-left>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <img src="../../../assets/semfulllogo.svg" class="logo" height="30" />
+      <v-spacer></v-spacer>
+
+      <v-avatar>
+        <img src="../../../assets/cynthia.png" alt="John" />
+      </v-avatar>
+      <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red">Cynthia Lorie</v-btn>
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped>
       <v-list nav dense>
-        <v-list-item link to="/cooperate/dashboard" class="menu">
+        <v-list-item link to="/cooperate/dashboard" class="dashboard-logout">
           <v-list-item-icon>
             <v-icon>mdi-view-dashboard-outline</v-icon>
           </v-list-item-icon>
@@ -26,7 +40,7 @@
           </v-list-item-icon>
           <v-list-item-title>Message</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/employee/invite" class="menu">
+        <v-list-item link to="/cooperate/employee" class="menu">
           <v-list-item-icon>
             <v-icon>mdi-clipboard-plus-outline</v-icon>
           </v-list-item-icon>
@@ -50,7 +64,7 @@
           </v-list-item-icon>
           <v-list-item-title>Courses</v-list-item-title>
         </v-list-item>
-        <v-list-item class="menu" @click="handleLogout">
+        <v-list-item @click="handleLogout" class="dashboard-logout">
           <v-list-item-icon>
             <v-icon>mdi-alert-circle-outline</v-icon>
           </v-list-item-icon>
@@ -58,20 +72,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-app-bar app color="white" light elevate-on-scroll>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <img src="../../../assets/semfulllogo.svg" class="logo" height="30" />
-      <v-spacer></v-spacer>
-
-      <v-avatar>
-        <img src="../../../assets/cynthia.png" alt="John" />
-      </v-avatar>
-      <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red">Cynthia Lorie</v-btn>
-      <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
-      </v-btn>
-    </v-app-bar>
   </div>
 </template>
 
@@ -94,6 +94,9 @@ export default {
 
 <style scoped>
 .menu {
-  margin-top: 40px;
+  margin-top: 15px;
+}
+.dashboard-logout {
+  margin-top: 60px;
 }
 </style>
