@@ -1,5 +1,5 @@
 <template>
-  <v-btn depressed to="/register" class="nav-button">Get Started</v-btn>
+  <v-btn depressed to="/register" class="nav-button mx-auto">{{title}}</v-btn>
 </template>
 
 <style scoped>
@@ -8,7 +8,12 @@
   color: #fff !important;
   border-radius: 3px !important;
   max-height: 100% !important;
-  padding: 20px 28px !important;
-  margin-right: 10% !important;
 }
 </style>
+<script>
+export default {
+  props: {
+    title: String
+  }
+};
+</script>

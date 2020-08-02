@@ -4,18 +4,15 @@
     <v-row class="hero-section">
       <v-col md="8" class="d-none d-md-flex d-lg-flex">
         <v-card class="pa-2 hero-section-item" flat>
-          <v-img
-            class="img1"
-            height="200"
-            width="200"
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-          ></v-img>
+          <v-img class="img1" height="500" width="500" src="../../../assets/VR.png"></v-img>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card color="white" class="card-container">
+        <v-card color="white" class="card-container" flat>
           <v-list-item>
-            <v-list-item-avatar color="pink"></v-list-item-avatar>
+            <v-list-item-avatar color="pink">
+              <v-img src="../../../assets/icon1.svg"></v-img>
+            </v-list-item-avatar>
             <v-list-item-content>
               <v-card-title class="headline">Large Enterprises</v-card-title>
 
@@ -26,9 +23,11 @@
           </v-list-item>
         </v-card>
 
-        <v-card color="white" class="card-container">
+        <v-card color="white" class="card-container" flat>
           <v-list-item>
-            <v-list-item-avatar color="pink"></v-list-item-avatar>
+            <v-list-item-avatar color="white">
+              <v-img src="../../../assets/icon2.svg"></v-img>
+            </v-list-item-avatar>
             <v-list-item-content>
               <v-card-title class="headline">Small Business</v-card-title>
 
@@ -39,9 +38,11 @@
           </v-list-item>
         </v-card>
 
-        <v-card color="white" class="card-container">
+        <v-card color="white" class="card-container" flat>
           <v-list-item>
-            <v-list-item-avatar color="pink"></v-list-item-avatar>
+            <v-list-item-avatar color="white">
+              <v-img src="../../../assets/icon3.svg"></v-img>
+            </v-list-item-avatar>
             <v-list-item-content>
               <v-card-title class="headline">Customisable Plans</v-card-title>
 
@@ -53,8 +54,8 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row justify="center" class="center-button">
-      <GetStarted />
+    <v-row>
+      <GetStarted title="Get Started" />
     </v-row>
   </v-container>
 </template>

@@ -10,7 +10,7 @@
         <v-btn depressed class="other-nav-button">Plans</v-btn>
         <v-btn depressed to="/login" class="other-nav-button">Login</v-btn>
       </v-toolbar-items>
-      <GetStarted />
+      <GetStarted title="Get Started" />
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
