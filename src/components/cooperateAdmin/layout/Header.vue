@@ -1,7 +1,9 @@
 <template>
   <div>
     <v-app-bar app color="white" light elevate-on-scroll clipped-left>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-btn @click.stop="drawer = !drawer" color="white" elevation="0">
+        <v-icon>{{ drawer ? 'mdi-chevron-left' : 'mdi-chevron-right' }}</v-icon>
+      </v-btn>
 
       <img src="../../../assets/semfulllogo.svg" class="logo" height="30" />
       <v-spacer></v-spacer>
@@ -14,51 +16,51 @@
         <v-icon>mdi-bell</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped>
+    <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped hide-overlay>
       <v-list nav dense>
-        <v-list-item link to="/cooperate/dashboard" class="dashboard-logout">
+        <v-list-item link to="/cooperate/dashboard" class="dashboard-logout" color="red">
           <v-list-item-icon>
             <v-icon>mdi-view-dashboard-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Dashboard</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/insight" class="menu">
+        <v-list-item link to="/cooperate/insight" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-google-circles</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Insight</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/department/create" class="menu">
+        <v-list-item link to="/cooperate/department/create" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-grid-large</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Department</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/message" class="menu">
+        <v-list-item link to="/cooperate/message" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-message-text-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Message</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/employee" class="menu">
+        <v-list-item link to="/cooperate/employee" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-clipboard-plus-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Employees</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/helpCenter" class="menu">
+        <v-list-item link to="/cooperate/helpCenter" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-crosshairs-question</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Help Center</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/setting" class="menu">
+        <v-list-item link to="/cooperate/setting" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-cog-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Settings</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/courses" class="menu">
+        <v-list-item link to="/cooperate/courses" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-format-float-left</v-icon>
           </v-list-item-icon>
@@ -66,7 +68,7 @@
         </v-list-item>
         <v-list-item @click="handleLogout" class="dashboard-logout">
           <v-list-item-icon>
-            <v-icon>mdi-alert-circle-outline</v-icon>
+            <v-icon color="red">mdi-alert-circle-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Logout</v-list-item-title>
         </v-list-item>

@@ -17,37 +17,7 @@
 
     <v-expand-transition>
       <div v-show="show">
-        <v-divider></v-divider>
-        <v-row class="pa-4">
-          <v-col cols="12" md="6">
-            <p>The dashboard environment is where you would carry out different activities</p>
-            <p>In this step you will customize the dashboard to fit your brand.</p>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-file-input v-model="files" placeholder="Upload your brand logo" filled>
-              <template v-slot:selection="{ text }">
-                <v-chip small label color="primary">{{ text }}</v-chip>
-              </template>
-            </v-file-input>
-          </v-col>
-        </v-row>
-        <v-row class="px-4">
-          <v-col cols="12" md="6"></v-col>
-          <v-col cols="12" md="6">
-            <v-btn tile color="#FAFAFA" class="ml-8 drop-down-button" @click.stop="color = !color">
-              <v-icon left>mdi-pencil</v-icon>Choose a primary colour
-            </v-btn>
-            <v-color-picker v-model="picker" elevation="10" v-show="color" class="ml-8 mt-2"></v-color-picker>
-          </v-col>
-        </v-row>
-        <v-row justify="center" class="center-button">
-          <v-btn
-            color="#FF2E2E"
-            dark
-            class="my-8 drop-down-button"
-            @click.stop="color = !color"
-          >Save and Continue</v-btn>
-        </v-row>
+        <slot></slot>
       </div>
     </v-expand-transition>
   </v-card>
@@ -59,10 +29,7 @@ export default {
     title: String
   },
   data: () => ({
-    show: false,
-    files: [],
-    picker: null,
-    color: false
+    show: false
   })
 };
 </script>
