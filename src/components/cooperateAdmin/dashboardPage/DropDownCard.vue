@@ -3,8 +3,6 @@
     <v-list-item>
       <v-list-item-content>
         <v-card-title>{{title}}</v-card-title>
-
-        <v-card-subtitle>1,000 miles of wonder</v-card-subtitle>
       </v-list-item-content>
       <v-card-actions>
         <v-spacer></v-spacer>
