@@ -29,28 +29,4 @@ describe("DeleteEmployee.vue", () => {
     expect(wrapper.text()).toContain("");
   });
 
-  it("should open dialog", async () => {
-    let wrapper
-    wrapper.setData({dialog: true});
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('[data-testId="dialog-close-button"]').exist()).toBe(
-        true
-    );
-  });
-
-  it("should emit an event when the action v-btn is clicked", () => {
-    const wrapper = mount(DeleteEmployee, {
-      localVue,
-      vuetify,
-      propsData: {
-        title: "DeleteEmployee"
-      }
-    });
-    const event = jest.fn();
-    const button = wrapper.find("v-btn");
-    wrapper.vm.$on("action-btn-clicked", event);
-    expect(event).toHaveBeenCalledTimes(0);
-    button.trigger("click");
-    expect(event).toHaveBeenCalledTimes(1);
-  });
 });
