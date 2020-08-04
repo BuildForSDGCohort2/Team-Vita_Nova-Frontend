@@ -12,12 +12,6 @@ export default [
             import("../views/cooperateAdmin/Dashboard.vue")
     },
     {
-        path: "/cooperate/department/create",
-        name: "CreateDepartment",
-        component: () =>
-            import("../views/cooperateAdmin/CreateDepartment")
-    },
-    {
         path: "/cooperate/employee",
         name: "Employee",
         component: Employee,

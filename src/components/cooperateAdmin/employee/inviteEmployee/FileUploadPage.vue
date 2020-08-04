@@ -8,9 +8,16 @@
         </v-row>
       </template>
 
-      <v-card class="card-level" v-on:click.self="btnClick" :closeOnEscape="closeOnEscape">
-        <p class="xClose" @click="btnClick">x</p>
-        <v-form class="invite-form" v-if="!submitted" @submit.prevent="inviteEmployee">
+      <v-card class="card-level" v-on:click.self="btnClick">
+        <v-btn class="mx-0" icon style="float: right" @click="dialog = false">
+          <v-icon>mdi-close-circle-outline</v-icon>
+        </v-btn>
+        <v-form
+          class="invite-form"
+          ref="fileform"
+          v-if="!submitted"
+          @submit.prevent="inviteEmployee"
+        >
           <v-card-text
             class="uploader"
             @dragenter="OnDragEnter"
@@ -23,8 +30,8 @@
 
             <v-container>
               <v-icon v-bind="attrs" v-on="on" color="#645262" dark>mdi-cloud-upload</v-icon>
-              <v-row>
-                <p class="drag">Drag & Drop files here</p>
+              <v-row id="file-drag-drop">
+                <p class="drag drop-files">Drag & Drop files here</p>
                 <v-input
                   type="file"
                   id="file"
@@ -35,13 +42,6 @@
                   @change="onInputChange"
                 ></v-input>
               </v-row>
-              <!--                        <v-row>-->
-              <!--                            <ul>-->
-              <!--                                <li v-for="file in files">-->
-              <!--                                    {{ file.name }} ({{ file.size | kb }} kb) <button @click="removeFile(file)" title="Remove">X</button>-->
-              <!--                                </li>-->
-              <!--                            </ul>-->
-              <!--                        </v-row>-->
             </v-container>
           </v-card-text>
           <v-card-actions>
@@ -65,11 +65,9 @@
 // import Vue from "vue";
 // import router from "../../../router";
 import UserService from "../../../../services/user-services";
-
 // Vue.filter('kb', val => {
 //     return Math.floor(val/1024);
 // });
-
 export default {
   name: "FileUploadPage",
   components: {},
@@ -77,11 +75,11 @@ export default {
     return {
       isDragging: false,
       dragCount: 0,
+      dragAndDropCapable: false,
       files: [],
       dialog: false,
-      submitted: false,
+      submitted: false
       // kb:0,
-      closeOnEscape: true
     };
   },
   computed: {
@@ -93,48 +91,36 @@ export default {
   methods: {
     OnDragEnter(e) {
       e.preventDefault();
-
       this.dragCount++;
       this.isDragging = true;
     },
-
     btnClick: function() {
       this.$refs.dialog.hide();
     },
-
     OnDragLeave(e) {
       e.preventDefault();
-
       this.dragCount--;
       this.isDragging = false;
-
       if (this.dragCount <= 0) this.isDragging = false;
     },
-
     onInputChange(e) {
       console.log(e);
     },
-
     onDrop(e) {
       e.preventDefault();
       e.stopPropagation();
-
       this.isDragging = false;
-
       const droppedFiles = e.dataTransfer.files;
-
       if (!droppedFiles) return;
       [...droppedFiles].forEach(f => {
         this.files.push(f);
       });
     },
-
     removeFile(file) {
       this.files = this.files.filter(f => {
         return f != file;
       });
     },
-
     inviteEmployee() {
       this.loading = true;
       const data = new FormData();
@@ -181,9 +167,7 @@ export default {
   line-height: 15px;
   padding-left: 50px;
   /* identical to box height, or 105% */
-
   /* lamp-txt-1 */
-
   color: #645262;
 }
 .xClose {
@@ -198,11 +182,9 @@ export default {
   border: 0.812796px dashed #645262;
   box-sizing: border-box;
   font-size: 20px;
-
   /*&.dragging {*/
   /*    color: #FFFFFF;*/
   /*    border: 3px dashed red;*/
-
   /*    .file-input label{*/
   /*        background: #FFFFFF;*/
   /*        color: red;*/
@@ -244,7 +226,6 @@ export default {
   margin-bottom: 48px;
   justify-content: center;
   /* semicolon-neutral-black */
-
   color: #2b1c1c;
 }
 .submit-button-container {
@@ -261,7 +242,6 @@ export default {
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
-
   color: #ffffff;
   box-shadow: none !important;
 }

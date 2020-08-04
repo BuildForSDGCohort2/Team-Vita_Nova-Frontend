@@ -30,19 +30,14 @@
           </v-list-item-icon>
           <v-list-item-title>Insight</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/department/create" class="menu" color="red">
-          <v-list-item-icon>
-            <v-icon>mdi-grid-large</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Department</v-list-item-title>
-        </v-list-item>
+
         <v-list-item link to="/cooperate/message" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-message-text-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Message</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/employee" class="menu" color="red">
+        <v-list-item link to="/cooperate/employee/allEmployees" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-clipboard-plus-outline</v-icon>
           </v-list-item-icon>

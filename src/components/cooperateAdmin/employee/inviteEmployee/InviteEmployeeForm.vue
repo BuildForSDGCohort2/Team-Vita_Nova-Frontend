@@ -1,56 +1,70 @@
 <template>
-  <v-card class="invite-card ma-auto">
-    <v-row justify="center">
+  <v-container>
+    <v-row>
       <v-card-title class="invite-title">
         <h3>Invite your Employees</h3>
       </v-card-title>
     </v-row>
-    <v-card-text>
-      <ValidationObserver v-slot="{ handleSubmit }">
-        <v-form
-          class="invite-form"
-          v-if="!submitted"
-          @submit.prevent="handleSubmit(inviteEmployee)"
-        >
-          <div v-if="errorMsg">
-            <span class="err text-xl-center">{{errorMsg}}</span>
-          </div>
-          <Loader :loading="loading" :message="message" />
-          <FileUploadPage />
+    <v-card class="invite-card ma-auto">
+      <v-card-text>
+        <ValidationObserver v-slot="{ handleSubmit }">
+          <v-form
+            class="invite-form"
+            v-if="!submitted"
+            @submit.prevent="handleSubmit(inviteEmployee)"
+          >
+            <div v-if="errorMsg">
+              <span class="err text-xl-center">{{errorMsg}}</span>
+            </div>
+            <Loader :loading="loading" :message="message" />
+            <FileUploadPage />
 
-          <h3 class="inviteOr">OR</h3>
+            <h3 class="inviteOr">OR</h3>
 
-          <p class="inviteManually">Manually input Employees Email</p>
-          <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
-            <v-combobox
-              v-model="email"
-              label="Email Address"
-              outlined
-              name="emailAddress"
-              color="red"
-              multiple
-              chips
-            ></v-combobox>
-            <!--                    <v-icon @click="onAddButton" class="ml-lg-3">mdi-plus</v-icon>-->
-            <span class="err">{{ errors[0] }}</span>
-          </ValidationProvider>
-          <SubmitButton button-name="Send Invite" />
-        </v-form>
-      </ValidationObserver>
-    </v-card-text>
-  </v-card>
+            <p class="inviteManually">Manually input Employees Email</p>
+            <v-row>
+              <v-col cols="9">
+                <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
+                  <v-text-field
+                    v-model="email"
+                    label="Email Address"
+                    outlined
+                    name="emailAddress"
+                    color="red"
+                    chips
+                  ></v-text-field>
+                  <!--                    <v-icon @click="onAddButton" class="ml-lg-3">mdi-plus</v-icon>-->
+                  <span class="err">{{ errors[0] }}</span>
+                </ValidationProvider>
+              </v-col>
+              <v-col cols="3" style="padding-left: 10px">
+                <v-btn
+                  style="
+                  height: 55px;
+                  background: #FF2E2E;
+                  color: #ffffff;
+                  border: 0.736458px solid rgba(150, 12, 12, 0.5);
+                  box-sizing: border-box;
+                  border-radius: 5.89167px;"
+                  @click="addEmail"
+                >+ADD</v-btn>
+              </v-col>
+            </v-row>
+            <SubmitButton button-name="Send Invite" />
+          </v-form>
+        </ValidationObserver>
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 import SubmitButton from "../../../ui/buttons/SubmitButton";
-// import router from  "../../../router";
 import UserService from "../../../../services/user-services";
 import FileUploadPage from "./FileUploadPage";
 import Loader from "../../../ui/loader/Loader";
-
 export default {
   name: "InviteEmployeeForm",
-
   mounted() {
     console.log("we are live");
   },
@@ -61,7 +75,7 @@ export default {
   },
   data() {
     return {
-      email: [],
+      emails: [{ email: "" }],
       // file: "",
       submitted: false,
       loading: false,
@@ -70,20 +84,13 @@ export default {
       value: true
     };
   },
-
   computed: {
-    // convertToList(){
-    //     console.log(this.items.push(this.email));
-    //     return this.items.push(this.email);
-    //
-    // }
-
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
     }
   },
-
   methods: {
+    addEmail() {},
     inviteEmployee() {
       this.loading = true;
       const data = {
@@ -118,17 +125,24 @@ export default {
   margin-left: 12%;
 }
 .invite-card {
-  height: 650px;
+  width: 707px;
+  height: 802px;
   width: 540px;
   padding-top: 15px;
+  border: 1.47292px solid #f8f8f8;
+  box-sizing: border-box;
+  box-shadow: 0px 1.47292px 2.94583px rgba(43, 28, 28, 0.15);
+  border-radius: 14.7292px;
 }
 .err {
   display: block;
   color: red;
   font-size: 11px;
 }
-
 .invite-title {
+  padding-left: 35%;
+  padding-top: 7%;
+  padding-bottom: 3%;
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 500;
@@ -148,6 +162,7 @@ export default {
   }
   .invite-title {
     margin-left: 10%;
+    padding-left: 0px;
     width: 100%;
   }
 }
@@ -167,7 +182,6 @@ export default {
   padding-bottom: 2em;
   align-items: center;
   letter-spacing: 0.05em;
-
   color: #2b1c1c;
 }
 .inviteOr {
@@ -181,7 +195,6 @@ export default {
   margin-bottom: 48px;
   color: rgba(43, 28, 28, 0.4);
 }
-
 .inviteSkip {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -194,7 +207,6 @@ export default {
   letter-spacing: 0.05em;
   justify-content: center;
   /* semicolon-red-primary */
-
   color: #ff2e2e;
 }
 </style>
