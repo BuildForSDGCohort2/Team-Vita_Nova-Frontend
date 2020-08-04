@@ -36,6 +36,12 @@
               ></v-text-field>
             </ValidationProvider>
             <SubmitButton button-name="Login" class="login-btn" />
+            <v-btn
+              depressed
+              to="/password-reset"
+              light
+              class="forgot-password"
+            >Forgot your password?</v-btn>
           </v-form>
         </ValidationObserver>
       </div>
@@ -100,6 +106,12 @@ export default {
 </script>
 
 <style scoped>
+.forgot-password {
+  color: red;
+  background-color: white !important;
+  margin-left: 8rem;
+  text-shadow: none;
+}
 .login-coloumn {
   background-color: #fff0ce;
   min-height: 92vh;

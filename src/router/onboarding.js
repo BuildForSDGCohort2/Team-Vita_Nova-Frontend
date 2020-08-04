@@ -29,4 +29,11 @@ export default [
 
         component: () => import("../components/splashPages/ConfirmEmailPage")
     }
+    ,
+    {
+        path: "/password-reset",
+        name: "reset_password",
+
+        component: () => import("../views/onboarding/ResetPassword")
+    }
 ]
