@@ -5,6 +5,8 @@
     <PlanDescription />
     <DisplaySection />
     <Testimonies />
+    <Partners />
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +16,8 @@ import CompanyLogos from "../../components/onboarding/landingPage/CompanyLogos";
 import PlanDescription from "../../components/onboarding/landingPage/PlanDescription";
 import DisplaySection from "../../components/onboarding/landingPage/DisplaySection";
 import Testimonies from "../../components/onboarding/landingPage/Testimonies";
+import Partners from "../../components/onboarding/landingPage/Partners";
+import Footer from "../../components/onboarding/layout/Footer";
 import { userLoggedIn } from "../../services/user-authentication";
 export default {
   components: {
@@ -21,7 +25,9 @@ export default {
     CompanyLogos,
     PlanDescription,
     DisplaySection,
-    Testimonies
+    Testimonies,
+    Partners,
+    Footer
   },
   created() {
     userLoggedIn(this);

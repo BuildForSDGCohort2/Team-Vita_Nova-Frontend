@@ -1,8 +1,10 @@
 <template>
   <div>
-    <v-app-bar app color="rgba(255, 242, 199, 0.25)" elevate-on-scroll>
+    <v-app-bar app color="#FFFCF1" elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-flex d-sm-flex d-md-none"></v-app-bar-nav-icon>
-      <span class="title">Semicolon&nbsp;</span>
+      <v-btn to="/" class="onboarding-button" elevation="drawer">
+        <img src="../../../assets/semfulllogo.svg" height="30" />
+      </v-btn>
 
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -45,6 +47,11 @@ export default {
 </script>
 
 <style>
+.onboarding-button {
+  color: transparent !important;
+  background-color: transparent !important;
+  margin-left: 12% !important;
+}
 .title {
   margin-left: 13% !important;
 }
