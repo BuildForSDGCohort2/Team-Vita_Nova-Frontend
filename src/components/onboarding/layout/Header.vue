@@ -50,7 +50,6 @@ export default {
 .onboarding-button {
   color: transparent !important;
   background-color: transparent !important;
-  margin-left: 12% !important;
 }
 .title {
   margin-left: 13% !important;
