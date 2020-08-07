@@ -8,9 +8,6 @@ import { userLoggedIn } from "../../services/user-authentication";
 export default {
   components: {
     LoginPage
-  },
-  created() {
-    userLoggedIn(this);
   }
 };
 </script>

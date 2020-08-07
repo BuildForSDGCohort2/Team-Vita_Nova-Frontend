@@ -76,12 +76,6 @@ export default {
       return this.$store.state.onboarding.status.loggedIn;
     }
   },
-  created() {
-    if (this.loggedIn) {
-      console.log("hi");
-      this.$router.push("/cooperate/dashboard");
-    }
-  },
   methods: {
     handleLogin() {
       this.loading = true;
