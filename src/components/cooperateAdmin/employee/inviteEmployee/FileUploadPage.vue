@@ -3,14 +3,25 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
         <v-row class="cloudCol">
-          <v-icon v-bind="attrs" v-on="on" color="#645262" dark>mdi-cloud-upload</v-icon>
-          <p v-bind="attrs" v-on="on" class="inviteUpload">Upload CSV Document of Employees</p>
+          <v-icon v-bind="attrs" v-on="on" color="#645262" dark
+            >mdi-cloud-upload</v-icon
+          >
+          <p v-bind="attrs" v-on="on" class="inviteUpload">
+            Upload CSV Document of Employees
+          </p>
         </v-row>
       </template>
 
-      <v-card class="card-level" v-on:click.self="btnClick" :closeOnEscape="closeOnEscape">
-        <p class="xClose" @click="btnClick">x</p>
-        <v-form class="invite-form" v-if="!submitted" @submit.prevent="inviteEmployee">
+      <v-card class="card-level" v-on:click.self="btnClick">
+        <v-btn class="mx-0" icon style="float: right" @click="dialog = false">
+          <v-icon>mdi-close-circle-outline</v-icon>
+        </v-btn>
+        <v-form
+          class="invite-form"
+          ref="fileform"
+          v-if="!submitted"
+          @submit.prevent="inviteEmployee"
+        >
           <v-card-text
             class="uploader"
             @dragenter="OnDragEnter"
@@ -22,9 +33,11 @@
             <i class="fa fa-cloud-upload"></i>
 
             <v-container>
-              <v-icon v-bind="attrs" v-on="on" color="#645262" dark>mdi-cloud-upload</v-icon>
-              <v-row>
-                <p class="drag">Drag & Drop files here</p>
+              <v-icon v-bind="attrs" v-on="on" color="#645262" dark
+                >mdi-cloud-upload</v-icon
+              >
+              <v-row id="file-drag-drop">
+                <p class="drag drop-files">Drag & Drop files here</p>
                 <v-input
                   type="file"
                   id="file"
@@ -35,13 +48,6 @@
                   @change="onInputChange"
                 ></v-input>
               </v-row>
-              <!--                        <v-row>-->
-              <!--                            <ul>-->
-              <!--                                <li v-for="file in files">-->
-              <!--                                    {{ file.name }} ({{ file.size | kb }} kb) <button @click="removeFile(file)" title="Remove">X</button>-->
-              <!--                                </li>-->
-              <!--                            </ul>-->
-              <!--                        </v-row>-->
             </v-container>
           </v-card-text>
           <v-card-actions>
@@ -52,7 +58,8 @@
               type="submit"
               :disabled="uploadDisabled"
               @click="dailog = false"
-            >Upload</v-btn>
+              >Upload</v-btn
+            >
           </v-card-actions>
         </v-form>
       </v-card>
@@ -77,11 +84,11 @@ export default {
     return {
       isDragging: false,
       dragCount: 0,
+      dragAndDropCapable: false,
       files: [],
       dialog: false,
-      submitted: false,
+      submitted: false
       // kb:0,
-      closeOnEscape: true
     };
   },
   computed: {
@@ -142,8 +149,10 @@ export default {
         data.append("file" + (x + 1), f);
       });
       console.log("in the method", data);
-      UserService.inviteEmployee(data)
-        // .then(res => res.json())
+      UserService.inviteEmployee(data);
+      // .then(res => res.json())
+      console
+        .log("method")
         .then(
           res => {
             console.log("done uploading", res.data);
@@ -164,7 +173,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 .card-level {
   height: 400px;
 }
@@ -173,6 +182,7 @@ export default {
   margin-left: 10em;
   padding-top: 4em;
 }
+
 .drag {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -185,10 +195,6 @@ export default {
   /* lamp-txt-1 */
 
   color: #645262;
-}
-.xClose {
-  float: right;
-  padding-right: 10px;
 }
 .uploader {
   width: 70%;

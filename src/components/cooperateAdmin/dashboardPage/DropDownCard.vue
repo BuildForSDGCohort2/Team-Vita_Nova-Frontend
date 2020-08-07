@@ -41,12 +41,15 @@
           </v-col>
         </v-row>
         <v-row justify="center" class="center-button">
+          <v-col cols="12" md="5"><InviteEmployee/></v-col>
+          <v-col cols="12" md="6" class="ma-auto">
           <v-btn
             color="#FF2E2E"
             dark
             class="my-8 drop-down-button"
             @click.stop="color = !color"
           >Save and Continue</v-btn>
+          </v-col>
         </v-row>
       </div>
     </v-expand-transition>
@@ -54,7 +57,10 @@
 </template>
 
 <script>
+
+import InviteEmployee from "@/views/cooperateAdmin/InviteEmployee";
 export default {
+  components: {InviteEmployee},
   props: {
     title: String
   },

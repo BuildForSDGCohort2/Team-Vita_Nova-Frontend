@@ -19,5 +19,12 @@ export default [
         name: "InviteEmployee",
         component: () =>
             import(/* webpackChunkName: "about" */ "../views/cooperateAdmin/InviteEmployee")
+    },
+    {
+        path: "/cooperate/employee/view",
+        name: "ViewCourses",
+        component: () =>
+            import(/* webpackChunkName: "about" */ "../views/cooperateAdmin/ViewCourses")
     }
+
 ]

@@ -44,7 +44,7 @@
           </v-list-item-icon>
           <v-list-item-title>Settings</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/courses" class="menu">
+        <v-list-item link to="/cooperate/employee/view" class="menu">
           <v-list-item-icon>
             <v-icon>mdi-format-float-left</v-icon>
           </v-list-item-icon>
