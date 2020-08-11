@@ -1,3 +1,5 @@
+<!--suppress ALL -->
+
 <template>
   <v-row>
     <v-col style="padding-top: 2%" cols="12" md="6">
@@ -14,9 +16,9 @@
               v-if="!submitted"
               @submit.prevent="handleSubmit(handleRegister)"
             >
-              <divgit v-if="errorMsg">
+              <div v-if="errorMsg">
                 <span class="err text-xl-center">{{ errorMsg }}</span>
-              </divgit>
+              </div>
               <Loader :loading="loading" :message="message" />
               <v-row class="full">
                 <v-col class="full-col">
@@ -155,7 +157,6 @@
 
 <script>
 import SubmitButton from "../ui/buttons/SubmitButton";
-import User from "../../models/user";
 import Loader from "../ui/loader/Loader";
 import { localize } from "vee-validate";
 
@@ -250,16 +251,8 @@ export default {
   margin-left: 20%;
 }
 
-.login-coloumn {
-  background-color: #fff0ce;
-  min-height: 92vh;
-}
-.login-coloumn div img {
+.login-column div img {
   margin-top: 10rem !important;
-}
-.login-coloumn-left {
-  margin-top: 10rem !important;
-  width: 30rem !important;
 }
 .register-title {
   font-family: IBM Plex Sans !important;
@@ -273,9 +266,6 @@ export default {
   margin-left: 25%;
   margin-bottom: 4%;
 }
-.v-card-title {
-  font-family: IBM Plex Sans !important;
-}
 
 .TC {
   font-size: 12px !important  ;
@@ -284,11 +274,8 @@ export default {
   color: red !important;
   cursor: pointer;
 }
-.v-text-field {
-  height: 70px !important;
-  border-radius: 8px !important;
-}
-.first-last-Name.v-input .theme--light .v-text-field .v-text-field--outline {
+
+.first-last-Name {
   border-color: #960c0c !important;
 }
 
