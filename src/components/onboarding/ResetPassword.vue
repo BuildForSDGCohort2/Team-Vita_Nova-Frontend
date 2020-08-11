@@ -1,16 +1,13 @@
 <template>
-  <v-main class="pa-0">
-    <v-col class="pa-0">
-      <v-layout row>
-        <v-flex class="sm-12 md-3 lg-3">
-          <div class="login-card">
-            <div class="mx-auto">
+  <v-row>
+    <v-col cols="12" md="6">
+          <div class="login-column-left mx-auto">
               <ValidationObserver v-slot="{ handleSubmit }">
                 <v-form class="login-form" @submit.prevent="handleSubmit(handleLogin)">
-                  <h4 class="login-title pa-2">
+                  <h3 class="register-title pa-2">
                     Reset your
                     <br />password
-                  </h4>
+                  </h3>
 
                   <div v-if="errorMsg">
                     <span class="err text-xl-center">{{ errorMsg }}</span>
@@ -32,22 +29,16 @@
                     button-name="Send email with reset password link"
                     class="login-btn"
                   />
-                  <v-btn text class="link red--text" link to="/login">Back to Login</v-btn>
+                  <v-btn text class="login-redirect red--text" link to="/login">Back to Login</v-btn>
                 </v-form>
               </ValidationObserver>
             </div>
-          </div>
-        </v-flex>
-        <v-row>
-          <v-flex class="right-col sm-12 3 lg-8">
-            <v-responsive>
-              <img class="align-center mx-auto" src="../../assets/desk-illo.svg" alt="dispaly" />
-            </v-responsive>
-          </v-flex>
-        </v-row>
-      </v-layout>
     </v-col>
-  </v-main>
+          <v-col cols="12" md="6" class="d-none d-md-flex login-column">
+              <img class="align-center mx-auto" src="../../assets/desk-illo.svg" alt="dispaly" />
+
+          </v-col>
+        </v-row>
 </template>
 
 <script>
@@ -96,87 +87,51 @@ export default {
 </script>
 
 <style scoped>
-.login-card {
-  margin-top: 100px;
-  width: 500px;
-  margin-right: 105px;
-  /*border: 1px solid #F8F8F8;*/
-  /*box-sizing: border-box;*/
-  /*box-shadow: 0px 1px 2px rgba(43, 28, 28, 0.15);*/
-  border-radius: 10px;
-}
-.login-title {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 33px;
-  line-height: 45px;
-  /* or 133% */
-  display: flex;
-  align-items: center;
-  color: #2b1c1c;
-}
-.v-text-field {
-  height: 70px !important;
-  border-radius: 8px !important;
-}
-.login-form {
-  margin-left: 17%;
-}
-.login-btn {
-  margin-top: 20px !important;
-}
-.err {
-  display: block;
-  color: red;
-  font-size: 13px;
-  margin-bottom: 5px;
-}
-.right-col {
-  background-color: #fff0ce !important;
-  min-height: 100vh;
-  padding-top: 90px;
-}
-.link {
-  margin-left: 35% !important;
-}
-.align-center {
-  /*margin: auto !important;*/
-  /*align-content: center;*/
-  /*align-items: center;*/
-  *margin-top: 20% !important;
-}
-@media only screen and (max-width: 600px) {
-  .login-form {
-    margin-left: 9%;
-    margin-right: 9%;
+  .login-redirect {
+    color: red;
+    background-color: white !important;
+    margin-left: 9rem;
+    text-shadow: none;
   }
-  .login-card {
-    width: 390px;
-    border-radius: 0;
-    box-shadow: none;
+  .login-column {
+    background-color: #fff0ce;
+    min-height: 92vh;
   }
-  .login-title {
-    font-size: 20px;
+  .login-column div img {
+    margin-top: 10rem !important;
   }
-  .right-col {
-    display: none;
+  .login-column-left {
+    margin-top: 10rem !important;
+    width: 25rem !important;
+  }
+
+  .register-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    /* identical to box height, or 167% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    /*margin-bottom: 15px;*/
+
+    color: #2b1c1c;
+  }
+
+  .v-text-field {
+    height: 70px !important;
+    border-radius: 6px !important;
   }
   .login-btn {
-    font-size: 100%;
+    margin-top: 20px !important;
   }
-}
-/* Landscape */
-@media only screen and (min-width: 1366px) and (orientation: landscape) {
-}
-/*Portrait*/
-@media only screen and (min-width: 1024px) and (orientation: portrait) {
-  .login-card {
-    margin-left: 170px;
-    padding-top: 200px;
+  .err {
+    display: block;
+    color: red;
+    font-size: 13px;
+    margin-bottom: 5px;
   }
-  .right-col {
-    display: none;
-  }
-}
 </style>

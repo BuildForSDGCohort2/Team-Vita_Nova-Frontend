@@ -15,6 +15,7 @@
               <v-text-field
                 label="Email Address"
                 name="emailAddress"
+                data-testid="email-input"
                 v-model="user.email"
                 outlined
                 color="red"
@@ -29,6 +30,7 @@
                 :type="value ? 'password' : 'text'"
                 label="Password"
                 name="password"
+                data-testid="password-input"
                 v-model="user.password"
                 outlined
                 color="red"
@@ -37,6 +39,7 @@
             </ValidationProvider>
             <SubmitButton button-name="Login" class="login-btn" />
             <v-btn
+
               depressed
               to="/password-reset"
               light
@@ -71,11 +74,11 @@ export default {
       value: true
     };
   },
-  computed: {
-    loggedIn() {
-      return this.$store.state.onboarding.status.loggedIn;
-    }
-  },
+ // computed: {
+  //  loggedIn() {
+  //    return this.$store.state.onboarding.status.loggedIn;
+ //   }
+ // },
   created() {
     if (this.loggedIn) {
       console.log("hi");

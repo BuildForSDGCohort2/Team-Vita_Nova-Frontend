@@ -18,10 +18,18 @@ export default [
         children: [{
             path: "allEmployees",
             component: () => import("../views/cooperateAdmin/AllEmployees")
-        }, {
+        },
+
+            {
             path: "departments",
             component: () => import("../views/cooperateAdmin/Departments")
         }]
 
-    }
+    },
+    {
+        path: "/cooperate/preview-profile",
+        name: "PreviewProfile",
+        component: () =>
+            import("../views/cooperateAdmin/PreviewProfile")
+    },
 ]
