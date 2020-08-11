@@ -63,13 +63,13 @@
                 <v-col cols="3" style="padding-left: 10px">
                   <v-btn
                     style="
-                  height: 55px;
-                  background: #FF2E2E;
-                  color: #ffffff;
-                  border: 0.736458px solid rgba(150, 12, 12, 0.5);
-                  box-sizing: border-box;
-                  border-radius: 5.89167px;"
-                    @click="addEmail"
+                      height: 55px;
+                      background: #FF2E2E;
+                      color: #ffffff;
+                      border: 0.736458px solid rgba(150, 12, 12, 0.5);
+                      box-sizing: border-box;
+                      border-radius: 5.89167px;"
+                        @click="addEmail"
                     >+ADD</v-btn
                   >
                 </v-col>
@@ -103,6 +103,7 @@ export default {
   },
   data() {
     return {
+      title: "inviteEmployee",
       email: "",
       file: "",
       dialog: false,
@@ -238,7 +239,6 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 23px;
-  /*letter-spacing: 0.05em;*/
   padding-left: 8px;
   margin-top: 15px;
   margin-bottom: 48px;

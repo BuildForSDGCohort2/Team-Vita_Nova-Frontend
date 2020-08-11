@@ -1,4 +1,4 @@
-import InviteEmployee from "../cooperateAdmin/employee/inviteEmployee/InviteEmployeeForm.vue"
+import InviteEmployee from "../../src/components/cooperateAdmin/employee/inviteEmployee/InviteEmployeeForm"
 import { mount} from '@vue/test-utils'
 
 describe('InviteEmployee',()=>{
@@ -13,22 +13,26 @@ describe('InviteEmployee', ()=>{
         expect(wrapper.html()).toMatchSnapshot()
     })
 
-    it('After the user submit button, !emailAddress return true?', () => {
-        const loginBtn = wrapper.find('button')
-        loginBtn.trigger('Send Invite')
-        expect(wrapper.vm.emailAddress).toBeTruthy()
-
-        //test email field is initially null
-        // const button = wrapper.find('v-text-field')
-        expect(wrapper.vm.emailAddress).toBe(null)
-
-        //test email field has input
-        wrapper.vm.emailAddress = "joshval.lj@gmail.com"
-        expect(wrapper.vm.joshval).toBe('joshval')
-    })
     //test page title
     it('test page has title', () =>{
         expect(wrapper.text()).toContain('Invite your Employees')
     })
+
+    // Inspect the raw component options
+    it("has a created hook", () => {
+        expect(typeof InviteEmployee.mounted).toBe("function");
+    });
+
+    it("sets the correct default data", () => {
+        expect(typeof InviteEmployee.data).toBe("function");
+        const defaultData = InviteEmployee.data();
+        expect(defaultData.email).toBe("");
+    });
+    it("renders a vue instance", () => {
+        expect(mount(InviteEmployee).isVueInstance()).toBe(true);
+    });
+    it("Checks the data-title", () => {
+        expect(wrapper.vm.title).toMatch("inviteEmployee");
+    });
 
 })
