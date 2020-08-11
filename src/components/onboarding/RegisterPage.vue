@@ -1,120 +1,135 @@
 <template>
-
-  <v-row
-  >
-    <v-col
-        style="padding-top: 2%"
-        cols="12"
-        md="6"
-    >
-
-
+  <v-row>
+    <v-col style="padding-top: 2%" cols="12" md="6">
       <v-container class="register-card mx-auto">
         <v-row>
-
-          <h3 class="register-title"
-          >Create your account</h3>
-
+          <h3 class="register-title">Create your account</h3>
         </v-row>
 
         <!--          <v-row>-->
         <v-card-text>
           <ValidationObserver v-slot="{ handleSubmit }">
             <v-form
-                class="register-form"
-                v-if="!submitted"
-                @submit.prevent="handleSubmit(handleRegister)"
+              class="register-form"
+              v-if="!submitted"
+              @submit.prevent="handleSubmit(handleRegister)"
             >
               <divgit v-if="errorMsg">
-                <span class="err text-xl-center">{{errorMsg}}</span>
+                <span class="err text-xl-center">{{ errorMsg }}</span>
               </divgit>
               <Loader :loading="loading" :message="message" />
               <v-row class="full">
                 <v-col class="full-col">
-                  <ValidationProvider name="First Name" rules="required|alpha" v-slot="{ errors }">
+                  <ValidationProvider
+                    name="First Name"
+                    rules="required|alpha"
+                    v-slot="{ errors }"
+                  >
                     <v-text-field
-                        label="First Name"
-                        outlined
-                        name="firstName"
-                        v-model="user.first_name"
-                        class="first-last-Name"
-                        color="red"
+                      label="First Name"
+                      outlined
+                      name="firstName"
+                      v-model="user.first_name"
+                      class="first-last-Name"
+                      color="red"
                     ></v-text-field>
                     <span class="err">{{ errors[0] }}</span>
                   </ValidationProvider>
                 </v-col>
                 <v-col class="full-col">
-                  <ValidationProvider name="Last Name" rules="required|alpha" v-slot="{ errors }">
+                  <ValidationProvider
+                    name="Last Name"
+                    rules="required|alpha"
+                    v-slot="{ errors }"
+                  >
                     <v-text-field
-                        label="Last Name"
-                        name="lastName"
-                        outlined
-                        v-model="user.last_name"
-                        class="first-last-Name"
-                        color="red"
+                      label="Last Name"
+                      name="lastName"
+                      outlined
+                      v-model="user.last_name"
+                      class="first-last-Name"
+                      color="red"
                     ></v-text-field>
                     <span class="err">{{ errors[0] }}</span>
                   </ValidationProvider>
                 </v-col>
               </v-row>
-              <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
+              <ValidationProvider
+                name="E-mail"
+                rules="required|email"
+                v-slot="{ errors }"
+              >
                 <span class="err">{{ errors[0] }}</span>
                 <v-text-field
-                    label="Email Address"
-                    name="emailAddress"
-                    v-model="user.email"
-                    outlined
-                    color="red"
-                    class="register-input"
+                  label="Email Address"
+                  name="emailAddress"
+                  v-model="user.email"
+                  outlined
+                  color="red"
+                  class="register-input"
                 ></v-text-field>
               </ValidationProvider>
-              <ValidationProvider name="password" rules="required|min:6" v-slot="{ errors }">
+              <ValidationProvider
+                name="password"
+                rules="required|min:6"
+                v-slot="{ errors }"
+              >
                 <span class="err">{{ errors[0] }}</span>
                 <v-text-field
-                    :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
-                    @click:append="() => (value = !value)"
-                    :type="value ? 'password' : 'text'"
-                    label="Password"
-                    name="password"
-                    v-model="user.password"
-                    outlined
-                    color="red"
-                    class="register-input"
+                  :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
+                  @click:append="() => (value = !value)"
+                  :type="value ? 'password' : 'text'"
+                  label="Password"
+                  name="password"
+                  v-model="user.password"
+                  outlined
+                  color="red"
+                  class="register-input"
                 ></v-text-field>
               </ValidationProvider>
-              <ValidationProvider name="Company Name" rules="required" v-slot="{ errors }">
+              <ValidationProvider
+                name="Company Name"
+                rules="required"
+                v-slot="{ errors }"
+              >
                 <span class="err">{{ errors[0] }}</span>
                 <v-text-field
-                    label="Company Name "
-                    outlined
-                    name="companyName"
-                    v-model="user.company_name"
-                    color="red"
+                  label="Company Name "
+                  outlined
+                  name="companyName"
+                  v-model="user.company_name"
+                  color="red"
                 ></v-text-field>
               </ValidationProvider>
-              <ValidationProvider name="Job Role" rules="required" v-slot="{ errors }">
+              <ValidationProvider
+                name="Job Role"
+                rules="required"
+                v-slot="{ errors }"
+              >
                 <span class="err">{{ errors[0] }}</span>
                 <v-combobox
-                    append-icon="mdi-chevron-down"
-                    :items="jobRolesSelect"
-                    label="Job Role "
-                    name="jobRole"
-                    v-model="user.role"
-                    outlined
-                    color="red"
+                  append-icon="mdi-chevron-down"
+                  :items="jobRolesSelect"
+                  label="Job Role "
+                  name="jobRole"
+                  v-model="user.role"
+                  outlined
+                  color="red"
                 ></v-combobox>
               </ValidationProvider>
 
               <v-text-field
-                  label="Company Website "
-                  outlined
-                  name="website"
-                  v-model="user.website"
-                  color="red"
+                label="Company Website "
+                outlined
+                name="website"
+                v-model="user.website"
+                color="red"
               ></v-text-field>
 
               <v-row class="d-flex TC ml-1">
-                <p class="mr-1 mb-0">By creating an account, you agree to our</p>
+                <p class="mr-1 mb-0">
+                  By creating an account, you agree to our
+                </p>
 
                 <p class="mr-1 mb-0 tc-text">Master Service Statement</p>
 
@@ -132,15 +147,8 @@
       </v-container>
     </v-col>
 
-    <v-col
-        cols="12"
-        md="6"
-        class="secondCol"
-    >
-
-      <v-img
-          src="../../assets/Frame 725.png" ></v-img>
-
+    <v-col cols="12" md="6" class="secondCol">
+      <v-img src="../../assets/Frame 725.png"></v-img>
     </v-col>
   </v-row>
 </template>
@@ -192,9 +200,9 @@ export default {
   },
 
   computed: {
-    loggedIn() {
-      return this.$store.state.onboarding.status.loggedIn;
-    },
+    // loggedIn() {
+    //   return this.$store.state.onboarding.status.loggedIn;
+    // },
     jobRolesSelect() {
       return ["Human Resource", "CEO", "MD", "CTO", "OTHER"];
     }
@@ -210,19 +218,19 @@ export default {
       this.loading = true;
       console.log(this.user);
       this.$store.dispatch("onboarding/userRegister", this.user).then(
-          data => {
-            console.log(data);
-            this.$router.push("/success");
-          },
-          error => {
-            this.loading = false;
-            console.log(error);
-            // this.message =
-            //     (error.response && error.response.data) ||
-            //     error.message ||
-            //     error.toString();
-            this.errorMsg = error.response.data.detail;
-          }
+        data => {
+          console.log(data);
+          this.$router.push("/success");
+        },
+        error => {
+          this.loading = false;
+          console.log(error);
+          // this.message =
+          //     (error.response && error.response.data) ||
+          //     error.message ||
+          //     error.toString();
+          this.errorMsg = error.response.data.detail;
+        }
       );
     }
   }
@@ -231,11 +239,10 @@ export default {
 
 <style scoped>
 .register-card {
-
   padding-top: 5px;
   border: 0px;
 }
-.secondCol{
+.secondCol {
   padding: 0px;
 }
 .register-form {
@@ -270,7 +277,6 @@ export default {
   font-family: IBM Plex Sans !important;
 }
 
-
 .TC {
   font-size: 12px !important  ;
 }
@@ -300,7 +306,7 @@ export default {
   .full {
     display: block !important;
   }
-  .secondCol{
+  .secondCol {
     display: none;
   }
   .full-col {
