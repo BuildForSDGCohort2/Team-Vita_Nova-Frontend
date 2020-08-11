@@ -4,20 +4,21 @@ const API_URL = 'https://lamp-api.herokuapp.com';
 
 class UserService {
     static getCorporateDashBoard() {
-        return axios.get(API_URL + 'corporate', { headers: authHeader() });
+        return axios.get('corporate', { headers: authHeader() });
     }
 
     static getDepartmentLead() {
-        return axios.get(API_URL + 'business/department/get_company_members/?organisation=Semicolon');
+        return axios.get('business/department/get_company_members/?organisation=Semicolon');
     }
 
     static handleCreateDepartment(data) {
-        return axios.post(API_URL + '/business/department/add_department/', data, { headers: authHeader() });
+        return axios.post('/business/department/add_department/', data, { headers: authHeader() });
     }
 
     static inviteEmployee(data) {
         console.log(data)
-        return axios.post(API_URL + '/admin_mass_upload/', data)
+        console.log(authHeader())
+        return axios.post('/business/admin_mass_upload/', data, { headers: authHeader() })
     }
 
 

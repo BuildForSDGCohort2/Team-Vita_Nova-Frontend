@@ -15,7 +15,7 @@ export default [
         }
     },
     {
-        path: "/cooperate/employee",
+        path: "/cooperate/employee/",
         name: "Employee",
         component: Employee,
         children: [{

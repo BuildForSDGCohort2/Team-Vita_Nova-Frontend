@@ -3,7 +3,7 @@ const API_URL = 'https://lamp-api.herokuapp.com';
 
 export const login = (user) => {
     return axios
-        .post(API_URL + '/api/token/jwt', {
+        .post('/api/token/jwt', {
             email: user.email,
             password: user.password
         })

@@ -75,8 +75,8 @@ export default {
   },
   data() {
     return {
-      emails: [{ email: "" }],
-      // file: "",
+      emails: "",
+
       submitted: false,
       loading: false,
       errorMsg: "",
@@ -84,36 +84,20 @@ export default {
       value: true
     };
   },
-  computed: {
-    loggedIn() {
-      return this.$store.state.auth.status.loggedIn;
-    }
-  },
   methods: {
     addEmail() {},
     inviteEmployee() {
-      this.loading = true;
-      const data = {
-        email: this.email
-      };
-      console.log("in the method", this.data);
-      console.log(data);
+      const data = { emails: ["john@semicolon.africa"] };
+
       UserService.inviteEmployee(data)
-        .then(
-          res => {
-            console.log(res.data);
-            this.$router.push("/dashboard");
-            this.submitted = true;
-          },
-          error => {
-            this.loading = false;
-            this.errorMsg = error.response.data.detail;
-          }
-        )
+        .then(res => {
+          console.log(res.data);
+
+          this.submitted = true;
+        })
         .catch(err => {
-          console.log(err.res.data);
+          console.log(err);
         });
-      console.log("we are done");
     }
   }
 };
