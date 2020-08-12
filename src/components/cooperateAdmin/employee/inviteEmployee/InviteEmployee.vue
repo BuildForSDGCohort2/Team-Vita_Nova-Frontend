@@ -5,14 +5,20 @@
         <v-card-title class="text-center justify-center">
           <h3>Invite Employees</h3>
         </v-card-title>
-
         <v-file-input
+          v-model="files"
+          class="pt-8 px-6"
           label="Upload CSV Document"
+          multiple
           filled
           prepend-inner-icon="mdi-cloud-upload"
           prepend-icon
-          class="pt-8 px-6"
-        ></v-file-input>
+        >
+          <template v-slot:selection="{ text }">
+            <v-chip small label color="primary">{{ text }}</v-chip>
+          </template>
+        </v-file-input>
+
         <h3 class="text-center pt-8">OR</h3>
 
         <p class="text-center pt-8">Manually input Employees Email</p>
@@ -92,6 +98,7 @@
 import UserService from "../../../../services/user-services";
 export default {
   data: () => ({
+    files: [],
     activator: null,
     value: "",
     attach: null,
@@ -168,7 +175,7 @@ export default {
       this.load = true;
       const data = { emails: this.model };
 
-      UserService.inviteEmployee(data)
+      UserService.inviteEmployee(data, this.files)
         .then(res => {
           console.log(res.data);
 

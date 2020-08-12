@@ -73,7 +73,6 @@
 </template>
 
 <script>
-let user = JSON.parse(localStorage.getItem("user"));
 export default {
   props: {
     source: String
@@ -89,11 +88,7 @@ export default {
   },
   computed: {
     user() {
-      if (user) {
-        return user.user_id;
-      } else {
-        return this.$store.state.onboarding.user.user_id;
-      }
+      return this.$store.state.onboarding.user.user_id;
     }
   }
 };

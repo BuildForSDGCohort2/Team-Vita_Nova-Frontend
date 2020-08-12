@@ -18,7 +18,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  let user = JSON.parse(localStorage.getItem('user'));
+  let user = JSON.parse(localStorage.getItem('userToken'));
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.state.onboarding.status.loggedIn || user) {

@@ -17,14 +17,19 @@ export const login = (user) => {
             }).join(''));
 
 
-            if (response.data) {
-                localStorage.setItem('user', jsonPayload)
+            if (response) {
+                localStorage.setItem('userToken', JSON.stringify(response.data))
+                localStorage.setItem('userData', JSON.stringify(jsonPayload))
+
             }
             return jsonPayload;
         });
 }
 
-export const logout = () => localStorage.removeItem('user');
+export const logout = () => {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userData')
+}
 
 export const register = (user) => {
     return axios.post(API_URL + '/api/accounts/register/', {
