@@ -1,39 +1,36 @@
 import Home from "../views/Home.vue";
 
+import Employee from "../views/cooperateAdmin/Employee";
+
 export default [
   {
     path: "/cooperate/dashboard",
     name: "Dashboard",
     component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/cooperateAdmin/Dashboard.vue"
-      )
+        import("../views/cooperateAdmin/Dashboard.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
-    path: "/cooperate/department/create",
-    name: "CreateDepartment",
-    component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/cooperateAdmin/CreateDepartment"
-      )
-  },
+    path: "/cooperate/employee",
+    name: "Employee",
+    component: Employee,
+    children: [
+      {
+        path: "allEmployees",
+        component: () => import("../views/cooperateAdmin/AllEmployees")
+      },
+      {
+        path: "departments",
+        component: () => import("../views/cooperateAdmin/Departments")
+      }
+    ],
+    meta: {
+      requiresAuth: true
+    }
 
-  {
-    path: "/cooperate/employee/invite",
-    name: "InviteEmployee",
-    component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/cooperateAdmin/InviteEmployee"
-      )
-  },
-  {
-    path: "/cooperate/employee/deleteEmployee",
-    name: "DeleteEmployee",
-    component: () =>
-      import(
-        "../components/cooperateAdmin/employee/deleteEmployee/DeleteEmployee"
-      )
-  },
+    },
   {
     path: "/cooperate/courses/courseMenus",
     name: "CourseMenus",

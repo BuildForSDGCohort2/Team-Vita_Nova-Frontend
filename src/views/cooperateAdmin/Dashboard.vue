@@ -1,9 +1,20 @@
 <template>
   <div>
     <StatusBarCard />
-    <div v-for="activity in activities" :key="activity.title" class="activity-cards">
-      <DropDownCard :title="activity.title" />
-    </div>
+
+    <DropDownCard :title="activities[0].title" class="my-10">
+      <CustomizeDashboard />
+    </DropDownCard>
+    <DropDownCard :title="activities[1].title" class="my-10">
+      <InviteEmployees />
+    </DropDownCard>
+    <DropDownCard :title="activities[2].title" class="my-10">
+      <CreateDepartment />
+    </DropDownCard>
+    <DropDownCard :title="activities[3].title" class="my-10">
+      <CreateCourse />
+    </DropDownCard>
+
     <v-row justify="center" class="center-button">
       <p>Skip this step</p>
     </v-row>
@@ -12,12 +23,20 @@
 
 <script>
 import DropDownCard from "../../components/cooperateAdmin/dashboardPage/DropDownCard";
+import CustomizeDashboard from "../../components/cooperateAdmin/dashboardPage/CustomizeDashboard";
+import InviteEmployees from "../../components/cooperateAdmin/dashboardPage/InviteEmployees";
+import CreateDepartment from "../../components/cooperateAdmin/dashboardPage/CreateDepartment";
+import CreateCourse from "../../components/cooperateAdmin/dashboardPage/CreateCourse";
 import StatusBarCard from "../../components/cooperateAdmin/dashboardPage/StatusBarCard";
 import { userloggedOut } from "../../services/user-authentication";
 export default {
   components: {
     DropDownCard,
-    StatusBarCard
+    StatusBarCard,
+    CustomizeDashboard,
+    InviteEmployees,
+    CreateDepartment,
+    CreateCourse
   },
   data() {
     return {
@@ -29,7 +48,7 @@ export default {
           title: "Invite Employees"
         },
         {
-          title: "Assign to Departments"
+          title: "Create or Assign to Departments"
         },
         {
           title: "Create Custom Courses"
@@ -37,14 +56,6 @@ export default {
       ],
       userState: this.$store.state.onboarding.status.loggedIn
     };
-  },
-  mounted() {
-    this.userlogout;
-  },
-  computed: {
-    userlogout() {
-      if (!this.userState) this.$router.push("/");
-    }
   }
 };
 </script>

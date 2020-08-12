@@ -8,7 +8,7 @@
       color="basil"
       flat
     >
-      <v-tabs-slider color="red"></v-tabs-slider>
+      <v-tabs-slider color="#FF2E2E"></v-tabs-slider>
       <v-tab
           v-for="menu in menus"
           :key="menu"
