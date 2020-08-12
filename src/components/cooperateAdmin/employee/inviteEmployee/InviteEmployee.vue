@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto my-16" width="500" rounded>
+  <v-card class="mx-auto mt-4" width="500" rounded>
     <validationObserver>
       <v-form>
         <v-card-title class="text-center justify-center">
@@ -9,7 +9,8 @@
         <v-file-input
           label="Upload CSV Document"
           filled
-          prepend-icon="mdi-cloud-upload"
+          prepend-inner-icon="mdi-cloud-upload"
+          prepend-icon
           class="pt-8 px-6"
         ></v-file-input>
         <h3 class="text-center pt-8">OR</h3>
@@ -21,10 +22,9 @@
             v-model="model"
             :filter="filter"
             :hide-no-data="!search"
-            :items="items"
             :search-input.sync="search"
             hide-selected
-            label="Search for an option"
+            label="Email Address"
             multiple
             small-chips
             solo
@@ -46,13 +46,14 @@
                 small
               >
                 <span class="pr-2">{{ item.text }}</span>
-                <v-icon small @click="parent.selectItem(item)">close</v-icon>
+                <v-icon small @click="parent.selectItem(item)">mdi-close</v-icon>
               </v-chip>
             </template>
             <template v-slot:item="{ index, item }">
               <v-text-field
                 v-if="editing === item"
                 v-model="editing.text"
+                height="60"
                 autofocus
                 flat
                 background-color="transparent"
@@ -75,11 +76,11 @@
       <v-btn
         color="#FF2E2E"
         dark
-        width="300"
-        height="50"
-        class="my-8 ml-6"
+        width="400"
+        height="60"
+        class="my-8 ml-12"
         @click.prevent="inviteEmployee"
-      >Send Invite</v-btn>
+      >Send Invite(s)</v-btn>
     </validationObserver>
   </v-card>
 </template>
@@ -165,7 +166,7 @@ export default {
     },
     inviteEmployee() {
       this.load = true;
-      const data = { email: this.model };
+      const data = { emails: this.model };
 
       UserService.inviteEmployee(data)
         .then(res => {

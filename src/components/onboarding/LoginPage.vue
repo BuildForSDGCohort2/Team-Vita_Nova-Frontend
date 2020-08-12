@@ -82,8 +82,6 @@ export default {
       if (this.user.email && this.user.password) {
         this.$store.dispatch("onboarding/userLogin", this.user).then(
           res => {
-            console.log(res.access);
-
             this.$router.push("/cooperate/dashboard");
           },
           error => {

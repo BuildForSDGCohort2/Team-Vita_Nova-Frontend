@@ -1,7 +1,7 @@
 export default {
     loginSuccess: (state, user) => {
         state.status.loggedIn = true;
-        state.user = user;
+        state.user = JSON.parse(user);
     },
     loginFailure: (state) => {
         state.status.loggedIn = false;

@@ -191,11 +191,7 @@ export default {
       return ["Human Resource", "CEO", "MD", "CTO", "OTHER"];
     }
   },
-  mounted() {
-    if (this.loggedIn) {
-      this.$router.push("/cooperate/dashboard");
-    }
-  },
+
   methods: {
     handleRegister() {
       this.loading = true;
