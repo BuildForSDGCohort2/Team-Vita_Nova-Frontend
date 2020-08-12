@@ -33,5 +33,13 @@ export default [
       import(
         "../components/cooperateAdmin/employee/deleteEmployee/DeleteEmployee"
       )
+  },
+  {
+    path: "/cooperate/courses/courseMenus",
+    name: "CourseMenus",
+    component: () =>
+      import(
+        "../components/cooperateAdmin/courses/manageCourses/CourseMenus"
+      )
   }
 ];
