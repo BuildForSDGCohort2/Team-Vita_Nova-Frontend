@@ -1,3 +1,5 @@
+import Home from "../views/Home.vue";
+
 export default [
   {
     path: "/cooperate/dashboard",
@@ -15,6 +17,7 @@ export default [
         /* webpackChunkName: "about" */ "../views/cooperateAdmin/CreateDepartment"
       )
   },
+
   {
     path: "/cooperate/employee/invite",
     name: "InviteEmployee",
@@ -24,11 +27,11 @@ export default [
       )
   },
   {
-    path: "/cooperate/employee/view",
-    name: "ViewCourses",
+    path: "/cooperate/employee/deleteEmployee",
+    name: "DeleteEmployee",
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../views/cooperateAdmin/ViewCourses"
+        "../components/cooperateAdmin/employee/deleteEmployee/DeleteEmployee"
       )
   }
 ];

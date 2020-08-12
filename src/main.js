@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import Vuetify from "vuetify";
 import vuetify from "./plugins/vuetify";
 import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate';
 import en from 'vee-validate/dist/locale/en.json';
@@ -18,6 +19,8 @@ Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
 
 Vue.config.productionTip = false;
+
+Vue.use(Vuetify)
 
 new Vue({
   router,
