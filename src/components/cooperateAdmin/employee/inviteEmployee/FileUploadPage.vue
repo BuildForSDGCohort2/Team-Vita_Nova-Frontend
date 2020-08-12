@@ -205,20 +205,6 @@ export default {
   box-sizing: border-box;
   font-size: 20px;
 
-  /*&.dragging {*/
-  /*    color: #FFFFFF;*/
-  /*    border: 3px dashed red;*/
-
-  /*    .file-input label{*/
-  /*        background: #FFFFFF;*/
-  /*        color: red;*/
-  /*    }*/
-  /* }*/
-  /* i {*/
-  /*    font-size: 28px;*/
-  /* }*/
-  /* .file-input {*/
-  /*    }*/
 }
 @media only screen and (max-width: 600px) {
   .invite-form {
@@ -249,8 +235,6 @@ export default {
   margin-top: 15px;
   margin-bottom: 48px;
   justify-content: center;
-  /* semicolon-neutral-black */
-
   color: #2b1c1c;
 }
 .submit-button-container {

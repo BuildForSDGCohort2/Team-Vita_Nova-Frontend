@@ -1,7 +1,11 @@
 <!--suppress ALL -->
 <template>
   <v-responsive>
-    <v-card max-width="1050" class="mx-auto" elevation="0">
+
+    <br>
+    <Menu/>
+    <br>
+    <v-card max-width="1450" class="mx-auto overflow-hidden" elevation="0">
       <h3
         style="padding-left:10px;
                padding-bottom: 20px;
@@ -60,7 +64,7 @@
       <v-container>
         <v-row>
           <v-col v-for="(busi, i) in business" :key="i" cols="6">
-            <v-card :color="busi.color">
+            <v-card :color="busi.color" elevation="0">
               <div class="d-flex flex-no-wrap justify-space-between">
                 <v-avatar class="ma-3" size="125" tile>
                   <v-img :src="busi.src"></v-img>
@@ -101,7 +105,7 @@
       <v-container>
         <v-row>
           <v-col v-for="(design, i) in designs" :key="i" cols="6">
-            <v-card :color="design.color">
+            <v-card :color="design.color" elevation="0">
               <div class="d-flex flex-no-wrap justify-space-between">
                 <v-avatar class="ma-3" size="125" tile>
                   <v-img :src="design.src"></v-img>
@@ -131,7 +135,9 @@
 </template>
 
 <script>
+import Menu from "@/components/cooperateAdmin/courses/viewCourses/Menu";
 export default {
+  components: {Menu},
   data: () => ({
     software: [
       {
@@ -161,7 +167,7 @@ export default {
         color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
         title: "Introduction to Flutter For Web Development",
-        artist: "Ellie Goulding",
+        artist: "Ellie Goulding - 6hrs 20minutes",
         course: "Web Development"
       }
     ],
@@ -194,7 +200,7 @@ export default {
         color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
         title: "Introduction to Flutter For Web Development",
-        artist: "Ellie Goulding",
+        artist: "Ellie Goulding - 6hrs 20minutes",
         course: "Web Development"
       }
     ],
@@ -227,7 +233,7 @@ export default {
         color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
         title: "Introduction to Flutter For Web Development",
-        artist: "Ellie Goulding",
+        artist: "Ellie Goulding - 6hrs 20minutes",
         course: "Web Development"
       }
     ]

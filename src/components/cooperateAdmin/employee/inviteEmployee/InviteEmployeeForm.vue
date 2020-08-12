@@ -141,7 +141,7 @@ export default {
         .then(
           res => {
             console.log(res.data);
-            this.$router.push("/dashboard");
+            this.$router.push("../../../splashPages/EmployeeInviteSent");
             this.submitted = true;
           },
           error => {

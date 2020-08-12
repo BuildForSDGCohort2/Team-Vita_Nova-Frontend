@@ -4,7 +4,7 @@
 
 <script>
 
-import ViewCourses from "../../components/cooperateAdmin/courses/viewCourses/ViewCourses";
+import ViewCourses from "../../components/cooperateAdmin/courses/viewCourses/ExploreCourses";
 export default {
   components: {
     ViewCourses
