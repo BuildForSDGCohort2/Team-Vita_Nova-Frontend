@@ -45,6 +45,7 @@
 
 <script>
 export default {
+  name: "EmployeeInviteSent",
   data() {
     return {
       dialog: false
