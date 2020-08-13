@@ -2,14 +2,16 @@
   <v-card rounded="lg" elevation="6" width="600" height="300" :style="{'background-image':`url(${ cards.courseImageLink })`}" style="background-size: cover">
     <div class="overlay">
       <v-list-item>
-        <v-card-text class="headline font-weight-bold" style="margin-top: 40px;"><h3>{{ cards.course }}</h3></v-card-text>
+        <v-card-text class="headline prop font-weight-bold">
+          <h3 style="margin-top: 40px; line-height: 42px; ">{{ cards.course }}</h3>
+        </v-card-text>
         <v-btn icon>
-          <v-icon color="#fff" style="margin-top: 40px">mdi-dots-vertical</v-icon>
+          <v-icon color="#fff" >mdi-dots-vertical</v-icon>
         </v-btn>
 
       </v-list-item>
       <v-list-item>
-        <v-card-text class="headline"><h6>{{ cards.subtitle }}</h6></v-card-text>
+        <v-card-text class="prop" ><p style="margin-top: 0;">{{ cards.subtitle }}</p></v-card-text>
       </v-list-item>
     </div>
   </v-card>
@@ -28,7 +30,6 @@
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  line-height: 21px;
 
   /* identical to box height */
   display: flex;
@@ -44,6 +45,20 @@
   height: 100%;
   position: relative;
   z-index: 1;
+}
+.prop {
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px !important;
+
+
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+
+  color: #FFFFFF;
 }
 </style>
 

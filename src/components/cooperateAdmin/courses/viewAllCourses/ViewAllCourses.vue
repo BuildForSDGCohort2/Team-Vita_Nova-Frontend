@@ -2,11 +2,14 @@
   <v-responsive>
     <v-container style="max-width: 1000px" grid-list-md>
       <div>
-        <v-row dense>
+        <v-row>
           <v-col cols="12" md="6">
             <h3>My Courses</h3>
           </v-col>
-          <v-col cols="12" md="6" >
+          <v-col cols="12" md="1">
+            <h3></h3>
+          </v-col>
+          <v-col cols="12" md="5" >
             <v-text-field
                 append-icon="mdi-magnify"
                 label="Search by Course name"
@@ -16,7 +19,7 @@
             ></v-text-field>
           </v-col>
         </v-row>
-        <v-row dense>
+        <v-row >
           <v-col cols="12" md="6" v-for="(card, index) in cards" :key="index">
             <div v-if="index >= 2">
               <CourseCard :cards="card"/>
@@ -40,7 +43,7 @@
         </v-row>
         <v-row class="view-all-course">
           <v-col cols="12">
-            <a @click="viewAll" style="color: #FF2E2E">View All >></a>
+            <a @click="viewAll" style="color: #FF2E2E;">View All >></a>
           </v-col>
         </v-row>
       </div>
