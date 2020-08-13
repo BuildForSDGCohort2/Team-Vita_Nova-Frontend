@@ -3,8 +3,8 @@
     <v-container style="max-width: 1000px">
       <v-card flat class="tab-navigation">
         <v-tabs background-color="white" color="#645262" class="menu">
-          <v-tab class="create-course" to="/cooperate/courses/createCourse">Create Course</v-tab>
-          <v-tab class="view-all-course" to="/cooperate/courses/viewAllCourses">View Courses</v-tab>
+          <v-tab class="create-course" to="/cooperate/courses/createCourse"><h3>Create Course</h3></v-tab>
+          <v-tab class="view-all-course" to="/cooperate/courses/viewAllCourses"><h3>View Courses</h3></v-tab>
           <v-tabs-slider color="#FF2E2E"></v-tabs-slider>
         </v-tabs>
       </v-card>
@@ -51,7 +51,7 @@
 
   font-family: IBM Plex Sans;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 16px;
   line-height: 21px;
 

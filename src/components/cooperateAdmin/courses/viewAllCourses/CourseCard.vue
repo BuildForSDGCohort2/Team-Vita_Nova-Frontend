@@ -1,13 +1,17 @@
 <template>
-  <v-card color="#000" rounded="lg" elevation="6" width="600" height="300">
-    <v-list-item>
-      <v-card-text class="headline font-weight-bold">{{ cards.course }}</v-card-text>
-      <v-icon color="#fff">mdi-dots-vertical</v-icon>
-    </v-list-item>
-    <v-list-item>
-      <v-card-text class="headline font-weight-light">{{ cards.subtitle }}</v-card-text>
-    </v-list-item>
+  <v-card rounded="lg" elevation="6" width="600" height="300" :style="{'background-image':`url(${ cards.courseImageLink })`}" style="background-size: cover">
+    <div class="overlay">
+      <v-list-item>
+        <v-card-text class="headline font-weight-bold" style="margin-top: 40px;"><h3>{{ cards.course }}</h3></v-card-text>
+        <v-btn icon>
+          <v-icon color="#fff" style="margin-top: 40px">mdi-dots-vertical</v-icon>
+        </v-btn>
 
+      </v-list-item>
+      <v-list-item>
+        <v-card-text class="headline"><h6>{{ cards.subtitle }}</h6></v-card-text>
+      </v-list-item>
+    </div>
   </v-card>
 </template>
 
@@ -15,7 +19,6 @@
 .headline {
   /* View Menu */
 
-  /*position: absolute;*/
   left: 54.72%;
   right: 26.94%;
   top: 33.35%;
@@ -33,13 +36,19 @@
 
   color: #FFFFFF;
 }
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
 </style>
 
 <script>
 export default {
-  methods: {
-
-  },
   props: {
     cards: Object
   }
