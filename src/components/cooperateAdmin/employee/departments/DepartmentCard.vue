@@ -1,7 +1,9 @@
 <template>
   <v-card color="#fff" rounded="lg" elevation="4" width="400" height="200">
     <v-list-item>
-      <v-card-text class="headline font-weight-bold">{{cards.department}}</v-card-text>
+      <v-card-text class="headline font-weight-bold">{{
+        cards.department
+      }}</v-card-text>
 
       <v-icon>mdi-dots-vertical</v-icon>
     </v-list-item>

@@ -1,13 +1,14 @@
 import Home from "../views/Home.vue";
 
 import Employee from "../views/cooperateAdmin/Employee";
+import ManageCourses from "../views/cooperateAdmin/ManageCourses";
+
 
 export default [
   {
     path: "/cooperate/dashboard",
     name: "Dashboard",
-    component: () =>
-        import("../views/cooperateAdmin/Dashboard.vue"),
+    component: () => import("../views/cooperateAdmin/Dashboard.vue"),
     meta: {
       requiresAuth: true
     }
@@ -29,14 +30,23 @@ export default [
     meta: {
       requiresAuth: true
     }
-
-    },
+  },
   {
-    path: "/cooperate/courses/courseMenus",
-    name: "CourseMenus",
-    component: () =>
-      import(
-        "../components/cooperateAdmin/courses/manageCourses/CourseMenus"
-      )
+    path: "/cooperate/courses",
+    name: "ManageCourses",
+    component: ManageCourses,
+    children: [
+      {
+        path: "viewAllCourses",
+        component: () => import("../views/cooperateAdmin/ViewAllCourses")
+      },
+      {
+        path: "createCourse",
+        component: () => import("../views/cooperateAdmin/CreateCourse")
+      }
+    ],
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
