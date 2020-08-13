@@ -7,6 +7,7 @@
         </v-card-title>
         <v-file-input
           v-model="files"
+          accept=".csv, .xlsx"
           class="pt-8 px-6"
           label="Upload CSV Document"
           multiple

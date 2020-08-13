@@ -1,6 +1,6 @@
 <template>
   <v-row class="text-center justify-center pt-0">
-    <v-col cols="5" class="pt-0">
+    <v-col cols="6" class="pt-0">
       <div class="login-coloumn-left">
         <h3>Create your account</h3>
 
@@ -115,7 +115,7 @@
       </div>
     </v-col>
 
-    <v-col class="login-coloumn pt-0" cols="7">
+    <v-col class="login-coloumn pt-0" cols="6">
       <div>
         <v-img src="../../assets/Frame 725.png"></v-img>
       </div>

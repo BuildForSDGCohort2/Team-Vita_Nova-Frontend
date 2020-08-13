@@ -7,6 +7,8 @@ import vuetify from "./plugins/vuetify";
 import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate';
 import en from 'vee-validate/dist/locale/en.json';
 import * as rules from 'vee-validate/dist/rules';
+import Login from './components/onboarding/layout/Login'
+import Register from './components/onboarding/layout/Register'
 
 //axios
 axios.defaults.baseURL = 'https://lamp-api.herokuapp.com';
@@ -20,6 +22,8 @@ localize('en', en);
 
 Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('Login', Login)
+Vue.component('Register', Register)
 
 Vue.config.productionTip = false;
 

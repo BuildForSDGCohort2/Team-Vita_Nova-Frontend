@@ -11,7 +11,7 @@
         <v-icon>mdi-bell</v-icon>
       </v-btn>
       <v-avatar>
-        <img src="../../../assets/cynthia.png" alt="John" />
+        <img :src="profilePicture" alt="John" />
       </v-avatar>
       <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red">{{user}}</v-btn>
     </v-app-bar>
@@ -87,7 +87,10 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.state.onboarding.user.user_id;
+      return this.$store.state.onboarding.user.email;
+    },
+    profilePicture() {
+      return this.$store.state.onboarding.user.image;
     }
   }
 };
