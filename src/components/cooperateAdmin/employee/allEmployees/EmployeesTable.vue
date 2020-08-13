@@ -1,48 +1,50 @@
 <template>
-  <v-card flat>
-    <v-row>
-      <v-col cols="12" md="6">
-        <h1>All Employees</h1>
-      </v-col>
-      <v-col cols="12" md="6">
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search by Course name"
-          solo-inverted
-          flat
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col class="d-flex" cols="12" sm="2">
-        <v-select :items="items" label="Sort By:" flat outlined></v-select>
-      </v-col>
-      <v-col cols="12" sm="4"></v-col>
-      <v-col class="d-flex" cols="12" sm="2">
-        <AddEmployeesModal />
-      </v-col>
-      <v-col class="d-flex" cols="12" sm="2">
-        <v-btn class="ma-2 transparent-btn" elevation="singleSelect" color="grey" light>
-          <v-icon left>mdi-layers-triple-outline</v-icon>Add to Departments
-        </v-btn>
-      </v-col>
-      <v-col class="d-flex" cols="12" sm="2">
-        <v-btn class="ma-2 transparent-btn" elevation="singleSelect" color="grey" light>
-          <v-icon left>mdi-delete</v-icon>Delete Selected
-        </v-btn>
-      </v-col>
-    </v-row>
-    <v-data-table
-      v-model="selected"
-      :headers="headers"
-      :items="desserts"
-      :search="search"
-      show-select
-      item-key="emailAddress"
-      :single-select="singleSelect"
-    ></v-data-table>
-  </v-card>
+  <div>
+    <v-card flat>
+      <v-row>
+        <v-col cols="12" md="6">
+          <h1>All Employees</h1>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search by Course name"
+            solo-inverted
+            flat
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col class="d-flex" cols="12" sm="2">
+          <v-select :items="items" label="Sort By:" flat outlined></v-select>
+        </v-col>
+        <v-col cols="12" sm="4"></v-col>
+        <v-col class="d-flex" cols="12" sm="2">
+          <AddEmployeesModal />
+        </v-col>
+        <v-col class="d-flex" cols="12" sm="2">
+          <v-btn class="ma-2 transparent-btn" elevation="singleSelect" color="grey" light>
+            <v-icon left>mdi-layers-triple-outline</v-icon>Add to Departments
+          </v-btn>
+        </v-col>
+        <v-col class="d-flex" cols="12" sm="2">
+          <v-btn class="ma-2 transparent-btn" elevation="singleSelect" color="grey" light>
+            <v-icon left>mdi-delete</v-icon>Delete Selected
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-data-table
+        v-model="selected"
+        :headers="headers"
+        :items="desserts"
+        :search="search"
+        show-select
+        item-key="emailAddress"
+        :single-select="singleSelect"
+      ></v-data-table>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -51,6 +53,7 @@ export default {
   data() {
     return {
       search: "",
+      splashShow: true,
       selected: [],
       singleSelect: false,
       items: ["Date", "Email", "Age"],

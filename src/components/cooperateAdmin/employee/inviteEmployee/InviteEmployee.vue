@@ -178,8 +178,8 @@ export default {
       UserService.inviteEmployee(data, this.files)
         .then(res => {
           console.log(res.data);
-
           this.load = false;
+          this.$emit("showSplash");
         })
         .catch(err => {
           console.log(err);

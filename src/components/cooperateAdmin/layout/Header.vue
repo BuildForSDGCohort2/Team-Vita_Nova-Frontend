@@ -7,14 +7,13 @@
 
       <img src="../../../assets/semfulllogo.svg" class="logo" height="30" />
       <v-spacer></v-spacer>
-
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
       <v-avatar>
         <img src="../../../assets/cynthia.png" alt="John" />
       </v-avatar>
       <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red">{{user}}</v-btn>
-      <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped hide-overlay>
       <v-list nav dense>

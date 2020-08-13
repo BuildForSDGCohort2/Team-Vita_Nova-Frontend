@@ -1,6 +1,6 @@
 <template>
-  <v-row>
-    <v-col cols="12" md="6" class="pl-16">
+  <v-row class="pt-0">
+    <v-col cols="12" md="6">
       <div class="login-coloumn-left mx-auto">
         <ValidationObserver v-slot="{ handleSubmit }">
           <v-form class="my-auto" @submit.prevent="handleSubmit(handleLogin)">

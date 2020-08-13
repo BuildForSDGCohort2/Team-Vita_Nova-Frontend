@@ -42,9 +42,9 @@ export default {
 </script>
 
 <style>
-/* * {
+* {
   font-family: IBM Plex Sans !important;
-} */
+}
 .app-container {
   padding: 0 0 !important;
 }
