@@ -4,8 +4,10 @@
 
     <br>
     <Menu/>
+
     <br>
     <v-card max-width="1450" class="mx-auto overflow-hidden" elevation="0">
+      <EmployeeInviteSent/>
       <h3
         style="padding-left:10px;
                padding-bottom: 20px;
@@ -136,8 +138,9 @@
 
 <script>
 import Menu from "@/components/cooperateAdmin/courses/viewCourses/Menu";
+import EmployeeInviteSent from "@/components/splashPages/EmployeeInviteSent";
 export default {
-  components: {Menu},
+  components: {EmployeeInviteSent, Menu},
   data: () => ({
     software: [
       {

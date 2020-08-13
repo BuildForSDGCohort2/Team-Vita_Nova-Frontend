@@ -1,76 +1,113 @@
 <template>
-  <v-card width="450" height="550px" class="invite-top ma-auto">
-    <v-main class="invite-container">
-      <v-list-item>
-        <img src="../../assets/thumbs-up-orange.svg" class="invite-circle" />
-        <!--                <v-list-item-avatar color="#FFF2C7" class="success-circle"></v-list-item-avatar>-->
-      </v-list-item>
-      <v-card-text class="invite-title text-wrap">
-        <h6>
-          Invites Sent!
-        </h6>
-      </v-card-text>
+  <div>
+    <v-dialog v-model="dialog" max-width="500" hide-overlay>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          class="ma-2 transparent-btn"
+          elevation="singleSelect"
+          color="grey"
+          v-bind="attrs"
+          v-on="on"
+          light
+        >
+          Invite Sent
+        </v-btn>
+      </template>
 
-      <v-card-text class="invite-text">
-        <p>
-          Your employees would be notified via email to join the digital
-          classroom.
-        </p>
-      </v-card-text>
-    </v-main>
-  </v-card>
+      <v-card class="mx-auto mt-4 align-center" max-width="500" rounded>
+        <v-main class="text-center justify-center" justify="center">
+          <img src="../../assets/thumbs-up-orange.svg" class="invite-circle" />
+          <v-card-text class="text-center justify-center invite-title">
+            <h3>
+              Invites Sent!
+            </h3>
+          </v-card-text>
+
+          <v-card-text class="text-center justify-center invite-text">
+            <p>
+              Your employees would be notified via <br />email to join the
+              digital classroom.
+            </p>
+          </v-card-text>
+          <v-btn
+            class="text-center justify-center invite-cancel"
+            style="background: #FF2E2E;
+                 border-radius: 4px;"
+            @click="dialog = false"
+          >
+            <h4>Cancel</h4>
+          </v-btn>
+        </v-main>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "EmployeeInviteSent",
-  components:{
-
-  }
+  data() {
+    return {
+      dialog: false
+    };
+  },
+  components: {}
 };
 </script>
 
 <style scoped>
-.invite-top {
-  /*margin-top: 5% !important;*/
-  border-radius: 6px !important;
-  border-bottom: 0px !important;
-}
-.invite-container {
-  margin-left: 25%;
-  margin-right: 25%;
-  padding-top: 10%;
+.transparent-btn {
+  background-color: transparent !important;
+  padding: 0 0 !important;
 }
 .invite-circle {
-  height: 73px !important;
+  width: 200px !important;
+  height: 200px !important;
   min-width: 73px !important;
-  width: 73px !important;
-  margin-top: 45% !important;
   margin-bottom: 40px !important;
 }
 .invite-title {
   font-family: IBM Plex Sans;
   font-style: normal;
-  font-weight: bold;
-  font-size: 49px;
-  line-height: 35px;
-  /*display: flex;*/
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 47px;
+  /* identical to box height */
+  display: flex;
   align-items: center;
-  letter-spacing: -0.02em;
-  padding: 0px !important;
-  color: #960c0c;
-  margin-bottom: 20px;
-}
-.invite-text {
-  font-family: IBM Plex Sans !important;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 19px;
-  line-height: 150%;
-  letter-spacing: -0.02em;
-  margin-bottom: 30px;
-  padding: 0px !important;
+  text-align: center;
+
+  /* semicolon-neutral-black */
 
   color: #2b1c1c;
+}
+.invite-text {
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  /* or 156% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #2b1c1c;
+}
+.invite-cancel {
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15.4656px;
+  line-height: 20px;
+  width: 30%;
+  height: 55px !important;
+  /* identical to box height */
+  margin-top: 5% !important;
+  margin-bottom: 30% !important;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
 }
 </style>
