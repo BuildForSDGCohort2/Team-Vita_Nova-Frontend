@@ -26,6 +26,12 @@ export default [
             import(/* webpackChunkName: "about" */ "../views/onboarding/RegisterPage")
     },
     {
+        path: "/explore-courses",
+        name: "ExploreCourses",
+        component: () =>
+            import(/* webpackChunkName: "about" */ "../views/onboarding/ExploreCourses")
+    },
+    {
         path: "/success",
         name: "registration_successful",
 
