@@ -26,7 +26,7 @@ export default [
             import(/* webpackChunkName: "about" */ "../views/onboarding/RegisterPage")
     },
     {
-        path: "/explore-courses",
+        path: "/exploreCourses",
         name: "ExploreCourses",
         component: () =>
             import(/* webpackChunkName: "about" */ "../views/onboarding/ExploreCourses")

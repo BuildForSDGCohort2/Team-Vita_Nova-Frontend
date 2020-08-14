@@ -22,7 +22,7 @@
 }
 .onboarding-logo {
   position: relative;
-  left: 7.5rem;
+  left: 15%;
   top: 1rem;
   color: transparent !important;
   background-color: transparent !important;

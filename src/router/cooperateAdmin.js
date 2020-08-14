@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 
 
 import Employee from "../views/cooperateAdmin/Employee"
+import Courses from "../views/cooperateAdmin/Courses"
 
 export default [
     {
@@ -29,5 +30,23 @@ export default [
             requiresAuth: true
         }
 
+    },
+    {
+        path: "/cooperate/courses",
+        name: "ManageCourses",
+        component: Courses,
+        children: [
+            {
+                path: "viewCourses",
+                component: () => import("../views/cooperateAdmin/ViewCourses")
+            },
+            {
+                path: "createCourse",
+                component: () => import("../views/cooperateAdmin/CreateCourse")
+            }
+        ],
+        meta: {
+            requiresAuth: true
+        }
     }
 ]

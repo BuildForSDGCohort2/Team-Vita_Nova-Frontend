@@ -10,7 +10,7 @@
     <div v-else>
       <CooperateLayout />
     </div>
-    <v-main class="pa-0">
+    <v-main>
       <v-container fluid class="app-container">
         <router-view></router-view>
       </v-container>

@@ -30,7 +30,7 @@
           </v-list-item-icon>
           <v-list-item-title>Employees</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/course" class="menu" color="red">
+        <v-list-item link to="/cooperate/courses" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-message-text-outline</v-icon>
           </v-list-item-icon>
