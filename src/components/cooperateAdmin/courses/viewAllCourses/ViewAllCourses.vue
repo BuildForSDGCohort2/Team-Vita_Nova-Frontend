@@ -19,7 +19,7 @@
             ></v-text-field>
           </v-col>
         </v-row>
-        <v-row >
+        <v-row>
           <v-col cols="12" md="6" v-for="(card, index) in cards.myCourses" :key="index">
             <div v-if="index <= 4">
               <CourseCard :cards="card"/>
