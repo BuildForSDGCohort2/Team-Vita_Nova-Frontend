@@ -32,4 +32,10 @@ export default [
         component: () =>
             import("../views/cooperateAdmin/PreviewProfile")
     },
+    {
+        path: "/cooperate/update-profile",
+        name: "UpdateProfile",
+        component: () =>
+            import("../views/cooperateAdmin/UpdateProfile")
+    }
 ]

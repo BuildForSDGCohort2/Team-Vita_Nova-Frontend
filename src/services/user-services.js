@@ -19,6 +19,13 @@ class UserService {
         console.log(data)
         return axios.post(API_URL + '/admin_mass_upload/', data)
     }
+    static getProfile(){
+      return axios.get(API_URL + '/business/company_profile/get_company_profile/',{ headers: authHeader()});
+    }
+    static Profile(data){
+        console.log(data)
+        return axios.post(API_URL + '/business/company_profile/add_company_profile/', data, { headers: authHeader()});
+    }
 
 
 } export default UserService
