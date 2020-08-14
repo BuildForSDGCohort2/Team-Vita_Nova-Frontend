@@ -1,64 +1,130 @@
 <template>
-  <v-card rounded="lg" elevation="6" width="600" height="300" :style="{'background-image':`url(${ cards.courseImageLink })`}" style="background-size: cover">
-    <div class="overlay">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item>
-            <v-card-text class="headline prop font-weight-bold">
-              <h3 style="line-height: 42px; ">{{ cards.course }}</h3>
-            </v-card-text>
-          </v-list-item>
-          <v-list-item>
-            <v-card-text class="prop" ><p style="margin-top: 0;">{{ cards.subtitle }}</p></v-card-text>
-          </v-list-item>
-        </v-list-item-content>
+  <div>
+    <v-card rounded="lg" elevation="6" width="600" height="250" :style="{'background-image':`url(${ cards.courseImageLink })`}" style="background-size: cover">
+      <div class="overlay">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item>
+              <v-card-text class="headline ml-0 mt-5">
+                <h1 :style="{'font-family': 'IBM Plex Sans', 'font-size': '24px', 'line-height': '31px'}">{{ cards.course }}</h1>
+              </v-card-text>
+            </v-list-item>
+            <v-list-item>
+              <v-card-text class="prop mt-n10 pr-5" :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}">{{ cards.subtitle }}</v-card-text>
+            </v-list-item>
+          </v-list-item-content>
+          <v-list-item-icon>
+            <v-menu bottom offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    class="mt-7 mr-5"
+                    v-bind="attrs"
+                    v-on="on"
+                    icon
+                    :style="{'font-family': 'IBM Plex Sans', 'font-size': '24px', 'line-height': '31px'}"
+                ><v-icon color="#fff" >mdi-dots-vertical</v-icon></v-btn>
+              </template>
+              <v-list v-if="cards.company">
+                <v-list-item v-for="(item, i) in forMyCourses" :key="i" @click="onSelect">
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+              <v-list v-else>
+                <v-list-item v-for="(item, i) in forAllCourses" :key="i" @click="onSelect">
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-list-item-icon>
+        </v-list-item>
+        <v-footer absolute class="font-weight-medium" :style="{'color': '#FF2E2E', 'opacity': 1, 'background-color': 'rgba(0,0,0,0.0)'}">
+          <v-col class="text-left" cols="12">
+            <v-list-item class="font-weight-medium ml-0 mt-9" absolute>
+              <v-icon color="#fff" :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}">mdi-star</v-icon>
+              <v-card-text class="prop" :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}">{{ cards.rank }}</v-card-text>
+            </v-list-item>
+          </v-col>
+        </v-footer>
+      </div>
+    </v-card>
+  </div>
+<!--  <div v-else>-->
+<!--    <v-card rounded="lg" elevation="6" width="600" height="550" :style="{'background-image':`url(${ cards.courseImageLink })`}" style="background-size: cover">-->
+<!--      <div class="overlay">-->
+<!--        <v-list-item>-->
+<!--          <v-list-item-content>-->
+<!--            <v-list-item>-->
+<!--              <v-card-text class="headline font-weight-bold ml-0 mt-5">-->
+<!--                <h3 :style="{'font-family': 'IBM Plex Sans', 'font-size': '30px', 'line-height': '40px'}">{{ cards.course }}</h3>-->
+<!--              </v-card-text>-->
+<!--            </v-list-item>-->
+<!--            <v-list-item>-->
+<!--              <v-card-text class="prop mt-n10 " :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}">{{ cards.subtitle }}</v-card-text>-->
+<!--            </v-list-item>-->
+<!--          </v-list-item-content>-->
 
-        <v-list-item-icon>
-          <v-menu
-              bottom
-              offset-y
-          >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                  v-bind="attrs"
-                  v-on="on"
-                  icon
-                  style="margin-top: 45px; line-height: 42px; "
-              ><v-icon color="#fff" class="mb-0">mdi-dots-vertical</v-icon></v-btn>
-            </template>
-            <v-list v-if="cards.company">
-              <v-list-item
-                  v-for="(item, i) in forMyCourses"
-                  :key="i"
-                  @click="onSelect"
-              >
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-            <v-list v-else>
-              <v-list-item
-                  v-for="(item, i) in forAllCourses"
-                  :key="i"
-                  @click="onSelect"
-              >
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </v-list-item-icon>
-      </v-list-item>
-    </div>
-  </v-card>
+<!--          <v-list-item-icon>-->
+<!--            <v-menu-->
+<!--                bottom-->
+<!--                offset-y-->
+<!--            >-->
+<!--              <template v-slot:activator="{ on, attrs }">-->
+<!--                <v-btn-->
+<!--                    class="mt-9 mr-5"-->
+<!--                    v-bind="attrs"-->
+<!--                    v-on="on"-->
+<!--                    icon-->
+<!--                    :style="{'font-family': 'IBM Plex Sans', 'font-size': '24px', 'line-height': '31px'}"-->
+<!--                ><v-icon color="#fff" >mdi-dots-vertical</v-icon></v-btn>-->
+<!--              </template>-->
+<!--              <v-list v-if="cards.company">-->
+<!--                <v-list-item-->
+<!--                    v-for="(item, i) in forMyCourses"-->
+<!--                    :key="i"-->
+<!--                    @click="onSelect"-->
+<!--                    :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}"-->
+<!--                >-->
+<!--                  <v-list-item-title>{{ item.title }}</v-list-item-title>-->
+<!--                </v-list-item>-->
+<!--              </v-list>-->
+<!--              <v-list v-else>-->
+<!--                <v-list-item-->
+<!--                    v-for="(item, i) in forAllCourses"-->
+<!--                    :key="i"-->
+<!--                    @click="onSelect"-->
+<!--                    :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}"-->
+<!--                >-->
+<!--                  <v-list-item-title>{{ item.title }}</v-list-item-title>-->
+<!--                </v-list-item>-->
+<!--              </v-list>-->
+<!--            </v-menu>-->
+<!--          </v-list-item-icon>-->
+<!--        </v-list-item>-->
+<!--        <v-footer-->
+<!--            absolute-->
+<!--            class="font-weight-medium"-->
+<!--            style="opacity: 1; background-color: rgba(0,0,0,0.0);"-->
+<!--        >-->
+<!--          <v-col-->
+<!--              class="text-left"-->
+<!--              cols="12"-->
+<!--          >-->
+<!--            <v-list-item class="font-weight-medium ml-0 mt-9" absolute>-->
+<!--              <v-icon color="#fff" :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}">mdi-star</v-icon>-->
+<!--              <v-card-text class="prop" :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}">{{ cards.rank }}</v-card-text>-->
+<!--            </v-list-item>-->
+<!--          </v-col>-->
+<!--        </v-footer>-->
+<!--      </div>-->
+<!--    </v-card>-->
+<!--  </div>-->
 </template>
 
 <style scoped>
 .headline {
-  /* View Menu */
-  font-family: IBM Plex Sans,serif;
+  line-height: 31px;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
-  margin-top: 30px;
   color: #FFFFFF;
 }
 .overlay {
@@ -75,7 +141,6 @@
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 21px !important;
   color: #FFFFFF;
 }
 </style>
@@ -83,7 +148,8 @@
 <script>
 export default {
   props: {
-    cards: Object
+    cards: Object,
+    index: Object
   },
   data: () => ({
     notifications: false,
