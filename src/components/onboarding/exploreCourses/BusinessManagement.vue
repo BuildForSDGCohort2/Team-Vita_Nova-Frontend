@@ -1,64 +1,88 @@
 <template>
-  <v-container>
+  <v-responsive>
     <v-row>
-      <v-col v-for="(busi, i) in business" :key="i" cols="6">
-        <v-card :color="busi.color" elevation="0">
-          <div class="d-flex flex-no-wrap justify-space-between">
-            <v-avatar class="ma-3" size="125" tile>
-              <v-img :src="busi.src"></v-img>
-            </v-avatar>
+      <v-card v-for="(soft, i) in software" :key="i" cols="6" elevation="2" :loading="loading"
+              class="mx-auto my-12"
+              max-width="374">
 
-            <div>
-              <v-card-subtitle v-text="busi.course" style="color: #FF2E2E; padding-bottom: 0px"></v-card-subtitle>
-              <v-card-title class="headline" v-text="busi.title"></v-card-title>
+        <v-img height="250" :src="soft.src"></v-img>
 
-              <v-card-subtitle class="ma-auto text-wrap" v-text="busi.artist"></v-card-subtitle>
-            </div>
-          </div>
-        </v-card>
-      </v-col>
+        <v-card-title v-text="soft.course"></v-card-title>
+        <div v-text="soft.company" class=" subtitle-1">
+        </div>
+        <v-card-text>
+          <v-row align="center" class="mx-0">
+            <v-rating
+                :value="4.5"
+                color="amber"
+                dense
+                half-increments
+                readonly
+                size="14"
+            ></v-rating>
+
+            <div class="grey--text ml-4">4.5 (413)</div>
+          </v-row>
+        </v-card-text>
+      </v-card>
+
+      <v-p @click="showAll" style="color: #FF2E2E; border: 0px; float: right"
+      >View More >></v-p
+      >
     </v-row>
-    <v-p @click="showAll" style="color: #FF2E2E">Show All >></v-p>
-  </v-container>
+  </v-responsive>
 </template>
 
 <script>
 export default {
-  name: "BusinessManagement",
+  name: "SoftwareEngineer",
   data: () => ({
-    business: [
+    loading: false,
+    selection: 1,
+
+    software: [
       {
-        color: "#F8F8F8",
-        src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-        title: "Introduction to Java For Web Development",
-        artist: "Wale Adenuga - 6hrs 30minutes",
-        course: "Business Management"
+        src: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+        course: "INTRODUCTION TO ROBOTICS",
+        company: "Semicolon Africa"
       },
       {
-        color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-        title: "Introduction to Java For Web Development",
-        artist: "Wale Adenuga - 6hrs 30minutes",
-        course: "Web Development"
+        company: "Semicolon Africa",
+        course: "CREATING STUNNING ENGAGEMENTS"
       },
       {
-        color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-        title: "Introduction to Java For Web Development",
-        artist: "Wale Adenuga - 6hrs 30minutes",
-        course: "Web Development"
+        company: "Semicolon Africa",
+        course: "WEB DEVELOPMENT"
       },
       {
-        color: "#F8F8F8",
+        src: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+        course: "INTRODUCTION TO ROBOTICS",
+        company: "Semicolon Africa"
+      },
+      {
         src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
-        title: "Introduction to Flutter For Web Development",
-        artist: "Ellie Goulding - 6hrs 20minutes",
-        course: "Web Development"
-      }
+        company: "Semicolon Africa",
+        course: "GUIDE TO CREATING MOON MARKETING"
+      },
+      {
+        src: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+        course: "INTRODUCTION TO ROBOTICS",
+        company: "Semicolon Africa"
+      },
+
     ]
-  })
+  }),
+
+  methods: {
+    reserve() {
+      this.loading = true;
+
+      setTimeout(() => (this.loading = false), 2000);
+    }
+  }
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

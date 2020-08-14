@@ -40,7 +40,9 @@
             <template v-slot:no-data>
               <v-list-item>
                 <span class="subheading">Create</span>
-                <v-chip :color="`red lighten-3`" label small>{{ search }}</v-chip>
+                <v-chip :color="`red lighten-3`" label small>{{
+                  search
+                }}</v-chip>
               </v-list-item>
             </template>
             <template v-slot:selection="{ attrs, item, parent, selected }">
@@ -53,7 +55,9 @@
                 small
               >
                 <span class="pr-2">{{ item.text }}</span>
-                <v-icon small @click="parent.selectItem(item)">mdi-close</v-icon>
+                <v-icon small @click="parent.selectItem(item)"
+                  >mdi-close</v-icon
+                >
               </v-chip>
             </template>
             <template v-slot:item="{ index, item }">
@@ -68,11 +72,20 @@
                 solo
                 @keyup.enter="edit(index, item)"
               ></v-text-field>
-              <v-chip v-else :color="`${item.color} lighten-3`" dark label small>{{ item.text }}</v-chip>
+              <v-chip
+                v-else
+                :color="`${item.color} lighten-3`"
+                dark
+                label
+                small
+                >{{ item.text }}</v-chip
+              >
               <v-spacer></v-spacer>
               <v-list-item-action @click.stop>
                 <v-btn icon @click.stop.prevent="edit(index, item)">
-                  <v-icon>{{ editing !== item ? 'mdi-pencil' : 'mdi-check' }}</v-icon>
+                  <v-icon>{{
+                    editing !== item ? "mdi-pencil" : "mdi-check"
+                  }}</v-icon>
                 </v-btn>
               </v-list-item-action>
             </template>
@@ -87,11 +100,9 @@
         height="60"
         class="my-8 ml-12"
         @click.prevent="inviteEmployee"
-      >Send Invite(s)</v-btn>
+        >Send Invite(s)</v-btn
+      >
     </validationObserver>
-  </v-card>
-</template>
-
   </v-card>
 </template>
 

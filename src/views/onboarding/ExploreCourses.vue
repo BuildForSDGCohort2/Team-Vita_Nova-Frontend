@@ -1,35 +1,28 @@
 <template>
   <v-responsive>
-    <br />
-    <Menu />
+    <v-container class="overlay" style="max-width: 90%" >
 
-    <br />
-    <v-card max-width="1450" class="mx-auto" elevation="0">
-      <h3
-        style="padding-left:10px;
-               padding-bottom: 20px;
+      <v-row>
+        <div>
+        <h3
+          style="
+               padding-top: 50px;
                font-family: IBM Plex Sans;
                 font-style: normal;
                 font-weight: 600;
                 font-size: 36px;
     "
-      >Top Software Development Courses</h3>
-      <SoftwareEngineer />
+        >
+          Top Software Development Courses
+        </h3>
 
-      <h3
-        style="padding-left:10px;
-               padding-bottom: 20px;
-               padding-top: 8%;
-               font-family: IBM Plex Sans;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 36px;
-    "
-      >Top Business Management Courses</h3>
-      <BusinessManagement />
+        <SoftwareEngineer />
+        </div>
+      </v-row>
 
-      <h3
-        style="padding-left:10px;
+      <v-row>
+        <h3
+          style="padding-left:10px;
                padding-bottom: 20px;
                padding-top: 8%;
                font-family: IBM Plex Sans;
@@ -37,19 +30,37 @@
                 font-weight: 600;
                 font-size: 36px;
     "
-      >Top Design Thinking Courses</h3>
-      <DesignThinking />
-    </v-card>
+        >
+          Top Business Management Courses
+        </h3>
+        <BusinessManagement />
+      </v-row>
+
+      <v-row>
+        <h3
+          style="padding-left:10px;
+               padding-bottom: 20px;
+               padding-top: 8%;
+               font-family: IBM Plex Sans;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 36px;
+    "
+        >
+          Top Design Thinking Courses
+        </h3>
+        <DesignThinking />
+      </v-row>
+    </v-container>
   </v-responsive>
 </template>
 
 <script>
-import Menu from "../../components/onboarding/exploreCourses/Menu";
 import SoftwareEngineer from "../../components/onboarding/exploreCourses/SoftwareEngineer";
 import BusinessManagement from "../../components/onboarding/exploreCourses/BusinessManagement";
 import DesignThinking from "../../components/onboarding/exploreCourses/DesignThinking";
 export default {
-  components: { DesignThinking, BusinessManagement, SoftwareEngineer, Menu },
+  components: { DesignThinking, BusinessManagement, SoftwareEngineer },
   computed: {}
 };
 </script>
