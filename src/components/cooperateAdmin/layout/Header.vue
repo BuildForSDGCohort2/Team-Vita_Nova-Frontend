@@ -48,7 +48,7 @@
           </v-list-item-icon>
           <v-list-item-title>Insights</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/company-profile" class="menu" color="red">
+        <v-list-item link to="/cooperate/preview-profile" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-format-float-left</v-icon>
           </v-list-item-icon>

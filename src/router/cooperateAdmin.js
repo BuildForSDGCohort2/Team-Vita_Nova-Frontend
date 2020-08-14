@@ -49,4 +49,25 @@ export default [
             requiresAuth: true
         }
     }
+    ,
+    {
+        path: "/cooperate/preview-profile",
+        name: "PreviewProfile",
+        component: () =>
+            import("../views/cooperateAdmin/PreviewProfile")
+        ,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: "/cooperate/update-profile",
+        name: "UpdateProfile",
+        component: () =>
+            import("../views/cooperateAdmin/UpdateProfile")
+        ,
+        meta: {
+            requiresAuth: true
+        }
+    }
 ]
