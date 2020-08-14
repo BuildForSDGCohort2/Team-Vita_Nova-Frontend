@@ -1,9 +1,5 @@
 <template>
-  <v-responsive>
-    <br />
-    <Menu />
-
-    <br />
+  <div>
     <v-card max-width="1450" class="mx-auto" elevation="0">
       <h3
         style="padding-left:10px;
@@ -40,7 +36,7 @@
       >Top Design Thinking Courses</h3>
       <DesignThinking />
     </v-card>
-  </v-responsive>
+  </div>
 </template>
 
 <script>
