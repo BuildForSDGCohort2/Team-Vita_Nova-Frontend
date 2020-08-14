@@ -24,11 +24,20 @@ export default [
       )
   },
   {
-    path: "/cooperate/employee/view",
+    path: "/cooperate/courses",
     name: "ViewCourses",
     component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/cooperateAdmin/ViewCourses"
-      )
+        import(
+            /* webpackChunkName: "about" */ "../views/cooperateAdmin/ViewCourses"
+            )
+  },
+
+  {
+    path: "/cooperate/courseModule",
+    name: "CourseModule",
+    component: () =>
+        import(
+            /* webpackChunkName: "about" */ "../views/cooperateAdmin/CourseModule"
+            )
   }
 ];

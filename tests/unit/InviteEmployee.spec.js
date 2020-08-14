@@ -28,6 +28,9 @@ describe('InviteEmployee', ()=>{
         const defaultData = InviteEmployee.data();
         expect(defaultData.email).toBe("");
     });
+    it("send invite button clicks", () => {
+        wrapper.find("v-btn").trigger("Send Invite");
+    });
     it("renders a vue instance", () => {
         expect(mount(InviteEmployee).isVueInstance()).toBe(true);
     });
