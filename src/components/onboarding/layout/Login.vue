@@ -18,11 +18,11 @@
 }
 .login-button {
   position: relative;
-  left: 35rem;
+  left: 70%;
 }
 .onboarding-logo {
   position: relative;
-  left: 8rem;
+  left: 7.5rem;
   top: 1rem;
   color: transparent !important;
   background-color: transparent !important;

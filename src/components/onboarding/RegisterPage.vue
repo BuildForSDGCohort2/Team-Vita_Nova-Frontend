@@ -1,60 +1,49 @@
 <template>
-  <v-row class="text-center justify-center pt-0">
-    <v-col cols="6" class="pt-0">
-      <div class="login-coloumn-left">
-        <h3>Create your account</h3>
-
+  <v-row>
+    <v-col md="6">
+      <v-card class="px-12 mx-auto mt-10" flat width="600">
+        <h1>Create your account</h1>
         <ValidationObserver v-slot="{ handleSubmit }">
-          <v-form
-            class="register-form"
-            v-if="!submitted"
-            @submit.prevent="handleSubmit(handleRegister)"
-          >
+          <v-form v-if="!submitted" @submit.prevent="handleSubmit(handleRegister)">
             <divgit v-if="errorMsg">
               <span class="err text-xl-center">{{errorMsg}}</span>
             </divgit>
             <Loader :loading="loading" :message="message" />
-            <v-row class="full">
-              <v-col class="full-col">
-                <ValidationProvider name="First Name" rules="required|alpha" v-slot="{ errors }">
+            <ValidationProvider name="Name" rules="required|alpha" v-slot="{ errors }">
+              <span v-show="errors" class="err">{{ errors[0] }}</span>
+              <v-row style="height:60%">
+                <v-col md="6">
                   <v-text-field
+                    height="20"
                     label="First Name"
                     outlined
                     name="firstName"
                     v-model="user.first_name"
-                    class="first-last-Name"
                     color="red"
                   ></v-text-field>
-                  <span class="err">{{ errors[0] }}</span>
-                </ValidationProvider>
-              </v-col>
-              <v-col class="full-col">
-                <ValidationProvider name="Last Name" rules="required|alpha" v-slot="{ errors }">
+                </v-col>
+                <v-col md="6">
                   <v-text-field
                     label="Last Name"
                     name="lastName"
                     outlined
                     v-model="user.last_name"
-                    class="first-last-Name"
                     color="red"
                   ></v-text-field>
-                  <span class="err">{{ errors[0] }}</span>
-                </ValidationProvider>
-              </v-col>
-            </v-row>
+                </v-col>
+              </v-row>
+            </ValidationProvider>
             <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
-              <span class="err">{{ errors[0] }}</span>
               <v-text-field
                 label="Email Address"
                 name="emailAddress"
                 v-model="user.email"
                 outlined
                 color="red"
-                class="register-input"
               ></v-text-field>
+              <span v-show="errors" class="err">{{ errors[0] }}</span>
             </ValidationProvider>
             <ValidationProvider name="password" rules="required|min:6" v-slot="{ errors }">
-              <span class="err">{{ errors[0] }}</span>
               <v-text-field
                 :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
                 @click:append="() => (value = !value)"
@@ -64,11 +53,10 @@
                 v-model="user.password"
                 outlined
                 color="red"
-                class="register-input"
               ></v-text-field>
+              <span v-show="errors" class="err">{{ errors[0] }}</span>
             </ValidationProvider>
             <ValidationProvider name="Company Name" rules="required" v-slot="{ errors }">
-              <span class="err">{{ errors[0] }}</span>
               <v-text-field
                 label="Company Name "
                 outlined
@@ -76,9 +64,9 @@
                 v-model="user.company_name"
                 color="red"
               ></v-text-field>
+              <span v-show="errors" class="err">{{ errors[0] }}</span>
             </ValidationProvider>
             <ValidationProvider name="Job Role" rules="required" v-slot="{ errors }">
-              <span class="err">{{ errors[0] }}</span>
               <v-combobox
                 append-icon="mdi-chevron-down"
                 :items="jobRolesSelect"
@@ -88,6 +76,7 @@
                 outlined
                 color="red"
               ></v-combobox>
+              <span class="err">{{ errors[0] }}</span>
             </ValidationProvider>
 
             <v-text-field
@@ -112,12 +101,12 @@
             <SubmitButton button-name="Create Account" />
           </v-form>
         </ValidationObserver>
-      </div>
+      </v-card>
     </v-col>
 
-    <v-col class="login-coloumn pt-0" cols="6">
+    <v-col class="d-none d-md-flex login-coloumn" cols="6">
       <div>
-        <v-img src="../../assets/Frame 725.png"></v-img>
+        <v-img src="../../assets/door-entrance-illo.svg" width="400"></v-img>
       </div>
     </v-col>
   </v-row>
@@ -214,12 +203,13 @@ export default {
   font-size: 13px;
   margin-bottom: 5px;
 }
-.login-coloumn-left {
-  width: 25rem !important;
-  margin-left: 10rem !important;
-  margin-top: 2rem;
-}
+
 .login-coloumn {
-  min-height: 70vh;
+  background-color: #fff0ce;
+}
+
+.v-image {
+  left: 40% !important;
+  top: 20% !important;
 }
 </style>

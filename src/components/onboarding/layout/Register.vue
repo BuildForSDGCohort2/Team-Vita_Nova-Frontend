@@ -18,7 +18,7 @@
 }
 .login-button {
   position: relative;
-  left: 35rem;
+  left: 70%;
 }
 .onboarding-logo {
   position: relative;
