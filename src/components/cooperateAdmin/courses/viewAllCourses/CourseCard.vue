@@ -2,16 +2,49 @@
   <v-card rounded="lg" elevation="6" width="600" height="300" :style="{'background-image':`url(${ cards.courseImageLink })`}" style="background-size: cover">
     <div class="overlay">
       <v-list-item>
-        <v-card-text class="headline prop font-weight-bold">
-          <h3 style="margin-top: 40px; line-height: 42px; ">{{ cards.course }}</h3>
-        </v-card-text>
-        <v-btn icon>
-          <v-icon color="#fff" >mdi-dots-vertical</v-icon>
-        </v-btn>
-
+        <v-row>
+          <v-col cols="12" md="10">
+            <v-card-text class="headline prop font-weight-bold">
+              <h3 style="line-height: 42px; ">{{ cards.course }}</h3>
+            </v-card-text>
+          </v-col>
+          <v-col cols="12" md="2">
+            <v-menu
+                bottom
+                offset-y
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    v-bind="attrs"
+                    v-on="on"
+                    icon
+                    style="margin-top: 60px; line-height: 42px; "
+                ><v-icon color="#fff">mdi-dots-vertical</v-icon></v-btn>
+              </template>
+              <v-list v-if="cards.company">
+                <v-list-item
+                    v-for="(item, i) in forMyCourses"
+                    :key="i"
+                    @click="onSelect"
+                >
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+              <v-list v-else>
+                <v-list-item
+                    v-for="(item, i) in forAllCourses"
+                    :key="i"
+                    @click="onSelect"
+                >
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-col>
+        </v-row>
       </v-list-item>
       <v-list-item>
-        <v-card-text class="prop" ><p style="margin-top: 0;">{{ cards.subtitle }}</p></v-card-text>
+        <v-card-text class="prop" ><p style="margin-top: -10px;">{{ cards.subtitle }}</p></v-card-text>
       </v-list-item>
     </div>
   </v-card>
@@ -20,21 +53,11 @@
 <style scoped>
 .headline {
   /* View Menu */
-
-  left: 54.72%;
-  right: 26.94%;
-  top: 33.35%;
-  bottom: 64.17%;
-
-  font-family: IBM Plex Sans;
+  font-family: IBM Plex Sans,serif;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-
-  /* identical to box height */
-  display: flex;
-  align-items: center;
-
+  margin-top: 40px;
   color: #FFFFFF;
 }
 .overlay {
@@ -47,17 +70,11 @@
   z-index: 1;
 }
 .prop {
-  font-family: IBM Plex Sans;
+  font-family: IBM Plex Sans,serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 21px !important;
-
-
-  /* identical to box height */
-  display: flex;
-  align-items: center;
-
   color: #FFFFFF;
 }
 </style>
@@ -66,6 +83,43 @@
 export default {
   props: {
     cards: Object
+  },
+  data: () => ({
+    notifications: false,
+    sound: true,
+    widgets: false,
+    forMyCourses: [
+      {
+        title: 'Edit Course',
+      },
+      {
+        title: 'Enroll to Course',
+      },
+      {
+        title: 'Add to Department',
+      },
+      {
+        title: 'Remove Employees',
+      },
+      {
+        title: 'Delete Course',
+      },
+    ],
+    forAllCourses: [
+      {
+        title: 'Add Employees to Course',
+      },
+      {
+        title: 'Add to Department',
+      },
+      {
+        title: 'Remove Employees',
+      },
+    ],
+  }),
+  methods: {
+    onSelect() {
+    }
   }
 };
 </script>
