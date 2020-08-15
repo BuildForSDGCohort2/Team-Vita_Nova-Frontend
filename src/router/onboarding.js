@@ -34,6 +34,7 @@ export default [
     {
         path: "/success",
         name: "registration_successful",
+        meta: { layout: 'Login' },
 
         component: () => import("../components/splashPages/ConfirmEmailPage")
     }

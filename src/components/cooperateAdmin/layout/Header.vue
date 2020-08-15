@@ -72,6 +72,8 @@
 </template>
 
 <script>
+const userData = JSON.parse(localStorage.getItem("userData"));
+
 export default {
   props: {
     source: String
@@ -87,10 +89,10 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.state.onboarding.user.email;
+      return userData.email;
     },
     profilePicture() {
-      return this.$store.state.onboarding.user.image;
+      return userData.image;
     }
   }
 };

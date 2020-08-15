@@ -2,8 +2,8 @@ import axios from 'axios';
 const API_URL = 'https://lamp-api.herokuapp.com';
 
 
-export const login = (user) => {
-    return axios
+export const login = async (user) => {
+    return await axios
         .post('/api/token/jwt', {
             email: user.email,
             password: user.password
@@ -19,7 +19,7 @@ export const login = (user) => {
 
             if (response) {
                 localStorage.setItem('userToken', JSON.stringify(response.data))
-                localStorage.setItem('userData', JSON.stringify(jsonPayload))
+                localStorage.setItem('userData', jsonPayload)
 
             }
             return jsonPayload;

@@ -64,6 +64,12 @@ export default {
             },
             {
               image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
             }
           ]
         },
@@ -79,6 +85,12 @@ export default {
             },
             {
               image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
             }
           ]
         },
@@ -86,6 +98,12 @@ export default {
           id: 2,
           department: "Disciplinary",
           avatars: [
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
             {
               image: require("../../../../assets/cynthia.png")
             },
