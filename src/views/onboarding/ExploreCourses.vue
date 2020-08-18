@@ -1,9 +1,9 @@
 <template>
   <v-responsive>
-    <v-container class="overlay" style="max-width: 90%" >
+    <v-container class="overlay" style="width: 70%" >
 
       <v-row>
-        <div>
+
         <h3
           style="
                padding-top: 50px;
@@ -17,7 +17,7 @@
         </h3>
 
         <SoftwareEngineer />
-        </div>
+
       </v-row>
 
       <v-row>

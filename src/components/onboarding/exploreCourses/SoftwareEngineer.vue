@@ -2,13 +2,13 @@
   <v-responsive>
     <v-row>
         <v-card v-for="(soft, i) in software" :key="i" cols="6" elevation="2" :loading="loading"
-                class="mx-auto my-12"
-                max-width="374">
+                class="mx-auto my-12 text-wrap"
+                width="374">
 
             <v-img height="250" :src="soft.src"></v-img>
 
             <v-card-title v-text="soft.course"></v-card-title>
-          <div v-text="soft.company" class=" subtitle-1">
+          <div v-text="soft.company" class="mx-4 subtitle-1">
           </div>
             <v-card-text>
               <v-row align="center" class="mx-0">
@@ -26,8 +26,8 @@
             </v-card-text>
         </v-card>
 
-    <v-p @click="showAll" style="color: #FF2E2E; border: 0px; float: right"
-      >View More >></v-p
+<!--    <v-p @click="showAll" style="color: #FF2E2E; border: 0px; float: right"-->
+<!--      >View More >></v-p-->
     >
     </v-row>
   </v-responsive>
