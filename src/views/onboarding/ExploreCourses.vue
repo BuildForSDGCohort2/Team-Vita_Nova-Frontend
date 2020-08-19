@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-container class="overlay" style="width: 70%" >
+    <v-container style="width: 70%" >
 
       <v-row>
 
@@ -16,7 +16,7 @@
           Top Software Development Courses
         </h3>
 
-        <SoftwareEngineer />
+r        <SoftwareEngineer />
 
       </v-row>
 

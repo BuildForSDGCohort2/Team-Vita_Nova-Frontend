@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-row>
+    <v-row class="overlay">
       <v-card v-for="(soft, i) in software" :key="i" cols="6" elevation="2" :loading="loading"
               class="mx-auto my-12 text-wrap"
               width="374">
