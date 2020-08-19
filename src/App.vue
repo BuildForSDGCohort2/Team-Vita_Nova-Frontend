@@ -10,7 +10,7 @@
     </div>
     <v-main>
       <v-container fluid class="app-container">
-        <router-view />
+        <router-view></router-view>
       </v-container>
     </v-main>
   </v-app>

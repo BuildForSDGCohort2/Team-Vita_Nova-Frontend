@@ -3,12 +3,8 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
         <v-row class="cloudCol">
-          <v-icon v-bind="attrs" v-on="on" color="#645262" dark
-            >mdi-cloud-upload</v-icon
-          >
-          <p v-bind="attrs" v-on="on" class="inviteUpload">
-            Upload CSV Document of Employees
-          </p>
+          <v-icon v-bind="attrs" v-on="on" color="#645262" dark>mdi-cloud-upload</v-icon>
+          <p v-bind="attrs" v-on="on" class="inviteUpload">Upload CSV Document of Employees</p>
         </v-row>
       </template>
 
@@ -33,9 +29,7 @@
             <i class="fa fa-cloud-upload"></i>
 
             <v-container>
-              <v-icon v-bind="attrs" v-on="on" color="#645262" dark
-                >mdi-cloud-upload</v-icon
-              >
+              <v-icon v-bind="attrs" v-on="on" color="#645262" dark>mdi-cloud-upload</v-icon>
               <v-row id="file-drag-drop">
                 <p class="drag drop-files">Drag & Drop files here</p>
                 <v-input
@@ -58,8 +52,7 @@
               type="submit"
               :disabled="uploadDisabled"
               @click="dailog = false"
-              >Upload</v-btn
-            >
+            >Upload</v-btn>
           </v-card-actions>
         </v-form>
       </v-card>
@@ -72,11 +65,9 @@
 // import Vue from "vue";
 // import router from "../../../router";
 import UserService from "../../../../services/user-services";
-
 // Vue.filter('kb', val => {
 //     return Math.floor(val/1024);
 // });
-
 export default {
   name: "FileUploadPage",
   components: {},
@@ -100,48 +91,36 @@ export default {
   methods: {
     OnDragEnter(e) {
       e.preventDefault();
-
       this.dragCount++;
       this.isDragging = true;
     },
-
     btnClick: function() {
       this.$refs.dialog.hide();
     },
-
     OnDragLeave(e) {
       e.preventDefault();
-
       this.dragCount--;
       this.isDragging = false;
-
       if (this.dragCount <= 0) this.isDragging = false;
     },
-
     onInputChange(e) {
       console.log(e);
     },
-
     onDrop(e) {
       e.preventDefault();
       e.stopPropagation();
-
       this.isDragging = false;
-
       const droppedFiles = e.dataTransfer.files;
-
       if (!droppedFiles) return;
       [...droppedFiles].forEach(f => {
         this.files.push(f);
       });
     },
-
     removeFile(file) {
       this.files = this.files.filter(f => {
         return f != file;
       });
     },
-
     inviteEmployee() {
       this.loading = true;
       const data = new FormData();
@@ -149,10 +128,8 @@ export default {
         data.append("file" + (x + 1), f);
       });
       console.log("in the method", data);
-      UserService.inviteEmployee(data);
-      // .then(res => res.json())
-      console
-        .log("method")
+      UserService.inviteEmployee(data)
+        // .then(res => res.json())
         .then(
           res => {
             console.log("done uploading", res.data);
@@ -173,7 +150,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .card-level {
   height: 400px;
 }
@@ -182,7 +159,6 @@ export default {
   margin-left: 10em;
   padding-top: 4em;
 }
-
 .drag {
   font-family: IBM Plex Sans;
   font-style: normal;
@@ -191,10 +167,12 @@ export default {
   line-height: 15px;
   padding-left: 50px;
   /* identical to box height, or 105% */
-
   /* lamp-txt-1 */
-
   color: #645262;
+}
+.xClose {
+  float: right;
+  padding-right: 10px;
 }
 .uploader {
   width: 70%;
@@ -204,7 +182,19 @@ export default {
   border: 0.812796px dashed #645262;
   box-sizing: border-box;
   font-size: 20px;
-
+  /*&.dragging {*/
+  /*    color: #FFFFFF;*/
+  /*    border: 3px dashed red;*/
+  /*    .file-input label{*/
+  /*        background: #FFFFFF;*/
+  /*        color: red;*/
+  /*    }*/
+  /* }*/
+  /* i {*/
+  /*    font-size: 28px;*/
+  /* }*/
+  /* .file-input {*/
+  /*    }*/
 }
 @media only screen and (max-width: 600px) {
   .invite-form {
@@ -235,6 +225,7 @@ export default {
   margin-top: 15px;
   margin-bottom: 48px;
   justify-content: center;
+  /* semicolon-neutral-black */
   color: #2b1c1c;
 }
 .submit-button-container {
@@ -251,7 +242,6 @@ export default {
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
-
   color: #ffffff;
   box-shadow: none !important;
 }

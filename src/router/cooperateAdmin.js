@@ -2,10 +2,10 @@ export default [
   {
     path: "/cooperate/dashboard",
     name: "Dashboard",
-    component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/cooperateAdmin/Dashboard.vue"
-      )
+    component: () => import("../views/cooperateAdmin/Dashboard.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/cooperate/department/create",
@@ -16,20 +16,40 @@ export default [
       )
   },
   {
-    path: "/cooperate/employee/invite",
-    name: "InviteEmployee",
-    component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/cooperateAdmin/InviteEmployee"
-      )
+    path: "/cooperate/employee",
+    name: "Employee",
+    component: Employee,
+    children: [
+      {
+        path: "allEmployees",
+        component: () => import("../views/cooperateAdmin/AllEmployees")
+      },
+      {
+        path: "departments",
+        component: () => import("../views/cooperateAdmin/Departments")
+      }
+    ],
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/cooperate/courses",
-    name: "ViewCourses",
-    component: () =>
-        import(
-            /* webpackChunkName: "about" */ "../views/cooperateAdmin/ViewCourses"
-            )
+    name: "ManageCourses",
+    component: ManageCourses,
+    children: [
+      {
+        path: "viewAllCourses",
+        component: () => import("../views/cooperateAdmin/ViewAllCourses")
+      },
+      {
+        path: "createCourse",
+        component: () => import("../views/cooperateAdmin/CreateCourse")
+      }
+    ],
+    meta: {
+      requiresAuth: true
+    }
   },
 
   {
