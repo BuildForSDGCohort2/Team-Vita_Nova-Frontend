@@ -1,5 +1,3 @@
-import Home from "../views/Home.vue";
-
 import Employee from "../views/cooperateAdmin/Employee"
 import Courses from "../views/cooperateAdmin/Courses"
 
