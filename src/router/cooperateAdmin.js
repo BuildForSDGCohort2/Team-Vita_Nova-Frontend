@@ -1,5 +1,5 @@
 import Employee from "../views/cooperateAdmin/Employee";
-import ManageCourses from "../views/cooperateAdmin/ManageCourses";
+import Courses from "../views/cooperateAdmin/Courses";
 
 
 export default [
@@ -31,8 +31,8 @@ export default [
   },
   {
     path: "/cooperate/courses",
-    name: "ManageCourses",
-    component: ManageCourses,
+    name: "Courses",
+    component: Courses,
     children: [
       {
         path: "viewAllCourses",

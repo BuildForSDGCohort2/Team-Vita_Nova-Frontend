@@ -15,7 +15,9 @@
                 label="Search by Course name"
                 solo-inverted
                 flat
-                style="alignment: right;"
+                :style="{'alignment': 'right'}"
+                @keyup.enter.stop="search"
+                v-model="searching"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -28,7 +30,7 @@
         </v-row>
         <v-row class="view-all-course">
           <v-col cols="12">
-            <a @click="viewAll" :style="{'color': '#FF2E2E'}">View All</a>
+            <a @click="viewAll('myCourses')" :style="{'color': '#FF2E2E'}">View All</a>
           </v-col>
         </v-row>
         <v-row class="all-courses">
@@ -45,7 +47,7 @@
         </v-row>
         <v-row class="view-all-course">
           <v-col cols="12">
-            <a @click="viewAll" :style="{'color': '#FF2E2E'}">View All</a>
+            <a @click="viewAll('otherCourses')" class="all" :style="{'color': '#FF2E2E'}">View All</a>
           </v-col>
         </v-row>
       </div>
@@ -56,10 +58,32 @@
 <script>
   import CourseCard from "./CourseCard";
   export default {
+    name: "ViewAllCourses",
+    data() {
+      return {
+        searching: ''
+      }
+    },
     methods: {
-      viewAll() {
-
+      viewAll(type) {
+        if (type === 'myCourses'){
+          console.log(this.cards.myCourses);
+        }
+        else {
+          console.log(this.cards.forAll);
+        }
       },
+      search(){
+        const searchCourses = [];
+        if(this.searching){
+          for (const i in this.cards.myCourses) {
+            if (this.cards.myCourses.hasOwnProperty(i) && this.cards.myCourses[i].course.toLowerCase().match(this.searching.toLowerCase())) {
+              searchCourses.unshift(this.cards.myCourses[i].course);
+            }
+          }
+        }
+        console.log(searchCourses);
+      }
     },
     components: {
       CourseCard

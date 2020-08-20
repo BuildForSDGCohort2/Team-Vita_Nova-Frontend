@@ -34,7 +34,6 @@
 }
 .view-all-course {
   /* View Courses */
-  /*position: absolute;*/
   left: 7.04%;
   right: 55.89%;
   top: 12.33%;
@@ -48,8 +47,6 @@
 }
 .menu {
   /* View Menu */
-
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
