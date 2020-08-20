@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateProfile.vue should have a custom title and match snapshot 1`] = `
+<v-container>
+  <v-row no-gutters="">
+    <v-col cols="12" md="12">
+      <h3 class="title-header">Edit Company Profile</h3>
+      <p class="card-title mt-5">Change Company Logo</p>
+      <v-card class="logo-card">
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-img src="" width="8rem" height="6rem" class="ml-6 "></v-img>
+          </v-col>
+          <v-col cols="12" md="6">
+            <div class="color-title">Upload your brand logo</div>
+            <v-btn class="ml-16 #F8F8F8 black--text">
+              upload your files
+            </v-btn> <input type="file" style="display: none;">
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
+  <v-row no-gutters="">
+    <v-col cols="12" md="12">
+      <p class="card-title mt-8">Primary Color</p>
+      <v-card class="logo-card">
+        <v-row>
+          <v-col cols="12" md="6">
+            <div class="mt-4 ml-5">Choose a primary color</div>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-btn tile="" color="#960C0C" width="300" height="50" class="drop-down-button">
+              <v-icon color="white">mdi-pencil</v-icon>
+            </v-btn>
+            <v-color-picker elevation="10" style="display: none;"></v-color-picker>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
+  <v-row>
+    <v-col cols="12" md="12">
+      <p class="card-title mr-16 mt-8">Edit company information</p>
+      <v-card class="profile-card pa-16">
+        <v-row>
+          <v-col cols="12" md="12" class="ma-auto ">
+            <!---->
+            <v-text-field label="Company Name" outlined="" color="red" class="text-field ma-auto"></v-text-field>
+            <v-text-field label="Website" outlined="" color="red" class="text-field ma-auto"></v-text-field>
+            <v-text-field label="No of Employees(Optional)" outlined="" name="noOfEmployees" color="red" class="text-field ma-auto"></v-text-field>
+            <v-text-field label="Yearly Training Budget(Optional)" outlined="" name="yearlyTrainingBudget" color="red" class="text-field ma-auto"></v-text-field>
+            <v-combobox items="Accounting &amp; Finance,Human Resources Management  and Administration,Technology,Marketing &amp; Communications,Outsourcing,Legals,Logistics,Production,Research and Development (often abbreviated to R&amp;D),Purchasing,Marketing (including the selling function),Others" label="Business Industry" hint="Industry not included?add and press enter" multiple="" persistent-hint="" chips="" outlined="" color="red" class="text-field ma-auto"></v-combobox>
+          </v-col>
+        </v-row>
+        <v-responsive class="float-right mr-md-16">
+          <v-btn data-testid="submit-button" class="update red white--text mr-md-7">Update</v-btn>
+        </v-responsive>
+      </v-card>
+    </v-col>
+  </v-row>
+</v-container>
+`;

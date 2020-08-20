@@ -9,7 +9,7 @@
             <v-col cols="12" md="6">
               <v-img
                 class="ml-6 "
-                :src="profile.logo"
+                :src="logo"
                 width="8rem"
                 height="6rem"
               ></v-img>
@@ -29,24 +29,6 @@
                 type="file"
                 @change="handleImage"
               />
-              <!--              <template>-->
-              <!--                <v-file-input-->
-              <!--                  v-model="files"-->
-              <!--                  placeholder="choose from file..."-->
-              <!--                  filled-->
-              <!--                  flat-->
-              <!--                  outlined-->
-              <!--                  prepend-icon=""-->
-              <!--                  dense-->
-              <!--                  class="input-field"-->
-              <!--                >-->
-              <!--                  <template v-slot:selection="{ text }">-->
-              <!--                    <v-chip small label color="primary">-->
-              <!--                      {{ text }}-->
-              <!--                    </v-chip>-->
-              <!--                  </template>-->
-              <!--                </v-file-input>-->
-              <!--              </template>-->
             </v-col>
           </v-row>
         </v-card>
@@ -89,82 +71,84 @@
         <v-card class="profile-card pa-16">
           <v-row>
             <v-col cols="12" md="12" class="ma-auto ">
-<!--              <form-->
-<!--                v-if="!submitted"-->
-<!--                @submit.prevent="handleSubmit(handleRegister)"-->
-<!--              >-->
-                <v-text-field
-                  label="Company Name"
-                  outlined
-                  name="companyName"
-                  v-model="companyName"
-                  color="red"
-                  class="text-field ma-auto"
-                ></v-text-field>
+              <!--                            <form-->
+              <!--                              v-if="!submitted"-->
+              <!--                              @submit.prevent="handleSubmit(handleRegister)"-->
+              <!--                            >-->
+              <Loader :loading="loading" :message="message" />
+              <v-text-field
+                label="Company Name"
+                outlined
+                color="red"
+                class="text-field ma-auto"
+                readonly
+                v-model="event.company_name"
+              ></v-text-field>
 
-                <v-text-field
-                  label="Website"
-                  outlined
-                  name="website"
-                  v-model="website"
-                  color="red"
-                  class="text-field ma-auto"
-                ></v-text-field>
+              <v-text-field
+                label="Website"
+                outlined
+                color="red"
+                class="text-field ma-auto"
+                readonly
+                v-model="event.website"
+              ></v-text-field>
 
-                <v-text-field
-                  append-icon="mdi-chevron-down"
-                  label="No of Employees(Optional)"
-                  outlined
-                  name="noOfEmployees"
-                  v-model="noOfEmployees"
-                  color="red"
-                  class="text-field ma-auto"
-                ></v-text-field>
+              <v-text-field
+                label="No of Employees(Optional)"
+                outlined
+                name="noOfEmployees"
+                v-model="noOfEmployees"
+                color="red"
+                class="text-field ma-auto"
+              ></v-text-field>
 
-                <v-text-field
-                  append-icon="mdi-chevron-down"
-                  label="Yearly Training Budget(Optional)"
-                  outlined
-                  name="yearlyTrainingBudget"
-                  v-model="Yearly_Training_Budget"
-                  color="red"
-                  class="text-field ma-auto"
-                ></v-text-field>
+              <v-text-field
+                label="Yearly Training Budget(Optional)"
+                outlined
+                name="yearlyTrainingBudget"
+                v-model="Yearly_Training_Budget"
+                color="red"
+                class="text-field ma-auto"
+              ></v-text-field>
 
-                <v-combobox
-                  :items="businessIndustries"
-                  label="Business Industry"
-                  hint="Industry not included?add and press enter"
-                  multiple
-                  persistent-hint
-                  chips
-                  outlined
-                  v-model="selectBusinessIndustry"
-                  color="red"
-                  class="text-field ma-auto"
-                >
-                  <template v-slot:selection="data">
-                    <v-chip
-                      :key="JSON.stringify(data.item)"
-                      v-bind="data.attrs"
-                      :input-value="data.selected"
-                      :disabled="data.disabled"
-                      @click:close="data.parent.selectItem(data.item)"
-                    >
-                      <v-avatar
-                        class="accent white--text"
-                        left
-                        v-text="data.item.slice(0, 1).toUpperCase()"
-                      ></v-avatar>
-                      {{ data.item }}
-                    </v-chip>
-                  </template>
-                </v-combobox>
-<!--              </form>-->
+              <v-combobox
+                :items="businessIndustries"
+                label="Business Industry"
+                hint="Industry not included?add and press enter"
+                multiple
+                persistent-hint
+                chips
+                outlined
+                v-model="selectBusinessIndustry"
+                color="red"
+                class="text-field ma-auto"
+              >
+                <template v-slot:selection="data">
+                  <v-chip
+                    :key="JSON.stringify(data.item)"
+                    v-bind="data.attrs"
+                    :input-value="data.selected"
+                    :disabled="data.disabled"
+                    @click:close="data.parent.selectItem(data.item)"
+                  >
+                    <v-avatar
+                      class="accent white--text"
+                      left
+                      v-text="data.item.slice(0, 1).toUpperCase()"
+                    ></v-avatar>
+                    {{ data.item }}
+                  </v-chip>
+                </template>
+              </v-combobox>
+              <!--              </form>-->
             </v-col>
           </v-row>
           <v-responsive class="float-right mr-md-16">
-            <v-btn data-testid="submit-button" class="update red white--text mr-md-7" @click="submit"
+            <v-btn
+              data-testid="submit-button"
+              class="update red white--text mr-md-7"
+              @click="handleSubmit"
               >Update</v-btn
             >
           </v-responsive>
@@ -175,20 +159,33 @@
 </template>
 
 <script>
-// import UserService from "../../../services/user-services";
+import UserService from "../../../services/user-services";
+import Loader from "../../ui/loader/Loader";
 
 export default {
   name: "UpdateProfile",
+  components:{
+    Loader
+  },
+
   data() {
     return {
-      profile: {
-        logo:"",
-        companyName: "",
-        website: "",
-        selectBusinessIndustry: [],
-        noOfEmployees: "",
-        Yearly_Training_Budget: ""
-      }
+      event:{
+        company_name:"",
+        website:""
+      },
+      files: [],
+      color: false,
+      picker: { hex: " " },
+      logo: "",
+      selectBusinessIndustry: [],
+      noOfEmployees: "",
+      Yearly_Training_Budget: "",
+      submitted: false,
+      loading: false,
+      message: ".",
+      errorMsg: "",
+      value: true
     };
   },
   methods: {
@@ -196,16 +193,49 @@ export default {
       let file = e.target.files[0];
       let reader = new FileReader();
       reader.onloadend = () => {
-        this.profile.logo = reader.result;
+        this.logo = reader.result;
       };
       reader.readAsDataURL(file);
     },
-    handleCreateCourse() {
-      console.log(this.course);
+
+    getProfile(){
+      console.log("getProfile called..")
+      UserService.getProfile()
+              .then(res => {
+                console.log(res)
+                this.event.company_name = res.data.company_name;
+                this.event.website = res.data.website;
+              })
+
     },
-    submit(){
-      this.$emit('formSubmitted', { name: this.name })
-    }
+
+    handleSubmit() {
+      this.loading = true;
+      const profile = {
+        number_of_employees: this.noOfEmployees,
+        yearly_training_budget: this.Yearly_Training_Budget,
+        business_industries: this.selectBusinessIndustry,
+        company_logo: this.logo,
+        primary_color: this.picker.hex
+      };
+      UserService.Profile(profile).then(
+              profile => {
+                console.log(profile.data);
+                this.$router.push("/cooperate/preview-profile");
+              },
+              error => {
+                this.loading = false;
+                console.log(error);
+                // this.message =
+                //     (error.response && error.response.data) ||
+                //     error.message ||
+                //     error.toString();
+                this.errorMsg = error.response.profile.detail;
+              })
+    },
+  },
+  created() {
+    this.getProfile()
   },
   computed: {
     businessIndustries() {

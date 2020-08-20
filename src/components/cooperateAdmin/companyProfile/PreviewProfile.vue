@@ -9,7 +9,7 @@
       </v-col>
       <v-col cols="12" md="6">
         <div depressed class="header-button">
-          <v-btn to="/cooperate/update-profile" class="edit-button red white--text mr-sm-10" @click="submit()"
+          <v-btn to="/cooperate/update-profile" class="edit-button red white--text mr-sm-10"
             >Edit Profile</v-btn
           >
         </div>
@@ -19,7 +19,8 @@
           <v-row>
             <v-col cols="6" md="6">
               <v-card flat class="logo-card">
-                <v-img src="../../../../src/assets/sterling.svg"
+                <p v-if="event === null">N/A</p>
+                <v-img  :src="event.company_logo"
                   aspect-ratio="1.7"
                 ></v-img>
               </v-card>
@@ -28,47 +29,51 @@
           <v-row>
             <v-col cols="12">
               <v-card flat>
-                <v-card-title class="name-card">{{ company }}</v-card-title>
+                <v-card-title class="name-card mr-sm-1"><p v-if="event.company_name === null">N/A</p>
+                <p v-else>{{ event.company_name}}</p></v-card-title>
               </v-card>
             </v-col>
           </v-row>
           <v-row>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable"
+                <v-card-title class="font-label "
                   >BUSINESS INDUSTRY</v-card-title>
 
-                <v-card-text class="font-data">{{
-                  businessIndustry
-                }}</v-card-text>
+                <v-card-text class="font-data"  v-for="business in event.business_industries" :key="business.business_industries"><p v-if="event.business_industries === null">N/A</p>
+                    <p v-else-if="business===''" >N/A</p>
+                  <p v-else class="pb-0 pt-0">{{business+"  " }}</p>
+                </v-card-text>
               </v-card>
             </v-col>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable">COMPANY WEBSITE</v-card-title>
-                <v-card-text class="font-data">{{
-                  companyWebsite
-                }}</v-card-text>
+                <v-card-title class="font-label">COMPANY WEBSITE</v-card-title>
+                <v-card-text class="font-data"><p v-if="event.website === null">N/A</p>
+                 <p v-else> {{event.website
+                }}</p></v-card-text>
               </v-card>
             </v-col>
           </v-row>
           <v-row>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable"
-                  >YEARLY TRAINING BUDGET</v-card-title
+                <v-card-title class="font-label">YEARLY TRAINING BUDGET</v-card-title
                 >
-               <v-card-text class="font-data">{{ budget }}</v-card-text>
+               <v-card-text class="font-data">
+                 <p v-if="event.yearly_training_budget === null">N/A</p>
+                 <p v-else>{{ event.yearly_training_budget }}</p></v-card-text>
               </v-card>
             </v-col>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable"
-                  >NUMBER OF EMPLOYEES</v-card-title
-                >
-                <v-card-text class="font-data">{{
-                  numberOfEmployees
-                }}</v-card-text>
+                <v-card-title class="font-label"
+                  >NUMBER OF EMPLOYEES</v-card-title>
+                <v-card-text class="font-data">
+                  <p v-if="event.number_of_employees === null">N/A</p>
+                  <p v-else>{{
+                  event.number_of_employees
+                    }}</p></v-card-text>
               </v-card>
             </v-col>
           </v-row>
@@ -81,48 +86,35 @@
 <script>
 
 
-export default {
-  // props: {
-  //     event: Object
-  // },
-  data() {
-    return {
-        img: "/src/assets/sterling.svg",
-        company: "Sterling Bank Plc",
-        businessIndustry: "Banking and Finance",
-        companyWebsite: "sterlingbank.com",
-        budget: "N/A",
-        numberOfEmployees: "12"
-    };
-  },
-  methods: {
-    submit() {
-      this.$emit("lalala");
-    },
+import PreviewProfile from "../../../views/cooperateAdmin/PreviewProfile";
 
-  }
+export default {
+  props: {
+      title:PreviewProfile,
+      event: Object
+  },
+  // data() {
+  //   return {
+  //       img: "/src/assets/sterling.svg",
+  // "../../../../src/assets/sterling.svg"
+  //       company: "Sterling Bank Plc",
+  //       businessIndustry: "Banking and Finance",
+  //       companyWebsite: "sterlingbank.com",
+  //       budget: "N/A",
+  //       numberOfEmployees: "12"
+  //   };
+  // },
+
 };
 </script>
 
 <style scoped>
-.header1 {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 42px;
-  /* identical to box height */
-
-  display: flex;
-  align-items: center;
-}
-.header {
+    .header {
   width: 20rem;
   height: auto;
   margin-top: 2rem;
   margin-left: 1rem;
   font-family: IBM Plex Sans;
-  font-style: normal;
   font-weight: normal;
   font-size: 17px;
 }
@@ -133,8 +125,6 @@ export default {
 }
 .card-header {
   max-width: 46rem;
-  margin-left: 1rem;
-  color: blue;
   margin-top: 1rem;
   height: auto;
 }
@@ -148,14 +138,14 @@ export default {
   width: 10rem;
 }
 .name-card {
-  margin-left: 37%;
+  margin-left: 40%;
   margin-top: 1rem;
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
 }
-.font-lable {
+.font-label {
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
@@ -163,19 +153,21 @@ export default {
   line-height: 19px;
   margin-left: 5rem;
   color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px!important;
 }
 .font-data {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.05em;
-  color: #2b1c1c;
-  margin-left: 5rem;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    color: #2b1c1c;
+    margin-left: 5rem;
 }
-@media only screen and (max-width: 600px) {
-}
+    .v-card__subtitle, .v-card__text, .v-card__title{
+      padding: 0px !important;
+    }
 </style>

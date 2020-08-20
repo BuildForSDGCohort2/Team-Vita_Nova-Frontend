@@ -1,11 +1,8 @@
-import UpdateProfile from "../../src/components/cooperateAdmin/companyProfile/UpdateProfile";
+import UpdateProfile from "../../src/views/cooperateAdmin/UpdateProfile";
 import { mount ,createLocalVue } from '@vue/test-utils';
 import Vue from "vue";
 import Vuetify from "vuetify";
 
-var app = document.createElement('div')
-app.setAttribute('data-app', true)
-document.body.appendChild(app)
 
 Vue.use(Vuetify)
 describe('UpdateProfile', ()=> {
