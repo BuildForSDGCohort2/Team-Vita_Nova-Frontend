@@ -35,12 +35,12 @@
                   ><v-icon color="#fff" >mdi-dots-vertical</v-icon></v-btn>
                 </template>
                 <v-list v-if="cards.company">
-                  <v-list-item v-for="(item, i) in forMyCourses" :key="i" @click="onSelect(item)">
+                  <v-list-item v-for="(item, i) in forAssignedCourses" :key="i" @click="onSelect(item)">
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
                 <v-list v-else>
-                  <v-list-item v-for="(item, i) in forAllCourses" :key="i" @click="onSelect(item)">
+                  <v-list-item v-for="(item, i) in forExistingCourses" :key="i" @click="onSelect(item)">
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
@@ -71,7 +71,7 @@ export default {
     notifications: false,
     sound: true,
     widgets: false,
-    forMyCourses: [
+    forAssignedCourses: [
       {
         title: 'Edit Course',
         link: '#'
@@ -93,7 +93,7 @@ export default {
         link: '#'
       },
     ],
-    forAllCourses: [
+    forExistingCourses: [
       {
         title: 'Add Employees to Course',
         link: '#'
