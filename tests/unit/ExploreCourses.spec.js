@@ -1,7 +1,7 @@
-import ViewAllCourses from "@/components/cooperateAdmin/courses/viewAllCourses/ViewAllCourses";
 import { mount, createLocalVue } from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vue from "vue";
+import ExploreCourses from "@/components/cooperateAdmin/courses/ExploreCourses/ExploreCourses";
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false;
@@ -17,11 +17,11 @@ describe("View All Courses Component unit test", () => {
         expect(true).toBe(true);
     });
     test("render my courses and match snapshot", () => {
-        const wrapper = mount(ViewAllCourses, {
+        const wrapper = mount(ExploreCourses, {
             localVue,
             vuetify,
             propsData: {
-                title: "ViewAllCourses"
+                title: "ExploreCourses"
             }
         });
         expect(wrapper.html()).toMatchSnapshot();
@@ -29,11 +29,11 @@ describe("View All Courses Component unit test", () => {
     });
     test("render course cards", () => {
         const course = "Introduction to Robotics";
-        const wrapper = mount(ViewAllCourses, {
+        const wrapper = mount(ExploreCourses, {
             localVue,
             vuetify,
             propsData: {
-                title: "ViewAllCourses",
+                title: "ExploreCourses",
                 cards: {
                     myCourses: [
                         {
@@ -48,11 +48,11 @@ describe("View All Courses Component unit test", () => {
 
     test("calls viewAll when ViewAll link is clicked",  () => {
         const course = "Introduction to Robotics";
-        const wrapper = mount(ViewAllCourses, {
+        const wrapper = mount(ExploreCourses, {
             localVue,
             vuetify,
             propsData: {
-                title: "ViewAllCourses",
+                title: "ExploreCourses",
                 cards: {
                     myCourses: [
                         {

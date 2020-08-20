@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .submit-button-container {
   background: #ff2e2e !important;
-  border-radius: 8px !important;
+  border-radius: 4px !important;
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 700;

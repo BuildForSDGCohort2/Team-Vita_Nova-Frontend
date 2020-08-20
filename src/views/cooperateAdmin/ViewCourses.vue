@@ -1,17 +1,14 @@
 <template>
-  <ViewCourses />
+  <div>
+    <ViewAllCourses />
+  </div>
 </template>
 
 <script>
-
-import ViewCourses from "../../components/cooperateAdmin/courses/viewCourses/ViewCourses";
+import ViewAllCourses from "../../components/cooperateAdmin/courses/ExploreCourses/ExploreCourses";
 export default {
   components: {
-    ViewCourses
+    ViewAllCourses
   }
-}
+};
 </script>
-
-<style >
-
-</style>
