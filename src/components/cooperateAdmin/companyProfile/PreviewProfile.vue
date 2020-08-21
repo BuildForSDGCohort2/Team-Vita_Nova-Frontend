@@ -19,8 +19,7 @@
           <v-row>
             <v-col cols="6" md="6">
               <v-card flat class="logo-card">
-                <p v-if="event === null">N/A</p>
-                <v-img  :src="event.company_logo"
+                <v-img  :src=company_logo
                   aspect-ratio="1.7"
                 ></v-img>
               </v-card>
@@ -29,8 +28,8 @@
           <v-row>
             <v-col cols="12">
               <v-card flat>
-                <v-card-title class="name-card mr-sm-1"><p v-if="event.company_name === null">N/A</p>
-                <p v-else>{{ event.company_name}}</p></v-card-title>
+                <v-card-title class="name-card mr-sm-1">
+                <p>{{ company_name}}</p></v-card-title>
               </v-card>
             </v-col>
           </v-row>
@@ -40,17 +39,18 @@
                 <v-card-title class="font-label "
                   >BUSINESS INDUSTRY</v-card-title>
 
-                <v-card-text class="font-data"  v-for="business in event.business_industries" :key="business.business_industries"><p v-if="event.business_industries === null">N/A</p>
-                    <p v-else-if="business===''" >N/A</p>
-                  <p v-else class="pb-0 pt-0">{{business+"  " }}</p>
+                <v-card-text class="font-data"  v-for="business in business_industries" :key="business.business_industries">
+                  <p v-if="business.length === null ">N/A</p>
+                    <p v-else-if="business === '' " >N/A</p>
+                  <p v-else class="pb-0 pt-0">{{business }}</p>
                 </v-card-text>
               </v-card>
             </v-col>
             <v-col cols="12" md="6">
               <v-card flat>
                 <v-card-title class="font-label">COMPANY WEBSITE</v-card-title>
-                <v-card-text class="font-data"><p v-if="event.website === null">N/A</p>
-                 <p v-else> {{event.website
+                <v-card-text class="font-data">
+                 <p> {{website
                 }}</p></v-card-text>
               </v-card>
             </v-col>
@@ -61,8 +61,7 @@
                 <v-card-title class="font-label">YEARLY TRAINING BUDGET</v-card-title
                 >
                <v-card-text class="font-data">
-                 <p v-if="event.yearly_training_budget === null">N/A</p>
-                 <p v-else>{{ event.yearly_training_budget }}</p></v-card-text>
+                 <p>{{ yearly_training_budget }}</p></v-card-text>
               </v-card>
             </v-col>
             <v-col cols="12" md="6">
@@ -70,10 +69,7 @@
                 <v-card-title class="font-label"
                   >NUMBER OF EMPLOYEES</v-card-title>
                 <v-card-text class="font-data">
-                  <p v-if="event.number_of_employees === null">N/A</p>
-                  <p v-else>{{
-                  event.number_of_employees
-                    }}</p></v-card-text>
+                  <p >{{number_of_employees }}</p></v-card-text>
               </v-card>
             </v-col>
           </v-row>
@@ -87,24 +83,40 @@
 
 
 import PreviewProfile from "../../../views/cooperateAdmin/PreviewProfile";
+import UserService from "../../../services/user-services";
 
 export default {
   props: {
       title:PreviewProfile,
-      event: Object
   },
-  // data() {
-  //   return {
-  //       img: "/src/assets/sterling.svg",
-  // "../../../../src/assets/sterling.svg"
-  //       company: "Sterling Bank Plc",
-  //       businessIndustry: "Banking and Finance",
-  //       companyWebsite: "sterlingbank.com",
-  //       budget: "N/A",
-  //       numberOfEmployees: "12"
-  //   };
-  // },
+  data() {
+    return {
+      company_logo: "",
+      company_name: "",
+      business_industries: [],
+      website: "N/A",
+      yearly_training_budget: "N/A",
+      number_of_employees: "N/A"
+    };
+  },
+ methods:{
+   getProfile(){
+     UserService.getProfile()
+             .then(res =>{
+               console.log(res)
+               this.company_logo = res.data.company_logo
+               this.company_name = res.data.company_name;
+               this.business_industries = res.data.business_industries
+               this.website = res.data.website
+               this.yearly_training_budget = res.data.yearly_training_budget
+               this.number_of_employees = res.data.number_of_employees
 
+             })
+   }
+},
+  created() {
+    this.getProfile()
+  }
 };
 </script>
 
