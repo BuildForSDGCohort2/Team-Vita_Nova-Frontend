@@ -1,7 +1,7 @@
 <template>
   <v-responsive>
     <v-container style="max-width: 1000px" grid-list-md>
-      <div :style="{'font-family': 'IBM Plex Sans'}" v-if="isCreateCourse !== true">
+      <div :style="{'font-family': 'IBM Plex Sans'}" v-if="renderComponent">
         <v-row class="mt-n5">
           <v-col cols="12" md="9">
           </v-col>
@@ -10,7 +10,7 @@
                 class="btn"
                 large
                 :style="style"
-                @click="createCourse"
+                @click="forceRerender(false)"
             >
               <v-icon color="#fff">mdi-plus</v-icon>
               Create Course</v-btn>
@@ -57,7 +57,7 @@
         </v-row>
       </div>
       <div :style="{'font-family': 'IBM Plex Sans'}" v-else>
-        <CreateCourse :check="check" />
+        <CreateCourse :method="forceRerender" />
       </div>
     </v-container>
   </v-responsive>
@@ -70,7 +70,7 @@ export default {
   name: "MyCourses",
   data() {
     return {
-      isCreateCourse: false,
+      renderComponent: true,
       dropdown_font: ['Arial', 'Calibri', 'Courier', 'Verdana'],
       searching: '',
       select: '',
@@ -78,8 +78,9 @@ export default {
     }
   },
   methods: {
-    createCourse() {
-      this.isCreateCourse = true
+    forceRerender(condition) {
+      // Remove my-component from the DOM
+      this.renderComponent = condition;
     }
   },
   components: {
@@ -87,17 +88,6 @@ export default {
     CreateCourse
   },
   computed: {
-    check: {
-      // getter
-      get() {
-        return this.isCreateCourse;
-      },
-
-      // setter
-      set(value){
-        this.isCreateCourse = value;
-      }
-    },
     cards() {
       return {
         drafts: [
@@ -130,19 +120,6 @@ export default {
 .all-courses-header {
   color: #2B1C1C;
 }
-.view-all-course {
-  /* View All */
-
-  font-style: italic;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 23px;
-  letter-spacing: 0.05em;
-  text-decoration-line: underline;
-  text-align: right;
-
-  color: #FF2E2E;
-}
 .btn {
   /* Auto Layout */
   display: flex;
@@ -151,13 +128,13 @@ export default {
   position: static;
   width: 218px;
   height: 63px;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
 
   /* Inside Auto Layout */
   flex: none;
   order: 1;
   align-self: center;
-  margin: 24px 0px;
+  margin: 24px 0;
 }
 </style>

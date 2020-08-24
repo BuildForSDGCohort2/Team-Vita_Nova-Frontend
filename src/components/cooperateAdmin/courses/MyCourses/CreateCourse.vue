@@ -3,8 +3,8 @@
     <v-row >
       <v-col class="mt-n7" cols="12" md="6">
         <h4>
-          <a class="links" @click="doThis" :style="{'color': '#645262'}">Courses</a> /
-          <a class="links" :style="{'color': '#645262'}" @click="doThis">My Courses</a> /
+          <a class="links" @click="mounted" :style="{'color': '#645262'}">Courses</a> /
+          <a class="links" :style="{'color': '#645262'}" @click="mounted">My Courses</a> /
           <a @click="" :style="{'color': '#FF2E2E'}">Create Course</a>
         </h4>
       </v-col>
@@ -18,21 +18,19 @@
 </template>
 
 <script>
-import MyCourses from "./MyCourses";
 export default {
-  components: {
-    MyCourses
-  },
   props: {
-    check: Boolean
+    method: { type: Function },
   },
-  methods : {
-    doThis(){
-      MyCourses.data().isCreateCourse = false;
-      console.log(MyCourses.data().isCreateCourse)
-      this.$forceUpdate();
+  data() {
+    return { condition: true, };
+  },
+  methods: {
+    mounted() {
+      // Pass a value to the parent through the function
+      this.method(this.condition);
     }
-  },
+  }
 };
 </script>
 

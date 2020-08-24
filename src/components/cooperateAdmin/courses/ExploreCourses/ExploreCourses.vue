@@ -72,25 +72,6 @@
       selectChange() {
         console.log('inside selectChange')
       }
-      // viewAll(type) {
-      //   if (type === 'myCourses'){
-      //     console.log(this.cards.assignedCourses);
-      //   }
-      //   else {
-      //     console.log(this.cards.existingCourses);
-      //   }
-      // },
-      // search(){
-      //   const searchCourses = [];
-      //   if(this.searching){
-      //     for (const i in this.cards.assignedCourses) {
-      //       if (this.cards.assignedCourses.hasOwnProperty(i) && this.cards.assignedCourses[i].course.toLowerCase().match(this.searching.toLowerCase())) {
-      //         searchCourses.unshift(this.cards.assignedCourses[i].course);
-      //       }
-      //     }
-      //   }
-      //   console.log(searchCourses);
-      // }
     },
     components: {
       CourseCard
