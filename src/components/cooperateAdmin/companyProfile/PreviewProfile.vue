@@ -38,16 +38,11 @@
               <v-card flat>
                 <v-card-title class="font-label "
                   >BUSINESS INDUSTRY</v-card-title>
-                <div>
-                  <p v-if="business_industries.size===undefined || business_industries <= 0" >N/A</p>
 
-
-
-                <v-card-text v-else class="font-data"  v-for="business in business_industries" :key="business.business_industries">
+                <v-card-text class="font-data"  v-for="business in business_industries" :key="business.business_industries">
 
                   <p class="pb-0 pt-0">{{business }}</p>
                 </v-card-text>
-                </div>
               </v-card>
             </v-col>
             <v-col cols="12" md="6">

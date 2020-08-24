@@ -216,13 +216,8 @@ export default {
     },
 
     onSubmit() {
-      alert('Hi Call me')
-      if (this.business_industries !== '') {
-
-
-        this.loading = true;
-
-        const profile = {
+      this.loading = true;
+      const profile = {
           number_of_employees: this.noOfEmployees,
           yearly_training_budget: this.Yearly_Training_Budget,
           business_industries: this.selectBusinessIndustry,
@@ -245,11 +240,6 @@ export default {
                   //     error.toString();
                   this.errorMsg = error.response.profile.detail;
                 })
-      }
-      else{
-        this.loading =false
-        this.errorMsg = "Please Enter Your business Industry"
-      }
 
     },
   },
