@@ -56,14 +56,6 @@ export default {
       ],
       userState: this.$store.state.onboarding.status.loggedIn
     };
-  },
-  mounted() {
-    this.userlogout;
-  },
-  computed: {
-    userlogout() {
-      if (!this.userState) this.$router.push("/");
-    }
   }
 };
 </script>

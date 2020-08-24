@@ -9,7 +9,10 @@ export default [
         path: "/cooperate/dashboard",
         name: "Dashboard",
         component: () =>
-            import("../views/cooperateAdmin/Dashboard.vue")
+            import("../views/cooperateAdmin/Dashboard.vue"),
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: "/cooperate/employee",
@@ -23,7 +26,10 @@ export default [
             {
             path: "departments",
             component: () => import("../views/cooperateAdmin/Departments")
-        }]
+        }],
+        meta: {
+            requiresAuth: true
+        }
 
     },
     {
