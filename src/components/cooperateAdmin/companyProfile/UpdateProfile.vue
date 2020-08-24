@@ -69,12 +69,13 @@
       <v-col cols="12" md="12">
         <p class="card-title mr-16 mt-8">Edit company information</p>
         <v-card class="profile-card pa-16">
+          <ValidationObserver v-slot="{ handleSubmit }">
+
+            <form v-if="!submitted" @submit.prevent="handleSubmit(onSubmit)">
           <v-row>
             <v-col cols="12" md="12" class="ma-auto ">
-              <!--                            <form-->
-              <!--                              v-if="!submitted"-->
-              <!--                              @submit.prevent="handleSubmit(handleRegister)"-->
-              <!--                            >-->
+
+
               <Loader :loading="loading" :message="message" />
               <v-text-field
                 label="Company Name"
@@ -101,6 +102,7 @@
                 v-model="noOfEmployees"
                 color="red"
                 class="text-field ma-auto"
+                data-testid="input-employee"
               ></v-text-field>
 
               <v-text-field
@@ -112,6 +114,7 @@
                 class="text-field ma-auto"
               ></v-text-field>
 
+                  <ValidationProvider name="Business Industry" rules="required" v-slot="{ errors }">
               <v-combobox
                 :items="businessIndustries"
                 label="Business Industry"
@@ -123,6 +126,7 @@
                 v-model="selectBusinessIndustry"
                 color="red"
                 class="text-field ma-auto"
+
               >
                 <template v-slot:selection="data">
                   <v-chip
@@ -141,17 +145,20 @@
                   </v-chip>
                 </template>
               </v-combobox>
-              <!--              </form>-->
+                    <span class="error-msg">{{ errors[0] }}</span>
+                  </ValidationProvider>
+
             </v-col>
           </v-row>
           <v-responsive class="float-right mr-md-16">
             <v-btn
               data-testid="submit-button"
               class="update red white--text mr-md-7"
-              @click="handleSubmit"
-              >Update</v-btn
-            >
+              type="submit"
+              >Update</v-btn>
           </v-responsive>
+            </form>
+          </ValidationObserver>
         </v-card>
       </v-col>
     </v-row>
@@ -181,11 +188,11 @@ export default {
       selectBusinessIndustry: [],
       noOfEmployees: "",
       Yearly_Training_Budget: "",
-      submitted: false,
       loading: false,
       message: ".",
-      errorMsg: "",
-      value: true
+      value: true,
+      submitted:false,
+      errorMsg:''
     };
   },
   methods: {
@@ -199,7 +206,6 @@ export default {
     },
 
     getProfile(){
-      console.log("getProfile called..")
       UserService.getProfile()
               .then(res => {
                 console.log(res)
@@ -209,29 +215,42 @@ export default {
 
     },
 
-    handleSubmit() {
-      this.loading = true;
-      const profile = {
-        number_of_employees: this.noOfEmployees,
-        yearly_training_budget: this.Yearly_Training_Budget,
-        business_industries: this.selectBusinessIndustry,
-        company_logo: this.logo,
-        primary_color: this.picker.hex
-      };
-      UserService.Profile(profile).then(
-              profile => {
-                console.log(profile.data);
-                this.$router.push("/cooperate/preview-profile");
-              },
-              error => {
-                this.loading = false;
-                console.log(error);
-                // this.message =
-                //     (error.response && error.response.data) ||
-                //     error.message ||
-                //     error.toString();
-                this.errorMsg = error.response.profile.detail;
-              })
+    onSubmit() {
+      alert('Hi Call me')
+      if (this.business_industries !== '') {
+
+
+        this.loading = true;
+
+        const profile = {
+          number_of_employees: this.noOfEmployees,
+          yearly_training_budget: this.Yearly_Training_Budget,
+          business_industries: this.selectBusinessIndustry,
+          company_logo: this.logo,
+          primary_color: this.picker.hex
+        };
+        UserService.Profile(profile).then(
+                profile => {
+                  console.log(profile.data);
+                  alert('Form has been submitted!');
+                  this.$router.push("/cooperate/preview-profile");
+                },
+                error => {
+                  this.loading = false;
+                  alert('Failed to update form please check required fields/network!');
+                  console.log(error);
+                  // this.message =
+                  //     (error.response && error.response.data) ||
+                  //     error.message ||
+                  //     error.toString();
+                  this.errorMsg = error.response.profile.detail;
+                })
+      }
+      else{
+        this.loading =false
+        this.errorMsg = "Please Enter Your business Industry"
+      }
+
     },
   },
   created() {
@@ -307,9 +326,18 @@ export default {
   margin-top: 1rem;
   width: 45.3rem;
   height: auto;
-  margin-left: 5rem;
+  margin-left: 7rem;
 }
 .text-field {
   width: 25rem;
 }
+  .error-msg{
+    display: block;
+    color: red;
+    font-size: 13px;
+    margin-left: 6rem;
+  }
+
+
+
 </style>
