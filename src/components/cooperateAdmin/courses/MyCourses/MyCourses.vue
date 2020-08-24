@@ -92,7 +92,7 @@ export default {
       return {
         drafts: [
           {
-            course: "Introduction to Robotics",
+            title: "Introduction to Robotics",
             subtitle: "21 Modules Included",
             company: "Hobo Tech",
             courseImageLink: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
@@ -101,7 +101,7 @@ export default {
         ],
         publishedCourses: [
           {
-            course: "Nuxt.js for Beginners",
+            title: "Nuxt.js for Beginners",
             subtitle: "21 Modules Included",
             courseImageLink: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
             rank: 4.8

@@ -19,12 +19,12 @@
           </v-col>
           <v-col cols="12" md="5" >
             <v-text-field
+                v-model="search"
                 append-icon="mdi-magnify"
                 label="Search by Course name"
                 solo-inverted
                 flat
                 :style="{'alignment': 'right'}"
-                v-model="searching"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -63,9 +63,9 @@
     name: "ExploreCourses",
     data() {
       return {
+        search: '',
         dropdown_font: ['Arial', 'Calibri', 'Courier', 'Verdana'],
-        searching: '',
-        select: ''
+        select: '',
       }
     },
     methods: {
@@ -81,7 +81,7 @@
         return {
           assignedCourses: [
             {
-              course: "Introduction to Robotics",
+              title: "Introduction to Robotics",
               subtitle: "21 Modules Included",
               company: "Hobo Tech",
               courseImageLink: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
@@ -90,39 +90,39 @@
           ],
           existingCourses: [
             {
-              course: "Introduction to Python Programming",
+              title: "Introduction to Python Programming",
               subtitle: "21 Modules Included",
               courseImageLink: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
               rank: 4.8
             },
             {
-              course: "The Evolution of Design",
+              title: "The Evolution of Design",
               subtitle: "21 Modules Included",
               courseImageLink: 'https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80',
               rank: 4.8
             },
             {
-              course: "Art & Design Principles",
+              title: "Art & Design Principles",
               subtitle: "21 Modules Included",
               courseImageLink: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
               rank: 4.8
             },
             {
-              course: "Evolution Principle",
+              title: "Evolution Principle",
               subtitle: "21 Modules Included",
               company: "Hobo Tech",
               courseImageLink: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
               rank: 4.8
             },
             {
-              course: "The Game Theories",
+              title: "The Game Theories",
               subtitle: "21 Modules Included",
               company: "Hobo Tech",
               courseImageLink: 'https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80',
               rank: 4.8
             },
             {
-              course: "Art & Design Principles",
+              title: "Art & Design Principles",
               subtitle: "21 Modules Included",
               company: "Hobo Tech",
               courseImageLink: 'https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
@@ -130,6 +130,11 @@
             }
           ],
         };
+      },
+      filteredList() {
+        return this.cards.existingCourses.filter(course => {
+          return course.title.toLowerCase().includes(this.search.toLowerCase())
+        })
       },
     }
   };
@@ -141,18 +146,5 @@
 }
 .all-courses-header {
   color: #2B1C1C;
-}
-.view-all-course {
-  /* View All */
-
-  font-style: italic;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 23px;
-  letter-spacing: 0.05em;
-  text-decoration-line: underline;
-  text-align: right;
-
-  color: #FF2E2E;
 }
 </style>

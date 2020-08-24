@@ -13,9 +13,9 @@
                   <a :style="{'color': '#fff', 'text-decoration-line': 'none'}"
                      :elevation="hover ? 12 : 2"
                      :class="{ 'on-hover': hover }"
-                     :href="cards.course"
+                     :href="cards.title"
                   >
-                    <h1 :style="{'font-family': 'IBM Plex Sans', 'font-size': '24px', 'line-height': '31px'}">{{ cards.course }}</h1>
+                    <h1 :style="{'font-family': 'IBM Plex Sans', 'font-size': '24px', 'line-height': '31px'}">{{ cards.title }}</h1>
                   </a>
                 </v-card-text>
               </v-list-item>
