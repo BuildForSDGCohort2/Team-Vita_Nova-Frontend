@@ -232,7 +232,7 @@ export default {
                 },
                 error => {
                   this.loading = false;
-                  alert('Failed to update form please check required fields/network!');
+                  alert('Failed to update form please check required fields or network!');
                   console.log(error);
                   // this.message =
                   //     (error.response && error.response.data) ||
