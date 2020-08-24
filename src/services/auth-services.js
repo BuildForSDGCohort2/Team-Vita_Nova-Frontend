@@ -1,21 +1,35 @@
 import axios from 'axios';
 const API_URL = 'https://lamp-api.herokuapp.com';
 
-export const login = (user) => {
-    return axios
-        .post(API_URL + '/api/token/jwt', {
+
+export const login = async (user) => {
+    return await axios
+        .post('/api/token/jwt', {
             email: user.email,
             password: user.password
         })
         .then(response => {
-            if (response.data) {
-                localStorage.setItem('user', JSON.stringify(response.data))
+
+            var base64Url = response.data.access.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+
+            if (response) {
+                localStorage.setItem('userToken', JSON.stringify(response.data))
+                localStorage.setItem('userData', jsonPayload)
+
             }
-            return response.data;
+            return jsonPayload;
         });
 }
 
-export const logout = () => localStorage.removeItem('user');
+export const logout = () => {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userData')
+}
 
 export const register = (user) => {
     return axios.post(API_URL + '/api/accounts/register/', {

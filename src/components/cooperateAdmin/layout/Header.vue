@@ -7,14 +7,13 @@
 
       <img src="../../../assets/semfulllogo.svg" class="logo" height="30" />
       <v-spacer></v-spacer>
-
-      <v-avatar>
-        <img src="../../../assets/cynthia.png" alt="John" />
-      </v-avatar>
-      <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red">Cynthia Lorie</v-btn>
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>
       </v-btn>
+      <v-avatar>
+        <img :src="profilePicture" alt="John" />
+      </v-avatar>
+      <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red">{{user}}</v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped hide-overlay>
       <v-list nav dense>
@@ -24,24 +23,18 @@
           </v-list-item-icon>
           <v-list-item-title>Dashboard</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/insight" class="menu" color="red">
-          <v-list-item-icon>
-            <v-icon>mdi-google-circles</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Insight</v-list-item-title>
-        </v-list-item>
 
-        <v-list-item link to="/cooperate/message" class="menu" color="red">
-          <v-list-item-icon>
-            <v-icon>mdi-message-text-outline</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Message</v-list-item-title>
-        </v-list-item>
         <v-list-item link to="/cooperate/employee/allEmployees" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-clipboard-plus-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Employees</v-list-item-title>
+        </v-list-item>
+        <v-list-item link to="/cooperate/courses" class="menu" color="red">
+          <v-list-item-icon>
+            <v-icon>mdi-message-text-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Courses</v-list-item-title>
         </v-list-item>
         <v-list-item link to="/cooperate/helpCenter" class="menu" color="red">
           <v-list-item-icon>
@@ -49,17 +42,23 @@
           </v-list-item-icon>
           <v-list-item-title>Help Center</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/cooperate/setting" class="menu" color="red">
+        <v-list-item link to="/cooperate/insight" class="menu" color="red">
+          <v-list-item-icon>
+            <v-icon>mdi-google-circles</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Insights</v-list-item-title>
+        </v-list-item>
+        <v-list-item link to="/cooperate/preview-profile" class="menu" color="red">
+          <v-list-item-icon>
+            <v-icon>mdi-format-float-left</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Company Profile</v-list-item-title>
+        </v-list-item>
+        <v-list-item link to="/cooperate/settings" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-cog-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Settings</v-list-item-title>
-        </v-list-item>
-        <v-list-item link to="/cooperate/courses" class="menu" color="red">
-          <v-list-item-icon>
-            <v-icon>mdi-format-float-left</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Courses</v-list-item-title>
         </v-list-item>
         <v-list-item @click="handleLogout" class="dashboard-logout">
           <v-list-item-icon>
@@ -73,6 +72,8 @@
 </template>
 
 <script>
+const userData = JSON.parse(localStorage.getItem("userData"));
+
 export default {
   props: {
     source: String
@@ -84,6 +85,14 @@ export default {
     handleLogout() {
       this.$store.dispatch("onboarding/userLogout");
       this.$router.push("/");
+    }
+  },
+  computed: {
+    user() {
+      return userData.email;
+    },
+    profilePicture() {
+      return userData.image;
     }
   }
 };

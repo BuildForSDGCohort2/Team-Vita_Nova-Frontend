@@ -2,9 +2,11 @@ import { login, register, logout, } from '../../services/auth-services'
 
 export default {
     async userLogin({ commit }, user) {
-        return await login(user).then(
+        return login(user).then(
             user => {
+                console.log(user)
                 commit('loginSuccess', user);
+
                 return Promise.resolve(user);
             },
             error => {
@@ -14,12 +16,12 @@ export default {
         );
 
     },
-    userLogout({ commit }) {
+    async userLogout({ commit }) {
         logout();
-        commit('logout');
+        await commit('logout');
     },
-    userRegister({ commit }, user) {
-        return register(user).then(
+    async userRegister({ commit }, user) {
+        return await register(user).then(
             response => {
                 commit('registerSuccess');
                 return Promise.resolve(response.data);
