@@ -2,7 +2,7 @@
   <v-responsive>
     <v-container style="max-width: 1000px">
       <v-card flat class="tab-navigation">
-        <v-tabs background-color="white" color="#645262" class="menu" :style="{'font-family': 'IBM Plex Sans'}">
+        <v-tabs center-active background-color="white" color="#645262" class="menu" :style="style">
           <v-tab class="create-course" to="/cooperate/courses/myCourses"><h3>My Courses</h3></v-tab>
           <v-tab class="view-all-course" to="/cooperate/courses/exploreCourses"><h3>Explore Courses</h3></v-tab>
           <v-tabs-slider color="#FF2E2E"></v-tabs-slider>
@@ -11,6 +11,16 @@
     </v-container>
   </v-responsive>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      style: {'font-family': 'IBM Plex Sans'}
+    }
+  },
+}
+</script>
 
 <style scoped>
 .tab-navigation {

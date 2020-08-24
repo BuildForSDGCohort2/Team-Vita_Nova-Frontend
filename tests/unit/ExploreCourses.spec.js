@@ -7,15 +7,17 @@ Vue.use(Vuetify)
 Vue.config.productionTip = false;
 const localVue = createLocalVue();
 
-describe("View All Courses Component unit test", () => {
+describe("Explore Courses Component unit test", () => {
     let vuetify;
 
     beforeEach(() => {
         vuetify = new Vuetify();
     })
+
     test("setup correctly", () => {
         expect(true).toBe(true);
     });
+
     test("render my courses and match snapshot", () => {
         const wrapper = mount(ExploreCourses, {
             localVue,
@@ -25,8 +27,10 @@ describe("View All Courses Component unit test", () => {
             }
         });
         expect(wrapper.html()).toMatchSnapshot();
-        expect(wrapper.text()).toContain("My Courses");
+        expect(wrapper.text()).toContain("Assigned Courses");
+        expect(wrapper.text()).toContain("Existing Courses");
     });
+
     test("render course cards", () => {
         const course = "Introduction to Robotics";
         const wrapper = mount(ExploreCourses, {
@@ -46,27 +50,37 @@ describe("View All Courses Component unit test", () => {
         expect(wrapper.html()).toContain(course);
     });
 
-    test("calls viewAll when ViewAll link is clicked",  () => {
-        const course = "Introduction to Robotics";
+    test("sort by contain items",  () => {
+        const dropdown_font = ['Arial', 'Calibri', 'Courier', 'Verdana'];
         const wrapper = mount(ExploreCourses, {
             localVue,
-            vuetify,
-            propsData: {
-                title: "ExploreCourses",
-                cards: {
-                    myCourses: [
-                        {
-                            course: course
-                        }
-                    ]
-                }
-            }
+            vuetify
         });
-        wrapper.vm.viewAll = jest.fn();
+        expect(wrapper.vm.select).toBe('')
+        const items = wrapper.find('.select').props('items')
+        expect(items.length).toBe(4)
+        expect(items).toStrictEqual(dropdown_font)
+    });
 
-        wrapper.find('a.all').trigger('click');
+    test("sort by has no items selected by default",  () => {
+        const wrapper = mount(ExploreCourses, {
+            localVue,
+            vuetify
+        });
+        expect(wrapper.find('.select').props('select')).toBe(undefined)
+    });
 
-        expect(wrapper.vm.viewAll).toHaveBeenCalled();
+    test("sort by item changed",  () => {
+        const wrapper = mount(ExploreCourses, {
+            localVue,
+            vuetify
+        });
+        wrapper.findAll('.select').at(0).element.selected = true;
+        wrapper.find('.select').trigger('change');
+        expect(wrapper.vm.select).not.toBe(undefined)
+        // wrapper.vm.viewAll = jest.fn();
+        // wrapper.find('a.all').trigger('click');
+        // expect(wrapper.vm.viewAll).toHaveBeenCalled();
     });
 
 });

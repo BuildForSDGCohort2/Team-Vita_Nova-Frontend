@@ -3,8 +3,17 @@
     <v-container style="max-width: 1000px" grid-list-md>
       <div :style="{'font-family': 'IBM Plex Sans'}">
         <v-row>
-          <v-col class="d-flex" cols="12" sm="2" md="2">
-            <v-select class="my-2" :items="dropdown_font" label="Sort By:" flat outlined dense></v-select>
+          <v-col class="d-flex" cols="12" sm="2" md="2" >
+            <v-select
+                v-model="select"
+                @change="selectChange"
+                class="select my-2"
+                :items="dropdown_font"
+                label="Sort By:"
+                flat
+                outlined
+                dense
+            ></v-select>
           </v-col>
           <v-col cols="12" md="5">
           </v-col>
@@ -26,16 +35,11 @@
         </v-row>
         <v-row>
           <v-col cols="12" md="6" v-for="(card, index) in cards.assignedCourses" :key="index">
-            <div v-if="index <= 4">
+            <div>
               <CourseCard :cards="card"/>
             </div>
           </v-col>
         </v-row>
-<!--        <v-row class="view-all-course">-->
-<!--          <v-col cols="12">-->
-<!--            <a @click="viewAll('myCourses')" :style="{'color': '#FF2E2E'}">View All</a>-->
-<!--          </v-col>-->
-<!--        </v-row>-->
         <v-row class="all-courses">
           <v-col cols="12">
             <h3 class="all-courses-header" :style="{'text-transform': 'uppercase'}">Existing Courses</h3>
@@ -48,46 +52,45 @@
             </div>
           </v-col>
         </v-row>
-<!--        <v-row class="view-all-course">-->
-<!--          <v-col cols="12">-->
-<!--            <a @click="viewAll('otherCourses')" class="all" :style="{'color': '#FF2E2E'}">View All</a>-->
-<!--          </v-col>-->
-<!--        </v-row>-->
       </div>
     </v-container>
   </v-responsive>
 </template>
 
 <script>
-  import CourseCard from "./CourseCard";
+  import CourseCard from "../CourseCard";
   export default {
     name: "ExploreCourses",
     data() {
       return {
         dropdown_font: ['Arial', 'Calibri', 'Courier', 'Verdana'],
-        searching: ''
+        searching: '',
+        select: ''
       }
     },
     methods: {
-      viewAll(type) {
-        if (type === 'myCourses'){
-          console.log(this.cards.assignedCourses);
-        }
-        else {
-          console.log(this.cards.existingCourses);
-        }
-      },
-      search(){
-        const searchCourses = [];
-        if(this.searching){
-          for (const i in this.cards.assignedCourses) {
-            if (this.cards.assignedCourses.hasOwnProperty(i) && this.cards.assignedCourses[i].course.toLowerCase().match(this.searching.toLowerCase())) {
-              searchCourses.unshift(this.cards.assignedCourses[i].course);
-            }
-          }
-        }
-        console.log(searchCourses);
+      selectChange() {
+        console.log('inside selectChange')
       }
+      // viewAll(type) {
+      //   if (type === 'myCourses'){
+      //     console.log(this.cards.assignedCourses);
+      //   }
+      //   else {
+      //     console.log(this.cards.existingCourses);
+      //   }
+      // },
+      // search(){
+      //   const searchCourses = [];
+      //   if(this.searching){
+      //     for (const i in this.cards.assignedCourses) {
+      //       if (this.cards.assignedCourses.hasOwnProperty(i) && this.cards.assignedCourses[i].course.toLowerCase().match(this.searching.toLowerCase())) {
+      //         searchCourses.unshift(this.cards.assignedCourses[i].course);
+      //       }
+      //     }
+      //   }
+      //   console.log(searchCourses);
+      // }
     },
     components: {
       CourseCard

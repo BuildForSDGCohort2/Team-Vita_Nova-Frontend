@@ -16,10 +16,16 @@ export default [
         name: "Employee",
         component: Employee,
         children: [{
+            path: '',
+            name: 'employee',
+            redirect: { name: 'employee.allEmployees' }
+        },{
             path: "allEmployees",
+            name: 'employee.allEmployees',
             component: () => import("../views/cooperateAdmin/AllEmployees")
         }, {
             path: "departments",
+            name: 'employee.departments',
             component: () => import("../views/cooperateAdmin/Departments")
         }],
         meta: {
@@ -31,16 +37,19 @@ export default [
         path: "/cooperate/courses",
         name: "Courses",
         component: Courses,
-        children: [
-            {
-                path: "myCourses",
-                component: () => import("../views/cooperateAdmin/MyCourses")
-            },
-            {
-                path: "exploreCourses",
-                component: () => import("../views/cooperateAdmin/ExploreCourses")
-            }
-        ],
+        children: [{
+            path: '',
+            name: 'courses',
+            redirect: { name: 'courses.myCourses' }
+        },{
+            path: "myCourses",
+            name: 'courses.myCourses',
+            component: () => import("../views/cooperateAdmin/MyCourses")
+        },{
+            path: "exploreCourses",
+            name: 'courses.exploreCourses',
+            component: () => import("../views/cooperateAdmin/ExploreCourses")
+        }],
         meta: {
             requiresAuth: true
         }
