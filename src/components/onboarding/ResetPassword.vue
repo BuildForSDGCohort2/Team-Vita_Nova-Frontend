@@ -6,7 +6,7 @@
           <div class="login-card">
             <div class="mx-auto">
               <ValidationObserver v-slot="{ handleSubmit }">
-                <v-form class="login-form" @submit.prevent="handleSubmit(handleLogin)">
+                <v-form class="login-form" @submit.prevent="handleSubmit(handleRest)">
                   <h4 class="login-title pa-2">
                     Reset your
                     <br />password
@@ -54,9 +54,10 @@
 import SubmitButton from "../ui/buttons/SubmitButton";
 import User from "../../models/user";
 import Loader from "../ui/loader/Loader";
+import UserService from "../../services/user-services";
 export default {
   name: "ResetPassword",
-  components: { Loader, SubmitButton },
+  components: {Loader, SubmitButton},
   data() {
     return {
       title: "resetPassword",
@@ -67,32 +68,37 @@ export default {
       value: true
     };
   },
-  created() {
-    if (this.loggedIn) {
-      console.log("hi");
-      this.$router.push("/cooperate/dashboard");
-    }
-  },
+
   methods: {
-    handleLogin() {
+    handleRest() {
       this.loading = true;
-      if (this.user.email && this.user.password) {
-        this.$store.dispatch("onboarding/userLogin", this.user).then(
-          res => {
-            console.log(res.access);
-            this.$router.push("/cooperate/dashboard");
-          },
-          error => {
-            this.loading = false;
-            this.errorMsg = error;
-            // this.errorMsg= (error.response && error.response.data)
-            // ||error.message || error.toString();
-          }
-        );
+      const info = {
+                email: this.email,
+              },
+              handleRestPassword
+      (info)
+      {
+        UserService.handleResetPassword(info).then(
+                info => {
+                  console.log(info.data);
+                  alert('Form has been submitted!');
+                  this.$router.push("/login");
+                },
+                error => {
+                  this.loading = false;
+                  alert('Failed to update form please check required fields or network!');
+                  console.log(error);
+                  // this.message =
+                  //     (error.response && error.response.data) ||
+                  //     error.message ||
+                  //     error.toString();
+                  this.errorMsg = error.response.info.detail;
+                })
       }
-    }
-  }
-};
+    },
+
+  };
+}
 </script>
 
 <style scoped>
