@@ -75,9 +75,6 @@ export default {
       const info = {
                 email: this.email,
               },
-              handleRestPassword
-      (info)
-      {
         UserService.handleResetPassword(info).then(
                 info => {
                   console.log(info.data);
@@ -96,8 +93,6 @@ export default {
                 })
       }
     },
-
-  };
 }
 </script>
 
