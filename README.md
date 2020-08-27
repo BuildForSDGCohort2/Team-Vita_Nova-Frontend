@@ -1,0 +1,2 @@
+# Team-Vita_Nova-Frontend
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/80385c2ef06f49068ae95d0f6921339d)](https://app.codacy.com/gh/BuildForSDGCohort2/Team-Vita_Nova-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDGCohort2/Team-Vita_Nova-Frontend&utm_campaign=Badge_Grade_Dashboard)
