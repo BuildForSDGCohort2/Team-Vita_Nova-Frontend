@@ -1,7 +1,3 @@
-
-import Home from "../views/Home.vue";
-
-
 import Employee from "../views/cooperateAdmin/Employee"
 import Courses from "../views/cooperateAdmin/Courses"
 
@@ -20,10 +16,16 @@ export default [
         name: "Employee",
         component: Employee,
         children: [{
+            path: '',
+            name: 'employee',
+            redirect: { name: 'employee.allEmployees' }
+        },{
             path: "allEmployees",
+            name: 'employee.allEmployees',
             component: () => import("../views/cooperateAdmin/AllEmployees")
         }, {
             path: "departments",
+            name: 'employee.departments',
             component: () => import("../views/cooperateAdmin/Departments")
         }],
         meta: {
@@ -33,18 +35,21 @@ export default [
     },
     {
         path: "/cooperate/courses",
-        name: "ManageCourses",
+        name: "Courses",
         component: Courses,
-        children: [
-            {
-                path: "viewCourses",
-                component: () => import("../views/cooperateAdmin/ViewCourses")
-            },
-            {
-                path: "createCourse",
-                component: () => import("../views/cooperateAdmin/CreateCourse")
-            }
-        ],
+        children: [{
+            path: '',
+            name: 'courses',
+            redirect: { name: 'courses.myCourses' }
+        },{
+            path: "myCourses",
+            name: 'courses.myCourses',
+            component: () => import("../views/cooperateAdmin/MyCourses")
+        },{
+            path: "exploreCourses",
+            name: 'courses.exploreCourses',
+            component: () => import("../views/cooperateAdmin/ExploreCourses")
+        }],
         meta: {
             requiresAuth: true
         }

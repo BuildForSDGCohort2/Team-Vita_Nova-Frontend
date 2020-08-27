@@ -1,7 +1,6 @@
 <template>
   <div>
-    <CourseTab />
-
+    <CourseTabs />
     <v-container>
       <router-view />
     </v-container>
@@ -9,11 +8,11 @@
 </template>
 
 <script>
-import CourseTab from "../../components/cooperateAdmin/courses/CourseTab";
+import CourseTabs from "@/components/cooperateAdmin/courses/CourseTabs";
 export default {
-  name: "Employee",
+  name: "Courses",
   components: {
-    CourseTab
+    CourseTabs
   }
 };
 </script>

@@ -6,11 +6,15 @@
           <v-form class="my-auto" @submit.prevent="handleSubmit(handleLogin)">
             <h3 class="login-title">Welcome back</h3>
             <div v-if="errorMsg">
-              <span class="err text-xl-center">{{errorMsg}}</span>
+              <span class="err text-xl-center">{{ errorMsg }}</span>
             </div>
             <Loader :loading="loading" :message="message" />
 
-            <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
+            <ValidationProvider
+              name="E-mail"
+              rules="required|email"
+              v-slot="{ errors }"
+            >
               <span class="err">{{ errors[0] }}</span>
               <v-text-field
                 label="Email Address"
@@ -21,7 +25,11 @@
                 class="register-input"
               ></v-text-field>
             </ValidationProvider>
-            <ValidationProvider name="password" rules="required|min:6" v-slot="{ errors }">
+            <ValidationProvider
+              name="password"
+              rules="required|min:6"
+              v-slot="{ errors }"
+            >
               <span class="err">{{ errors[0] }}</span>
               <v-text-field
                 :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
@@ -36,12 +44,9 @@
               ></v-text-field>
             </ValidationProvider>
             <SubmitButton button-name="Login" class="login-btn" />
-            <v-btn
-              depressed
-              to="/password-reset"
-              light
-              class="forgot-password"
-            >Forgot your password?</v-btn>
+            <v-btn depressed to="/password-reset" light class="forgot-password"
+              >Forgot your password?</v-btn
+            >
           </v-form>
         </ValidationObserver>
       </div>

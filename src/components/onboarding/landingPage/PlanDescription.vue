@@ -4,7 +4,12 @@
     <v-row class="hero-section">
       <v-col md="8" class="d-none d-md-flex d-lg-flex">
         <v-card class="pa-2 hero-section-item" flat>
-          <v-img class="img1" height="500" width="500" src="../../../assets/VR.png"></v-img>
+          <v-img
+            class="img1"
+            height="500"
+            width="500"
+            src="../../../assets/VR.png"
+          ></v-img>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
@@ -16,9 +21,11 @@
             <v-list-item-content>
               <v-card-title class="headline">Large Enterprises</v-card-title>
 
-              <v-card-subtitle
-                class="subtitle"
-              >A plan for business owners and Large Firms, we have curated contents that would enhance large teams to be more productive in their daily endeavours</v-card-subtitle>
+              <v-card-subtitle class="subtitle"
+                >A plan for business owners and Large Firms, we have curated
+                contents that would enhance large teams to be more productive in
+                their daily endeavours</v-card-subtitle
+              >
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -31,9 +38,11 @@
             <v-list-item-content>
               <v-card-title class="headline">Small Business</v-card-title>
 
-              <v-card-subtitle
-                class="subtitle"
-              >A plan for business owners and Large Firms, we have curated contents that would enhance large teams to be more productive in their daily endeavours</v-card-subtitle>
+              <v-card-subtitle class="subtitle"
+                >A plan for business owners and Large Firms, we have curated
+                contents that would enhance large teams to be more productive in
+                their daily endeavours</v-card-subtitle
+              >
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -46,9 +55,11 @@
             <v-list-item-content>
               <v-card-title class="headline">Customisable Plans</v-card-title>
 
-              <v-card-subtitle
-                class="subtitle"
-              >A plan for business owners and Large Firms, we have curated contents that would enhance large teams to be more productive in their daily endeavours</v-card-subtitle>
+              <v-card-subtitle class="subtitle"
+                >A plan for business owners and Large Firms, we have curated
+                contents that would enhance large teams to be more productive in
+                their daily endeavours</v-card-subtitle
+              >
             </v-list-item-content>
           </v-list-item>
         </v-card>

@@ -16,7 +16,6 @@
                     <span class="err text-xl-center">{{ errorMsg }}</span>
                   </div>
                   <Loader :loading="loading" :message="message" />
-
                   <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
                     <span class="err">{{ errors[0] }}</span>
                     <v-text-field

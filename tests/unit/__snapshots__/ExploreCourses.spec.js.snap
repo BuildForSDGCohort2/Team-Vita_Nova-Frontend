@@ -1,0 +1,617 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Explore Courses Component unit test render my courses and match snapshot 1`] = `
+<div class="v-responsive" title="ExploreCourses">
+  <div class="v-responsive__content">
+    <div class="container grid-list-md" style="max-width: 1000px;">
+      <div style="font-family: IBM Plex Sans;">
+        <div class="row">
+          <div class="d-flex col-sm-2 col-md-2 col-12">
+            <div class="v-input select my-2 v-input--dense theme--light v-text-field v-text-field--solo-flat v-text-field--enclosed v-text-field--outlined v-select">
+              <div class="v-input__control">
+                <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-4" class="v-input__slot">
+                  <fieldset aria-hidden="true">
+                    <legend style="width: 0px;"><span>​</span></legend>
+                  </fieldset>
+                  <div class="v-select__slot"><label for="input-4" class="v-label theme--light" style="left: 0px; position: absolute;">Sort By:</label>
+                    <div class="v-select__selections"><input id="input-4" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+                    <div class="v-input__append-inner">
+                      <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                    </div><input type="hidden">
+                  </div>
+                  <div class="v-menu">
+                    <!---->
+                  </div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-12"></div>
+          <div class="col-md-5 col-12">
+            <div class="v-input theme--light v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--enclosed">
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="input-9" class="v-label theme--light" style="left: 0px; position: absolute;">Search by Course name</label><input id="input-9" type="text"></div>
+                  <div class="v-input__append-inner">
+                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--light"></i></div>
+                  </div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <h3 style="text-transform: uppercase;">Assigned Courses</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Introduction to Robotics" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Introduction to Robotics</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row all-courses">
+          <div class="col col-12">
+            <h3 class="all-courses-header" style="text-transform: uppercase;">Existing Courses</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Introduction to Python Programming" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Introduction to Python Programming</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=666&amp;q=80);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="The Evolution of Design" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">The Evolution of Design</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Art &amp; Design Principles" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Art &amp; Design Principles</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Evolution Principle" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Evolution Principle</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="The Game Theories" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">The Game Theories</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Art &amp; Design Principles" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Art &amp; Design Principles</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`View All Courses Component unit test render my courses and match snapshot 1`] = `
+<div class="v-responsive" title="ExploreCourses">
+  <div class="v-responsive__content">
+    <div class="container grid-list-md" style="max-width: 1000px;">
+      <div style="font-family: IBM Plex Sans;">
+        <div class="row">
+          <div class="d-flex col-sm-2 col-md-2 col-12">
+            <div class="v-input my-2 v-input--dense theme--light v-text-field v-text-field--solo-flat v-text-field--enclosed v-text-field--outlined v-select">
+              <div class="v-input__control">
+                <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-4" class="v-input__slot">
+                  <fieldset aria-hidden="true">
+                    <legend style="width: 0px;"><span>​</span></legend>
+                  </fieldset>
+                  <div class="v-select__slot"><label for="input-4" class="v-label theme--light" style="left: 0px; position: absolute;">Sort By:</label>
+                    <div class="v-select__selections"><input id="input-4" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+                    <div class="v-input__append-inner">
+                      <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                    </div><input type="hidden">
+                  </div>
+                  <div class="v-menu">
+                    <!---->
+                  </div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-12"></div>
+          <div class="col-md-5 col-12">
+            <div class="v-input theme--light v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--enclosed">
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="input-9" class="v-label theme--light" style="left: 0px; position: absolute;">Search by Course name</label><input id="input-9" type="text"></div>
+                  <div class="v-input__append-inner">
+                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--light"></i></div>
+                  </div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <h3 style="text-transform: uppercase;">Assigned Courses</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Introduction to Robotics" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Introduction to Robotics</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row all-courses">
+          <div class="col col-12">
+            <h3 class="all-courses-header" style="text-transform: uppercase;">Existing Courses</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Introduction to Python Programming" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Introduction to Python Programming</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=666&amp;q=80);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="The Evolution of Design" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">The Evolution of Design</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Art &amp; Design Principles" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Art &amp; Design Principles</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Evolution Principle" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Evolution Principle</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="The Game Theories" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">The Game Theories</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div>
+              <div>
+                <div class="v-card v-sheet theme--light elevation-2 rounded-lg" style="height: 250px; width: 600px; background-size: cover; background-image: url(https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60);">
+                  <div class="overlay">
+                    <div tabindex="-1" class="v-list-item theme--light">
+                      <div class="v-list-item__content">
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text headline ml-0 mt-5"><a elevation="2" href="Art &amp; Design Principles" class="" style="color: rgb(255, 255, 255); text-decoration-line: none;">
+                              <h1 style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;">Art &amp; Design Principles</h1>
+                            </a></div>
+                        </div>
+                        <div tabindex="-1" class="v-list-item theme--light">
+                          <div class="v-card__text prop mt-n10 pr-5" style="font-family: IBM Plex Sans; font-size: 14px;">21 Modules Included</div>
+                        </div>
+                      </div>
+                      <div class="v-list-item__icon">
+                        <div class="v-menu"><button type="button" class="mt-7 mr-5 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="font-family: IBM Plex Sans; font-size: 24px; line-height: 31px;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i></span></button>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="v-footer font-weight-medium v-sheet theme--light v-footer--absolute" style="left: 0px; right: 0px; bottom: 0px; color: rgb(255, 46, 46); opacity: 1; background-color: rgba(0, 0, 0, 0);">
+                      <div class="text-left col col-12">
+                        <div tabindex="-1" absolute="" class="font-weight-medium ml-0 mt-9 v-list-item theme--light"><i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light" style="color: rgb(255, 255, 255); caret-color: #fff; font-family: IBM Plex Sans; font-size: 14px;"></i>
+                          <div class="v-card__text prop" style="font-family: IBM Plex Sans; font-size: 14px;">4.8</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

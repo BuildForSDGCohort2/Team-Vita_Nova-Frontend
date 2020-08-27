@@ -1,4 +1,4 @@
-import { login, register, logout, } from '../../services/auth-services'
+import { login, register, logout } from "../../services/auth-services";
 
 export default {
     async userLogin({ commit }, user) {
