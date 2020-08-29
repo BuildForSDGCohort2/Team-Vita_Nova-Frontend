@@ -40,20 +40,20 @@ describe("Create Course Component unit test", () => {
         expect(wrapper.find('.btn').text()).toContain("Create Course");
     });
 
-    test("Create course button click", () => {
-        const wrapper = shallowMount(CreateCourse, {
-            localVue,
-            vuetify
-        });
-
-        const event = jest.fn();
-        const button = wrapper.find(".btn");
-        expect(button.text()).toContain("Create Course")
-
-        button.vm.$on("click", event);
-        expect(event).toHaveBeenCalledTimes(0);
-        button.trigger("click");
-        expect(event).toHaveBeenCalledTimes(1);
-    });
+    // test("Create course button click", () => {
+    //     const wrapper = shallowMount(CreateCourse, {
+    //         localVue,
+    //         vuetify
+    //     });
+    //
+    //     const event = jest.fn();
+    //     const button = wrapper.find(".btn");
+    //     expect(button.text()).toContain("Create Course")
+    //
+    //     button.vm.$on("click", event);
+    //     expect(event).toHaveBeenCalledTimes(0);
+    //     button.trigger("click");
+    //     expect(event).toHaveBeenCalledTimes(1);
+    // });
 
 });
