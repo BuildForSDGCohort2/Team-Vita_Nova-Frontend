@@ -146,6 +146,7 @@
                           multiple
                           outlined
                           class="mt-n5"
+                          color="#FF2E2E"
                       ></v-combobox>
                     </v-col>
                   </v-row>
