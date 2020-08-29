@@ -6,6 +6,3 @@ cache:
     - node_modules
 script:
   - npm run test:unit
-
-    © 2020 GitHub, Inc.
-    Terms
