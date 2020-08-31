@@ -6,7 +6,7 @@
           <h4>
             <a class="links" @click="mounted" :style="{'color': '#645262'}">Courses</a> /
             <a class="links" :style="{'color': '#645262'}" @click="mounted">My Courses</a> /
-            <a @click="" :style="{'color': '#FF2E2E'}">Create Course</a>
+            <a :style="{'color': '#FF2E2E'}">Create Course</a>
           </h4>
         </v-col>
       </v-row>
