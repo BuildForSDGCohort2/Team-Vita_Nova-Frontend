@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="ml-md-16">
     <v-row no-gutters class="px-8">
       <v-col cols="12" md="6">
         <div class="header">
@@ -14,13 +14,14 @@
           >
         </div>
       </v-col>
-      <v-col cols="12" md="1com2">
+      <v-col cols="12" md="12">
         <v-card class="card-header">
           <v-row>
             <v-col cols="6" md="6">
               <v-card flat class="logo-card">
                 <v-img  :src=company_logo
                   aspect-ratio="1.7"
+                        class="align-center"
                 ></v-img>
               </v-card>
             </v-col>
@@ -28,8 +29,8 @@
           <v-row>
             <v-col cols="12">
               <v-card flat>
-                <v-card-title class="name-card mr-sm-1">
-                <p>{{ company_name}}</p></v-card-title>
+                <v-card-title class="name-card ">
+                <p class="align-center">{{ company_name}}</p></v-card-title>
               </v-card>
             </v-col>
           </v-row>
@@ -48,7 +49,7 @@
             <v-col cols="12" md="6">
               <v-card flat>
                 <v-card-title class="font-label">COMPANY WEBSITE</v-card-title>
-                <v-card-text class="font-data">
+                <v-card-text class="font-data ">
                  <p> {{website
                 }}</p></v-card-text>
               </v-card>
@@ -162,7 +163,7 @@ export default {
   font-weight: normal;
   font-size: 15px;
   line-height: 19px;
-  margin-left: 5rem;
+  margin-left: 2rem;
   color: rgba(0, 0, 0, 0.3);
   margin-bottom: 10px!important;
 }
@@ -176,7 +177,8 @@ export default {
     align-items: center;
     letter-spacing: 0.05em;
     color: #2b1c1c;
-    margin-left: 5rem;
+    margin-left: 2rem;
+  width:2rem;
 }
     .v-card__subtitle, .v-card__text, .v-card__title{
       padding: 0px !important;

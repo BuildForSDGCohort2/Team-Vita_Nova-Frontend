@@ -68,7 +68,7 @@
     <v-row>
       <v-col cols="12" md="12">
         <p class="card-title mr-16 mt-8">Edit company information</p>
-        <v-card class="profile-card pa-16">
+        <v-card class="profile-card pa-10">
           <ValidationObserver v-slot="{ handleSubmit }">
 
             <form v-if="!submitted" @submit.prevent="handleSubmit(onSubmit)">
@@ -312,7 +312,7 @@ export default {
   margin-top: 1rem;
   width: 45.3rem;
   height: auto;
-  margin-left: 7rem;
+  margin-left: 5rem;
 }
 .text-field {
   width: 25rem;
