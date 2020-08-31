@@ -12,6 +12,7 @@
                 label="Sort By:"
                 flat
                 outlined
+                color="#FF2E2E"
                 dense
             ></v-select>
           </v-col>
