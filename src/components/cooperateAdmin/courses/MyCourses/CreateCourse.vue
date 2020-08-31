@@ -32,9 +32,9 @@
                         class="course-form"
                         v-if="!submitted"
                         @submit.prevent="handleSubmit(handleCreateCourse)">
-                      <divgit v-if="errorMsg">
+                      <div v-if="errorMsg">
                         <span class="err text-xl-center">{{ errorMsg }}</span>
-                      </divgit>
+                      </div>
                       <Loader :loading="loading" :message="message" />
                       <v-row class="mt-5" :style="{'justify-content': 'center'}">
                         <v-col cols="12" md="8" class="ma-auto">
@@ -102,7 +102,25 @@
                               clearable
                               class="mt-n5"
                               color="#FF2E2E"
-                          ></v-combobox>
+                              persistent-hint
+                          >
+                            <template v-slot:selection="data">
+                              <v-chip
+                                  :key="JSON.stringify(data.item)"
+                                  v-bind="data.attrs"
+                                  :input-value="data.selected"
+                                  :disabled="data.disabled"
+                                  @click:close="data.parent.selectItem(data.item)"
+                              >
+                                <v-avatar
+                                    class="accent white--text"
+                                    left
+                                    v-text="data.item.slice(0, 1).toUpperCase()"
+                                ></v-avatar>
+                                {{ data.item }}
+                              </v-chip>
+                            </template>
+                          </v-combobox>
                         </v-col>
                       </v-row>
                       <v-row :style="{'justify-content': 'center'}">
@@ -134,7 +152,7 @@
                             <span class="err mt-n8 mb-3">{{ errors[0] }}</span>
                             <vue-editor
                                 :style="{'font-family': 'IBM Plex Sans'}"
-                                class="learning-outcome"
+                                class="mt-0"
                                 placeholder="Learning Outcomes"
                                 v-model="course.learningOutcomes"
                                 :editor-toolbar="customToolbar"
@@ -265,7 +283,7 @@
                       <v-row>
                         <v-col cols="12" md="2" class="ma-auto" >
                         </v-col>
-                        <v-col cols="12" md="3" class="ma-auto mt-n4" >
+                        <v-col cols="12" md="3" class="ma-auto mt-n10" >
                           <SubmitButton button-name= "Create Course" />
                         </v-col>
                         <v-col cols="12" md="7" class="ma-auto" >
@@ -376,7 +394,7 @@ export default {
     handleCreateCourse() {
       this.loading = true;
       console.log(this.course);
-      const data = { courses: this.course };
+      // const data = { courses: this.course };
     }
   },
 };
@@ -403,8 +421,5 @@ export default {
   display: block;
   color: #FF2E2E;
   font-size: 11px;
-}
-.learning-outcome ::v-deep placeholder {
-  font-family: IBM Plex Sans !important;
 }
 </style>
