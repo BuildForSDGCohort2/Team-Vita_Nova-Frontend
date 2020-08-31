@@ -283,7 +283,7 @@
                       <v-row>
                         <v-col cols="12" md="2" class="ma-auto" >
                         </v-col>
-                        <v-col cols="12" md="3" class="ma-auto mt-n10" >
+                        <v-col cols="12" md="3" class="ma-auto mt-n6" >
                           <SubmitButton button-name= "Create Course" />
                         </v-col>
                         <v-col cols="12" md="7" class="ma-auto" >
