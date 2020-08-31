@@ -1,7 +1,7 @@
 <template>
   <v-row class="pt-0">
     <v-col cols="12" md="6">
-      <div class="login-coloumn-left mx-auto">
+      <div class="login-column-left mx-auto">
         <ValidationObserver v-slot="{ handleSubmit }">
           <v-form class="my-auto" @submit.prevent="handleSubmit(handleLogin)">
             <h3 class="login-title">Welcome back</h3>
@@ -51,9 +51,9 @@
         </ValidationObserver>
       </div>
     </v-col>
-    <v-col cols="12" md="6" class="d-none d-md-flex login-coloumn">
+    <v-col cols="12" md="6" class="d-none d-md-flex login-column">
       <div class="mx-auto">
-        <img src="../../assets/desk-illo.svg" width="600px" />
+        <img src="../../assets/desk-illo.png" width="600px" />
       </div>
     </v-col>
   </v-row>
@@ -109,14 +109,14 @@ export default {
   margin-left: 8rem;
   text-shadow: none;
 }
-.login-coloumn {
+.login-column {
   background-color: #fff0ce;
   min-height: 92vh;
 }
-.login-coloumn div img {
+.login-column div img {
   margin-top: 10rem !important;
 }
-.login-coloumn-left {
+.login-column-left {
   margin-top: 10rem !important;
   width: 30rem !important;
 }
@@ -126,14 +126,10 @@ export default {
   font-weight: 500;
   font-size: 30px;
   line-height: 50px;
-  /* identical to box height, or 167% */
-
   display: flex;
   align-items: center;
   text-align: center;
   margin: auto;
-  /*margin-bottom: 15px;*/
-
   color: #2b1c1c;
 }
 
