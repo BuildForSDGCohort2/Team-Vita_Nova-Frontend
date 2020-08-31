@@ -75,10 +75,10 @@
                               rules="required|alpha"
                               v-slot="{ errors }"
                           >
-                            <span class="err mt-n2 mb-2">{{ errors[0] }}</span>
+                            <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                             <v-text-field
                                 v-model="course.courseName"
-                                class="mt-2"
+                                class="mt-3"
                                 label="Course Name"
                                 outlined
                                 color="#FF2E2E"
@@ -112,7 +112,7 @@
                               rules="required|alpha"
                               v-slot="{ errors }"
                           >
-                            <span class="err mt-n8 mb-6">{{ errors[0] }}</span>
+                            <span class="err mt-n9 mb-8">{{ errors[0] }}</span>
                             <v-textarea
                                 v-model="course.courseRequirements"
                                 outlined
@@ -131,10 +131,10 @@
                               rules="required|max:1000"
                               v-slot="{ errors }"
                           >
-                            <span class="err mt-n8 mb-7">{{ errors[0] }}</span>
+                            <span class="err mt-n8 mb-3">{{ errors[0] }}</span>
                             <vue-editor
                                 :style="{'font-family': 'IBM Plex Sans'}"
-                                class="learning-outcome mt-n5"
+                                class="learning-outcome"
                                 placeholder="Learning Outcomes"
                                 v-model="course.learningOutcomes"
                                 :editor-toolbar="customToolbar"
@@ -149,7 +149,7 @@
                               rules="required|alpha"
                               v-slot="{ errors }"
                           >
-                            <span class="err mt-n2 mb-n1">{{ errors[0] }}</span>
+                            <span class="err mt-n1 mb-n2">{{ errors[0] }}</span>
                             <v-textarea
                                 v-model="course.courseDescription"
                                 outlined
