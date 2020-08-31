@@ -88,6 +88,11 @@ export default {
                 })
       }
     },
+  computed: {
+    loggedIn() {
+      return this.$store.state.onboarding.status.loggedIn;
+    }
+  }
 
 }
 </script>
