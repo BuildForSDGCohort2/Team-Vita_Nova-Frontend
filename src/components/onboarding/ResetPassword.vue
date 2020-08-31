@@ -40,7 +40,7 @@
         <v-row>
           <v-flex class="right-col sm-12 3 lg-8">
             <v-responsive>
-              <img class="align-center mx-auto" src="../../assets/desk-illo.svg" alt="dispaly" />
+              <img class="align-center mx-auto" src="../../assets/desk-illo.png" alt="dispaly" />
             </v-responsive>
           </v-flex>
         </v-row>
@@ -77,7 +77,7 @@ export default {
         UserService.handleResetPassword(info).then(
                 info => {
                   console.log(info.data);
-                  alert('Form has been submitted!');
+                  alert('Reset requested has been submitted!');
                   this.$router.push("/login");
                 },
                 error => {
