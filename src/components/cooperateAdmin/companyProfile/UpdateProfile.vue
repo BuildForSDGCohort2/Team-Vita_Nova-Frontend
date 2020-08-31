@@ -234,10 +234,6 @@ export default {
                   this.loading = false;
                   alert('Failed to update form please check required fields or network!');
                   console.log(error);
-                  // this.message =
-                  //     (error.response && error.response.data) ||
-                  //     error.message ||
-                  //     error.toString();
                   this.errorMsg = error.response.profile.detail;
                 })
 
