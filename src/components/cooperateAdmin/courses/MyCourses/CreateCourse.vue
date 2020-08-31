@@ -20,6 +20,9 @@
             </v-col>
           </v-row>
           <v-row>
+            <ValidationObserver v-slot="{ handleSubmit }">
+
+            </ValidationObserver>
             <v-col>
               <template>
                 <v-card
