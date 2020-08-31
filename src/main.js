@@ -13,12 +13,11 @@ import Register from './components/onboarding/layout/Register'
 //axios
 axios.defaults.baseURL = 'https://lamp-api.herokuapp.com';
 
-
 Object.keys(rules).forEach(rule => {
   extend(rule, rules[rule]);
 });
 
-localize('en', en);
+localize("en", en);
 
 Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
