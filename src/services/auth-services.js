@@ -1,6 +1,5 @@
-import axios from 'axios';
-const API_URL = 'https://lamp-api.herokuapp.com';
-
+import axios from "axios";
+const API_URL = "https://lamp-api.herokuapp.com";
 
 export const login = async (user) => {
     return await axios
@@ -10,9 +9,9 @@ export const login = async (user) => {
         })
         .then(response => {
 
-            var base64Url = response.data.access.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+            const base64Url = response.data.access.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
                 return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
             }).join(''));
 
@@ -31,20 +30,19 @@ export const logout = () => {
     localStorage.removeItem('userData')
 }
 
-export const register = (user) => {
-    return axios.post(API_URL + '/api/accounts/register/', {
-        email: user.email,
-        password: user.password,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        company_name: user.company_name,
-        website: user.website,
-        role: user.role,
-        corporate: user.corporate,
-
-    });
-}
+export const register = user => {
+  return axios.post(API_URL + "/api/accounts/register/", {
+    email: user.email,
+    password: user.password,
+    first_name: user.first_name,
+    last_name: user.last_name,
+    company_name: user.company_name,
+    website: user.website,
+    role: user.role,
+    corporate: user.corporate
+  });
+};
 
 export const verifyEmail = () => {
-    return axios.post(API_URL + "/api/accounts/verify-registration/", key)
-}
+  return axios.post(API_URL + "/api/accounts/verify-registration/", key);
+};

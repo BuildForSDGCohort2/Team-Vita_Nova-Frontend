@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 import authHeader from "./auth-header";
-const API_URL = 'https://lamp-api.herokuapp.com';
+const API_URL = "https://lamp-api.herokuapp.com";
 
 class UserService {
     static getCorporateDashBoard() {
@@ -13,6 +13,9 @@ class UserService {
 
     static handleCreateDepartment(data) {
         return axios.post('/business/department/add_department/', data, { headers: authHeader() });
+    }
+    static handleResetPassword(data) {
+        return axios.post(API_URL + '/api/accounts/send-reset-password-link/', data,);
     }
 
     static inviteEmployee(data, file) {
@@ -37,7 +40,14 @@ class UserService {
             })
         }
     }
+    static getProfile(){
+      return axios.get(API_URL + '/business/company/get_company_profile/',{ headers: authHeader()});
+    }
+    static Profile(data){
+        console.log(data)
+        return axios.patch(API_URL + '/business/company/update_company_profile/', data, { headers: authHeader()});
+    }
 
 
-} export default UserService
-    ;
+}
+export default UserService;

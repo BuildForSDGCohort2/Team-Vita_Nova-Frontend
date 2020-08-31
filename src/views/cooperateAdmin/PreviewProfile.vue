@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PreviewProfile :event="events" />
+    <PreviewProfile  :event="events" />
   </div>
 </template>
 
@@ -17,8 +17,8 @@ export default {
     };
   },
   created() {
-    UserService.getProfile()
-      .then(response => {
+
+     UserService.getProfile().then(response => {
         this.events = response.data;
       })
       .catch(error => {
