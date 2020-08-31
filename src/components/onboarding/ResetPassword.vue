@@ -6,7 +6,7 @@
           <div class="login-card">
             <div class="mx-auto">
               <ValidationObserver v-slot="{ handleSubmit }">
-                <v-form class="login-form" @submit.prevent="handleSubmit(handleLogin)">
+                <v-form class="login-form" @submit.prevent="handleSubmit(handleRest)">
                   <h4 class="login-title pa-2">
                     Reset your
                     <br />password
@@ -21,7 +21,7 @@
                     <v-text-field
                       label="Email Address"
                       name="emailAddress"
-                      v-model="user.email"
+                      v-model="login"
                       outlined
                       color="red"
                       class="register-input"
@@ -51,47 +51,45 @@
 
 <script>
 import SubmitButton from "../ui/buttons/SubmitButton";
-import User from "../../models/user";
 import Loader from "../ui/loader/Loader";
+import UserService from "../../services/user-services";
 export default {
   name: "ResetPassword",
-  components: { Loader, SubmitButton },
+  components: {Loader, SubmitButton},
   data() {
     return {
       title: "resetPassword",
-      user: new User("", ""),
       loading: false,
       message: ".",
       errorMsg: "",
-      value: true
+      value: true,
+      login: ''
     };
   },
-  created() {
-    if (this.loggedIn) {
-      console.log("hi");
-      this.$router.push("/cooperate/dashboard");
-    }
-  },
+
   methods: {
-    handleLogin() {
+    handleRest() {
       this.loading = true;
-      if (this.user.email && this.user.password) {
-        this.$store.dispatch("onboarding/userLogin", this.user).then(
-          res => {
-            console.log(res.access);
-            this.$router.push("/cooperate/dashboard");
-          },
-          error => {
-            this.loading = false;
-            this.errorMsg = error;
-            // this.errorMsg= (error.response && error.response.data)
-            // ||error.message || error.toString();
-          }
-        );
+      const info = {
+                login: this.login
+              };
+
+        UserService.handleResetPassword(info).then(
+                info => {
+                  console.log(info.data);
+                  alert('Form has been submitted!');
+                  this.$router.push("/login");
+                },
+                error => {
+                  this.loading = false;
+                  alert('Failed to update form please check required fields or network!');
+                  console.log(error);
+                  this.errorMsg = error.response.info.detail;
+                })
       }
-    }
-  }
-};
+    },
+
+}
 </script>
 
 <style scoped>
@@ -99,9 +97,6 @@ export default {
   margin-top: 100px;
   width: 500px;
   margin-right: 105px;
-  /*border: 1px solid #F8F8F8;*/
-  /*box-sizing: border-box;*/
-  /*box-shadow: 0px 1px 2px rgba(43, 28, 28, 0.15);*/
   border-radius: 10px;
 }
 .login-title {
@@ -110,14 +105,9 @@ export default {
   font-weight: 500;
   font-size: 33px;
   line-height: 45px;
-  /* or 133% */
   display: flex;
   align-items: center;
   color: #2b1c1c;
-}
-.v-text-field {
-  height: 70px !important;
-  border-radius: 8px !important;
 }
 .login-form {
   margin-left: 17%;
