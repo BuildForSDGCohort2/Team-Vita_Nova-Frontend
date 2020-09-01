@@ -1,25 +1,27 @@
 <template>
-  <v-card width="450" height="550px" class="success-top ma-auto">
-    <v-main class="success-container">
-      <v-list-item>
-        <img src="../../assets/thumbs-up-orange.svg" class="success-circle" />
-        <!--                <v-list-item-avatar color="#FFF2C7" class="success-circle"></v-list-item-avatar>-->
-      </v-list-item>
-      <v-card-text class="success-title text-wrap">
-        <h6>
-          Confirm your
-          <br />Email Address
-        </h6>
-      </v-card-text>
+  <v-container fluid class="confirm-amail-background">
+    <v-card width="450" height="550px" class="success-top ma-auto">
+      <v-main class="success-container">
+        <v-list-item>
+          <img src="../../assets/thumbs-up-orange.svg" class="success-circle" />
+          <!--                <v-list-item-avatar color="#FFF2C7" class="success-circle"></v-list-item-avatar>-->
+        </v-list-item>
+        <v-card-text class="success-title text-wrap">
+          <h6>
+            Confirm your
+            <br />Email Address
+          </h6>
+        </v-card-text>
 
-      <v-card-text class="success-text">
-        <p>
-          Your account has been created successfully.
-          Kindly confirm your mail to log in to the platform
-        </p>
-      </v-card-text>
-    </v-main>
-  </v-card>
+        <v-card-text class="success-text">
+          <p>
+            Your account has been created successfully.
+            Kindly confirm your mail to log in to the platform
+          </p>
+        </v-card-text>
+      </v-main>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -29,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
+.confirm-amail-background {
+  background-color: #fff0ce !important;
+}
 .success-top {
   /*margin-top: 5% !important;*/
   border-radius: 6px !important;

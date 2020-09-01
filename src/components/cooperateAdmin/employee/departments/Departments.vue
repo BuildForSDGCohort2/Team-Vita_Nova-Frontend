@@ -22,10 +22,10 @@
       <v-col cols="12">
         <h3 class="all-departments-header">All Departments</h3>
       </v-col>
-      <v-col cols="12" md="4" v-for="(card, index) in cards" :key="index">
+      <v-col cols="12" md="4" v-for="(card) in cards" :key="card.department">
         <DepartmentCard :cards="card" />
       </v-col>
-      <v-col cols="12" md="4" v-for="(card, index) in cards" :key="index">
+      <v-col cols="12" md="4" v-for="(card) in cards" :key="card.id">
         <DepartmentCard :cards="card" />
       </v-col>
     </v-row>
@@ -53,6 +53,7 @@ export default {
     cards() {
       return [
         {
+          id: 0,
           department: "Research &amp Development",
           avatars: [
             {
@@ -63,10 +64,17 @@ export default {
             },
             {
               image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
             }
           ]
         },
         {
+          id: 1,
           department: "UX Research",
           avatars: [
             {
@@ -77,12 +85,25 @@ export default {
             },
             {
               image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
             }
           ]
         },
         {
+          id: 2,
           department: "Disciplinary",
           avatars: [
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
+            {
+              image: require("../../../../assets/cynthia.png")
+            },
             {
               image: require("../../../../assets/cynthia.png")
             },

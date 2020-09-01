@@ -75,8 +75,8 @@ export default {
   },
   data() {
     return {
-      emails: [{ email: "" }],
-      // file: "",
+      emails: "",
+
       submitted: false,
       loading: false,
       errorMsg: "",
@@ -84,39 +84,27 @@ export default {
       value: true
     };
   },
-  computed: {
-    loggedIn() {
-      return this.$store.state.auth.status.loggedIn;
-    }
-  },
   methods: {
-    addEmail() {},
+    addEmail() {
+    },
     inviteEmployee() {
-      this.loading = true;
-      const data = {
-        email: this.email
-      };
-      console.log("in the method", this.data);
-      console.log(data);
+      const data = {emails: ["john@semicolon.africa"]};
+
       UserService.inviteEmployee(data)
-        .then(
-          res => {
-            console.log(res.data);
-            this.$router.push("../../../splashPages/EmployeeInviteSent");
-            this.submitted = true;
-          },
-          error => {
-            this.loading = false;
-            this.errorMsg = error.response.data.detail;
-          }
-        )
-        .catch(err => {
-          console.log(err.res.data);
-        });
-      console.log("we are done");
+          .then(
+              res => {
+                console.log(res.data);
+                this.$router.push("../../../splashPages/EmployeeInviteSent");
+                this.submitted = true;
+              },
+              error => {
+                this.loading = false;
+                this.errorMsg = error.response.data.detail;
+              }
+          )
     }
   }
-};
+}
 </script>
 
 <style scoped>
