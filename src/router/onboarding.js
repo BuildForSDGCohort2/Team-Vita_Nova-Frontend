@@ -29,6 +29,12 @@ export default [
             import(/* webpackChunkName: "about" */ "../views/onboarding/ExploreCourses")
     },
     {
+        path: "/plans",
+        name: "Plans",
+        component: () =>
+            import(/* webpackChunkName: "about" */ "../views/onboarding/Plans")
+    },
+    {
         path: "/success",
         name: "registration_successful",
         meta: { layout: 'Login' },
