@@ -1,12 +1,14 @@
 <template>
-  <Departments />
+  <EmptyDepartment/>
 </template>
 
 <script>
-import Departments from "../../components/cooperateAdmin/employee/departments/Departments";
+  import EmptyDepartment from "../../components/cooperateAdmin/employee/departments/EmptyDepartment";
+// import Departments from "../../components/cooperateAdmin/employee/departments/Departments";
 export default {
   components: {
-    Departments
+    // Departments,
+    EmptyDepartment
   }
 };
 </script>

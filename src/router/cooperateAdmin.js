@@ -27,7 +27,13 @@ export default [
             path: "departments",
             name: 'employee.departments',
             component: () => import("../views/cooperateAdmin/Departments")
-        }],
+        },
+            {
+                path: "view-departments",
+                name: 'employee.departments',
+                component: () => import("../views/cooperateAdmin/DepartmentsView")
+            }
+        ],
         meta: {
             requiresAuth: true
         }

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
   <v-container>
     <v-row no-gutters class="Dept-title">
