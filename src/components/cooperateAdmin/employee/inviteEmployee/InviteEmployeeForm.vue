@@ -85,22 +85,26 @@ export default {
     };
   },
   methods: {
-    addEmail() {},
+    addEmail() {
+    },
     inviteEmployee() {
-      const data = { emails: ["john@semicolon.africa"] };
+      const data = {emails: ["john@semicolon.africa"]};
 
       UserService.inviteEmployee(data)
-        .then(res => {
-          console.log(res.data);
-
-          this.submitted = true;
-        })
-        .catch(err => {
-          console.log(err);
-        });
+          .then(
+              res => {
+                console.log(res.data);
+                this.$router.push("../../../splashPages/EmployeeInviteSent");
+                this.submitted = true;
+              },
+              error => {
+                this.loading = false;
+                this.errorMsg = error.response.data.detail;
+              }
+          )
     }
   }
-};
+}
 </script>
 
 <style scoped>

@@ -92,9 +92,6 @@
   </v-card>
 </template>
 
-  </v-card>
-</template>
-
 <script>
 import UserService from "../../../../services/user-services";
 export default {
