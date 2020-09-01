@@ -1,3 +1,8 @@
+import ManageCourses from "@/views/cooperateAdmin/ManageCourses";
+import Employee from "@/views/cooperateAdmin/Employee";
+import CourseModule from "@/views/cooperateAdmin/CourseModule";
+
+
 export default [
   {
     path: "/cooperate/dashboard",
@@ -15,6 +20,16 @@ export default [
         /* webpackChunkName: "about" */ "../views/cooperateAdmin/CreateDepartment"
       )
   },
+
+  {
+    path: "/courses",
+    name: "ViewCourses",
+    component: () =>
+        import(
+            /* webpackChunkName: "about" */ "../views/cooperateAdmin/ViewCourses"
+            )
+  },
+
   {
     path: "/cooperate/employee",
     name: "Employee",
@@ -44,7 +59,7 @@ export default [
       },
       {
         path: "createCourse",
-        component: () => import("../views/cooperateAdmin/CreateCourse")
+        component: () => import("../views/cooperateAdmin/ManageCourses")
       }
     ],
     meta: {
@@ -55,9 +70,39 @@ export default [
   {
     path: "/cooperate/courseModule",
     name: "CourseModule",
-    component: () =>
-        import(
-            /* webpackChunkName: "about" */ "../views/cooperateAdmin/CourseModule"
-            )
+    component: CourseModule,
+    children: [
+
+      {
+        path: "",
+        name: "courseModule",
+        redirect: {name: "courseModule.publish"}
+      },
+
+
+      {
+        path: "publish",
+        name: "courseModule.publish",
+        component: () =>
+            import("../views/cooperateAdmin/Publish")
+      },
+
+      {
+        path: "curriculum",
+        name: "courseModule.curriculum",
+        component: () =>
+            import("../views/cooperateAdmin/Curriculum")
+      },
+
+      // {
+      //   path: "generalSettings",
+      //   name: "courseModule.generalSettings",
+      //   component: () =>
+      //       import("../views/cooperateAdmin/AddContentVideo")
+      // },
+    ],
+    meta: {
+      requiresAuth: true
+    }
   }
 ];

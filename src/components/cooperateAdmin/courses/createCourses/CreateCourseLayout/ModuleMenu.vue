@@ -3,8 +3,9 @@
     <v-container style="max-width: 1000px">
       <v-card flat class="tab-navigation">
         <v-tabs background-color="white" color="#645262" class="menu">
-          <v-tab class="create-course" to="/cooperate/courses/createCourse"><h3>Create Course</h3></v-tab>
-          <v-tab class="view-all-course" to="/cooperate/courses/viewAllCourses"><h3>View Courses</h3></v-tab>
+          <v-tab class="curriculum" to="/cooperate/courseModule/curriculum"><h3>Curriculum</h3></v-tab>
+          <v-tab class="general" to="/cooperate/courseModule/generalSettings"><h3>General Settings</h3></v-tab>
+          <v-tab class="general" to="/cooperate/courseModule/publish"><h3>Publish</h3></v-tab>
           <v-tabs-slider color="#FF2E2E"></v-tabs-slider>
         </v-tabs>
       </v-card>
@@ -12,11 +13,12 @@
   </v-responsive>
 </template>
 
+
 <style scoped>
 .tab-navigation {
   border-bottom: 1px solid #DDDDDD !important;
 }
-.create-course {
+.curriculum {
   /* Create Course */
 
   /*position: absolute;*/
@@ -32,7 +34,7 @@
   text-transform: capitalize;
 
 }
-.view-all-course {
+.general {
   /* View Courses */
   /*position: absolute;*/
   left: 7.04%;
@@ -40,6 +42,7 @@
   top: 12.33%;
   bottom: 86.04%;
   padding: 0;
+
   text-transform: capitalize;
 
   display: flex;
@@ -58,5 +61,6 @@
   /* lamp-txt-1 */
   color: #645262;
 }
+
 
 </style>

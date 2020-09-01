@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-responsive>
-      <h3 class="ma-4 " style="padding-top: 5%">Untitled Module</h3>
-      <v-card class="ma-4">
-        <v-container fluid >
+      <h3 class="ma-4 " style="padding-top: 5%">Untitled Video</h3>
+      <v-card class="text-center justify-center ma-4">
+        <v-container  >
           <v-text-field
             v-model="model"
             :items="items"
@@ -21,29 +21,61 @@
 
           </v-text-field>
 
-          <v-textarea
-            name="input-7-1"
-            hint="Add an Introduction, detailing what the student would be learning from this module "
-            persistent-hint
-            color="red"
-            outlined
-            class=" title-box "
-            label="Introduction"
-            auto-grow
-          ></v-textarea>
+          <v-card-text
+              class="uploader"
+              @dragenter="OnDragEnter"
+              @dragleave="OnDragLeave"
+              @dragover.prevent
+              @drop.prevent="onDrop"
+              :class="{ dragging: isDragging }"
+          >
+            <i class="fa fa-cloud-upload"></i>
 
-          <v-card-actions style="margin-left: 14%">
-              <v-btn
-                  @click="Discard"
-                  style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
+            <v-container>
+              <v-icon v-bind="attrs" v-on="on" color="#645262" dark>mdi-cloud-upload</v-icon>
+              <v-row id="file-drag-drop">
+                <p class="drag drop-files">Drag & Drop files here</p>
+                <v-input
+                    type="file"
+                    id="file"
+                    accept=".mp4"
+                    color="red"
+                    show-size
+                    counter
+                    @change="onInputChange"
+                ></v-input>
+              </v-row>
+            </v-container>
+          </v-card-text>
+
+          <v-text-field
+              color="red"
+              outlined
+              class=" title-box "
+              label="Add Text (Optional)"
+              auto-grow
+          ></v-text-field>
+
+          <v-text-field
+              color="red"
+              outlined
+              class=" title-box "
+              label="Add Links (Optional)"
+              auto-grow
+          ></v-text-field>
+
+          <v-card-actions>
+            <v-btn
+              @click="saveCourse"
+              style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
               >Discard</v-btn
-              >
-              <v-btn
-                class="ma-4"
-                @click="saveModule"
-                style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
-                >Save</v-btn
-              >
+            >
+            <v-btn
+              class="ma-4"
+              @click="saveCourse"
+              style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
+              >Save</v-btn
+            >
           </v-card-actions>
         </v-container>
       </v-card>
@@ -82,12 +114,16 @@
 
 <script>
 export default {
-  name: "CreateCourseModule",
+  name: "AddContentVideo",
 
   data: () => ({
     items: ["Software Engineering", "Business Management", "Design Thinking"],
     model: [],
     agreement: false,
+    isDragging: false,
+    dragCount: 0,
+    dragAndDropCapable: false,
+    files: [],
     agree: false,
     isLoading: false,
     rules: {
@@ -109,33 +145,9 @@ export default {
   },
 
   methods: {
-    saveModule() {
-
-    },
-    discard() {
-      return
-    }
+    saveCourse() {}
   }
 };
 </script>
 
-<style scoped>
-.title-box {
-  width: 70%;
-  margin-left: 15%;
-  margin-top: 5%;
-}
-.tip-text {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13.5094px;
-  line-height: 18px;
-  /* identical to box height */
-  margin-right: 25%;
-  margin-top: 5px;
-  /* semicolon-neutral-black */
-
-  color: #2b1c1c;
-}
-</style>
+<style scoped></style>

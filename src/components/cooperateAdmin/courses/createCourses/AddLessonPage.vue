@@ -1,49 +1,46 @@
 <template>
   <v-container>
     <v-responsive>
-      <h3 class="ma-4 " style="padding-top: 5%">Untitled Module</h3>
+      <h3 class="ma-4 " style="padding-top: 5%">{{  }}</h3>
       <v-card class="ma-4">
         <v-container fluid >
           <v-text-field
-            v-model="model"
-            :items="items"
-            :search-input.sync="search"
-            hide-selected
-            hint="Don’t worry, you can always change this."
-            label="Title"
-            multiple
-            outlined
-            persistent-hint
-            chips
-            color="red"
-            class=" title-box "
+              v-model="model"
+              :items="items"
+              :search-input.sync="search"
+              hide-selected
+              hint="Don’t worry, you can always change this."
+              label="Title"
+              multiple
+              outlined
+              persistent-hint
+              chips
+              color="red"
+              class=" title-box "
           >
-
           </v-text-field>
 
           <v-textarea
-            name="input-7-1"
-            hint="Add an Introduction, detailing what the student would be learning from this module "
-            persistent-hint
-            color="red"
-            outlined
-            class=" title-box "
-            label="Introduction"
-            auto-grow
+              name="input-7-1"
+              color="red"
+              outlined
+              class=" title-box "
+              label="Content"
+              auto-grow
           ></v-textarea>
 
-          <v-card-actions style="margin-left: 14%">
-              <v-btn
-                  @click="Discard"
-                  style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
-              >Discard</v-btn
-              >
-              <v-btn
+          <v-card-actions>
+            <v-btn
+                @click="saveCourse"
+                style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
+            >Discard</v-btn
+            >
+            <v-btn
                 class="ma-4"
-                @click="saveModule"
+                @click="saveCourse"
                 style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
-                >Save</v-btn
-              >
+            >Save</v-btn
+            >
           </v-card-actions>
         </v-container>
       </v-card>
@@ -64,10 +61,10 @@
       </section>
 
       <v-card
-        flat
-        class="text-center justify-center ma-4"
-        max-width="686"
-        style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
+          flat
+          class="text-center justify-center ma-4"
+          max-width="686"
+          style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
       >
         <v-container fluid>
           <h6 class="tip-text">
@@ -109,12 +106,7 @@ export default {
   },
 
   methods: {
-    saveModule() {
-
-    },
-    discard() {
-      return
-    }
+    saveCourse() {}
   }
 };
 </script>
