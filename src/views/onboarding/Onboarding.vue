@@ -18,7 +18,7 @@ import DisplaySection from "../../components/onboarding/landingPage/DisplaySecti
 import Testimonies from "../../components/onboarding/landingPage/Testimonies";
 import Partners from "../../components/onboarding/landingPage/Partners";
 import Footer from "../../components/onboarding/layout/Footer";
-import { userLoggedIn } from "../../services/user-authentication";
+import { userLoggedIn } from "@/services/user-authentication";
 export default {
   components: {
     HeroSection,

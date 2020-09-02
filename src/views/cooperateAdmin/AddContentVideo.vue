@@ -10,7 +10,7 @@ import AddContentVideo from "@/components/cooperateAdmin/courses/createCourses/A
 export default {
   name: "AddContentVideo",
   components: {
-AddContentVideo
+    AddContentVideo
   }
 };
 </script>

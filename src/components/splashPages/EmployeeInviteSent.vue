@@ -2,7 +2,7 @@
   <div>
     <v-dialog v-model="dialog" max-width="500" hide-overlay>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
+        <v-btn :style="{'font-family': 'IBM Plex Sans'}"
           class="ma-2 transparent-btn"
           elevation="singleSelect"
           color="grey"
@@ -14,16 +14,20 @@
         </v-btn>
       </template>
 
-      <v-card class="mx-auto mt-4 align-center" max-width="500" rounded>
+      <v-card class="mx-auto mt-4 align-center" max-width="500" rounded :style="{'font-family': 'IBM Plex Sans'}">
         <v-main class="text-center justify-center" justify="center">
-          <img src="../../assets/thumbs-up-orange.svg" class="invite-circle" />
-          <v-card-text class="text-center justify-center invite-title">
+          <img src="../../assets/thumbs-up-orange.svg"
+               :style="{'font-family': 'IBM Plex Sans'}"
+               class="invite-circle" alt=""/>
+          <v-card-text
+              :style="{'font-family': 'IBM Plex Sans'}"
+              class="text-center justify-center invite-title">
             <h3>
               Invites Sent!
             </h3>
           </v-card-text>
 
-          <v-card-text class="text-center justify-center invite-text">
+          <v-card-text class="text-center justify-center invite-text" :style="{'font-family': 'IBM Plex Sans'}">
             <p>
               Your employees would be notified via <br />email to join the
               digital classroom.
@@ -31,11 +35,12 @@
           </v-card-text>
           <v-btn
             class="text-center justify-center invite-cancel"
+            :style="{'font-family': 'IBM Plex Sans'}"
             style="background: #FF2E2E;
                  border-radius: 4px;"
             @click="dialog = false"
           >
-            <h4>Cancel</h4>
+            <h4 :style="{'font-family': 'IBM Plex Sans'}">Cancel</h4>
           </v-btn>
         </v-main>
       </v-card>
@@ -67,7 +72,6 @@ export default {
   margin-bottom: 40px !important;
 }
 .invite-title {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -82,7 +86,6 @@ export default {
   color: #2b1c1c;
 }
 .invite-text {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -97,10 +100,9 @@ export default {
   color: #2b1c1c;
 }
 .invite-cancel {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 600;
-  font-size: 15.4656px;
+  font-size: 15px;
   line-height: 20px;
   width: 30%;
   height: 55px !important;

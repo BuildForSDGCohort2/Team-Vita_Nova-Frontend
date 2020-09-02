@@ -92,7 +92,7 @@
           flat
           class="text-center justify-center ma-4"
           max-width="686"
-          style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
+          style="background: #F8F8F8;border-radius: 11px; height: 60px;"
       >
         <v-container fluid>
           <h6 class="tip-text">

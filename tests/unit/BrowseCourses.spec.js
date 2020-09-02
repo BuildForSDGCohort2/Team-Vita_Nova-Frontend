@@ -1,6 +1,5 @@
 import { mount} from '@vue/test-utils'
-import ExploreCourses from "@/components/cooperateAdmin/courses/viewCourses/ExploreCourses";
-
+import ExploreCourses from "/components/cooperateAdmin/courses/viewCourses/ExploreCourses";
 
 
 describe('ExploreCourses', ()=>{

@@ -10,7 +10,7 @@
 <script>
 import CourseTabs from "@/components/cooperateAdmin/courses/CourseTabs";
 export default {
-  name: "ManageCourses",
+  name: "Courses",
   components: {
     CourseTabs
   }

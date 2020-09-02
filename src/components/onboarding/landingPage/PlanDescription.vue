@@ -100,7 +100,4 @@ export default {
   color: #455880 !important;
   margin-top: 10px;
 }
-.center-button {
-  padding-left: 100px;
-}
 </style>

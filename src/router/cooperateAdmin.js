@@ -1,4 +1,3 @@
-
 import Employee from "../views/cooperateAdmin/Employee"
 import Courses from "../views/cooperateAdmin/Courses"
 import CourseModule from "@/views/cooperateAdmin/CourseModule";
@@ -48,8 +47,8 @@ export default [
             name: 'courses.myCourses',
             component: () => import("../views/cooperateAdmin/MyCourses")
         },{
-            path: "browseCourses",
-            name: 'courses.browseCourses',
+            path: "exploreCourses",
+            name: 'courses.exploreCourses',
             component: () => import("../views/cooperateAdmin/ExploreCourses")
         }],
         meta: {

@@ -2,15 +2,15 @@
   <div>
     <v-card max-width="1450" class="mx-auto" elevation="0">
       <h3
+          :style="{'font-family': 'IBM Plex Sans'}"
         style="padding-left: 3%;
                padding-bottom: 20px;
-              font-family: IBM Plex Sans;
               font-style: normal;
               font-weight: 300;
               font-size: 24px;
               line-height: 62px;
 
-              letter-spacing: 0.6px;
+              letter-spacing: 1px;
               text-transform: capitalize;
 
               color: #2B1C1C;
@@ -21,15 +21,15 @@
       <SoftwareEngineer />
 
       <h3
+          :style="{'font-family': 'IBM Plex Sans'}"
           style="padding-left: 3%;
                padding-bottom: 20px;
-              font-family: IBM Plex Sans;
               font-style: normal;
               font-weight: 300;
               font-size: 24px;
               line-height: 62px;
 
-              letter-spacing: 0.6px;
+              letter-spacing: 1px;
               text-transform: capitalize;
 
               color: #2B1C1C;
@@ -40,15 +40,15 @@
       <BusinessManagement />
 
       <h3
+          :style="{'font-family': 'IBM Plex Sans'}"
           style="padding-left: 3%;
                padding-bottom: 20px;
-              font-family: IBM Plex Sans;
               font-style: normal;
               font-weight: 300;
               font-size: 24px;
               line-height: 62px;
 
-              letter-spacing: 0.6px;
+              letter-spacing: 1px;
               text-transform: capitalize;
 
               color: #2B1C1C;
