@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" width="500" hide-overlay>
+    <v-dialog v-model="dialog" max-width="500" hide-overlay>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
+        <v-btn :style="{'font-family': 'IBM Plex Sans'}"
           class="ma-2 transparent-btn"
           elevation="singleSelect"
           color="grey"
@@ -10,62 +10,57 @@
           v-on="on"
           light
         >
-          <v-icon left>mdi-plus</v-icon>Add New Employee
+          Invite Sent
         </v-btn>
       </template>
 
-      <InviteEmployee @showSplash="showSplashModal" />
-    </v-dialog>
-    <v-dialog v-model="splashShow" max-width="500">
-      <v-card class="text-center justify-center pt-10" rounded>
-        <img src="../../../../assets/thumbs-up-orange.svg" class="invite-circle"  alt=""/>
-        <v-card-text class="text-center justify-center invite-title">
-          <h3>Invites Sent!</h3>
-        </v-card-text>
+      <v-card class="mx-auto mt-4 align-center" max-width="500" rounded :style="{'font-family': 'IBM Plex Sans'}">
+        <v-main class="text-center justify-center" justify="center">
+          <img src="../../assets/thumbs-up-orange.svg"
+               :style="{'font-family': 'IBM Plex Sans'}"
+               class="invite-circle" alt=""/>
+          <v-card-text
+              :style="{'font-family': 'IBM Plex Sans'}"
+              class="text-center justify-center invite-title">
+            <h3>
+              Invites Sent!
+            </h3>
+          </v-card-text>
 
-        <v-card-text class="text-center justify-center invite-text" :style="{'font-family': 'IBM Plex Sans'}">
-          <p>
-            Your employees would be notified via
-            <br />email to join the
-            digital classroom.
-          </p>
-        </v-card-text>
-        <v-btn
-          class="text-center justify-center invite-cancel"
-          :style="{'font-family': 'IBM Plex Sans'}"
-          style="background: #FF2E2E;
+          <v-card-text class="text-center justify-center invite-text" :style="{'font-family': 'IBM Plex Sans'}">
+            <p>
+              Your employees would be notified via <br />email to join the
+              digital classroom.
+            </p>
+          </v-card-text>
+          <v-btn
+            class="text-center justify-center invite-cancel"
+            :style="{'font-family': 'IBM Plex Sans'}"
+            style="background: #FF2E2E;
                  border-radius: 4px;"
-          @click="splashShow = false"
-        >
-          <h4>Close</h4>
-        </v-btn>
+            @click="dialog = false"
+          >
+            <h4 :style="{'font-family': 'IBM Plex Sans'}">Cancel</h4>
+          </v-btn>
+        </v-main>
       </v-card>
     </v-dialog>
   </div>
 </template>
 
 <script>
-import InviteEmployee from "../inviteEmployee/InviteEmployee";
 export default {
+  name: "EmployeeInviteSent",
   data() {
     return {
-      dialog: false,
-      splashShow: false
+      dialog: false
     };
   },
-  components: {
-    InviteEmployee
-  },
-  methods: {
-    showSplashModal() {
-      this.splashShow = true;
-      this.dialog = !this.dialog;
-    }
-  }
+  components: {}
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .transparent-btn {
   background-color: transparent !important;
   padding: 0 0 !important;
@@ -85,7 +80,9 @@ export default {
   display: flex;
   align-items: center;
   text-align: center;
+
   /* semicolon-neutral-black */
+
   color: #2b1c1c;
 }
 .invite-text {
@@ -94,10 +91,12 @@ export default {
   font-size: 18px;
   line-height: 28px;
   /* or 156% */
+
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
+
   color: #2b1c1c;
 }
 .invite-cancel {
@@ -111,6 +110,7 @@ export default {
   margin-top: 5% !important;
   margin-bottom: 30% !important;
   letter-spacing: 0.05em;
+
   color: #ffffff;
 }
 </style>

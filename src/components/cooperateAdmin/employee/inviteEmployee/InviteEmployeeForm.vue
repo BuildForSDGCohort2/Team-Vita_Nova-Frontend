@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-card-title class="invite-title">
+      <v-card-title class="invite-title" :style="{'font-family': 'IBM Plex Sans'}">
         <h3>Invite your Employees</h3>
       </v-card-title>
     </v-row>
@@ -19,14 +19,14 @@
             <Loader :loading="loading" :message="message" />
             <FileUploadPage />
 
-            <h3 class="inviteOr">OR</h3>
+            <h3 class="inviteOr" :style="{'font-family': 'IBM Plex Sans'}">OR</h3>
 
-            <p class="inviteManually">Manually input Employees Email</p>
+            <p class="inviteManually" :style="{'font-family': 'IBM Plex Sans'}">Manually input Employees Email</p>
             <v-row>
               <v-col cols="9">
                 <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
                   <v-text-field
-                    v-model="email"
+                    v-model="emails"
                     label="Email Address"
                     outlined
                     name="emailAddress"
@@ -43,9 +43,9 @@
                   height: 55px;
                   background: #FF2E2E;
                   color: #ffffff;
-                  border: 0.736458px solid rgba(150, 12, 12, 0.5);
+                  border: 1px solid rgba(150, 12, 12, 0.5);
                   box-sizing: border-box;
-                  border-radius: 5.89167px;"
+                  border-radius: 6px;"
                   @click="addEmail"
                 >+ADD</v-btn>
               </v-col>
@@ -85,22 +85,26 @@ export default {
     };
   },
   methods: {
-    addEmail() {},
+    addEmail() {
+    },
     inviteEmployee() {
-      const data = { emails: ["john@semicolon.africa"] };
+      const data = {emails: ["john@semicolon.africa"]};
 
       UserService.inviteEmployee(data)
-        .then(res => {
-          console.log(res.data);
-
-          this.submitted = true;
-        })
-        .catch(err => {
-          console.log(err);
-        });
+          .then(
+              res => {
+                console.log(res.data);
+                this.$router.push("../../../splashPages/EmployeeInviteSent");
+                this.submitted = true;
+              },
+              error => {
+                this.loading = false;
+                this.errorMsg = error.response.data.detail;
+              }
+          )
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -109,14 +113,13 @@ export default {
   margin-left: 12%;
 }
 .invite-card {
-  width: 707px;
   height: 802px;
   width: 540px;
   padding-top: 15px;
-  border: 1.47292px solid #f8f8f8;
+  border: 1px solid #f8f8f8;
   box-sizing: border-box;
-  box-shadow: 0px 1.47292px 2.94583px rgba(43, 28, 28, 0.15);
-  border-radius: 14.7292px;
+  box-shadow: 0 1px 3px rgba(43, 28, 28, 0.15);
+  border-radius: 15px;
 }
 .err {
   display: block;
@@ -127,7 +130,6 @@ export default {
   padding-left: 35%;
   padding-top: 7%;
   padding-bottom: 3%;
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 500;
   font-size: 23px;
@@ -146,7 +148,7 @@ export default {
   }
   .invite-title {
     margin-left: 10%;
-    padding-left: 0px;
+    padding-left: 0;
     width: 100%;
   }
 }
@@ -157,7 +159,6 @@ export default {
   color: red !important;
 }
 .inviteManually {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -169,7 +170,6 @@ export default {
   color: #2b1c1c;
 }
 .inviteOr {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -178,19 +178,5 @@ export default {
   letter-spacing: 0.05em;
   margin-bottom: 48px;
   color: rgba(43, 28, 28, 0.4);
-}
-.inviteSkip {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.05em;
-  justify-content: center;
-  /* semicolon-red-primary */
-  color: #ff2e2e;
 }
 </style>

@@ -5,9 +5,9 @@
         <h1>Create your account</h1>
         <ValidationObserver v-slot="{ handleSubmit }">
           <v-form v-if="!submitted" @submit.prevent="handleSubmit(handleRegister)">
-            <divgit v-if="errorMsg">
+            <div v-if="errorMsg">
               <span class="err text-xl-center">{{errorMsg}}</span>
-            </divgit>
+            </div>
             <Loader :loading="loading" :message="message" />
             <ValidationProvider name="Name" rules="required|alpha" v-slot="{ errors }">
               <span v-show="errors" class="err">{{ errors[0] }}</span>
@@ -114,7 +114,6 @@
 
 <script>
 import SubmitButton from "../ui/buttons/SubmitButton";
-import User from "../../models/user";
 import Loader from "../ui/loader/Loader";
 import { localize } from "vee-validate";
 export default {
@@ -208,8 +207,4 @@ export default {
   background-color: #fff0ce;
 }
 
-.v-image {
-  left: 40% !important;
-  top: 20% !important;
-}
 </style>

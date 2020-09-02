@@ -2,7 +2,7 @@
   <v-row>
     <v-col cols="12" md="6">
       <v-btn to="/" class="onboarding-logo" elevation="drawer">
-        <img src="../../../assets/semfulllogo.svg" height="30" />
+        <img src="../../../assets/semfulllogo.svg" height="30" alt=""/>
       </v-btn>
     </v-col>
     <v-col cols="12" md="6" class="py-0 px-0 right-bar">

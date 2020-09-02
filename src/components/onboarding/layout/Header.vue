@@ -51,12 +51,6 @@ export default {
   color: transparent !important;
   background-color: transparent !important;
 }
-.title {
-  margin-left: 13% !important;
-}
-.v-btn {
-  text-transform: none !important;
-}
 
 .other-nav-button {
   background-color: transparent !important;
