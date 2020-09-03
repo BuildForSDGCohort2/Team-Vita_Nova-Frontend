@@ -8,7 +8,7 @@
 
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn depressed to="/exploreCourses" class="other-nav-button">Explore Courses</v-btn>
+        <v-btn depressed to="/browseCourses" class="other-nav-button">Explore Courses</v-btn>
         <v-btn depressed to="/plans" class="other-nav-button">Plans</v-btn>
         <v-btn depressed to="/login" class="other-nav-button">Login</v-btn>
       </v-toolbar-items>
@@ -18,11 +18,11 @@
       <v-list nav dense>
         <v-list-item-group active-class="deep-purple--text text--accent-4">
           <v-list-item>
-            <v-btn depressed class="other-nav-button">Explore Courses</v-btn>
+            <v-btn depressed to="/browseCourses" class="other-nav-button">Explore Courses</v-btn>
           </v-list-item>
 
           <v-list-item>
-            <v-btn depressed class="other-nav-button">Plans</v-btn>
+            <v-btn depressed to="/plans" class="other-nav-button">Plans</v-btn>
           </v-list-item>
 
           <v-list-item>
