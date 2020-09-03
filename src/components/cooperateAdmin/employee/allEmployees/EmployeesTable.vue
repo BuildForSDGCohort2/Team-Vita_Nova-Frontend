@@ -17,11 +17,32 @@
       </v-row>
       <v-row>
         <v-col class="d-flex" cols="12" sm="2">
-          <v-select :items="items" label="Sort By:" flat outlined></v-select>
+          <v-menu bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn light icon v-bind="attrs" v-on="on" large color="#00A998" class="ml-6">
+                <v-icon>mdi-filter-variant</v-icon>
+                <h3>Filter</h3>
+                <v-icon small>mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item>
+                <v-checkbox v-model="byDepartment" label="By Department"></v-checkbox>
+              </v-list-item>
+              <v-list-item>
+                <v-checkbox v-model="acceptedEmployee" label="Accepted Employee"></v-checkbox>
+              </v-list-item>
+              <v-list-item>
+                <v-checkbox v-model="admin" label="Admin"></v-checkbox>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-col>
         <v-col cols="12" sm="4"></v-col>
         <v-col class="d-flex" cols="12" sm="2">
-          <AddEmployeesModal />
+          <AddEmployeesModal>
+            <v-icon left>mdi-plus</v-icon>Add New Employee
+          </AddEmployeesModal>
         </v-col>
         <v-col class="d-flex" cols="12" sm="2">
           <v-btn class="ma-2 transparent-btn" elevation="singleSelect" color="grey" light>
@@ -37,86 +58,101 @@
       <v-data-table
         v-model="selected"
         :headers="headers"
-        :items="desserts"
+        :items="getEmployees"
         :search="search"
         show-select
-        item-key="emailAddress"
+        item-key="email"
         :single-select="singleSelect"
-      ></v-data-table>
+      >
+        <template v-slot:item.actions="{ item }">
+          <v-menu bottom offset-y left>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn v-bind="attrs" v-on="on" icon>
+                <v-icon color="black">mdi-dots-vertical</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item>
+                <div class="ma-2">
+                  <v-list-item-title>Make an admin</v-list-item-title>
+                </div>
+              </v-list-item>
+              <v-list-item>
+                <AddToDepartmentModal :item="item">
+                  <v-list-item-title>Add to department</v-list-item-title>
+                </AddToDepartmentModal>
+              </v-list-item>
+              <v-list-item>
+                <DeleteEmployeeModal :item="item">
+                  <v-list-item-title>Delete Employee</v-list-item-title>
+                </DeleteEmployeeModal>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </template>
+      </v-data-table>
     </v-card>
   </div>
 </template>
 
 <script>
 import AddEmployeesModal from "../modals/AddEmployeesModal";
+import DeleteEmployeeModal from "../modals/DeleteEmployeeModal";
+import AddToDepartmentModal from "../modals/AddToDepartmentModal";
 export default {
   data() {
     return {
       search: "",
+      byDepartment: false,
+      acceptedEmployee: false,
+      admin: false,
       splashShow: true,
       selected: [],
       singleSelect: false,
       items: ["Date", "Email", "Age"],
-      desserts: [
-        {
-          emailAddress: "Frozen Yogurt",
-          firstName: 159,
-          lastName: 6.0,
-          status: 24,
-          department: 4.0
-        },
-        {
-          emailAddress: "Ice cream sandwich",
-          firstName: 237,
-          lastName: 9.0,
-          status: 37,
-          department: 4.3
-        },
-        {
-          emailAddress: "Eclair",
-          firstName: 262,
-          lastName: 16.0,
-          status: 23,
-          department: 6.0
-        },
-        {
-          emailAddress: "Jelly bean",
-          firstName: 375,
-          lastName: 0.0,
-          status: 94,
-          department: 0.0
-        },
-        {
-          emailAddress: "Lollipop",
-          firstName: 392,
-          lastName: 0.2,
-          status: 98,
-          department: 0
-        },
-        {
-          emailAddress: "KitKat",
-          firstName: 518,
-          lastName: 26.0,
-          status: 65,
-          department: 7
-        }
-      ],
       headers: [
         {
           text: "Email Address",
           align: "start",
           sortable: false,
-          value: "emailAddress"
+          value: "email"
         },
-        { text: "First Name", value: "firstName" },
-        { text: "Last Name", value: "lastName" },
-        { text: "Status", value: "status" },
-        { text: "Department", value: "department" }
+        { text: "First Name", value: "first_name" },
+        { text: "Last Name", value: "last_name" },
+        { text: "Status", value: "corporate" },
+        { text: "Department", value: "organisation" },
+        { text: "", value: "actions" }
+      ],
+      actionItems: [
+        {
+          title: "Make an admin"
+        },
+        {
+          title: "Add to department"
+        },
+        {
+          title: "Remove Employee"
+        }
       ]
     };
   },
+  computed: {
+    getEmployees() {
+      return this.$store.state.employees.data;
+    }
+  },
+  mounted() {
+    console.log(this.employees);
+  },
   components: {
-    AddEmployeesModal
+    AddEmployeesModal,
+    DeleteEmployeeModal,
+    AddToDepartmentModal
+  },
+  methods: {
+    deleteItem(item) {
+      console.log(item);
+    }
   }
 };
 </script>

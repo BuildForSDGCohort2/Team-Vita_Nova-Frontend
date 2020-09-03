@@ -1,27 +1,25 @@
 
-import Home from "../views/Home.vue";
-
 
 import Employee from "../views/cooperateAdmin/Employee"
 import Courses from "../views/cooperateAdmin/Courses"
 
 export default [
     {
-        path: "/cooperate/dashboard",
+        path: "/corperate/dashboard",
         name: "Dashboard",
         component: () =>
-            import("../views/cooperateAdmin/Dashboard.vue"),
+            import("../views/cooperateAdmin/Dashboard"),
         meta: {
             requiresAuth: true
         }
     },
     {
-        path: "/cooperate/employee/",
+        path: "/corperate/employee/",
         name: "Employee",
         component: Employee,
         children: [{
-            path: "allEmployees",
-            component: () => import("../views/cooperateAdmin/AllEmployees")
+            path: "employees",
+            component: () => import("../views/cooperateAdmin/EmployeesContainer")
         }, {
             path: "departments",
             component: () => import("../views/cooperateAdmin/Departments")
@@ -32,7 +30,7 @@ export default [
 
     },
     {
-        path: "/cooperate/courses",
+        path: "/corperate/courses",
         name: "ManageCourses",
         component: Courses,
         children: [
@@ -51,7 +49,7 @@ export default [
     }
     ,
     {
-        path: "/cooperate/preview-profile",
+        path: "/corperate/preview-profile",
         name: "PreviewProfile",
         component: () =>
             import("../views/cooperateAdmin/PreviewProfile")
@@ -61,7 +59,7 @@ export default [
         }
     },
     {
-        path: "/cooperate/update-profile",
+        path: "/corperate/update-profile",
         name: "UpdateProfile",
         component: () =>
             import("../views/cooperateAdmin/UpdateProfile")

@@ -34,8 +34,10 @@
             label="Email Address"
             multiple
             small-chips
-            solo
             :loading="load"
+            flat
+            outlined
+            color="red"
           >
             <template v-slot:no-data>
               <v-list-item>
@@ -175,15 +177,17 @@ export default {
     inviteEmployee() {
       this.load = true;
       const data = { emails: this.model };
-
-      UserService.inviteEmployee(data, this.files)
+      this.$store
+        .dispatch("employees/addEmployee", data)
         .then(res => {
           console.log(res.data);
           this.load = false;
           this.$emit("showSplash");
+          this.model = [];
         })
         .catch(err => {
           console.log(err);
+          this.load = false;
         });
     }
   }

@@ -10,7 +10,7 @@
           v-on="on"
           light
         >
-          <v-icon left>mdi-plus</v-icon>Add New Employee
+          <slot></slot>
         </v-btn>
       </template>
 
