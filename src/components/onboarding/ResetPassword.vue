@@ -7,7 +7,8 @@
             <div class="mx-auto">
               <ValidationObserver v-slot="{ handleSubmit }">
                 <v-form class="login-form" @submit.prevent="handleSubmit(handleRest)">
-                  <h4 class="login-title pa-2">
+                  <h4 class="login-title pa-2"
+                      :style="{'font-family': 'IBM Plex Sans'}">
                     Reset your
                     <br />password
                   </h4>
@@ -105,7 +106,6 @@ export default {
   border-radius: 10px;
 }
 .login-title {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 500;
   font-size: 33px;

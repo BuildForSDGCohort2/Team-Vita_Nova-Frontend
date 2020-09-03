@@ -5,7 +5,7 @@
         <v-icon>{{ drawer ? 'mdi-chevron-left' : 'mdi-chevron-right' }}</v-icon>
       </v-btn>
 
-      <img src="../../../assets/semfulllogo.svg" class="logo" height="30" />
+      <img src="../../../assets/semfulllogo.svg" class="logo" height="30"  alt=""/>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>

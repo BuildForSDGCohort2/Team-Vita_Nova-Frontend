@@ -31,7 +31,7 @@
           style="max-width: 30%; margin: 0 auto; margin-top: 5%; margin-bottom: 3%;"
         ></v-text-field>
 
-        <h3
+        <h4
           style="padding-left: 3%;
                padding-bottom: 20px;
 
@@ -47,10 +47,10 @@
                   "
         >
           Business Management & Marketing Courses
-        </h3>
+        </h4>
         <SoftwareEngineer />
 
-        <h3
+        <h4
           style="padding-left: 3%;
                padding-bottom: 20px;
 
@@ -66,10 +66,10 @@
                   "
         >
           Top Business Management Courses
-        </h3>
+        </h4>
         <BusinessManagement />
 
-        <h3
+        <h4
           style="padding-left: 3%;
                padding-bottom: 20px;
 
@@ -85,7 +85,7 @@
                   "
         >
           Top Design Thinking Courses
-        </h3>
+        </h4>
         <DesignThinking />
       </v-card>
     </div>
@@ -99,6 +99,10 @@ import DesignThinking from "@/components/onboarding/browseCourses/DesignThinking
 
 export default {
   components: { DesignThinking, BusinessManagement, SoftwareEngineer },
+  data: ()=> ({
+    title: "BrowseCourses",
+
+}),
   computed: {}
 };
 </script>

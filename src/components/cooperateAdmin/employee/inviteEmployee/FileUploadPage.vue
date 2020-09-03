@@ -31,7 +31,7 @@
             <v-container>
               <v-icon v-bind="attrs" v-on="on" color="#645262" dark>mdi-cloud-upload</v-icon>
               <v-row id="file-drag-drop">
-                <p class="drag drop-files">Drag & Drop files here</p>
+                <p class="drag drop-files" :style="{'font-family': 'IBM Plex Sans'}">Drag & Drop files here</p>
                 <v-input
                   type="file"
                   id="file"
@@ -49,6 +49,7 @@
             <v-btn
               x-large
               class="pl-7 pr-7 submit-button-container"
+              :style="{'font-family': 'IBM Plex Sans'}"
               type="submit"
               :disabled="uploadDisabled"
               @click="dailog = false"
@@ -118,7 +119,7 @@ export default {
     },
     removeFile(file) {
       this.files = this.files.filter(f => {
-        return f != file;
+        return f !== file;
       });
     },
     inviteEmployee() {
@@ -160,7 +161,6 @@ export default {
   padding-top: 4em;
 }
 .drag {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -170,16 +170,13 @@ export default {
   /* lamp-txt-1 */
   color: #645262;
 }
-.xClose {
-  float: right;
-  padding-right: 10px;
-}
+
 .uploader {
   width: 70%;
   color: #ffffff;
   padding: 40px 15px;
   text-align: center;
-  border: 0.812796px dashed #645262;
+  border: 1px dashed #645262;
   box-sizing: border-box;
   font-size: 20px;
   /*&.dragging {*/
@@ -215,7 +212,6 @@ export default {
   box-sizing: border-box;
 }
 .inviteUpload {
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -231,7 +227,6 @@ export default {
 .submit-button-container {
   background: #ff2e2e !important;
   border-radius: 8px !important;
-  font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;

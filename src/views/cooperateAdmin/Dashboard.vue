@@ -28,7 +28,7 @@ import InviteEmployees from "../../components/cooperateAdmin/dashboardPage/Invit
 import CreateDepartment from "../../components/cooperateAdmin/dashboardPage/CreateDepartment";
 import CreateCourse from "../../components/cooperateAdmin/dashboardPage/CreateCourse";
 import StatusBarCard from "../../components/cooperateAdmin/dashboardPage/StatusBarCard";
-import { userloggedOut } from "../../services/user-authentication";
+
 export default {
   components: {
     DropDownCard,
@@ -61,7 +61,4 @@ export default {
 </script>
 
 <style scoped>
-.activity-cards {
-  margin: 20px 20px;
-}
 </style>

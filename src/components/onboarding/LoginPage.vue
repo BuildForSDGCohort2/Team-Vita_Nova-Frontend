@@ -53,7 +53,7 @@
     </v-col>
     <v-col cols="12" md="6" class="d-none d-md-flex login-column">
       <div class="mx-auto">
-        <img src="../../assets/desk-illo.png" width="600px" />
+        <img src="../../assets/desk-illo.png" width="600px" alt=""/>
       </div>
     </v-col>
   </v-row>
@@ -133,10 +133,6 @@ export default {
   color: #2b1c1c;
 }
 
-.v-text-field {
-  height: 70px !important;
-  border-radius: 6px !important;
-}
 .login-btn {
   margin-top: 20px !important;
 }

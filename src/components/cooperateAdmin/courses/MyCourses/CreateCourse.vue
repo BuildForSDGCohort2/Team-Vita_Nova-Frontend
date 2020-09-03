@@ -284,7 +284,7 @@
                         <v-col cols="12" md="2" class="ma-auto" >
                         </v-col>
                         <v-col cols="12" md="3" class="ma-auto mt-n6" >
-                          <SubmitButton button-name= "Create Course" />
+                          <SubmitButton button-name="Create Course" />
                         </v-col>
                         <v-col cols="12" md="7" class="ma-auto" >
                         </v-col>
@@ -307,13 +307,16 @@
 import { VueEditor } from "vue2-editor";
 import Loader from "@/components/ui/loader/Loader";
 import SubmitButton from "@/components/ui/buttons/SubmitButton";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
   name: "CreateCourse",
   components: {
     Loader,
     VueEditor,
-    SubmitButton
+    SubmitButton,
+    ValidationProvider,
+    ValidationObserver
   },
   props: {
     value: {

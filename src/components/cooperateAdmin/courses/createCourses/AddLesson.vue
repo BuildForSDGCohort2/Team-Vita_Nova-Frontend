@@ -1,19 +1,5 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" max-width="500" hide-overlay>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn :style="{'font-family': 'IBM Plex Sans'}"
-          class="ma-2 transparent-btn"
-          elevation="singleSelect"
-          color="grey"
-          v-bind="attrs"
-          v-on="on"
-          light
-        >
-          Invite Sent
-        </v-btn>
-      </template>
-
       <v-card class="mx-auto mt-4 align-center" max-width="500" rounded :style="{'font-family': 'IBM Plex Sans'}">
         <v-main class="text-center justify-center" justify="center">
           <img src="../../assets/thumbs-up-orange.svg"
@@ -23,7 +9,7 @@
               :style="{'font-family': 'IBM Plex Sans'}"
               class="text-center justify-center invite-title">
             <h3>
-              Invites Sent!
+              Add Lesson
             </h3>
           </v-card-text>
 
@@ -34,17 +20,15 @@
             </p>
           </v-card-text>
           <v-btn
-            class="text-center justify-center invite-cancel"
-            :style="{'font-family': 'IBM Plex Sans'}"
-            style="background: #FF2E2E;
+              class="text-center justify-center invite-cancel"
+              :style="{'font-family': 'IBM Plex Sans'}"
+              style="background: #FF2E2E;
                  border-radius: 4px;"
-            @click="dialog = false"
           >
             <h4 :style="{'font-family': 'IBM Plex Sans'}">Cancel</h4>
           </v-btn>
         </v-main>
       </v-card>
-    </v-dialog>
   </div>
 </template>
 

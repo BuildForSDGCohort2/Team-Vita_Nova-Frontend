@@ -1,25 +1,34 @@
 import { mount} from '@vue/test-utils'
-import ExploreCourses from "@/components/cooperateAdmin/courses/viewCourses/ExploreCourses";
+import BrowseCourses from "@/components/onboarding/browseCourses/BrowseCourses";
 
+describe('BrowseCourses', ()=>{
+    const wrapper=mount(BrowseCourses)
 
+    it("render page titles", () => {
 
-describe('ExploreCourses', ()=>{
-    const wrapper=mount(ExploreCourses)
-    it('test page has title', () =>{
-
-        expect(wrapper.text()).toContain('Top Software Development Courses')
-    })
+        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.text()).toContain("Business Management & Marketing Courses");
+        expect(wrapper.text()).toContain("Top Business Management Courses");
+        expect(wrapper.text()).toContain("Top Design Thinking Courses");
+    });
 
     it("sets the correct default data", () => {
-        expect(typeof ExploreCourses.data).toBe("function");
-        const defaultData = ExploreCourses.data();
-        expect(defaultData.software).toBe("");
+        expect(typeof BrowseCourses.data).toBe("function");
+        const defaultData = BrowseCourses.data();
+        expect(defaultData.title).toBe("BrowseCourses");
     });
-    it("show all button clicks", () => {
-        wrapper.find("v-btn").trigger("Show All");
+    it("search button trigger", () => {
+        wrapper.find("v-text-field").trigger("search");
     });
+
+    it("component did mount", () => {
+        expect(typeof BrowseCourses.components).toBe("object");
+
+    });
+
+
     it("renders a vue instance", () => {
-        expect(mount(ExploreCourses).isVueInstance()).toBe(true);
+        expect(mount(BrowseCourses).isVueInstance()).toBe(true);
     });
 
 
