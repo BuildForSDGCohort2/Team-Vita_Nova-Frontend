@@ -6,10 +6,10 @@
             </div>
                 <p class="font-weight-bold">Nothing here yet</p>
 
-                <p class="font-data font-weight-light text-center ma-0 mb-3">Add them to a department for easy assigning of courses</p>
+                <p class="font-weight-light text-center ma-0 mb-3">Add them to a department for easy assigning of courses</p>
                 <v-btn class="ma-2" color="red" dark>
                     <v-icon dark left>mdi-plus </v-icon>
-                    create Department
+                    Create Department
 
                 </v-btn>
         </div>
@@ -28,13 +28,5 @@
 </script>
 
 <style scoped>
-
-    .center-item{
-        /*display: flex;*/
-        justify-content: center !important;
-
-    }
-    .font-data{
-    }
 
 </style>
