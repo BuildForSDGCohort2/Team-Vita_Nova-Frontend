@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-container style="max-width: 1000px" grid-list-xl>
+    <v-container style="max-width: 1100px" grid-list-xl>
       <div :style="{'font-family': 'IBM Plex Sans'}">
         <v-row>
           <v-col cols="12" md="12">
@@ -18,14 +18,14 @@
           <v-col cols="12" md="4">
             <template>
               <v-card
+                  elevation="2"
                   raised
-                  :loading="loading"
-                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch"
+                  :loading="startupsLoading"
+                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
               >
                 <template>
                   <v-card
-                      :loading="loading"
-                      class="subCard mx-auto pa-2 align-self-auto"
+                      class="subCard mx-auto pa-2 align-self-auto text-wrap"
                       flat
                   >
                     <v-card-text>
@@ -44,15 +44,15 @@
 
                 <v-container fill-height fluid pa-2>
                   <v-card-text>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                     <v-divider class="mx-4"></v-divider>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                     <v-divider class="mx-4"></v-divider>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                   </v-card-text>
@@ -62,7 +62,7 @@
                       class="btn mt-n1"
                       large
                       :style="{'font-size': '14px', 'height': '43px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'}"
-                      @click="reserve"
+                      @click="startupsDemo"
                   >
                     <v-icon color="#fff">mdi-plus</v-icon>
                     Request a Demo
@@ -74,14 +74,14 @@
           <v-col cols="12" md="4" >
             <template>
               <v-card
+                  elevation="2"
                   raised
-                  :loading="loading"
-                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch"
+                  :loading="customLoading"
+                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
               >
                 <template>
                   <v-card
-                      :loading="loading"
-                      class="subCard mx-auto pa-2 align-self-auto"
+                      class="subCard mx-auto pa-2 align-self-auto text-wrap"
                       flat
                   >
                     <v-card-text>
@@ -99,15 +99,15 @@
 
                 <v-container fill-height fluid pa-2>
                   <v-card-text>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                     <v-divider class="mx-4"></v-divider>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                     <v-divider class="mx-4"></v-divider>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                   </v-card-text>
@@ -117,7 +117,7 @@
                       class="btn mt-n1"
                       large
                       :style="{'font-size': '14px', 'height': '43px', 'background': '#FFB403', 'color': '#FFF', 'font-weight': 'bold'}"
-                      @click="reserve"
+                      @click="customDemo"
                   >
                     <v-icon color="#fff">mdi-plus</v-icon>
                     Get Started
@@ -129,14 +129,14 @@
           <v-col cols="12" md="4" >
             <template>
               <v-card
+                  elevation="2"
                   raised
-                  :loading="loading"
-                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch"
+                  :loading="enterpriseLoading"
+                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
               >
                 <template>
                   <v-card
-                      :loading="loading"
-                      class="subCard mx-auto pa-2 align-self-auto"
+                      class="subCard mx-auto pa-2 align-self-auto text-wrap"
                       flat
                   >
                     <v-card-text>
@@ -155,15 +155,15 @@
 
                 <v-container fill-height fluid pa-2>
                   <v-card-text>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                     <v-divider class="mx-4"></v-divider>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                     <v-divider class="mx-4"></v-divider>
-                    <div class="my-4" :style="cardText">
+                    <div class="card-text my-4">
                       This is  the benefit  you would get in the startup plan if you registered and subscribe
                     </div>
                   </v-card-text>
@@ -173,7 +173,7 @@
                       class="btn mt-n1"
                       large
                       :style="{'font-size': '14px', 'height': '43px', 'background': '#1C8AEC', 'color': '#FFF', 'font-weight': 'bold'}"
-                      @click="reserve"
+                      @click="enterpriseDemo"
                   >
                     <v-icon color="#fff">mdi-plus</v-icon>
                     Request a Demo
@@ -271,19 +271,30 @@
 <script>
 import Footer from "@/components/onboarding/layout/Footer";
 export default {
-  name: "MyCourses",
+  name: "Plans",
   data() {
     return {
-      loading: false,
+      startupsLoading: false,
+      customLoading: false,
+      enterpriseLoading: false,
       selection: 1,
-      cardText:  {'font-style': 'normal', 'font-weight': 'normal', 'font-size': '14px', 'line-height': '24px', 'color': '#455880'}
     }
   },
   methods: {
-    reserve () {
-      this.loading = true
+    enterpriseDemo () {
+      this.enterpriseLoading = true
 
-      setTimeout(() => (this.loading = false), 2000)
+      setTimeout(() => (this.enterpriseLoading = false), 2000)
+    },
+    customDemo () {
+      this.customLoading = true
+
+      setTimeout(() => (this.customLoading = false), 2000)
+    },
+    startupsDemo () {
+      this.startupsLoading = true
+
+      setTimeout(() => (this.startupsLoading = false), 2000)
     },
   },
   components: {
@@ -309,7 +320,7 @@ export default {
 .selectPlanSubtitle {
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   text-align: center;
 
@@ -339,7 +350,7 @@ export default {
 .card-type {
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 42px;
   text-align: center;
   letter-spacing: 1px;
@@ -349,7 +360,7 @@ export default {
 }
 .plan {
   font-style: normal;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 44px;
   line-height: 42px;
 
@@ -373,6 +384,14 @@ export default {
 
   color: rgba(0, 0, 0, 0.5);
 }
+.card-text  {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: #455880;
+}
+
 .card-style {
   background: #FFFFFF;
   border-radius: 10px;

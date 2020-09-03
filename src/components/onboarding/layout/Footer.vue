@@ -1,6 +1,6 @@
 <template>
   <v-responsive class="footer-container mt-16">
-    <v-container style="max-width: 1000px" grid-list-xl>
+    <v-container style="max-width: 1100px" grid-list-xl>
       <div>
         <v-row>
           <v-col cols="12" md="12">
