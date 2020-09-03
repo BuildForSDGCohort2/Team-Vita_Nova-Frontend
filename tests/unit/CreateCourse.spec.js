@@ -1,11 +1,14 @@
-import {mount, createLocalVue, shallowMount} from "@vue/test-utils";
+import {createLocalVue, shallowMount} from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vue from "vue";
+import Vuex from 'vuex';
 import CreateCourse from "@/components/cooperateAdmin/courses/MyCourses/CreateCourse";
+import SubmitButton from "@/components/ui/buttons/SubmitButton";
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false;
 const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("Create Course Component unit test", () => {
     let vuetify;
@@ -30,30 +33,12 @@ describe("Create Course Component unit test", () => {
         expect(wrapper.text()).toContain("Create Course");
     });
 
-    test("Check if Create course button exist", () => {
+    test("Check if SubmitButton component still exist in DOM", () => {
         const wrapper = shallowMount(CreateCourse, {
             localVue,
-            vuetify
+            vuetify,
         });
-
-        expect(wrapper.find('.btn').exists()).toBeTruthy();
-        expect(wrapper.find('.btn').text()).toContain("Create Course");
+        expect(wrapper.findComponent(SubmitButton).exists()).toBeFalsy();
     });
-
-    // test("Create course button click", () => {
-    //     const wrapper = shallowMount(CreateCourse, {
-    //         localVue,
-    //         vuetify
-    //     });
-    //
-    //     const event = jest.fn();
-    //     const button = wrapper.find(".btn");
-    //     expect(button.text()).toContain("Create Course")
-    //
-    //     button.vm.$on("click", event);
-    //     expect(event).toHaveBeenCalledTimes(0);
-    //     button.trigger("click");
-    //     expect(event).toHaveBeenCalledTimes(1);
-    // });
 
 });

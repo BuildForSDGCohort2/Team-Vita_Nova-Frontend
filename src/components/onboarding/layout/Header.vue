@@ -3,13 +3,13 @@
     <v-app-bar app color="#FFFCF1" elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-flex d-sm-flex d-md-none"></v-app-bar-nav-icon>
       <v-btn to="/" class="onboarding-button" elevation="drawer">
-        <img src="../../../assets/semfulllogo.svg" height="30" />
+        <img src="../../../assets/semfulllogo.svg" alt="" height="30" />
       </v-btn>
 
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn depressed to="/exploreCourses" class="other-nav-button">Explore Courses</v-btn>
-        <v-btn depressed class="other-nav-button">Plans</v-btn>
+        <v-btn depressed to="/browseCourses" class="other-nav-button">Explore Courses</v-btn>
+        <v-btn depressed to="/plans" class="other-nav-button">Plans</v-btn>
         <v-btn depressed to="/login" class="other-nav-button">Login</v-btn>
       </v-toolbar-items>
       <GetStarted title="Get Started" />
@@ -18,11 +18,11 @@
       <v-list nav dense>
         <v-list-item-group active-class="deep-purple--text text--accent-4">
           <v-list-item>
-            <v-btn depressed class="other-nav-button">Explore Courses</v-btn>
+            <v-btn depressed to="/browseCourses" class="other-nav-button">Explore Courses</v-btn>
           </v-list-item>
 
           <v-list-item>
-            <v-btn depressed class="other-nav-button">Plans</v-btn>
+            <v-btn depressed to="/plans" class="other-nav-button">Plans</v-btn>
           </v-list-item>
 
           <v-list-item>
@@ -50,12 +50,6 @@ export default {
 .onboarding-button {
   color: transparent !important;
   background-color: transparent !important;
-}
-.title {
-  margin-left: 13% !important;
-}
-.v-btn {
-  text-transform: none !important;
 }
 
 .other-nav-button {
