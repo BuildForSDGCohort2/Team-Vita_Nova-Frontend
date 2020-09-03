@@ -1,9 +1,10 @@
-import { mount } from "@vue/test-utils";
-import CreateCourseModule from "@/components/cooperateAdmin/courses/createCourses/CreateCourseModule";
+import {mount} from "@vue/test-utils";
+import AddContentVideo from "@/components/cooperateAdmin/courses/createCourses/AddContentVideo";
 
-const wrapper = mount(CreateCourseModule);
 //testing if the test is properly setup on the run
-describe("CreateCourseModule", () => {
+describe("AddContentVideo", () => {
+    const wrapper = mount(AddContentVideo);
+
     it("setup correctly", () => {
         expect(true).toBe(true);
     });
@@ -11,11 +12,11 @@ describe("CreateCourseModule", () => {
     //test to check if the title is correct
     it("test page has title", () => {
         expect(wrapper.html()).toMatchSnapshot();
-        expect(wrapper.text()).toContain("Untitled Module");
+        expect(wrapper.text()).toContain("Untitled Video");
     });
 
-    it('will change and update the value', () => {
-        expect(wrapper.vm.accept).toBe(false)
+    it("will change and update the value", () => {
+        expect(wrapper.vm.accept).toBe(false);
 
         // const checkbox = wrapper.vm.$refs.checkbox
         // checkbox.$emit('input', true)
@@ -24,9 +25,8 @@ describe("CreateCourseModule", () => {
     });
 
     it("sets the correct default data", () => {
-        expect(typeof CreateCourseModule.data).toBe("function");
-        const defaultData = CreateCourseModule.data();
+        expect(typeof AddContentVideo.data).toBe("function");
+        const defaultData = AddContentVideo.data();
         expect(defaultData.search).toBe(null);
     });
-
 });

@@ -28,7 +28,7 @@
         </v-row>
       </v-list>
 
-      <v-card class="text-center justify-center ma-4">
+      <v-card class="text-center justify-center ma-4" height="auto">
         <v-list nav dense>
           <v-list-item @click.stop="drawer = !drawer">
             <v-list-item-icon>
@@ -48,6 +48,7 @@
         <v-btn @click="saveCourse" style="margin-bottom: 50px ; margin-top: 50px; height: 50px !important; width: 80% "
           >+ Add Lesson</v-btn
         >
+
         </div>
       </v-card>
     </v-navigation-drawer>
