@@ -12,7 +12,6 @@
             <div v-if="errorMsg">
               <span class="err text-xl-center">{{ errorMsg }}</span>
             </div>
-            <Loader :loading="loading" :message="message" />
             <v-container fluid>
               <v-text-field
                 v-model="course.courseModuleTitle"
@@ -154,7 +153,6 @@ export default {
     ],
     errorMsg: "",
     message: ".",
-    loading: false,
     accept: false,
     agree: false,
     submitted: false,
