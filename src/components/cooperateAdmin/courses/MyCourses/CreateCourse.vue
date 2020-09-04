@@ -101,7 +101,7 @@
                         <v-col cols="12" md="8">
                           <v-combobox
                               v-model="course.selectCategory"
-                              :items="items"
+                              :items="courseCategories"
                               name="courseCategory"
                               label="Select Category"
                               multiple
@@ -358,11 +358,10 @@ export default {
       },
 
       style: {'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'},
-      items: [
-        'Programming',
-        'Design',
-        'Vue',
-        'Vuetify',
+      courseCategories: [
+        "Communications", "Tourism and Hospitality", "Finance", "Sales", "Product Management", "Project Management", "Entrepreneurship",
+        "Leadership and Management", "E-Commerce", "Operations", "Human Resources", "Databases", "Data Science", "Software Engineering",
+        "Mobile Development", "IT Management", "Game Development", "Hardware", "Network and Security"
       ],
       customToolbar: [
         ["bold", "italic", "underline"],
@@ -407,7 +406,6 @@ export default {
     },
     handleCreateCourse() {
       this.loading = true;
-      console.log(this.course);
       let course = {
         "title": this.course.courseName,
         "image": this.course.image,
@@ -415,22 +413,18 @@ export default {
         "requirement": this.course.courseRequirements,
         "learning_outcome": this.course.learningOutcomes,
         "facilitator": this.course.addFacilitator[0],
-        "selectCategory": this.course.selectCategory,
+        "course_category": this.course.selectCategory[0],
         "startDate": this.course.startDate,
         "endDate": this.course.endDate
       };
-
-      UserService.handleCreateCourse(course).then(
-          course => {
-            console.log(course.data);
-            this.mounted();
-          },
-          error => {
-            this.loading = false;
-            console.log(error);
-            this.errorMsg = error.response.course.detail;
-          }
-      );
+      console.log(course);
+      UserService.handleCreateCourse(course).then(res => {
+        console.log(res.data);
+        this.load = false;
+        this.mounted();
+      }).catch(err => {
+            console.log(err);
+      });
     }
   },
 };

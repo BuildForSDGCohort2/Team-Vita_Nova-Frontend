@@ -64,6 +64,7 @@
 <script>
 import ExploreCourses from "@/components/cooperateAdmin/courses/ExploreCourses/ExploreCourses";
 export default {
+  name: "CourseCard",
   props: {
     cards: Object,
     index: Number
