@@ -29,6 +29,7 @@ export default {
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
+  text-transform: capitalize;
 
   color: #ffffff;
   box-shadow: none !important;

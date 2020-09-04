@@ -47,7 +47,7 @@
                             <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                             <div v-if="!course.image">
                               <v-btn
-                                  :style="{'font-family': 'IBM Plex Sans'}"
+                                  :style="{'font-family': 'IBM Plex Sans', 'text-transform': 'capitalize'}"
                                   block
                                   x-large
                                   class="#2B1C1C black--text mt-4"
@@ -61,7 +61,7 @@
                               <input ref="fileInput" style="display: none" type="file" @change="handleImage"/></div>
                             <div v-else v-model="isImage" >
                               <v-btn
-                                  :style="{'font-family': 'IBM Plex Sans', 'justify-content': 'start', 'text-decoration-line': 'underline'}"
+                                  :style="{'font-family': 'IBM Plex Sans', 'justify-content': 'start', 'text-decoration-line': 'underline', 'text-transform': 'capitalize'}"
                                   block
                                   x-large
                                   class="#2B1C1C black--text mt-4"

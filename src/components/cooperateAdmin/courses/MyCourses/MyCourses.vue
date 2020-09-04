@@ -7,9 +7,9 @@
           </v-col>
           <v-col cols="12" md="4" :style="{'font-size': '18px', 'justify-content': 'flex-end'}">
             <v-btn
-                class="ml-8 btn"
+                class="ml-8 btn-course"
                 large
-                :style="{'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'}"
+                :style="{'font-size': '18px', 'height': '53px', 'text-transform': 'capitalize', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'}"
                 @click="forceRerender(false)"
             >
               <v-icon color="#fff">mdi-plus</v-icon>
@@ -119,7 +119,7 @@ export default {
 .all-courses-header {
   color: #2B1C1C;
 }
-.btn {
+.btn-course {
   /* Auto Layout */
   display: flex;
   flex-direction: row;
