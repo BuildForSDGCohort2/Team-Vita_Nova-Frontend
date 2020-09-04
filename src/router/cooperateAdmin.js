@@ -1,6 +1,6 @@
 import Employee from "../views/cooperateAdmin/Employee"
 import Courses from "../views/cooperateAdmin/Courses"
-import CourseModule from "@/views/cooperateAdmin/CourseModule";
+import CourseModule from "../views/cooperateAdmin/CourseModule";
 
 export default [
     {
@@ -27,8 +27,14 @@ export default [
         }, {
             path: "departments",
             name: 'employee.departments',
-            component: () => import("../views/cooperateAdmin/Departments")
-        }],
+            component: () => import("../views/cooperateAdmin/BrowseDepartments")
+        },
+            {
+                path: "view-departments",
+                name: 'employee.departments',
+                component: () => import("../views/cooperateAdmin/DepartmentsView")
+            }
+        ],
         meta: {
             requiresAuth: true
         }
@@ -82,31 +88,24 @@ export default [
     name: "CourseModule",
     component: CourseModule,
     children: [
-
       {
         path: "",
         name: "courseModule",
         redirect: {name: "courseModule.publish"}
-      },
-
-
-      {
+      },{
         path: "publish",
         name: "courseModule.publish",
         component: () =>
             import("../views/cooperateAdmin/Publish")
-      },
-
-      {
+      },{
         path: "curriculum",
         name: "courseModule.curriculum",
         component: () =>
             import("../views/cooperateAdmin/Curriculum")
       },
-
       // {
-      //   path: "createCourseModule",
-      //   name: "courseModule.createCourseModule",
+      //   path: "generalSettings",
+      //   name: "courseModule.generalSettings",
       //   component: () =>
       //       import("../views/cooperateAdmin/AddContentVideo")
       // },
