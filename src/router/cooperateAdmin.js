@@ -1,6 +1,6 @@
 import Employee from "../views/cooperateAdmin/Employee"
 import Courses from "../views/cooperateAdmin/Courses"
-import CourseModule from "@/views/cooperateAdmin/CourseModule";
+import CourseModule from "../views/cooperateAdmin/CourseModule";
 
 export default [
     {
@@ -27,7 +27,7 @@ export default [
         }, {
             path: "departments",
             name: 'employee.departments',
-            component: () => import("../views/cooperateAdmin/Departments")
+            component: () => import("../views/cooperateAdmin/BrowseDepartments")
         },
             {
                 path: "view-departments",
