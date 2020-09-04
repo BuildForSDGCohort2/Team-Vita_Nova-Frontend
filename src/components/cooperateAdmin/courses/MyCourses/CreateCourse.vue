@@ -39,40 +39,47 @@
                       <v-row class="mt-5" :style="{'justify-content': 'center'}">
                         <v-col cols="12" md="8" class="ma-auto">
                           <div class="color-title" :style="{'font-family': 'IBM Plex Sans'}">Upload Course Image</div>
-                          <div v-if="!course.image">
-                            <v-btn
-                                :style="{'font-family': 'IBM Plex Sans'}"
-                                block
-                                x-large
-                                class="#2B1C1C black--text mt-4"
-                                @click="$refs.fileInput.click()"
-                                dense
-                                clearable
-                            >
-                              <v-icon class="ma-2" color="#645262">mdi-cloud-upload-outline</v-icon>
-                              Choose from files
-                            </v-btn>
-                            <input ref="fileInput" style="display: none" type="file" @change="handleImage"/></div>
-                          <div v-else>
-                            <v-btn
-                                :style="{'font-family': 'IBM Plex Sans', 'justify-content': 'start', 'text-decoration-line': 'underline'}"
-                                block
-                                x-large
-                                class="#2B1C1C black--text mt-4"
-                                @click="$refs.fileInput.click()"
-                                dense
-                                clearable
-                            >
-                              {{ image.name }}
-                            </v-btn>
-                            <input ref="fileInput" style="display: none" type="file" @change="handleImage"/></div>
+                          <ValidationProvider
+                              name="Course Image"
+                              rules="required"
+                              v-slot="{ errors }"
+                          >
+                            <span class="err mt-2 mb-2">{{ errors[0] }}</span>
+                            <div v-if="!course.image">
+                              <v-btn
+                                  :style="{'font-family': 'IBM Plex Sans'}"
+                                  block
+                                  x-large
+                                  class="#2B1C1C black--text mt-4"
+                                  @click="$refs.fileInput.click()"
+                                  dense
+                                  clearable
+                              >
+                                <v-icon class="ma-2" color="#645262">mdi-cloud-upload-outline</v-icon>
+                                Choose from files
+                              </v-btn>
+                              <input ref="fileInput" style="display: none" type="file" @change="handleImage"/></div>
+                            <div v-else v-model="isImage" >
+                              <v-btn
+                                  :style="{'font-family': 'IBM Plex Sans', 'justify-content': 'start', 'text-decoration-line': 'underline'}"
+                                  block
+                                  x-large
+                                  class="#2B1C1C black--text mt-4"
+                                  @click="$refs.fileInput.click()"
+                                  dense
+                                  clearable
+                              >
+                                {{ image.name }}
+                              </v-btn>
+                              <input ref="fileInput" style="display: none" type="file" @change="handleImage"/></div>
+                          </ValidationProvider>
                         </v-col>
                       </v-row>
                       <v-row :style="{'justify-content': 'center'}">
                         <v-col cols="12" md="8">
                           <ValidationProvider
                               name="Course Name"
-                              rules="required|alpha"
+                              rules="required"
                               v-slot="{ errors }"
                           >
                             <span class="err mt-2 mb-2">{{ errors[0] }}</span>
@@ -127,7 +134,7 @@
                         <v-col cols="12" md="8">
                           <ValidationProvider
                               name="Course Requirements"
-                              rules="required|alpha"
+                              rules="required|max:1000"
                               v-slot="{ errors }"
                           >
                             <span class="err mt-n9 mb-8">{{ errors[0] }}</span>
@@ -164,7 +171,7 @@
                         <v-col cols="12" md="8">
                           <ValidationProvider
                               name="Course Description"
-                              rules="required|alpha"
+                              rules="required|max:1000"
                               v-slot="{ errors }"
                           >
                             <span class="err mt-n1 mb-n2">{{ errors[0] }}</span>
@@ -307,6 +314,7 @@
 import { VueEditor } from "vue2-editor";
 import Loader from "@/components/ui/loader/Loader";
 import SubmitButton from "@/components/ui/buttons/SubmitButton";
+import UserService from "@/services/user-services";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
@@ -335,6 +343,7 @@ export default {
           max: "Must not be more than 1000 words"
         }
       },
+      isImage: false,
       image: '',
       course: {
         image: null,
@@ -347,6 +356,7 @@ export default {
         startDate: '',
         endDate: '',
       },
+
       style: {'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'},
       items: [
         'Programming',
@@ -393,11 +403,34 @@ export default {
         this.course.image = reader.result;
       };
       reader.readAsDataURL(this.image);
+      this.isImage = true;
     },
     handleCreateCourse() {
       this.loading = true;
       console.log(this.course);
-      // const data = { courses: this.course };
+      let course = {
+        "title": this.course.courseName,
+        "image": this.course.image,
+        "description": this.course.courseDescription,
+        "requirement": this.course.courseRequirements,
+        "learning_outcome": this.course.learningOutcomes,
+        "facilitator": this.course.addFacilitator[0],
+        "selectCategory": this.course.selectCategory,
+        "startDate": this.course.startDate,
+        "endDate": this.course.endDate
+      };
+
+      UserService.handleCreateCourse(course).then(
+          course => {
+            console.log(course.data);
+            this.mounted();
+          },
+          error => {
+            this.loading = false;
+            console.log(error);
+            this.errorMsg = error.response.course.detail;
+          }
+      );
     }
   },
 };

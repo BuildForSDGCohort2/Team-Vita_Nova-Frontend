@@ -2,14 +2,14 @@
   <v-responsive>
     <v-container style="max-width: 1000px" grid-list-md>
       <div :style="{'font-family': 'IBM Plex Sans'}" v-if="renderComponent">
-        <v-row class="mt-n5">
-          <v-col cols="12" md="9">
+        <v-row class="mt-n5 d-flex">
+          <v-col cols="12" md="8">
           </v-col>
-          <v-col cols="12" md="3" :style="{'font-size': '18px'}">
+          <v-col cols="12" md="4" :style="{'font-size': '18px', 'justify-content': 'flex-end'}">
             <v-btn
-                class="btn"
+                class="ml-8 btn"
                 large
-                :style="style"
+                :style="{'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'}"
                 @click="forceRerender(false)"
             >
               <v-icon color="#fff">mdi-plus</v-icon>
@@ -74,7 +74,6 @@ export default {
       dropdown_font: ['Arial', 'Calibri', 'Courier', 'Verdana'],
       searching: '',
       select: '',
-      style: {'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'}
     }
   },
   methods: {

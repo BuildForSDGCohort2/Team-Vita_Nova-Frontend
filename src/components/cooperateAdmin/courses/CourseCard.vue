@@ -62,10 +62,14 @@
 </template>
 
 <script>
+import ExploreCourses from "@/components/cooperateAdmin/courses/ExploreCourses/ExploreCourses";
 export default {
   props: {
     cards: Object,
     index: Number
+  },
+  components: {
+    ExploreCourses
   },
   data: () => ({
     notifications: false,
@@ -74,23 +78,23 @@ export default {
     forAssignedCourses: [
       {
         title: 'Edit Course',
-        link: '#'
+        link: '/cooperate/courses/exploreCourses'
       },
       {
         title: 'Enroll to Course',
-        link: '#'
+        link: '/cooperate/courses/exploreCourses'
       },
       {
         title: 'Add to Department',
-        link: '#'
+        link: '/cooperate/courses/exploreCourses'
       },
       {
         title: 'Remove Employees',
-        link: '#'
+        link: '/cooperate/courses/exploreCourses'
       },
       {
         title: 'Delete Course',
-        link: '#'
+        link: '/cooperate/courses/exploreCourses'
       },
     ],
     forExistingCourses: [
@@ -110,7 +114,8 @@ export default {
   }),
   methods: {
     onSelect(item) {
-      console.log(item.title);
+      console.log(item.link);
+      this.$router.push({ path: item.link, props: item });
     }
   }
 };

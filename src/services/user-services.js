@@ -48,6 +48,10 @@ class UserService {
         return axios.patch(API_URL + '/business/company/update_company_profile/', data, { headers: authHeader()});
     }
 
+    static handleCreateCourse(data) {
+        return axios.post('/class/course/', data, { headers: authHeader() });
+    }
+
 
 }
 export default UserService;
