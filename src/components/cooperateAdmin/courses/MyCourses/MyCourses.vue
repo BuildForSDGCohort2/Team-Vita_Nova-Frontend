@@ -64,8 +64,8 @@
 </template>
 
 <script>
-import CourseCard from "../CourseCard";
-import CreateCourse from "./CreateCourse";
+import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
+import CreateCourse from "@/components/cooperateAdmin/courses/MyCourses/CreateCourse";
 export default {
   name: "MyCourses",
   data() {

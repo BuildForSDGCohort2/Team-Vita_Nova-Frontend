@@ -116,7 +116,7 @@ export default {
   methods: {
     onSelect(item) {
       console.log(item.link);
-      this.$router.push({ path: item.link, props: item });
+      this.$router.push({ path: item.link });
     }
   }
 };
