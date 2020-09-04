@@ -1,4 +1,4 @@
-import Departments from "../../src/components/cooperateAdmin/employee/departments/Departments";
+import Departments from "../../src/components/cooperateAdmin/employee/departments/BrowseDepartments";
 import { shallowMount } from '@vue/test-utils';
 import Vue from "vue";
 import Vuetify from "vuetify";

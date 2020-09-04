@@ -3,7 +3,7 @@
     <EmptyDepartment/>
   </div>
   <div v-else>
-    <Departments/>
+    <BrowseDepartments/>
   </div>
 
 
@@ -11,10 +11,10 @@
 
 <script>
   import EmptyDepartment from "../../components/cooperateAdmin/employee/departments/EmptyDepartment";
- import Departments from "../../components/cooperateAdmin/employee/departments/Departments";
+ import BrowseDepartments from "../../components/cooperateAdmin/employee/departments/BrowseDepartments";
 export default {
   components: {
-    Departments,
+    BrowseDepartments,
     EmptyDepartment
   },
   data(){

@@ -35,8 +35,8 @@
                   ><v-icon color="#fff" >mdi-dots-vertical</v-icon></v-btn>
                 </template>
                 <v-list v-if="cards.company">
-                  <v-list-item v-for="(item, i) in forAssignedCourses" :key="i" @click="onSelect(item)">
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  <v-list-item to="item.link" v-for="(item, i) in forAssignedCourses" :key="i" @click="onSelect(item)">
+                    <v-list-item-title >{{ item.title }}</v-list-item-title>
                   </v-list-item>
                 </v-list>
                 <v-list v-else>
@@ -78,7 +78,7 @@ export default {
     forAssignedCourses: [
       {
         title: 'Edit Course',
-        link: '/cooperate/courses/exploreCourses'
+        link: '/cooperate/courseModule/curriculum'
       },
       {
         title: 'Enroll to Course',

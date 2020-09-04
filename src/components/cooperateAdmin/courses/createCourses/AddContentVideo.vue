@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-responsive>
-      <h3 class="ma-4 " style="padding-top: 5%">Untitled Video</h3>
+      <h3 class="ma-4 " :style="{'font-family': 'IBM Plex Sans'}" style="padding-top: 5%">Untitled Video</h3>
       <v-card class="text-center justify-center ma-4">
         <v-container  >
           <v-text-field
@@ -66,13 +66,15 @@
 
           <v-card-actions>
             <v-btn
-              @click="saveCourse"
+              @click="discard"
+              :style="{'font-family': 'IBM Plex Sans'}"
               style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
               >Discard</v-btn
             >
             <v-btn
               class="ma-4"
               @click="saveCourse"
+              :style="{'font-family': 'IBM Plex Sans'}"
               style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
               >Save</v-btn
             >
@@ -80,9 +82,9 @@
         </v-container>
       </v-card>
 
-      <section style="padding-top: 100px; padding-bottom: 100px" class="ma-4">
+      <section :style="{'font-family': 'IBM Plex Sans'}" style="padding-top: 100px; padding-bottom: 100px" class="ma-4">
         <h3>Lesson Settings</h3>
-        <v-checkbox v-model="agreement" color="red">
+        <v-checkbox v-model="accept" color="red">
           <template v-slot:label>
             Enable discussion on this lesson
           </template>
@@ -99,6 +101,7 @@
         flat
         class="text-center justify-center ma-4"
         max-width="686"
+        :style="{'font-family': 'IBM Plex Sans'}"
         style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
       >
         <v-container fluid>
@@ -119,7 +122,7 @@ export default {
   data: () => ({
     items: ["Software Engineering", "Business Management", "Design Thinking"],
     model: [],
-    agreement: false,
+    accept: false,
     isDragging: false,
     dragCount: 0,
     dragAndDropCapable: false,
@@ -145,7 +148,11 @@ export default {
   },
 
   methods: {
-    saveCourse() {}
+    saveCourse() {},
+
+    discard(){
+
+    },
   }
 };
 </script>
