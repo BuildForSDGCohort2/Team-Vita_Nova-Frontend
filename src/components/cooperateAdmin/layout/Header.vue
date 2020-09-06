@@ -11,9 +11,9 @@
         <v-icon>mdi-bell</v-icon>
       </v-btn>
       <v-avatar>
-        <img :src="profilePicture" alt="John" />
+        <img :src="profilePicture" alt="John" class="pa-2"/>
       </v-avatar>
-      <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red">{{user}}</v-btn>
+      <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red" style="text-transform: lowercase">{{user}}</v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped hide-overlay>
       <v-list nav dense>

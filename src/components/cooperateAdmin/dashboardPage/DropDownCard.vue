@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
   <v-card class="mx-auto" max-width="800">
     <v-list-item>
@@ -61,7 +60,6 @@
           </v-col>
         </v-row>
         <v-row justify="center" class="center-button">
-          <v-col cols="12" md="5"><InviteEmployee /></v-col>
           <v-col cols="12" md="6" class="ma-auto">
             <v-btn
               color="#FF2E2E"
@@ -71,6 +69,7 @@
               >Save and Continue</v-btn
             >
           </v-col>
+          <v-col cols="12" md="5"><InviteEmployee /></v-col>
         </v-row>
       </div>
     </v-expand-transition>

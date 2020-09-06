@@ -105,7 +105,7 @@ export default {
       },
       {
         title: 'Add to Department',
-        link: '#'
+        link: '/cooperate/courses/exploreCourses'
       },
       {
         title: 'Remove Employees',

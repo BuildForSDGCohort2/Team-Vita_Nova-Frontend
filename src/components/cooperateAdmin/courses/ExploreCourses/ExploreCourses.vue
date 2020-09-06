@@ -59,7 +59,7 @@
 </template>
 
 <script>
-  import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
+  // import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
   export default {
     name: "ExploreCourses",
     data() {
@@ -75,7 +75,7 @@
       }
     },
     components: {
-      CourseCard
+      // CourseCard,
     },
     computed: {
       cards() {
@@ -132,11 +132,11 @@
           ],
         };
       },
-      filteredList() {
-        return this.cards.existingCourses.filter(course => {
-          return course.title.toLowerCase().includes(this.search.toLowerCase())
-        })
-      },
+      // filteredList() {
+      //   return this.cards.existingCourses.filter(course => {
+      //     return course.title.toLowerCase().includes(this.search.toLowerCase())
+      //   })
+      // },
     }
   };
 </script>

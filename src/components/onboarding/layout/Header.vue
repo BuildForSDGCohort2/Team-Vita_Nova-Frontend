@@ -7,12 +7,12 @@
       </v-btn>
 
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items class="hidden-sm-and-down pa-3">
         <v-btn depressed to="/browseCourses" class="other-nav-button">Explore Courses</v-btn>
         <v-btn depressed to="/plans" class="other-nav-button">Plans</v-btn>
         <v-btn depressed to="/login" class="other-nav-button">Login</v-btn>
+        <GetStarted title="Get Started" />
       </v-toolbar-items>
-      <GetStarted title="Get Started" />
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>

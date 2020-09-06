@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
+// import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
 import CreateCourse from "@/components/cooperateAdmin/courses/MyCourses/CreateCourse";
 export default {
   name: "MyCourses",
@@ -83,7 +83,7 @@ export default {
     }
   },
   components: {
-    CourseCard,
+    // CourseCard,
     CreateCourse
   },
   computed: {
