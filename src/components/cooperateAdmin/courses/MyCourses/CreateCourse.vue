@@ -58,7 +58,7 @@
                                 <v-icon class="ma-2" color="#645262">mdi-cloud-upload-outline</v-icon>
                                 Choose from files
                               </v-btn>
-                              <input ref="fileInput" style="display: none" type="file" @change="handleImage"/></div>
+                              <input ref="fileInput" style="display: none" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
                             <div v-else v-model="isImage" >
                               <v-btn
                                   :style="{'font-family': 'IBM Plex Sans', 'justify-content': 'start', 'text-decoration-line': 'underline', 'text-transform': 'capitalize'}"
@@ -71,7 +71,7 @@
                               >
                                 {{ image.name }}
                               </v-btn>
-                              <input ref="fileInput" style="display: none" type="file" @change="handleImage"/></div>
+                              <input ref="fileInput" style="display: none" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
                           </ValidationProvider>
                         </v-col>
                       </v-row>
@@ -351,7 +351,7 @@ export default {
         courseRequirements: '',
         learningOutcomes: '',
         courseDescription: '',
-        selectCategory: [],
+        selectCategory: '',
         addFacilitator: [],
         startDate: '',
         endDate: '',
@@ -395,13 +395,21 @@ export default {
       // Pass a value to the parent through the function
       this.method(this.condition);
     },
-    handleImage(e) {
-      this.image = e.target.files[0];
+    uploadImage() {
+    },
+    handleImage() {
+      let file = document
+          .querySelector('input[type=file]')
+          .files[0];
+      this.image = file;
       let reader = new FileReader();
-      reader.onloadend = () => {
-        this.course.image = reader.result;
+      reader.onload = (e) => {
+        this.course.image = e.target.result;
       };
-      reader.readAsDataURL(this.image);
+      reader.onerror = function(error) {
+        alert(error);
+      };
+      reader.readAsDataURL(file);
       this.isImage = true;
     },
     handleCreateCourse() {
@@ -418,13 +426,19 @@ export default {
         "endDate": this.course.endDate
       };
       console.log(course);
-      UserService.handleCreateCourse(course).then(res => {
-        console.log(res.data);
-        this.load = false;
-        this.mounted();
-      }).catch(err => {
-            console.log(err);
-      });
+      UserService.handleCreateCourse(course).then(
+          res => {
+            console.log(res.data);
+            alert('Form has been submitted!');
+            this.mounted();
+          },
+          error => {
+            this.loading = false;
+            alert('Failed to update form please check required fields or network!');
+            console.log(error);
+            this.errorMsg = error.response.detail;
+          }
+      );
     }
   },
 };
