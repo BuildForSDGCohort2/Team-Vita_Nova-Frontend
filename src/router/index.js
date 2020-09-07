@@ -24,17 +24,16 @@ router.beforeEach((to, from, next) => {
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.state.onboarding.status.loggedIn || user) {
-      next()
+      next();
     } else {
-      next('/login')
+      next("/login");
     }
-
   } else if (user) {
     next('corperate/dashboard')
   }
   else {
     next()
   }
-})
+});
 
 export default router;

@@ -1,6 +1,3 @@
-
-
-
 export default [
     {
         path: "/",
@@ -42,13 +39,12 @@ export default [
         name: "registration_successful",
         meta: { layout: 'Login' },
 
-        component: () => import("../components/splashPages/ConfirmEmailPage")
-    }
-    ,
-    {
-        path: "/password-reset",
-        name: "reset_password",
+    component: () => import("../components/splashPages/ConfirmEmailPage")
+  },
+  {
+    path: "/password-reset",
+    name: "reset_password",
 
-        component: () => import("../views/onboarding/ResetPassword")
-    }
-]
+    component: () => import("../views/onboarding/ResetPassword")
+  }
+];

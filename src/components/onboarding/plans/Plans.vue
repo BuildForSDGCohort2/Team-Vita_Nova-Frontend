@@ -291,6 +291,7 @@ export default {
   methods: {
     reserve() {
       this.loading = true;
+
       setTimeout(() => (this.loading = false), 2000);
     }
   },
@@ -310,6 +311,7 @@ export default {
   text-align: center;
   letter-spacing: 1px;
   text-transform: capitalize;
+
   color: #2b1c1c;
 }
 .selectPlanSubtitle {
@@ -358,6 +360,7 @@ export default {
   text-align: center;
   letter-spacing: 1px;
   text-transform: capitalize;
+
   color: #ff2e2e;
 }
 .card-type-1 {
@@ -369,6 +372,7 @@ export default {
   text-align: center;
   letter-spacing: 1px;
   text-transform: capitalize;
+
   color: rgba(0, 0, 0, 0.5);
 }
 .card-style {

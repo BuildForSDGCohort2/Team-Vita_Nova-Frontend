@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="ml-md-16">
     <v-row no-gutters class="px-8">
       <v-col cols="12" md="6">
         <div class="header">
@@ -9,67 +9,67 @@
       </v-col>
       <v-col cols="12" md="6">
         <div depressed class="header-button">
-          <v-btn
-            to="/cooperate/update-profile"
-            class="edit-button red white--text mr-sm-10"
-            @click="submit()"
-          >Edit Profile</v-btn>
+          <v-btn to="/cooperate/update-profile" class="edit-button red white--text mr-sm-10"
+            >Edit Profile</v-btn
+          >
         </div>
       </v-col>
-      <v-col cols="12" md="1com2">
+      <v-col cols="12" md="12">
         <v-card class="card-header">
           <v-row>
             <v-col cols="6" md="6">
               <v-card flat class="logo-card">
-                <v-img src="../../../../src/assets/sterling.svg" aspect-ratio="1.7"></v-img>
+                <v-img  :src=company_logo
+                  aspect-ratio="1.7"
+                        class="align-center"
+                ></v-img>
               </v-card>
             </v-col>
           </v-row>
           <v-row>
             <v-col cols="12">
               <v-card flat>
-                <v-card-title class="name-card">{{ company }}</v-card-title>
+                <v-card-title class="name-card ">
+                <p class="align-center">{{ company_name}}</p></v-card-title>
               </v-card>
             </v-col>
           </v-row>
           <v-row>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable">BUSINESS INDUSTRY</v-card-title>
+                <v-card-title class="font-label "
+                  >BUSINESS INDUSTRY</v-card-title>
 
-                <v-card-text class="font-data">
-                  {{
-                  businessIndustry
-                  }}
+                <v-card-text class="font-data"  v-for="business in business_industries" :key="business.business_industries">
+
+                  <p class="pb-0 pt-0">{{business }}</p>
                 </v-card-text>
               </v-card>
             </v-col>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable">COMPANY WEBSITE</v-card-title>
-                <v-card-text class="font-data">
-                  {{
-                  companyWebsite
-                  }}
-                </v-card-text>
+                <v-card-title class="font-label">COMPANY WEBSITE</v-card-title>
+                <v-card-text class="font-data ">
+                 <p> {{website
+                }}</p></v-card-text>
               </v-card>
             </v-col>
           </v-row>
           <v-row>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable">YEARLY TRAINING BUDGET</v-card-title>
-                <v-card-text class="font-data">{{ budget }}</v-card-text>
+                <v-card-title class="font-label">YEARLY TRAINING BUDGET</v-card-title
+                >
+               <v-card-text class="font-data">
+                 <p>{{ yearly_training_budget }}</p></v-card-text>
               </v-card>
             </v-col>
             <v-col cols="12" md="6">
               <v-card flat>
-                <v-card-title class="font-lable">NUMBER OF EMPLOYEES</v-card-title>
+                <v-card-title class="font-label"
+                  >NUMBER OF EMPLOYEES</v-card-title>
                 <v-card-text class="font-data">
-                  {{
-                  numberOfEmployees
-                  }}
-                </v-card-text>
+                  <p >{{number_of_employees }}</p></v-card-text>
               </v-card>
             </v-col>
           </v-row>
@@ -80,46 +80,53 @@
 </template>
 
 <script>
+
+
+import PreviewProfile from "../../../views/cooperateAdmin/PreviewProfile";
+import UserService from "../../../services/user-services";
+
 export default {
-  // props: {
-  //     event: Object
-  // },
+  props: {
+      title:PreviewProfile,
+  },
   data() {
     return {
-      img: "/src/assets/sterling.svg",
-      company: "Sterling Bank Plc",
-      businessIndustry: "Banking and Finance",
-      companyWebsite: "sterlingbank.com",
-      budget: "N/A",
-      numberOfEmployees: "12"
+      company_logo: "",
+      company_name: "",
+      business_industries: [],
+      website: "N/A",
+      yearly_training_budget: "N/A",
+      number_of_employees: "N/A"
     };
   },
-  methods: {
-    submit() {
-      this.$emit("lalala");
-    }
+ methods:{
+   getProfile(){
+     UserService.getProfile()
+             .then(res =>{
+               console.log(res)
+               this.company_logo = res.data.company_logo
+               this.company_name = res.data.company_name;
+               this.business_industries = res.data.business_industries
+               this.website = res.data.website
+               this.yearly_training_budget = res.data.yearly_training_budget
+               this.number_of_employees = res.data.number_of_employees
+
+             })
+   }
+},
+  created() {
+    this.getProfile()
   }
 };
 </script>
 
 <style scoped>
-.header1 {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 42px;
-  /* identical to box height */
-  display: flex;
-  align-items: center;
-}
-.header {
+    .header {
   width: 20rem;
   height: auto;
   margin-top: 2rem;
   margin-left: 1rem;
   font-family: IBM Plex Sans;
-  font-style: normal;
   font-weight: normal;
   font-size: 17px;
 }
@@ -130,8 +137,6 @@ export default {
 }
 .card-header {
   max-width: 46rem;
-  margin-left: 1rem;
-  color: blue;
   margin-top: 1rem;
   height: auto;
 }
@@ -145,34 +150,37 @@ export default {
   width: 10rem;
 }
 .name-card {
-  margin-left: 37%;
+  margin-left: 40%;
   margin-top: 1rem;
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
 }
-.font-lable {
+.font-label {
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
   line-height: 19px;
-  margin-left: 5rem;
+  margin-left: 2rem;
   color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px!important;
 }
 .font-data {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.05em;
-  color: #2b1c1c;
-  margin-left: 5rem;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    color: #2b1c1c;
+    margin-left: 2rem;
+  width:2rem;
 }
-@media only screen and (max-width: 600px) {
-}
+    .v-card__subtitle, .v-card__text, .v-card__title{
+      padding: 0px !important;
+    }
 </style>

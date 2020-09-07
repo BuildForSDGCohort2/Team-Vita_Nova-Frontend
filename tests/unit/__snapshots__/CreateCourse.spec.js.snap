@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Course Component unit test render create courses and match snapshot 1`] = `
+<v-responsive-stub title="CreateCourse">
+  <div>
+    <v-row-stub tag="div">
+      <v-col-stub cols="12" md="6" tag="div" class="mt-n4">
+        <h4><a class="links" style="color: rgb(100, 82, 98);">Courses</a> /
+          <a class="links" style="color: rgb(100, 82, 98);">My Courses</a> /
+          <a style="color: rgb(255, 46, 46);">Create Course</a>
+        </h4>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div">
+      <v-col-stub cols="12" md="1" tag="div"></v-col-stub>
+      <v-col-stub cols="12" md="10" tag="div">
+        <v-row-stub tag="div">
+          <v-col-stub tag="div">
+            <h1>Create Course</h1>
+          </v-col-stub>
+        </v-row-stub>
+        <v-row-stub tag="div">
+          <v-col-stub tag="div">
+            <v-card-stub loaderheight="4" tag="div" maxwidth="844" outlined="true" class="card mx-auto pa-6">
+              <validationobserver-stub tag="span" vid="obs_0"></validationobserver-stub>
+            </v-card-stub>
+          </v-col-stub>
+        </v-row-stub>
+      </v-col-stub>
+      <v-col-stub cols="12" md="1" tag="div" class="mt-5"></v-col-stub>
+    </v-row-stub>
+  </div>
+</v-responsive-stub>
+`;

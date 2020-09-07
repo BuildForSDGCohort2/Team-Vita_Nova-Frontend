@@ -1,7 +1,14 @@
 <template>
-  <div>hi</div>
+  <div>
+    <Plans />
+  </div>
 </template>
 
 <script>
-export default {};
+import Plans from "../../components/onboarding/plans/Plans.vue";
+export default {
+  components: {
+    Plans
+  }
+};
 </script>

@@ -7,7 +7,12 @@
         <v-card class="logo-card">
           <v-row>
             <v-col cols="12" md="6">
-              <v-img class="ml-6" :src="profile.logo" width="8rem" height="6rem"></v-img>
+              <v-img
+                class="ml-6 "
+                :src="logo"
+                width="8rem"
+                height="6rem"
+              ></v-img>
             </v-col>
 
             <v-col cols="12" md="6">
@@ -15,26 +20,15 @@
               <v-btn
                 class="ml-16 #F8F8F8 black--text"
                 @click="$refs.fileInput.click()"
-              >upload your files</v-btn>
-              <input ref="fileInput" style="display: none" type="file" @change="handleImage" />
-              <!--              <template>-->
-              <!--                <v-file-input-->
-              <!--                  v-model="files"-->
-              <!--                  placeholder="choose from file..."-->
-              <!--                  filled-->
-              <!--                  flat-->
-              <!--                  outlined-->
-              <!--                  prepend-icon=""-->
-              <!--                  dense-->
-              <!--                  class="input-field"-->
-              <!--                >-->
-              <!--                  <template v-slot:selection="{ text }">-->
-              <!--                    <v-chip small label color="primary">-->
-              <!--                      {{ text }}-->
-              <!--                    </v-chip>-->
-              <!--                  </template>-->
-              <!--                </v-file-input>-->
-              <!--              </template>-->
+              >
+                upload your files
+              </v-btn>
+              <input
+                ref="fileInput"
+                style="display: none"
+                type="file"
+                @change="handleImage"
+              />
             </v-col>
           </v-row>
         </v-card>
@@ -60,7 +54,12 @@
                 <v-icon color="white">mdi-pencil</v-icon>
               </v-btn>
 
-              <v-color-picker v-model="picker" elevation="10" v-show="color" class></v-color-picker>
+              <v-color-picker
+                v-model="picker"
+                elevation="10"
+                v-show="color"
+                class=""
+              ></v-color-picker>
             </v-col>
           </v-row>
         </v-card>
@@ -69,43 +68,44 @@
     <v-row>
       <v-col cols="12" md="12">
         <p class="card-title mr-16 mt-8">Edit company information</p>
-        <v-card class="profile-card pa-16">
+        <v-card class="profile-card pa-10">
+          <ValidationObserver v-slot="{ handleSubmit }">
+
+            <form v-if="!submitted" @submit.prevent="handleSubmit(onSubmit)">
           <v-row>
-            <v-col cols="12" md="12" class="ma-auto">
-              <!--              <form-->
-              <!--                v-if="!submitted"-->
-              <!--                @submit.prevent="handleSubmit(handleRegister)"-->
-              <!--              >-->
+            <v-col cols="12" md="12" class="ma-auto ">
+
+
+              <Loader :loading="loading" :message="message" />
               <v-text-field
                 label="Company Name"
                 outlined
-                name="companyName"
-                v-model="companyName"
                 color="red"
                 class="text-field ma-auto"
+                readonly
+                v-model="event.company_name"
               ></v-text-field>
 
               <v-text-field
                 label="Website"
                 outlined
-                name="website"
-                v-model="website"
                 color="red"
                 class="text-field ma-auto"
+                readonly
+                v-model="event.website"
               ></v-text-field>
 
               <v-text-field
-                append-icon="mdi-chevron-down"
                 label="No of Employees(Optional)"
                 outlined
                 name="noOfEmployees"
                 v-model="noOfEmployees"
                 color="red"
                 class="text-field ma-auto"
+                data-testid="input-employee"
               ></v-text-field>
 
               <v-text-field
-                append-icon="mdi-chevron-down"
                 label="Yearly Training Budget(Optional)"
                 outlined
                 name="yearlyTrainingBudget"
@@ -114,6 +114,7 @@
                 class="text-field ma-auto"
               ></v-text-field>
 
+                  <ValidationProvider name="Business Industry" rules="required" v-slot="{ errors }">
               <v-combobox
                 :items="businessIndustries"
                 label="Business Industry"
@@ -125,6 +126,7 @@
                 v-model="selectBusinessIndustry"
                 color="red"
                 class="text-field ma-auto"
+
               >
                 <template v-slot:selection="data">
                   <v-chip
@@ -143,16 +145,20 @@
                   </v-chip>
                 </template>
               </v-combobox>
-              <!--              </form>-->
+                    <span class="error-msg">{{ errors[0] }}</span>
+                  </ValidationProvider>
+
             </v-col>
           </v-row>
           <v-responsive class="float-right mr-md-16">
             <v-btn
               data-testid="submit-button"
               class="update red white--text mr-md-7"
-              @click="submit"
-            >Update</v-btn>
+              type="submit"
+              >Update</v-btn>
           </v-responsive>
+            </form>
+          </ValidationObserver>
         </v-card>
       </v-col>
     </v-row>
@@ -160,19 +166,33 @@
 </template>
 
 <script>
-// import UserService from "../../../services/user-services";
+import UserService from "../../../services/user-services";
+import Loader from "../../ui/loader/Loader";
+
 export default {
   name: "UpdateProfile",
+  components:{
+    Loader
+  },
+
   data() {
     return {
-      profile: {
-        logo: "",
-        companyName: "",
-        website: "",
-        selectBusinessIndustry: [],
-        noOfEmployees: "",
-        Yearly_Training_Budget: ""
-      }
+      event:{
+        company_name:"",
+        website:""
+      },
+      files: [],
+      color: false,
+      picker: { hex: " " },
+      logo: "",
+      selectBusinessIndustry: [],
+      noOfEmployees: "",
+      Yearly_Training_Budget: "",
+      loading: false,
+      message: ".",
+      value: true,
+      submitted:false,
+      errorMsg:''
     };
   },
   methods: {
@@ -180,31 +200,73 @@ export default {
       let file = e.target.files[0];
       let reader = new FileReader();
       reader.onloadend = () => {
-        this.profile.logo = reader.result;
+        this.logo = reader.result;
       };
       reader.readAsDataURL(file);
     },
-    handleCreateCourse() {
-      console.log(this.course);
+
+    getProfile(){
+      UserService.getProfile()
+              .then(res => {
+                console.log(res)
+                this.event.company_name = res.data.company_name;
+                this.event.website = res.data.website;
+              })
+
     },
-    submit() {
-      this.$emit("formSubmitted", { name: this.name });
-    }
+
+    onSubmit() {
+      this.loading = true;
+      const profile = {
+          number_of_employees: this.noOfEmployees,
+          yearly_training_budget: this.Yearly_Training_Budget,
+          business_industries: this.selectBusinessIndustry,
+          company_logo: this.logo,
+          primary_color: this.picker.hex
+        };
+        UserService.Profile(profile).then(
+                profile => {
+                  console.log(profile.data);
+                  alert('Form has been submitted!');
+                  this.$router.push("/cooperate/preview-profile");
+                },
+                error => {
+                  this.loading = false;
+                  alert('Failed to update form please check required fields or network!');
+                  console.log(error);
+                  this.errorMsg = error.response.profile.detail;
+                })
+
+    },
+  },
+  created() {
+    this.getProfile()
   },
   computed: {
     businessIndustries() {
       return [
         "Accounting & Finance",
+
         "Human Resources Management  and Administration",
+
         "Technology",
+
         "Marketing & Communications",
+
         "Outsourcing",
+
         "Legals",
+
         "Logistics",
+
         "Production",
+
         "Research and Development (often abbreviated to R&D)",
+
         "Purchasing",
+
         "Marketing (including the selling function)",
+
         "Others"
       ];
     }
@@ -255,4 +317,13 @@ export default {
 .text-field {
   width: 25rem;
 }
+  .error-msg{
+    display: block;
+    color: red;
+    font-size: 13px;
+    margin-left: 6rem;
+  }
+
+
+
 </style>
