@@ -95,7 +95,6 @@ export default [
 
     {
         path: "/cooperate/courseModule",
-        name: "CourseModule",
         component: CourseModule,
         children: [
             {
