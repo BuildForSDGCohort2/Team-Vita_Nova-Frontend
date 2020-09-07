@@ -40,10 +40,10 @@
 </template>
 
 <script>
-import Menu from "../../components/onboarding/exploreCourses/Menu";
-import SoftwareEngineer from "../../components/onboarding/exploreCourses/SoftwareEngineer";
-import BusinessManagement from "../../components/onboarding/exploreCourses/BusinessManagement";
-import DesignThinking from "../../components/onboarding/exploreCourses/DesignThinking";
+import Menu from "../../components/onboarding/browseCourses/Menu";
+import SoftwareEngineer from "../../components/onboarding/browseCourses/SoftwareEngineer";
+import BusinessManagement from "../../components/onboarding/browseCourses/BusinessManagement";
+import DesignThinking from "../../components/onboarding/browseCourses/DesignThinking";
 export default {
   components: { DesignThinking, BusinessManagement, SoftwareEngineer, Menu },
   computed: {}
