@@ -61,8 +61,8 @@ export default {
   },
   methods: {
     showSplashModal() {
-      this.splashShow = !this.splashShow;
-      this.dialog = !this.dialog;
+      this.splashShow = true;
+      this.dialog = false;
     }
   }
 };
