@@ -15,15 +15,28 @@ export default [
     },
     {
         path: "/corperate/employee/",
-        name: "Employee",
         component: Employee,
-        children: [{
-            path: "employees",
-            component: () => import("../views/cooperateAdmin/EmployeesContainer")
-        }, {
-            path: "departments",
-            component: () => import("../views/cooperateAdmin/Departments")
-        }],
+        children: [
+            {
+                path: '',
+                name: 'employeeRedirect',
+                redirect: { name: 'employeeContainer' }
+            },
+            {
+                path: "employees",
+                name: "employeeContainer",
+                component: () => import("../views/cooperateAdmin/EmployeesContainer")
+            }, {
+                path: "departments",
+                name: "departments",
+                component: () => import("../views/cooperateAdmin/Departments")
+            }
+            , {
+                path: "departments/:department",
+                name: "department",
+                component: () => import("../views/cooperateAdmin/Department")
+            }
+        ],
         meta: {
             requiresAuth: true
         }
@@ -31,16 +44,26 @@ export default [
     },
     {
         path: "/corperate/courses",
-        name: "ManageCourses",
         component: Courses,
         children: [
             {
-                path: "viewCourses",
-                component: () => import("../views/cooperateAdmin/ViewCourses")
+                path: '',
+                name: 'courseRedirect',
+                redirect: { name: 'myCourses' }
+            },
+            {
+                path: "exploreCourses",
+                name: "exploreCourses",
+                component: () => import("../views/cooperateAdmin/ExploreCourses")
+            }, {
+                path: "myCourses",
+                name: 'myCourses',
+                component: () => import("../views/cooperateAdmin/MyCourses")
             },
             {
                 path: "createCourse",
-                component: () => import("../views/cooperateAdmin/CreateCourse")
+                name: 'createCourse',
+                component: () => import("../components/cooperateAdmin/courses/myCourses/CreateCourse")
             }
         ],
         meta: {

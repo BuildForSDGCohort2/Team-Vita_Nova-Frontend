@@ -16,26 +16,27 @@
         </v-list>
       </v-menu>
     </v-list-item>
-
-    <v-card-actions class="card-actions">
-      <v-list-item class="grow">
-        <v-list-item-avatar
-          color="black"
-          class="avatar"
-          v-for="(avatar, index) in cards.avatars"
-          :class="avatarPosition(index)"
-          :key="index"
-          height="30"
-          min-width="0.2"
-          width="30"
-        >
-          <v-img class="pa-2" :src="avatar.image"></v-img>
-        </v-list-item-avatar>
-        <v-list-item-content class="avatar-number">
-          <v-list-item-title>+3 more</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-card-actions>
+    <router-link :to="{ name: 'department', params: { department: cards.department }}">
+      <v-card-actions class="card-actions">
+        <v-list-item class="grow">
+          <v-list-item-avatar
+            color="black"
+            class="avatar"
+            v-for="(avatar, index) in cards.avatars"
+            :class="avatarPosition(index)"
+            :key="index"
+            height="30"
+            min-width="0.2"
+            width="30"
+          >
+            <v-img class="pa-2" :src="avatar.image"></v-img>
+          </v-list-item-avatar>
+          <v-list-item-content class="avatar-number">
+            <v-list-item-title>+3 more</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-card-actions>
+    </router-link>
   </v-card>
 </template>
 

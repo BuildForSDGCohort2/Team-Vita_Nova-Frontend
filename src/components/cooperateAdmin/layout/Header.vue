@@ -24,7 +24,7 @@
           <v-list-item-title>Dashboard</v-list-item-title>
         </v-list-item>
 
-        <v-list-item link to="/corperate/employee/employees" class="menu" color="red">
+        <v-list-item link to="/corperate/employee" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-clipboard-plus-outline</v-icon>
           </v-list-item-icon>
