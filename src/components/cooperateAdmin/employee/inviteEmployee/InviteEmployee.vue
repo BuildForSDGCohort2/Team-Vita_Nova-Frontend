@@ -177,14 +177,15 @@ export default {
       this.$store
         .dispatch("employees/addEmployee", data)
         .then(res => {
-          console.log(res.data);
+          console.log("success here" + res.data);
           this.load = false;
           this.$emit("showSplash");
           this.model = [];
         })
         .catch(err => {
-          console.log(err);
+          console.log("error here" + err);
           this.load = false;
+          this.model = [];
         });
     }
   }

@@ -18,11 +18,12 @@ export default {
     async addEmployee({ commit }, data) {
         return UserService.addEmployee(data).then(
             res => {
-
+                console.log(data)
                 commit('addEmployeeSuccess', data)
                 return Promise.resolve(res)
             },
             error => {
+                console.log('failure')
                 commit('addEmployeeFailure')
                 return Promise.reject(error)
             }

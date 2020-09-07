@@ -5,7 +5,7 @@ export default {
     },
     retrievedEmployeesFail: (state) => {
         state.isPresent = false;
-        state.data = { msg: "No Employees Found" }
+        state.data = []
     },
     addEmployeeSuccess: (state, data) => {
 

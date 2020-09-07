@@ -141,9 +141,7 @@ export default {
       return this.$store.state.employees.data;
     }
   },
-  mounted() {
-    console.log(this.employees);
-  },
+
   components: {
     AddEmployeesModal,
     DeleteEmployeeModal,
