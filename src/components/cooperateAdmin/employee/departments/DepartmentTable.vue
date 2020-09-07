@@ -3,7 +3,7 @@
         <v-card flat>
 
 <!--            <-->
-            <div class="d-flex justify-space-between flex-xs-column mt-3">
+            <div class="d-flex justify-space-between mt-3 col-12">
                 <h1>Design</h1>
                 <v-text-field
                         v-model="search"
@@ -12,6 +12,7 @@
                         solo-inverted
                         flat
                         style="max-width: 400px"
+                        class="col-sm-12"
                 ></v-text-field>
             </div>
             <v-row class="d-flex justify-space-between">
