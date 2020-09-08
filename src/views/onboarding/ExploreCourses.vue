@@ -1,13 +1,11 @@
 <template>
-  <BrowseCourses/>
-
+  <BrowseCourses />
 </template>
 
 <script>
-
 import BrowseCourses from "@/components/onboarding/browseCourses/BrowseCourses";
 export default {
-  components: {BrowseCourses },
+  components: { BrowseCourses },
   computed: {}
 };
 </script>

@@ -54,4 +54,7 @@ export default {
 .app-container {
   padding: 0 0 !important;
 }
+.v-btn {
+  text-transform: none !important;
+}
 </style>

@@ -4,7 +4,7 @@ export default {
     async userLogin({ commit }, user) {
         return login(user).then(
             user => {
-                console.log(user)
+
                 commit('loginSuccess', user);
 
                 return Promise.resolve(user);

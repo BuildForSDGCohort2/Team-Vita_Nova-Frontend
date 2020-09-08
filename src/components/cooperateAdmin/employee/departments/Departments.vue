@@ -1,33 +1,39 @@
 <template>
-  <v-container>
-      <div class="d-flex justify-space-between flex-xs-column">
+  <div>
+    <v-row>
+      <v-col cols="12" md="6">
         <v-text-field
           append-icon="mdi-magnify"
           label="Search by Department name"
           solo-inverted
           flat
-          style="max-width: 400px"
         ></v-text-field>
-        <v-btn class="v-size--large red white--text">
-          <v-icon dark left>mdi-plus </v-icon>
-          Create</v-btn>
-      </div>
-    <v-row class="mt-5">
-      <v-col cols="12" md="4" sm="6" v-for="(card) in cards" :key="card.department">
+      </v-col>
+      <v-spacer></v-spacer>
+      <v-col cols="12" md="2">
+        <v-btn elevation="elevate" color="red" dark class="pa-6 ml-14">+ Create</v-btn>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="my-4" cols="12" md="4" v-for="(card, index) in cards" :key="index">
         <DepartmentCard :cards="card" />
       </v-col>
     </v-row>
-  </v-container>
+    <v-row class="mb-14">
+      <v-col class="my-4" cols="12" md="4" v-for="(card) in cards" :key="card.department">
+        <DepartmentCard :cards="card" />
+      </v-col>
+      <v-col class="my-4" cols="12" md="4" v-for="(card) in cards" :key="card.id">
+        <DepartmentCard :cards="card" />
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <style scoped>
-
-  @media (max-width: 450px) {
-    .flex-xs-column {
-      flex-direction: column !important;
-    }
-  }
-
+.all-departments-header {
+  color: lightgray;
+}
 </style>
 
 
@@ -35,7 +41,13 @@
 <script>
 import DepartmentCard from "./DepartmentCard";
 export default {
-  name: "Department",
+  data() {
+    return {
+      elevate: false,
+      department: "design"
+    };
+  },
+
   components: {
     DepartmentCard
   },
@@ -43,8 +55,8 @@ export default {
     cards() {
       return [
         {
-          id: 1,
-          department: "Research &amp Development",
+          id: 0,
+          department: "Research ",
           avatars: [
             {
               image: require("../../../../assets/cynthia.png")
@@ -64,7 +76,7 @@ export default {
           ]
         },
         {
-          id: 2,
+          id: 1,
           department: "UX Research",
           avatars: [
             {
@@ -85,7 +97,7 @@ export default {
           ]
         },
         {
-          id: 3,
+          id: 2,
           department: "Disciplinary",
           avatars: [
             {
@@ -104,133 +116,7 @@ export default {
               image: require("../../../../assets/cynthia.png")
             }
           ]
-        },
-        {
-          id: 4,
-          department: "Research &amp Development",
-          avatars: [
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            }
-          ]
-        },
-        {
-          id: 5,
-          department: "Research &amp Development",
-          avatars: [
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            }
-          ]
-        },
-        {
-          id: 6,
-          department: "Research &amp Development",
-          avatars: [
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            }
-          ]
-        },
-        {
-          id: 7,
-          department: "Research &amp Development",
-          avatars: [
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            }
-          ]
-        },
-        {
-          id: 8,
-          department: "Research &amp Development",
-          avatars: [
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            }
-          ]
-        },
-        {
-          id: 9,
-          department: "Research &amp Development",
-          avatars: [
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            },
-            {
-              image: require("../../../../assets/cynthia.png")
-            }
-          ]
-        },
+        }
       ];
     }
   }

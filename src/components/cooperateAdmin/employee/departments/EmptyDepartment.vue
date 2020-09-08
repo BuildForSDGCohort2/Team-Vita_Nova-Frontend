@@ -4,10 +4,10 @@
             <div>
                 <v-img :src="image"  width="13rem" ></v-img>
             </div>
-                <p class="font-weight-bold">Nothing here yet</p>
+                <p class="font-weight-bold mt-5">Nothing here yet</p>
 
                 <p class="font-weight-light text-center ma-0 mb-3">Add them to a department for easy assigning of courses</p>
-                <v-btn class="ma-2" color="red" dark>
+                <v-btn class="ma-2" color="red" dark to="/cooperate/employee/view-departments">
                     <v-icon dark left>mdi-plus </v-icon>
                     Create Department
 

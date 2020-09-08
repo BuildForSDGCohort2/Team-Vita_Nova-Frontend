@@ -1,12 +1,17 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import onboarding from "./onboarding";
+import native from './native'
+import store from '../store'
 import cooperateAdmin from "./cooperateAdmin";
-import store from "../store";
 
 Vue.use(VueRouter);
 
-const routes = [...onboarding, ...cooperateAdmin];
+const routes = [
+  ...onboarding,
+  ...cooperateAdmin,
+  ...native
+];
 
 const router = new VueRouter({
   mode: "history",
@@ -24,9 +29,10 @@ router.beforeEach((to, from, next) => {
       next("/login");
     }
   } else if (user) {
-    next("cooperate/dashboard");
-  } else {
-    next();
+    next('corperate/dashboard')
+  }
+  else {
+    next()
   }
 });
 
