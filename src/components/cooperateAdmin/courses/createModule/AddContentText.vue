@@ -5,44 +5,44 @@
       <v-card class="ma-4">
         <ValidationObserver v-slot="{ handleSubmit }">
           <v-form
-            class="course-form"
-            v-if="!submitted"
-            @submit.prevent="handleSubmit(handleCreateCourseModule)"
+              class="course-form"
+              v-if="!submitted"
+              @submit.prevent="handleSubmit(handleCreateCourseModule)"
           >
             <div v-if="errorMsg">
               <span class="err text-xl-center">{{ errorMsg }}</span>
             </div>
             <v-container fluid>
               <v-text-field
-                v-model="course.courseModuleTitle"
-                :items="items"
-                :search-input.sync="search"
-                hide-selected
-                hint="Don’t worry, you can always change this."
-                label="Title"
-                outlined
-                persistent-hint
-                chips
-                color="red"
-                class=" title-box "
+                  v-model="course.courseModuleTitle"
+                  :items="items"
+                  :search-input.sync="search"
+                  hide-selected
+                  hint="Don’t worry, you can always change this."
+                  label="Title"
+                  outlined
+                  persistent-hint
+                  chips
+                  color="red"
+                  class=" title-box "
               >
               </v-text-field>
 
               <v-row :style="{ 'justify-content': 'center' }">
                 <v-col cols="12" md="8">
                   <ValidationProvider
-                    name="Introduction"
-                    rules="required|max:1000"
-                    v-slot="{ errors }"
-                    persistent-hint
-                    class=" title-box "
+                      name="Introduction"
+                      rules="required|max:1000"
+                      v-slot="{ errors }"
+                      persistent-hint
+                      class=" title-box "
                   >
                     <span class="err mt-n8 mb-3">{{ errors[0] }}</span>
                     <vue-editor
-                      class="mt-0"
-                      placeholder="Introduction"
-                      v-model="course.introduction"
-                      :editor-toolbar="customToolbar"
+                        class="mt-0"
+                        placeholder="Introduction"
+                        v-model="course.introduction"
+                        :editor-toolbar="customToolbar"
                     />
                   </ValidationProvider>
                 </v-col>
@@ -61,15 +61,15 @@
 
               <v-card-actions style="margin-left: 16%">
                 <v-btn
-                  @click="discard"
-                  style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
-                  >Discard</v-btn
+                    @click="discard"
+                    style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
+                >Discard</v-btn
                 >
                 <v-btn
-                  class="ma-4"
-                  @click="saveModule"
-                  style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
-                  >Save</v-btn
+                    class="ma-4"
+                    @click="saveModule"
+                    style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
+                >Save</v-btn
                 >
               </v-card-actions>
             </v-container>
@@ -96,10 +96,10 @@
       </section>
 
       <v-card
-        flat
-        class="text-center justify-center ma-4"
-        max-width="686"
-        style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
+          flat
+          class="text-center justify-center ma-4"
+          max-width="686"
+          style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
       >
         <v-container fluid>
           <h6 class="tip-text">
@@ -113,14 +113,12 @@
 </template>
 
 <script>
-import Loader from "@/components/ui/loader/Loader";
 import { VueEditor } from "vue2-editor";
 import UserService from "@/services/user-services";
 
 export default {
-  name: "CreateCourseModule",
+  name: "AddContentText",
   components: {
-    Loader,
     VueEditor
   },
 

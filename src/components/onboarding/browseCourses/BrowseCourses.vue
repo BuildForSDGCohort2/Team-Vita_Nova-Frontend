@@ -48,7 +48,7 @@
         >
           Business Management & Marketing Courses
         </h4>
-        <SoftwareEngineer />
+        <SoftwareEngineer :search="search" />
 
         <h4
           style="padding-left: 3%;
@@ -67,7 +67,7 @@
         >
           Top Business Management Courses
         </h4>
-        <BusinessManagement />
+        <BusinessManagement :search="search" />
 
         <h4
           style="padding-left: 3%;
@@ -86,7 +86,7 @@
         >
           Top Design Thinking Courses
         </h4>
-        <DesignThinking />
+        <DesignThinking :search="search" />
       </v-card>
     </div>
   </v-responsive>
@@ -101,6 +101,7 @@ export default {
   components: { DesignThinking, BusinessManagement, SoftwareEngineer },
   data: ()=> ({
     title: "BrowseCourses",
+    search: '',
 
 }),
   computed: {}

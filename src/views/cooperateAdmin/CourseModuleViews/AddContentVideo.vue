@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <v-responsive>
     <AddContentVideo/>
-  </div>
+  </v-responsive>
 </template>
 
 <script>
-import AddContentVideo from "@/components/cooperateAdmin/courses/createCourses/AddContentVideo";
+import AddContentVideo from "@/components/cooperateAdmin/courses/createModule/AddContentVideo";
 
 export default {
   name: "AddContentVideo",

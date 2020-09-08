@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <template>
   <v-card class="mx-auto" max-width="800">
     <v-list-item>

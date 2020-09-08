@@ -43,7 +43,7 @@ class UserService {
 
     static handleCreateCourseModule(data){
         console.log(data)
-        return axios.post(API_URL + '/business/company/create_course_module', data, {headers: authHeader()})
+        return axios.post(API_URL + '/class/module', data, {headers: authHeader()})
     }
 
     static getProfile(){

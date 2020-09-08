@@ -110,9 +110,8 @@ export default {
   }),
   methods: {
     onSelect(item) {
-
       console.log(item.title);
-
+      this.$router.push({path: item.link, props: item});
     }
   }
 };

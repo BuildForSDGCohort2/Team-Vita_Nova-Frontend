@@ -1,7 +1,9 @@
 <template>
   <div>
-    <SideNav />
+    <v-row></v-row>
     <ModuleMenu />
+    <SideNav />
+
     <v-container style="max-width: 1000px">
             <router-view />
     </v-container>
@@ -9,8 +11,8 @@
 </template>
 
 <script>
-import ModuleMenu from "@/components/cooperateAdmin/courses/createCourses/CreateCourseLayout/ModuleMenu";
-import SideNav from "@/components/cooperateAdmin/courses/createCourses/CreateCourseLayout/SideNav";
+import ModuleMenu from "@/components/cooperateAdmin/courses/createModule/CreateCourseLayout/ModuleMenu";
+import SideNav from "@/components/cooperateAdmin/courses/createModule/CreateCourseLayout/SideNav";
 export default {
   name: "ManageCourseModule",
   components: {

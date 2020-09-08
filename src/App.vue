@@ -18,11 +18,12 @@
   </v-app>
 </template>
 
-<script>
+<script >
 import CooperateLayout from "./components/cooperateAdmin/layout/Header";
 import OnboardingLayout from "./components/onboarding/layout/Header";
 
 import { mapState } from "vuex";
+
 export default {
   props: {
     source: String

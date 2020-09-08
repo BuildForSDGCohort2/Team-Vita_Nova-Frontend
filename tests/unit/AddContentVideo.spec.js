@@ -1,5 +1,5 @@
 import {mount} from "@vue/test-utils";
-import AddContentVideo from "@/components/cooperateAdmin/courses/createCourses/AddContentVideo";
+import AddContentVideo from "@/components/cooperateAdmin/courses/createModule/AddContentVideo";
 
 //testing if the test is properly setup on the run
 describe("AddContentVideo", () => {
