@@ -50,17 +50,19 @@
         <v-col cols="12">
           <v-row class="ml-2 mr-3">
             <v-col  cols="12" md="3">
-              <v-list-item to="/cooperate/courseModule/curriculum" style="color: #F8F8F8">
+              <v-list-item to="/cooperate/courseModule/text" style="color: #F8F8F8">
                 <v-img class="mr-2" src="~@/assets/text.svg" alt="" max-width="50" max-height="64"/>
               </v-list-item>
             </v-col>
+
             <v-col cols="12" md="3">
               <v-list-item to="/cooperate/courseModule/video" style="color: #F8F8F8">
                 <v-img class="mr-2" src="~@/assets/video.svg" alt="" max-width="50" max-height="64"/>
               </v-list-item>
             </v-col>
+
             <v-col cols="12" md="3" >
-              <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+              <v-list-item to="/cooperate/courseModule/audio" style="color: #F8F8F8">
                 <v-img class="mr-2" src="~@/assets/audio.svg" alt="" max-width="50" max-height="64"/>
               </v-list-item>
             </v-col>

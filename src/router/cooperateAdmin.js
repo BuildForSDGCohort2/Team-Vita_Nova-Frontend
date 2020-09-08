@@ -1,7 +1,6 @@
 import Employee from "../views/cooperateAdmin/Employee";
 import Courses from "../views/cooperateAdmin/Courses";
 import CourseModule from "@/views/cooperateAdmin/CourseModuleViews/CourseModule";
-import Curriculum from "@/views/cooperateAdmin/CourseModuleViews/Curriculum";
 
 export default [
   {
@@ -12,6 +11,15 @@ export default [
       requiresAuth: true
     }
   },
+  // {
+  //   path: "/cooperate/video",
+  //   component: () =>
+  //       import("@/components/cooperateAdmin/courses/createModule/AddContentVideo"),
+  //
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
   {
     path: "/cooperate/employee/",
     name: "Employee",
@@ -79,6 +87,8 @@ export default [
     }
   },
 
+
+
   {
     path: "/cooperate/courseModule",
     name: "CourseModule",
@@ -106,9 +116,23 @@ export default [
 
       {
         path: "video",
-        name: "courseModule.addContentVideo",
+        name: "courseModule.video",
         component: () =>
-          import("../views/cooperateAdmin/CourseModuleViews/AddContentVideo")
+            import("@/components/cooperateAdmin/courses/createModule/AddContentVideo")
+      },
+
+      {
+        path: "audio",
+        name: "courseModule.audio",
+        component: () =>
+            import("@/components/cooperateAdmin/courses/createModule/AddContentAudio")
+      },
+
+      {
+        path: "text",
+        name: "courseModule.text",
+        component: () =>
+            import("@/components/cooperateAdmin/courses/createModule/AddContentText")
       },
 
         
@@ -117,41 +141,4 @@ export default [
       requiresAuth: true
     }
   },
-
-  {
-    path: "/cooperate/courseModule/curriculum",
-    name: "Curriculum",
-    component: Curriculum,
-    children: [
-      {
-        path: "",
-        name: "Curriculum",
-        redirect: { name: "curriculum.video" }
-      },
-
-      {
-        path: "video",
-        name: "curriculum.video",
-        component: () =>
-          import("../views/cooperateAdmin/CourseModuleViews/AddContentVideo")
-      }
-
-      // {
-      //     path: "curriculum",
-      //     name: "courseModule.publish",
-      //     component: () =>
-      //         import("../views/cooperateAdmin/Publish")
-      // },
-
-      // {
-      //   path: "createCourseModule",
-      //   name: "courseModule.createCourseModule",
-      //   component: () =>
-      //       import("../views/cooperateAdmin/AddContentVideo")
-      // },
-    ],
-    meta: {
-      requiresAuth: true
-    }
-  }
 ];

@@ -118,24 +118,24 @@
                         </v-col>
                       </v-row>
 
-                      <v-row :style="{ 'justify-content': 'center' }">
-                        <v-col cols="12" md="8">
-                          <ValidationProvider
-                            name="Introduction"
-                            rules="required|max:1000"
-                            v-slot="{ errors }"
-                          >
-                            <span class="err mt-n8 mb-3">{{ errors[0] }}</span>
-                            <vue-editor
-                              :style="{ 'font-family': 'IBM Plex Sans' }"
-                              class="mt-10 "
-                              placeholder="Introduction"
-                              v-model="course.introduction"
-                              :editor-toolbar="customToolbar"
-                            />
-                          </ValidationProvider>
-                        </v-col>
-                      </v-row>
+<!--                      <v-row :style="{ 'justify-content': 'center' }">-->
+<!--                        <v-col cols="12" md="8">-->
+<!--                          <ValidationProvider-->
+<!--                            name="Introduction"-->
+<!--                            rules="required|max:1000"-->
+<!--                            v-slot="{ errors }"-->
+<!--                          >-->
+<!--                            <span class="err mt-n8 mb-3">{{ errors[0] }}</span>-->
+<!--                            <vue-editor-->
+<!--                              :style="{ 'font-family': 'IBM Plex Sans' }"-->
+<!--                              class="mt-10 "-->
+<!--                              placeholder="Introduction"-->
+<!--                              v-model="course.introduction"-->
+<!--                              :editor-toolbar="customToolbar"-->
+<!--                            />-->
+<!--                          </ValidationProvider>-->
+<!--                        </v-col>-->
+<!--                      </v-row>-->
 
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8">
@@ -250,7 +250,7 @@ import Loader from "@/components/ui/loader/Loader";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
-  name: "AddContentVideo",
+  name: "AddContentVideos",
   components: {
     Loader,
     VueEditor,

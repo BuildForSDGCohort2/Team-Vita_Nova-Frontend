@@ -9,13 +9,13 @@
             :style="{'font-family': 'IBM Plex Sans'}"
             class=" invite-title">
           <h3>
-            Add Add Lessons
+            Let's Add Lessons
           </h3>
         </v-card-text>
 
-        <v-card-text class=" invite-text text-wrap " :style="{'font-family': 'IBM Plex Sans'}">
+        <v-card-text class="invite-text " :style="{'font-family': 'IBM Plex Sans'}">
           <p >
-            Click on the icons under your module to add your type of lesson, <br> your can add as multiple lesson as you want to a module.
+            Click on the icons under your module to add your type of lesson your can add as multiple lesson as you want to a module.
           </p>
         </v-card-text>
       </v-container>
@@ -61,11 +61,9 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 28px;
-  /* or 156% */
 
   display: flex;
-  margin-left: 10% !important;
-  /*align-items: center;*/
+  margin-left: 3% !important;
   text-align: center;
   letter-spacing: 0.05em;
 
