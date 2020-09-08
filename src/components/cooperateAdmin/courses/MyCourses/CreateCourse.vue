@@ -428,17 +428,18 @@ export default {
       console.log(course);
       UserService.handleCreateCourse(course).then(
           res => {
-            console.log(res.data);
-            alert('Form has been submitted!');
-            this.mounted();
-          },
-          error => {
-            this.loading = false;
-            alert('Failed to update form please check required fields or network!');
-            console.log(error);
-            this.errorMsg = error.response.detail;
-          }
-      );
+            console.log(res);
+            // this.mounted();
+          }).catch(e=>{
+            console.log(e.response.message)
+      })
+
+      //     error => {
+      //       this.loading = false;
+      //       console.log(error.response);
+      //       this.errorMsg = error.response.res.detail;
+      //     }
+      // );
     }
   },
 };

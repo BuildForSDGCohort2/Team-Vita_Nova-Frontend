@@ -55,7 +55,7 @@ class UserService {
     }
 
     static handleCreateCourse(data) {
-        return axios.post('/class/course/', data, { headers: authHeader() });
+        return axios.post(API_URL + '/class/course/', data, { headers: authHeader()});
     }
 
 
