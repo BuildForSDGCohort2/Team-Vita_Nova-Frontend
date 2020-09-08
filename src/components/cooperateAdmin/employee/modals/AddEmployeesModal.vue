@@ -10,7 +10,7 @@
           v-on="on"
           light
         >
-          <v-icon left>mdi-plus</v-icon>Add New Employee
+          <slot></slot>
         </v-btn>
       </template>
 
@@ -18,12 +18,15 @@
     </v-dialog>
     <v-dialog v-model="splashShow" max-width="500">
       <v-card class="text-center justify-center pt-10" rounded>
-        <img src="../../../../assets/thumbs-up-orange.svg" class="invite-circle"  alt=""/>
+        <img src="../../../../assets/thumbs-up-orange.svg" class="invite-circle" alt />
         <v-card-text class="text-center justify-center invite-title">
           <h3>Invites Sent!</h3>
         </v-card-text>
 
-        <v-card-text class="text-center justify-center invite-text" :style="{'font-family': 'IBM Plex Sans'}">
+        <v-card-text
+          class="text-center justify-center invite-text"
+          :style="{'font-family': 'IBM Plex Sans'}"
+        >
           <p>
             Your employees would be notified via
             <br />email to join the
@@ -59,7 +62,7 @@ export default {
   methods: {
     showSplashModal() {
       this.splashShow = true;
-      this.dialog = !this.dialog;
+      this.dialog = false;
     }
   }
 };

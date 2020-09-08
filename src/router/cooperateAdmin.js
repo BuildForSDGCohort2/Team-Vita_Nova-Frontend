@@ -1,38 +1,41 @@
+
+
 import Employee from "../views/cooperateAdmin/Employee"
 import Courses from "../views/cooperateAdmin/Courses"
 import CourseModule from "../views/cooperateAdmin/CourseModule";
 
 export default [
     {
-        path: "/cooperate/dashboard",
+        path: "/corperate/dashboard",
         name: "Dashboard",
         component: () =>
-            import("../views/cooperateAdmin/Dashboard.vue"),
+            import("../views/cooperateAdmin/Dashboard"),
         meta: {
             requiresAuth: true
         }
     },
     {
-        path: "/cooperate/employee/",
-        name: "Employee",
+        path: "/corperate/employee/",
         component: Employee,
-        children: [{
-            path: '',
-            name: 'employee',
-            redirect: { name: 'employee.allEmployees' }
-        },{
-            path: "allEmployees",
-            name: 'employee.allEmployees',
-            component: () => import("../views/cooperateAdmin/AllEmployees")
-        }, {
-            path: "departments",
-            name: 'employee.departments',
-            component: () => import("../views/cooperateAdmin/BrowseDepartments")
-        },
+        children: [
             {
-                path: "view-departments",
-                name: 'employee.departments',
-                component: () => import("../views/cooperateAdmin/DepartmentsView")
+                path: '',
+                name: 'employeeRedirect',
+                redirect: { name: 'employeeContainer' }
+            },
+            {
+                path: "employees",
+                name: "employeeContainer",
+                component: () => import("../views/cooperateAdmin/EmployeesContainer")
+            }, {
+                path: "departments",
+                name: "departments",
+                component: () => import("../views/cooperateAdmin/Departments")
+            }
+            , {
+                path: "departments/:department",
+                name: "department",
+                component: () => import("../views/cooperateAdmin/Department")
             }
         ],
         meta: {
@@ -41,29 +44,36 @@ export default [
 
     },
     {
-        path: "/cooperate/courses",
-        name: "Courses",
+        path: "/corperate/courses",
         component: Courses,
-        children: [{
-            path: '',
-            name: 'courses',
-            redirect: { name: 'courses.myCourses' }
-        },{
-            path: "myCourses",
-            name: 'courses.myCourses',
-            component: () => import("../views/cooperateAdmin/MyCourses")
-        },{
-            path: "exploreCourses",
-            name: 'courses.exploreCourses',
-            component: () => import("../views/cooperateAdmin/ExploreCourses")
-        }],
+        children: [
+            {
+                path: '',
+                name: 'courseRedirect',
+                redirect: { name: 'myCourses' }
+            },
+            {
+                path: "exploreCourses",
+                name: "exploreCourses",
+                component: () => import("../views/cooperateAdmin/ExploreCourses")
+            }, {
+                path: "myCourses",
+                name: 'myCourses',
+                component: () => import("../views/cooperateAdmin/MyCourses")
+            },
+            {
+                path: "createCourse",
+                name: 'createCourse',
+                component: () => import("../components/cooperateAdmin/courses/myCourses/CreateCourse")
+            }
+        ],
         meta: {
             requiresAuth: true
         }
     }
     ,
     {
-        path: "/cooperate/preview-profile",
+        path: "/corperate/preview-profile",
         name: "PreviewProfile",
         component: () =>
             import("../views/cooperateAdmin/PreviewProfile")
@@ -73,7 +83,7 @@ export default [
         }
     },
     {
-        path: "/cooperate/update-profile",
+        path: "/corperate/update-profile",
         name: "UpdateProfile",
         component: () =>
             import("../views/cooperateAdmin/UpdateProfile")
@@ -84,34 +94,28 @@ export default [
     },
 
     {
-    path: "/cooperate/courseModule",
-    name: "CourseModule",
-    component: CourseModule,
-    children: [
-      {
-        path: "",
-        name: "courseModule",
-        redirect: {name: "courseModule.publish"}
-      },{
-        path: "publish",
-        name: "courseModule.publish",
-        component: () =>
-            import("../views/cooperateAdmin/Publish")
-      },{
-        path: "curriculum",
-        name: "courseModule.curriculum",
-        component: () =>
-            import("../views/cooperateAdmin/Curriculum")
-      },
-      // {
-      //   path: "generalSettings",
-      //   name: "courseModule.generalSettings",
-      //   component: () =>
-      //       import("../views/cooperateAdmin/AddContentVideo")
-      // },
-    ],
-    meta: {
-      requiresAuth: true
+        path: "/cooperate/courseModule",
+        component: CourseModule,
+        children: [
+            {
+                path: "",
+                name: "courseModule",
+                redirect: { name: "courseModule.publish" }
+            }, {
+                path: "publish",
+                name: "courseModule.publish",
+                component: () =>
+                    import("../views/cooperateAdmin/Publish")
+            }, {
+                path: "curriculum",
+                name: "courseModule.curriculum",
+                component: () =>
+                    import("../views/cooperateAdmin/Curriculum")
+            },
+
+        ],
+        meta: {
+            requiresAuth: true
+        }
     }
-  }
 ]

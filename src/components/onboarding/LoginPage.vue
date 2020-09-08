@@ -87,13 +87,11 @@ export default {
       if (this.user.email && this.user.password) {
         this.$store.dispatch("onboarding/userLogin", this.user).then(
           res => {
-            this.$router.push("/cooperate/dashboard");
+            this.$router.push("corperate/dashboard");
           },
           error => {
             this.loading = false;
             this.errorMsg = error;
-            // this.errorMsg= (error.response && error.response.data)
-            // ||error.message || error.toString();
           }
         );
       }

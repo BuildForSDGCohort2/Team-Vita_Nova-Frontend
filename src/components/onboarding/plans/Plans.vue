@@ -10,7 +10,9 @@
         <v-row>
           <v-col cols="12" md="12">
             <div>
-              <p class="selectPlanSubtitle ma-3">Import your demos or build pages visual layer. All images and illustrations included! Import your demos or build </p>
+              <p
+                class="selectPlanSubtitle ma-3"
+              >Import your demos or build pages visual layer. All images and illustrations included! Import your demos or build</p>
             </div>
           </v-col>
         </v-row>
@@ -29,15 +31,9 @@
                       flat
                   >
                     <v-card-text>
-                      <div class="card-type mt-n4">
-                        startups
-                      </div>
-                      <div class="plan">
-                        N80,000
-                      </div>
-                      <div class="card-type-1 mb-n4">
-                        Monthly
-                      </div>
+                      <div class="card-type mt-n4">startups</div>
+                      <div class="plan">N80,000</div>
+                      <div class="card-type-1 mb-n4">Monthly</div>
                     </v-card-text>
                   </v-card>
                 </template>
@@ -64,14 +60,13 @@
                       :style="{'font-size': '14px', 'height': '43px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'}"
                       @click="startupsDemo"
                   >
-                    <v-icon color="#fff">mdi-plus</v-icon>
-                    Request a Demo
+                    <v-icon color="#fff">mdi-plus</v-icon>Request a Demo
                   </v-btn>
                 </v-card-actions>
               </v-card>
             </template>
           </v-col>
-          <v-col cols="12" md="4" >
+          <v-col cols="12" md="4">
             <template>
               <v-card
                   elevation="2"
@@ -85,14 +80,9 @@
                       flat
                   >
                     <v-card-text>
-                      <div class="card-type mt-n4">
-                        Custom
-                      </div>
-                      <div class="plan" style="color: #FFB403">
-                        Custom
-                      </div>
-                      <div class="card-type-1 mb-11">
-                      </div>
+                      <div class="card-type mt-n4">Custom</div>
+                      <div class="plan" style="color: #FFB403">Custom</div>
+                      <div class="card-type-1 mb-11"></div>
                     </v-card-text>
                   </v-card>
                 </template>
@@ -119,14 +109,13 @@
                       :style="{'font-size': '14px', 'height': '43px', 'background': '#FFB403', 'color': '#FFF', 'font-weight': 'bold'}"
                       @click="customDemo"
                   >
-                    <v-icon color="#fff">mdi-plus</v-icon>
-                    Get Started
+                    <v-icon color="#fff">mdi-plus</v-icon>Get Started
                   </v-btn>
                 </v-card-actions>
               </v-card>
             </template>
           </v-col>
-          <v-col cols="12" md="4" >
+          <v-col cols="12" md="4">
             <template>
               <v-card
                   elevation="2"
@@ -140,15 +129,9 @@
                       flat
                   >
                     <v-card-text>
-                      <div class="card-type mt-n4">
-                        Enterprise
-                      </div>
-                      <div class="plan" style="color: #1C8AEC">
-                        N800,000
-                      </div>
-                      <div class="card-type-1 mb-n4">
-                        Monthly
-                      </div>
+                      <div class="card-type mt-n4">Enterprise</div>
+                      <div class="plan" style="color: #1C8AEC">N800,000</div>
+                      <div class="card-type-1 mb-n4">Monthly</div>
                     </v-card-text>
                   </v-card>
                 </template>
@@ -175,8 +158,7 @@
                       :style="{'font-size': '14px', 'height': '43px', 'background': '#1C8AEC', 'color': '#FFF', 'font-weight': 'bold'}"
                       @click="enterpriseDemo"
                   >
-                    <v-icon color="#fff">mdi-plus</v-icon>
-                    Request a Demo
+                    <v-icon color="#fff">mdi-plus</v-icon>Request a Demo
                   </v-btn>
                 </v-card-actions>
               </v-card>
@@ -196,14 +178,20 @@
                 <h1 class="benefits-content">Highly Rich Content</h1>
               </v-col>
               <v-col cols="12" md="2">
-                <v-img class="mr-2" src="~@/assets/highly-rich-content.svg" alt="" max-width="64" max-height="64"/>
+                <v-img
+                  class="mr-2"
+                  src="~@/assets/highly-rich-content.svg"
+                  alt=""
+                  max-width="64"
+                  max-height="64"
+                />
               </v-col>
             </v-row>
             <v-row class="ml-3 mr-3 mt-n3">
               <v-col cols="12" md="12">
-                <p class="benefits-content-p ml-2 mr-2">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
+                <p
+                  class="benefits-content-p ml-2 mr-2"
+                >Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
               </v-col>
             </v-row>
           </v-col>
@@ -213,14 +201,20 @@
                 <h1 class="benefits-content">Access to Business Partnerships</h1>
               </v-col>
               <v-col cols="12" md="2">
-                <v-img class="mr-2" src="~@/assets/access-to-business-partnerships.svg" alt="" max-width="64" max-height="64"/>
+                <v-img
+                  class="mr-2"
+                  src="~@/assets/access-to-business-partnerships.svg"
+                  alt=""
+                  max-width="64"
+                  max-height="64"
+                />
               </v-col>
             </v-row>
             <v-row class="ml-3 mr-3 mt-n3">
               <v-col cols="12" md="12">
-                <p class="benefits-content-p ml-2 mr-2">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
+                <p
+                  class="benefits-content-p ml-2 mr-2"
+                >Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
               </v-col>
             </v-row>
           </v-col>
@@ -233,14 +227,20 @@
                 <h1 class="benefits-content">Mentorship & Consultancy</h1>
               </v-col>
               <v-col cols="12" md="2">
-                <v-img class="mr-2" src="~@/assets/mentorship-and-consultancy.svg" alt="" max-width="64" max-height="64"/>
+                <v-img
+                  class="mr-2"
+                  src="~@/assets/mentorship-and-consultancy.svg"
+                  alt=""
+                  max-width="64"
+                  max-height="64"
+                />
               </v-col>
             </v-row>
             <v-row class="ml-3 mr-3 mt-n3">
               <v-col cols="12" md="12">
-                <p class="benefits-content-p ml-2 mr-2">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
+                <p
+                  class="benefits-content-p ml-2 mr-2"
+                >Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
               </v-col>
             </v-row>
           </v-col>
@@ -250,14 +250,20 @@
                 <h1 class="benefits-content">Scale your team & Business</h1>
               </v-col>
               <v-col cols="12" md="2">
-                <v-img class="mr-2" src="~@/assets/scale-your-team-and-business.svg" alt="" max-width="64" max-height="64"/>
+                <v-img
+                  class="mr-2"
+                  src="~@/assets/scale-your-team-and-business.svg"
+                  alt=""
+                  max-width="64"
+                  max-height="64"
+                />
               </v-col>
             </v-row>
             <v-row class="ml-3 mr-3 mt-n3">
               <v-col cols="12" md="12">
-                <p class="benefits-content-p ml-2 mr-2">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
+                <p
+                  class="benefits-content-p ml-2 mr-2"
+                >Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
               </v-col>
             </v-row>
           </v-col>
@@ -298,10 +304,9 @@ export default {
     },
   },
   components: {
-    Footer,
+    Footer
   },
-  computed: {
-  }
+  computed: {}
 };
 </script>
 
@@ -315,7 +320,7 @@ export default {
   letter-spacing: 1px;
   text-transform: capitalize;
 
-  color: #2B1C1C;
+  color: #2b1c1c;
 }
 .selectPlanSubtitle {
   font-style: normal;
@@ -323,20 +328,17 @@ export default {
   font-size: 14px;
   line-height: 20px;
   text-align: center;
-
   color: #455880;
 }
 .btn {
   /* Auto Layout */
   display: flex;
   flex-direction: row;
-
   position: static;
   width: 180px;
   height: 63px;
   left: 0;
   top: 0;
-
   /* Inside Auto Layout */
   flex: none;
   order: 1;
@@ -344,7 +346,7 @@ export default {
   margin: 24px 0;
 }
 .subCard {
-  background: #F8F8F8;
+  background: #f8f8f8;
   border-radius: 10px 10px 0 0;
 }
 .card-type {
@@ -355,7 +357,6 @@ export default {
   text-align: center;
   letter-spacing: 1px;
   text-transform: capitalize;
-
   color: rgba(0, 0, 0, 0.5);
 }
 .plan {
@@ -363,20 +364,18 @@ export default {
   font-weight: bolder;
   font-size: 44px;
   line-height: 42px;
-
   /* identical to box height, or 97% */
   text-align: center;
   letter-spacing: 1px;
   text-transform: capitalize;
 
-  color: #FF2E2E;
+  color: #ff2e2e;
 }
 .card-type-1 {
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 62px;
-
   /* identical to box height, or 258% */
   text-align: center;
   letter-spacing: 1px;
@@ -393,7 +392,7 @@ export default {
 }
 
 .card-style {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
 }
 .benefits {
@@ -404,7 +403,6 @@ export default {
   text-align: center;
   letter-spacing: 1px;
   text-transform: capitalize;
-
   color: rgba(0, 0, 0, 0.5);
 }
 .benefits-content {
@@ -412,13 +410,11 @@ export default {
   font-weight: bold;
   font-size: 18px;
   line-height: 42px;
-
   /* identical to box height, or 207% */
   display: flex;
   align-items: center;
   letter-spacing: 1px;
   text-transform: capitalize;
-
   color: #645262;
 }
 .benefits-content-p {
@@ -431,7 +427,6 @@ export default {
   text-align: justify;
   letter-spacing: 1px;
   text-transform: capitalize;
-
   color: #000000;
 }
 </style>

@@ -1,84 +1,63 @@
 <template>
-  <v-responsive>
-    <v-row class="overlay">
-      <v-card v-for="(desi, i) in design" :key="i" cols="6" elevation="2" :loading="loading"
-              class="mx-auto my-12 text-wrap"
-              width="374">
+  <v-container>
+    <v-row>
+      <v-col v-for="(design, i) in designs" :key="i" cols="6">
+        <v-card :color="design.color" elevation="0">
+          <div class="d-flex flex-no-wrap justify-space-between">
+            <v-avatar class="ma-3" size="125" tile>
+              <v-img :src="design.src"></v-img>
+            </v-avatar>
 
-        <v-img height="250" :src="desi.src"></v-img>
+            <div>
+              <v-card-subtitle v-text="design.course" style="color: #FF2E2E; padding-bottom: 0px"></v-card-subtitle>
 
-        <v-card-title v-text="desi.course"></v-card-title>
-        <div v-text="desi.company" class="mx-4 subtitle-1">
-        </div>
-        <v-card-text>
-          <v-row align="center" class="mx-0">
-            <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-            ></v-rating>
+              <v-card-title class="headline text-wrap" v-text="design.title"></v-card-title>
 
-            <div class="grey--text ml-4">4.5 (413)</div>
-          </v-row>
-        </v-card-text>
-      </v-card>
-
-      <!--      <v-p @click="showAll" style="color: #FF2E2E; border: 0px; float: right"-->
-      <!--      >View More >></v-p-->
-      >
+              <v-card-subtitle class="ma-auto text-wrap" v-text="design.artist"></v-card-subtitle>
+            </div>
+          </div>
+        </v-card>
+      </v-col>
     </v-row>
-  </v-responsive>
+    <v-p @click="showAll" style="color: #FF2E2E">Show All >></v-p>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: "DesignThinking",
   data: () => ({
-    loading: false,
-    selection: 1,
-    design: [
+    designs: [
       {
-        src: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-        course: "INTRODUCTION TO ROBOTICS",
-        company: "Semicolon Africa"
-      },
-      {
+        color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-        company: "Semicolon Africa",
-        course: "CREATING STUNNING ENGAGEMENTS"
+        title: "Introduction to Java For Web Development",
+        artist: "Wale Adenuga - 6hrs 30minutes",
+        course: "Business Management"
       },
       {
+        color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-        company: "Semicolon Africa",
-        course: "WEB DEVELOPMENT"
+        title: "Introduction to Java For Web Development",
+        artist: "Wale Adenuga - 6hrs 30minutes",
+        course: "Web Development"
       },
       {
-        src: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-        course: "INTRODUCTION TO ROBOTICS",
-        company: "Semicolon Africa"
+        color: "#F8F8F8",
+        src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
+        title: "Introduction to Java For Web Development",
+        artist: "Wale Adenuga - 6hrs 30minutes",
+        course: "Web Development"
       },
       {
+        color: "#F8F8F8",
         src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
-        company: "Semicolon Africa",
-        course: "GUIDE TO CREATING MOON MARKETING"
-      },
-      {
-        src: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-        course: "INTRODUCTION TO ROBOTICS",
-        company: "Semicolon Africa"
-      },
+        title: "Introduction to Flutter For Web Development",
+        artist: "Ellie Goulding - 6hrs 20minutes",
+        course: "Web Development"
+      }
     ]
-  }),
-  methods: {
-    reserve() {
-      this.loading = true;
-      setTimeout(() => (this.loading = false), 2000);
-    }
-  }
+  })
 };
 </script>
 
-<style scoped></style>

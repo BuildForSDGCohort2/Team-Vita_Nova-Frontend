@@ -1,69 +1,22 @@
 <template>
-  <v-responsive>
-    <v-container style="max-width: 1000px">
-      <v-card flat class="tab-navigation">
-        <v-tabs center-active background-color="white" color="#645262" class="menu" :style="style">
-          <v-tab class="create-course" to="/cooperate/courses/myCourses"><h3>My Courses</h3></v-tab>
-          <v-tab class="view-all-course" to="/cooperate/courses/exploreCourses"><h3>Explore Courses</h3></v-tab>
-          <v-tabs-slider color="#FF2E2E"></v-tabs-slider>
-        </v-tabs>
-      </v-card>
-    </v-container>
-  </v-responsive>
+  <v-container>
+    <v-card flat class="tab-navigation">
+      <v-tabs background-color="white" color="red">
+        <v-tab class="tab-item" to="/corperate/courses/myCourses">My Course</v-tab>
+        <v-tab class="tab-item" to="/corperate/courses/exploreCourses">Explore Courses</v-tab>
+      </v-tabs>
+    </v-card>
+  </v-container>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      style: {'font-family': 'IBM Plex Sans'}
-    }
-  },
-}
-</script>
 
 <style scoped>
 .tab-navigation {
-  border-bottom: 1px solid #DDDDDD !important;
+  border-bottom: 1px solid lightgrey !important;
 }
-.create-course {
-  /* Create Course */
 
-  /*position: absolute;*/
-  left: 0%;
-  right: 69%;
-  top: 12.24%;
-  bottom: 86.04%;
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.05em;
-  text-transform: capitalize;
-
-}
-.view-all-course {
-  /* View Courses */
-  left: 7.04%;
-  right: 55.89%;
-  top: 12.33%;
-  bottom: 86.04%;
-  padding: 0;
-  text-transform: capitalize;
-
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.05em;
-}
-.menu {
-  /* View Menu */
-  font-style: normal;
-  font-weight: bold;
+.tab-item {
+  text-transform: capitalize !important;
   font-size: 16px;
-  line-height: 21px;
-
-  /* lamp-txt-1 */
-  color: #645262;
+  font-weight: bold;
 }
-
 </style>
