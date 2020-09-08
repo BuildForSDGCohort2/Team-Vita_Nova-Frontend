@@ -43,14 +43,14 @@ export default {
   width: 200px !important;
   height: 200px !important;
   min-width: 73px !important;
-  margin-left: 35% !important;
+  margin-left: 40% !important;
   margin-top: 10% !important;
   margin-bottom: 40px !important;
 }
 .invite-title {
   font-style: normal;
   font-weight: 600;
-  margin-left: 25% !important;
+  margin-left: 30% !important;
   font-size: 36px;
   line-height: 47px;
   display: flex;
