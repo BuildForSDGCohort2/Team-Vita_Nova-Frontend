@@ -29,7 +29,7 @@ export default [
         path: "/explore-courses",
         name: "ExploreCourses",
         component: () =>
-            import(/* webpackChunkName: "about" */ "../views/onboarding/ExploreCourses")
+            import(/* webpackChunkName: "about" */ "../views/onboarding/BrowseCourses")
     },
     {
         path: "/success",
