@@ -419,11 +419,10 @@ export default {
         "startDate": this.course.startDate,
         "endDate": this.course.endDate
       };
-      console.log(course);
       UserService.handleCreateCourse(course).then(
           res => {
             console.log(res.data);
-            this.$router.push({ path: '/corperate/courses' });
+            this.$router.push({ path: '/cooperate/courses' });
           },
           error => {
             this.loading = false;
