@@ -4,14 +4,14 @@
       <v-card max-width="1450" class="mx-auto" elevation="0">
         <v-row class=" align-center justify-center ">
           <h3
-            style="
+              style="
                   font-style: normal;
                   font-weight: 300;
                   font-size: 48px;
                   line-height: 62px;
-                  margin-top: 5%;
+                  margin-top: 10%;
                   display: flex;
-                  align-items: center;
+                  text-wrap: normal;
                   text-align: center;
                   letter-spacing: 0.6px;
                   text-transform: capitalize;
@@ -24,15 +24,15 @@
         </v-row>
 
         <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search by Course name"
-          solo-inverted
-          style="max-width: 30%; margin: 0 auto; margin-top: 5%; margin-bottom: 3%;"
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search by Course name"
+            solo-inverted
+            style="max-width: 30%; margin: 0 auto; margin-top: 5%; margin-bottom: 3%;"
         ></v-text-field>
 
-        <h4
-          style="padding-left: 3%;
+        <h3
+            style="padding-left: 3%;
                padding-bottom: 20px;
 
               font-style: normal;
@@ -47,11 +47,11 @@
                   "
         >
           Business Management & Marketing Courses
-        </h4>
-        <SoftwareEngineering :search="search" />
+        </h3>
+        <SoftwareEngineering />
 
-        <h4
-          style="padding-left: 3%;
+        <h3
+            style="padding-left: 3%;
                padding-bottom: 20px;
 
               font-style: normal;
@@ -66,11 +66,11 @@
                   "
         >
           Top Business Management Courses
-        </h4>
-        <BusinessManagement :search="search" />
+        </h3>
+        <BusinessManagement />
 
-        <h4
-          style="padding-left: 3%;
+        <h3
+            style="padding-left: 3%;
                padding-bottom: 20px;
 
               font-style: normal;
@@ -85,8 +85,8 @@
                   "
         >
           Top Design Thinking Courses
-        </h4>
-        <DesignThinking :search="search" />
+        </h3>
+        <DesignThinking />
       </v-card>
     </div>
   </v-responsive>
@@ -99,11 +99,6 @@ import DesignThinking from "@/components/onboarding/browseCourses/DesignThinking
 
 export default {
   components: { DesignThinking, BusinessManagement, SoftwareEngineering },
-  data: ()=> ({
-    title: "BrowseCourses",
-    search: '',
-
-}),
   computed: {}
 };
 </script>

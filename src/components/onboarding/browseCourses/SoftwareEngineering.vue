@@ -26,7 +26,7 @@
         </v-card-text>
       </v-card>
 
-      <!--      <v-p @click="showAll" style="color: #FF2E2E; border: 0px; float: right"-->
+      <!--    <v-p @click="showAll" style="color: #FF2E2E; border: 0px; float: right"-->
       <!--      >View More >></v-p-->
       >
     </v-row>
