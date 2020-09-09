@@ -4,7 +4,7 @@
       <p>The dashboard environment is where you would carry out different activities</p>
       <p>In this step you will customize the dashboard to fit your brand.</p>
       <div class="my-12">
-        <v-btn color="#FF2E2E" @click="routeToCreateCoursePage" dark width="300" height="50">Finish</v-btn>
+        <v-btn class="createCourseBtn" color="#FF2E2E" @click="routeToCreateCoursePage" dark width="300" height="50">Finish</v-btn>
       </div>
     </v-col>
     <v-col cols="12" md="6">

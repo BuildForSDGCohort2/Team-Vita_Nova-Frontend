@@ -2,10 +2,12 @@ import { mount, createLocalVue } from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vue from "vue";
 import ExploreCourses from "@/components/cooperateAdmin/courses/exploreCourses/ExploreCourses";
+import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false;
 const localVue = createLocalVue();
+Vue.component('CourseCard', CourseCard)
 
 describe("Explore Courses Component unit test", () => {
     let vuetify;
