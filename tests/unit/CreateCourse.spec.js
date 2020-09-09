@@ -2,7 +2,7 @@ import {createLocalVue, shallowMount} from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vue from "vue";
 import Vuex from 'vuex';
-import CreateCourse from "@/components/cooperateAdmin/courses/MyCourses/CreateCourse";
+import CreateCourse from "@/components/cooperateAdmin/courses/myCourses/CreateCourse";
 import SubmitButton from "@/components/ui/buttons/SubmitButton";
 
 Vue.use(Vuetify)

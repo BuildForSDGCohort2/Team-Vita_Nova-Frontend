@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import ExploreCourses from "@/components/cooperateAdmin/courses/ExploreCourses/ExploreCourses";
+import ExploreCourses from "@/components/cooperateAdmin/courses/exploreCourses/ExploreCourses";
 export default {
   name: "CourseCard",
   props: {
@@ -147,7 +147,7 @@ export default {
   }),
   methods: {
     onSelect(item) {
-      console.log(item.link);
+
       this.$router.push({ path: item.link });
     }
   }

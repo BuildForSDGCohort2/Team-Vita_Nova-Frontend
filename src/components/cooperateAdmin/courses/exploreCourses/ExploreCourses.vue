@@ -37,7 +37,7 @@
         <v-row>
           <v-col cols="12" md="6" v-for="(card, index) in cards.assignedCourses" :key="index">
             <div>
-              <CourseCard :cards="card"/>
+              <CourseCard :cards="card" :index="index"/>
             </div>
           </v-col>
         </v-row>
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-  import CourseCard from "../CourseCard";
+  // import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
   export default {
     name: "ExploreCourses",
     data() {
@@ -75,7 +75,7 @@
       }
     },
     components: {
-      CourseCard
+      // CourseCard,
     },
     computed: {
       cards() {
@@ -132,11 +132,11 @@
           ],
         };
       },
-      filteredList() {
-        return this.cards.existingCourses.filter(course => {
-          return course.title.toLowerCase().includes(this.search.toLowerCase())
-        })
-      },
+      // filteredList() {
+      //   return this.cards.existingCourses.filter(course => {
+      //     return course.title.toLowerCase().includes(this.search.toLowerCase())
+      //   })
+      // },
     }
   };
 </script>

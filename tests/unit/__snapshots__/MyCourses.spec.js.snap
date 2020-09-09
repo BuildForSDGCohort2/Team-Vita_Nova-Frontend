@@ -5,9 +5,9 @@ exports[`My Courses Component unit test render my courses and match snapshot 1`]
   <div class="v-responsive__content">
     <div class="container grid-list-md" style="max-width: 1000px;">
       <div style="font-family: IBM Plex Sans;">
-        <div class="row mt-n5">
-          <div class="col-md-9 col-12"></div>
-          <div class="col-md-3 col-12" style="font-size: 18px;"><button type="button" class="btn v-btn v-btn--contained theme--light v-size--large" style="font-size: 18px; height: 53px; color: rgb(255, 255, 255); font-weight: bold; background: rgb(255, 46, 46);"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-plus theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i>
+        <div class="row mt-n5 d-flex">
+          <div class="col-md-8 col-12"></div>
+          <div class="col-md-4 col-12" style="font-size: 18px; justify-content: flex-end;"><button type="button" class="btn-course v-btn v-btn--contained theme--light v-size--large" style="font-size: 18px; height: 53px; text-transform: capitalize; color: rgb(255, 255, 255); font-weight: bold; background: rgb(255, 46, 46);"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-plus theme--light" style="color: rgb(255, 255, 255); caret-color: #fff;"></i>
             Create Course</span></button></div>
         </div>
         <div class="row">

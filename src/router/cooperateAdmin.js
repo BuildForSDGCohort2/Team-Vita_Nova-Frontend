@@ -1,12 +1,14 @@
 
 
 import Employee from "../views/cooperateAdmin/Employee"
-import Courses from "../views/cooperateAdmin/Courses"
+import Courses from "../views/cooperateAdmin/coursesView/Courses"
 import CourseModule from "../views/cooperateAdmin/CourseModule";
+import MyCourses from "@/components/cooperateAdmin/courses/myCourses/MyCourses";
+import Dashboard from "@/views/cooperateAdmin/Dashboard";
 
 export default [
     {
-        path: "/corperate/dashboard",
+        path: "/cooperate/dashboard",
         name: "Dashboard",
         component: () =>
             import("../views/cooperateAdmin/Dashboard"),
@@ -15,7 +17,7 @@ export default [
         }
     },
     {
-        path: "/corperate/employee/",
+        path: "/cooperate/employee/",
         component: Employee,
         children: [
             {
@@ -44,28 +46,30 @@ export default [
 
     },
     {
-        path: "/corperate/courses",
+        path: "/cooperate/courses",
+        name: 'courses',
         component: Courses,
         children: [
             {
                 path: '',
                 name: 'courseRedirect',
-                redirect: { name: 'myCourses' }
+                redirect: { name: 'courses.myCourses' }
             },
             {
                 path: "exploreCourses",
-                name: "exploreCourses",
-                component: () => import("../views/cooperateAdmin/ExploreCourses")
-            }, {
+                name: "courses.exploreCourses",
+                component: () => import("../views/cooperateAdmin/coursesView/ExploreCourses")
+            },
+            {
                 path: "myCourses",
-                name: 'myCourses',
-                component: () => import("../views/cooperateAdmin/MyCourses")
+                name: 'courses.myCourses',
+                component: () => import("../views/cooperateAdmin/coursesView/MyCourses")
             },
             {
                 path: "createCourse",
-                name: 'createCourse',
+                name: 'courses.createCourse',
                 component: () => import("../components/cooperateAdmin/courses/myCourses/CreateCourse")
-            }
+            },
         ],
         meta: {
             requiresAuth: true
@@ -73,7 +77,7 @@ export default [
     }
     ,
     {
-        path: "/corperate/preview-profile",
+        path: "/cooperate/preview-profile",
         name: "PreviewProfile",
         component: () =>
             import("../views/cooperateAdmin/PreviewProfile")
@@ -83,7 +87,7 @@ export default [
         }
     },
     {
-        path: "/corperate/update-profile",
+        path: "/cooperate/update-profile",
         name: "UpdateProfile",
         component: () =>
             import("../views/cooperateAdmin/UpdateProfile")

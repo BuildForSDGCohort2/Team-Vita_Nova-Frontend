@@ -4,7 +4,7 @@
       <p>The dashboard environment is where you would carry out different activities</p>
       <p>In this step you will customize the dashboard to fit your brand.</p>
       <div class="my-12">
-        <v-btn color="#FF2E2E" dark width="300" height="50">Finish</v-btn>
+        <v-btn color="#FF2E2E" @click="routeToCreateCoursePage" dark width="300" height="50">Finish</v-btn>
       </div>
     </v-col>
     <v-col cols="12" md="6">
@@ -14,7 +14,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    routeToCreateCoursePage() {
+      window.scrollTo(0,0);
+      this.$router.push({ path: '/corperate/courses/createCourse' });
+    }
+  }
+};
 </script>
 
 <style scoped>

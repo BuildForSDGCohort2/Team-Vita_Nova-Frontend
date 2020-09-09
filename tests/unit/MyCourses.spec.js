@@ -1,11 +1,13 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vue from "vue";
-import MyCourses from "@/components/cooperateAdmin/courses/MyCourses/MyCourses";
+import MyCourses from "@/components/cooperateAdmin/courses/myCourses/MyCourses";
+import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false;
 const localVue = createLocalVue();
+Vue.component('CourseCard', CourseCard)
 
 describe("My Courses Component unit test", () => {
     let vuetify;
@@ -43,8 +45,8 @@ describe("My Courses Component unit test", () => {
                         {
                             course: course
                         }
-                    ]
-                }
+                    ],
+                },
             }
         });
         expect(wrapper.html()).toContain(course);
