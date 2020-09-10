@@ -6,7 +6,8 @@
         <v-col cols="12" md="10">
           <v-row>
             <v-col>
-              <h1 style="font-style: normal;
+              <h1
+                style="font-style: normal;
 font-weight: 500;
 font-size: 24.0167px;
 line-height: 45px;
@@ -15,7 +16,10 @@ line-height: 45px;
 
 /* lamp-txt-1 */
 
-color: #645262;">Untitled Audio</h1>
+color: #645262;"
+              >
+                Untitled Audio
+              </h1>
             </v-col>
           </v-row>
           <v-row>
@@ -24,9 +28,9 @@ color: #645262;">Untitled Audio</h1>
                 <v-card class="card mx-auto pa-6" max-width="844" outlined>
                   <ValidationObserver v-slot="{ handleSubmit }">
                     <v-form
-                        class="course-form"
-                        v-if="!submitted"
-                        @submit.prevent="handleSubmit(handleCreateCourseModule)"
+                      class="course-form"
+                      v-if="!submitted"
+                      @submit.prevent="handleSubmit(handleCreateCourseModule)"
                     >
                       <div v-if="errorMsg">
                         <span class="err text-xl-center">{{ errorMsg }}</span>
@@ -36,21 +40,21 @@ color: #645262;">Untitled Audio</h1>
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8">
                           <ValidationProvider
-                              name="Title"
-                              rules="required|alpha"
-                              v-slot="{ errors }"
+                            name="Title"
+                            rules="required|alpha"
+                            v-slot="{ errors }"
                           >
                             <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                             <v-text-field
-                                v-model="course.title"
-                                class="mt-3"
-                                label="Title"
-                                outlined
-                                color="#FF2E2E"
-                                name="courseTitle"
-                                chips
-                                clearable
-                                multiple
+                              v-model="course.title"
+                              class="mt-3"
+                              label="Title"
+                              outlined
+                              color="#FF2E2E"
+                              name="courseTitle"
+                              chips
+                              clearable
+                              multiple
                             ></v-text-field>
                           </ValidationProvider>
                         </v-col>
@@ -59,147 +63,75 @@ color: #645262;">Untitled Audio</h1>
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8" class="ma-auto">
                           <div
-                              class="color-title"
-                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                            class="color-title"
+                            :style="{ 'font-family': 'IBM Plex Sans' }"
                           >
                             Upload Audio
                           </div>
                           <div v-if="!course.image">
                             <v-btn
-                                :style="{ 'font-family': 'IBM Plex Sans' }"
-                                block
-                                x-large
-                                class="#2B1C1C black--text mt-4"
-                                @click="$refs.fileInput.click()"
-                                dense
-                                clearable
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              block
+                              x-large
+                              class="#2B1C1C black--text mt-4"
+                              @click="$refs.fileInput.click()"
+                              dense
+                              clearable
                             >
                               <v-icon class="ma-2" color="#645262"
-                              >mdi-cloud-upload-outline</v-icon
+                                >mdi-cloud-upload-outline</v-icon
                               >
                               Choose from files
                             </v-btn>
                             <input
-                                ref="fileInput"
-                                style="display: none"
-                                type="file"
-                                accept=".mp3"
-                                @change="handleImage"
+                              ref="fileInput"
+                              style="display: none"
+                              type="file"
+                              accept=".mp3"
+                              @change="handleImage"
                             />
                           </div>
                           <div v-else>
                             <v-btn
-                                :style="{
+                              :style="{
                                 'font-family': 'IBM Plex Sans',
                                 'justify-content': 'start',
                                 'text-decoration-line': 'underline'
                               }"
-                                block
-                                x-large
-                                class="#2B1C1C black--text mt-4"
-                                @click="$refs.fileInput.click()"
-                                dense
-                                clearable
+                              block
+                              x-large
+                              class="#2B1C1C black--text mt-4"
+                              @click="$refs.fileInput.click()"
+                              dense
+                              clearable
                             >
                               {{ image.name }}
                             </v-btn>
                             <input
-                                ref="fileInput"
-                                style="display: none"
-                                type="file"
-                                accept=".mp3"
-                                @change="handleImage"
+                              ref="fileInput"
+                              style="display: none"
+                              type="file"
+                              accept=".mp3"
+                              @change="handleImage"
                             />
                           </div>
                         </v-col>
                       </v-row>
 
-<!--                      <v-row :style="{ 'justify-content': 'center' }">-->
-<!--                        <v-col cols="12" md="8" class="ma-auto">-->
-<!--                          <div-->
-<!--                              class="color-title"-->
-<!--                              :style="{ 'font-family': 'IBM Plex Sans' }"-->
-<!--                          >-->
-<!--                            Upload Audio-->
-<!--                          </div>-->
-
-<!--                          <v-sheet-->
-<!--                              tabindex="0"-->
-<!--                              title="Click to grap a file from your PC!"-->
-<!--                              outlined-->
-<!--                              width="100%"-->
-<!--                              height="200"-->
-<!--                              class="pa-2"-->
-<!--                              style="border: dashed #645262;"-->
-<!--                          >-->
-<!--                            <div v-if="!course.image" class="mx-auto " style="max-width: 50%; ;">-->
-<!--                              <v-btn-->
-<!--                                  :style="{ 'font-family': 'IBM Plex Sans' }"-->
-<!--                                  block-->
-<!--                                  class="#2B1C1C black&#45;&#45;text mt-4"-->
-<!--                                  @click="$refs.fileInput.click()"-->
-<!--                                  dense-->
-<!--                                  clearable-->
-<!--                              >-->
-<!--                                <v-icon class="ma-2" color="#645262"-->
-<!--                                >mdi-cloud-upload-outline</v-icon-->
-<!--                                >-->
-<!--                                Choose from files-->
-<!--                              </v-btn>-->
-<!--                              <input-->
-<!--                                  ref="fileInput"-->
-<!--                                  style="display: none"-->
-<!--                                  accept=".mp3"-->
-<!--                                  type="file"-->
-<!--                                  @change="handleImage"-->
-<!--                              />-->
-<!--                            </div>-->
-<!--                            <div v-else>-->
-<!--                              <v-btn-->
-<!--                                  :style="{-->
-<!--                                'font-family': 'IBM Plex Sans',-->
-<!--                                'justify-content': 'start',-->
-<!--                                'text-decoration-line': 'underline'-->
-<!--                              }"-->
-<!--                                  block-->
-<!--                                  class="#2B1C1C black&#45;&#45;text mt-4"-->
-<!--                                  @click="$refs.fileInput.click()"-->
-<!--                                  dense-->
-<!--                                  clearable-->
-<!--                              >-->
-<!--                                {{ image.name }}-->
-<!--                              </v-btn>-->
-<!--                              <input-->
-<!--                                  ref="fileInput"-->
-<!--                                  style="display: none"-->
-<!--                                  type="file"-->
-<!--                                  @change="handleImage"-->
-<!--                              />-->
-<!--                            </div>-->
-<!--                            <input-->
-<!--                                type="file"-->
-<!--                                accept=".mp3"-->
-<!--                                style="display:none"/>-->
-<!--                          </v-sheet>-->
-
-
-<!--                        </v-col>-->
-<!--                      </v-row>-->
-
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8">
                           <ValidationProvider
-                              name="Course Name"
-                              rules="required|alpha"
-                              v-slot="{ errors }"
+                            name="Course Name"
+                            rules="required|alpha"
+                            v-slot="{ errors }"
                           >
                             <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                             <v-text-field
-                                color="red"
-                                outlined
-                                class=" title-box "
-                                label="Add Text (Optional)"
-                                auto-grow
+                              color="red"
+                              outlined
+                              class=" title-box "
+                              label="Add Text (Optional)"
+                              auto-grow
                             ></v-text-field>
                           </ValidationProvider>
                         </v-col>
@@ -208,47 +140,50 @@ color: #645262;">Untitled Audio</h1>
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8">
                           <ValidationProvider
-                              name="Course Name"
-                              rules="required|alpha"
-                              v-slot="{ errors }"
+                            name="Course Name"
+                            rules="required|alpha"
+                            v-slot="{ errors }"
                           >
                             <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                             <v-text-field
-                                color="red"
-                                outlined
-                                class=" title-box "
-                                label="Add Text (Optional)"
-                                auto-grow
+                              color="red"
+                              outlined
+                              class=" title-box "
+                              label="Add Text (Optional)"
+                              auto-grow
                             ></v-text-field>
                           </ValidationProvider>
                         </v-col>
                       </v-row>
 
-
-                      <v-card-actions style="margin-left: 16%">
-                        <v-btn
-                            @click="saveCourse"
-                            :style="{ 'font-family': 'IBM Plex Sans' }"
-                            style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
-                        >Discard</v-btn
-                        >
-                        <v-btn
-                            class="ma-4"
-                            @click="saveCourse"
-                            :style="{ 'font-family': 'IBM Plex Sans' }"
-                            style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
-                        >Save</v-btn
-                        >
-                      </v-card-actions>
+                      <v-row :style="{ 'justify-content': 'center' }">
+                        <v-col cols="12" md="8">
+                          <v-card-actions>
+                            <v-btn
+                              @click="saveCourse"
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
+                              >Discard</v-btn
+                            >
+                            <v-btn
+                              class="ma-4"
+                              @click="saveCourse"
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
+                              >Save</v-btn
+                            >
+                          </v-card-actions>
+                        </v-col>
+                      </v-row>
                     </v-form>
                   </ValidationObserver>
                 </v-card>
               </template>
 
               <section
-                  :style="{ 'font-family': 'IBM Plex Sans' }"
-                  style="padding-top: 100px; padding-bottom: 100px"
-                  class="ma-4"
+                :style="{ 'font-family': 'IBM Plex Sans' }"
+                style="padding-top: 100px; padding-bottom: 100px"
+                class="ma-4"
               >
                 <h3>Lesson Settings</h3>
                 <v-checkbox v-model="accept" color="red">
@@ -265,11 +200,11 @@ color: #645262;">Untitled Audio</h1>
               </section>
 
               <v-card
-                  flat
-                  class="text-center justify-center ma-4"
-                  max-width="686"
-                  :style="{ 'font-family': 'IBM Plex Sans' }"
-                  style="background: #F8F8F8;border-radius: 11px; height: 60px;"
+                flat
+                class="text-center justify-center ma-4"
+                max-width="686"
+                :style="{ 'font-family': 'IBM Plex Sans' }"
+                style="background: #F8F8F8;border-radius: 11px; height: 60px;"
               >
                 <v-container fluid>
                   <h6 class="tip-text">
@@ -321,7 +256,7 @@ export default {
       course: {
         image: null,
         title: "",
-        introduction: "",
+        introduction: ""
       },
       style: {
         "font-size": "18px",
@@ -347,9 +282,7 @@ export default {
       loading: false
     };
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {
     mounted() {
       // Pass a value to the parent through the function

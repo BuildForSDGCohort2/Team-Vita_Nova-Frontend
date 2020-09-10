@@ -115,6 +115,13 @@ export default [
       },
 
       {
+        path: "untitled",
+        name: "courseModule.untitled",
+        component: () =>
+            import("@/components/cooperateAdmin/courses/createModule/CreateCourseModule")
+      },
+
+      {
         path: "video",
         name: "courseModule.video",
         component: () =>

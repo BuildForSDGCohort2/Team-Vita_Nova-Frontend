@@ -6,7 +6,8 @@
         <v-col cols="12" md="10">
           <v-row>
             <v-col>
-              <h1 style="font-style: normal;
+              <h1
+                style="font-style: normal;
 font-weight: 500;
 font-size: 24.0167px;
 line-height: 45px;
@@ -15,7 +16,10 @@ line-height: 45px;
 
 /* lamp-txt-1 */
 
-color: #645262;">Untitled Module</h1>
+color: #645262;"
+              >
+                Untitled Module
+              </h1>
             </v-col>
           </v-row>
           <v-row>
@@ -24,9 +28,9 @@ color: #645262;">Untitled Module</h1>
                 <v-card class="card mx-auto pa-6" max-width="844" outlined>
                   <ValidationObserver v-slot="{ handleSubmit }">
                     <v-form
-                        class="course-form"
-                        v-if="!submitted"
-                        @submit.prevent="handleSubmit(handleCreateCourseModule)"
+                      class="course-form"
+                      v-if="!submitted"
+                      @submit.prevent="handleSubmit(handleCreateCourseModule)"
                     >
                       <div v-if="errorMsg">
                         <span class="err text-xl-center">{{ errorMsg }}</span>
@@ -36,23 +40,23 @@ color: #645262;">Untitled Module</h1>
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8">
                           <ValidationProvider
-                              name="Title"
-                              rules="required|alpha"
-                              v-slot="{ errors }"
+                            name="Title"
+                            rules="required|alpha"
+                            v-slot="{ errors }"
                           >
                             <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                             <v-text-field
-                                v-model="course.title"
-                                class="mt-3"
-                                label="Title"
-                                outlined
-                                color="#FF2E2E"
-                                hide-selected
-                                hint="Don’t worry, you can always change this."
-                                name="courseTitle"
-                                chips
-                                clearable
-                                multiple
+                              v-model="course.title"
+                              class="mt-3"
+                              label="Title"
+                              outlined
+                              color="#FF2E2E"
+                              hide-selected
+                              hint="Don’t worry, you can always change this."
+                              name="courseTitle"
+                              chips
+                              clearable
+                              multiple
                             ></v-text-field>
                           </ValidationProvider>
                         </v-col>
@@ -61,47 +65,50 @@ color: #645262;">Untitled Module</h1>
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8">
                           <ValidationProvider
-                              name="Introduction"
-                              rules="required|max:1000"
-                              v-slot="{ errors }"
+                            name="Introduction"
+                            rules="required|max:1000"
+                            v-slot="{ errors }"
                           >
                             <span class="err mt-n8 mb-3">{{ errors[0] }}</span>
                             <vue-editor
-                                :style="{ 'font-family': 'IBM Plex Sans' }"
-
-                                class="mt-10 "
-                                placeholder="Introduction"
-                                v-model="course.introduction"
-                                :editor-toolbar="customToolbar"
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              class="mt-10 "
+                              placeholder="Introduction"
+                              v-model="course.introduction"
+                              :editor-toolbar="customToolbar"
                             />
                           </ValidationProvider>
                         </v-col>
                       </v-row>
 
-                      <v-card-actions style="margin-left: 16%">
-                        <v-btn
-                            @click="saveCourse"
-                            :style="{ 'font-family': 'IBM Plex Sans' }"
-                            style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
-                        >Discard</v-btn
-                        >
-                        <v-btn
-                            class="ma-4"
-                            @click="saveCourse"
-                            :style="{ 'font-family': 'IBM Plex Sans' }"
-                            style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
-                        >Save</v-btn
-                        >
-                      </v-card-actions>
+                      <v-row :style="{ 'justify-content': 'center' }">
+                        <v-col cols="12" md="8">
+                          <v-card-actions>
+                            <v-btn
+                              @click="saveCourse"
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
+                              >Discard</v-btn
+                            >
+                            <v-btn
+                              class="ma-4"
+                              @click="saveCourse"
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
+                              >Save</v-btn
+                            >
+                          </v-card-actions>
+                        </v-col>
+                      </v-row>
                     </v-form>
                   </ValidationObserver>
                 </v-card>
               </template>
 
               <section
-                  :style="{ 'font-family': 'IBM Plex Sans' }"
-                  style="padding-top: 100px; padding-bottom: 100px"
-                  class="ma-4"
+                :style="{ 'font-family': 'IBM Plex Sans' }"
+                style="padding-top: 100px; padding-bottom: 100px"
+                class="ma-4"
               >
                 <h3>Lesson Settings</h3>
                 <v-checkbox v-model="accept" color="red">
@@ -118,11 +125,11 @@ color: #645262;">Untitled Module</h1>
               </section>
 
               <v-card
-                  flat
-                  class="text-center justify-center ma-4"
-                  max-width="686"
-                  :style="{ 'font-family': 'IBM Plex Sans' }"
-                  style="background: #F8F8F8;border-radius: 11px; height: 60px;"
+                flat
+                class="text-center justify-center ma-4"
+                max-width="686"
+                :style="{ 'font-family': 'IBM Plex Sans' }"
+                style="background: #F8F8F8;border-radius: 11px; height: 60px;"
               >
                 <v-container fluid>
                   <h6 class="tip-text">
@@ -174,7 +181,7 @@ export default {
       course: {
         image: null,
         title: "",
-        introduction: "",
+        introduction: ""
       },
       style: {
         "font-size": "18px",
@@ -200,9 +207,7 @@ export default {
       loading: false
     };
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {
     mounted() {
       // Pass a value to the parent through the function

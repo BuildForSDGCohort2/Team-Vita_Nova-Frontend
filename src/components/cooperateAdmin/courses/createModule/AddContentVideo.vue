@@ -118,24 +118,24 @@
                         </v-col>
                       </v-row>
 
-<!--                      <v-row :style="{ 'justify-content': 'center' }">-->
-<!--                        <v-col cols="12" md="8">-->
-<!--                          <ValidationProvider-->
-<!--                            name="Introduction"-->
-<!--                            rules="required|max:1000"-->
-<!--                            v-slot="{ errors }"-->
-<!--                          >-->
-<!--                            <span class="err mt-n8 mb-3">{{ errors[0] }}</span>-->
-<!--                            <vue-editor-->
-<!--                              :style="{ 'font-family': 'IBM Plex Sans' }"-->
-<!--                              class="mt-10 "-->
-<!--                              placeholder="Introduction"-->
-<!--                              v-model="course.introduction"-->
-<!--                              :editor-toolbar="customToolbar"-->
-<!--                            />-->
-<!--                          </ValidationProvider>-->
-<!--                        </v-col>-->
-<!--                      </v-row>-->
+                      <!--                      <v-row :style="{ 'justify-content': 'center' }">-->
+                      <!--                        <v-col cols="12" md="8">-->
+                      <!--                          <ValidationProvider-->
+                      <!--                            name="Introduction"-->
+                      <!--                            rules="required|max:1000"-->
+                      <!--                            v-slot="{ errors }"-->
+                      <!--                          >-->
+                      <!--                            <span class="err mt-n8 mb-3">{{ errors[0] }}</span>-->
+                      <!--                            <vue-editor-->
+                      <!--                              :style="{ 'font-family': 'IBM Plex Sans' }"-->
+                      <!--                              class="mt-10 "-->
+                      <!--                              placeholder="Introduction"-->
+                      <!--                              v-model="course.introduction"-->
+                      <!--                              :editor-toolbar="customToolbar"-->
+                      <!--                            />-->
+                      <!--                          </ValidationProvider>-->
+                      <!--                        </v-col>-->
+                      <!--                      </v-row>-->
 
                       <v-row :style="{ 'justify-content': 'center' }">
                         <v-col cols="12" md="8">
@@ -174,22 +174,25 @@
                           </ValidationProvider>
                         </v-col>
                       </v-row>
-
-                      <v-card-actions style="margin-left: 16%">
-                        <v-btn
-                          @click="discard"
-                          :style="{ 'font-family': 'IBM Plex Sans' }"
-                          style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
-                          >Discard</v-btn
-                        >
-                        <v-btn
-                          class="ma-4"
-                          @click="handleSubmit"
-                          :style="{ 'font-family': 'IBM Plex Sans' }"
-                          style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
-                          >Save</v-btn
-                        >
-                      </v-card-actions>
+                      <v-row :style="{ 'justify-content': 'center' }">
+                        <v-col cols="12" md="8">
+                          <v-card-actions>
+                            <v-btn
+                              @click="discard"
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
+                              >Discard</v-btn
+                            >
+                            <v-btn
+                              class="ma-4"
+                              @click="handleSubmit"
+                              :style="{ 'font-family': 'IBM Plex Sans' }"
+                              style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
+                              >Save</v-btn
+                            >
+                          </v-card-actions>
+                        </v-col>
+                      </v-row>
                     </v-form>
                   </ValidationObserver>
                 </v-card>
@@ -223,15 +226,15 @@
               >
                 <v-container fluid>
                   <v-row>
-<!--                    <v-col cols="12" md="1">-->
-<!--                      <v-img src="~@/assets/Group8.svg" alt="" max-width="20" max-height="64"/>-->
-<!--                    </v-col>-->
-<!--                    <v-col cols="12" md="11">-->
-                  <h6>
-                    Tip: Chapter(s) will be set to draft if there are no lessons
-                    created for it.
-                  </h6>
-<!--                    </v-col>-->
+                    <!--                    <v-col cols="12" md="1">-->
+                    <!--                      <v-img src="~@/assets/Group8.svg" alt="" max-width="20" max-height="64"/>-->
+                    <!--                    </v-col>-->
+                    <!--                    <v-col cols="12" md="11">-->
+                    <h6>
+                      Tip: Chapter(s) will be set to draft if there are no
+                      lessons created for it.
+                    </h6>
+                    <!--                    </v-col>-->
                   </v-row>
                 </v-container>
               </v-card>

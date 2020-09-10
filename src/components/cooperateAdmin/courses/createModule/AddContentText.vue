@@ -1,48 +1,52 @@
 <template>
   <v-container>
     <v-responsive>
-      <h3 class="ma-4 " style="padding-top: 5%">Untitled Module</h3>
+      <h3 class="ma-4 " style="padding-top: 5%">Untitled Text</h3>
       <v-card class="ma-4">
         <ValidationObserver v-slot="{ handleSubmit }">
           <v-form
-              class="course-form"
-              v-if="!submitted"
-              @submit.prevent="handleSubmit(handleCreateCourseModule)"
+            class="course-form"
+            v-if="!submitted"
+            @submit.prevent="handleSubmit(handleCreateCourseModule)"
           >
             <div v-if="errorMsg">
               <span class="err text-xl-center">{{ errorMsg }}</span>
             </div>
             <v-container fluid>
-              <v-text-field
-                  v-model="course.courseModuleTitle"
-                  :items="items"
-                  :search-input.sync="search"
-                  hide-selected
-                  hint="Don’t worry, you can always change this."
-                  label="Title"
-                  outlined
-                  persistent-hint
-                  chips
-                  color="red"
-                  class=" title-box "
-              >
-              </v-text-field>
+              <v-row :style="{ 'justify-content': 'center' }">
+                <v-col cols="12" md="8">
+                  <v-text-field
+                    v-model="course.courseModuleTitle"
+                    :items="items"
+                    :search-input.sync="search"
+                    hide-selected
+                    hint="Don’t worry, you can always change this."
+                    label="Title"
+                    outlined
+                    persistent-hint
+                    chips
+                    color="red"
+                    class=" title-box "
+                  >
+                  </v-text-field>
+                </v-col>
+              </v-row>
 
               <v-row :style="{ 'justify-content': 'center' }">
                 <v-col cols="12" md="8">
                   <ValidationProvider
-                      name="Introduction"
-                      rules="required|max:1000"
-                      v-slot="{ errors }"
-                      persistent-hint
-                      class=" title-box "
+                    name="Introduction"
+                    rules="required|max:1000"
+                    v-slot="{ errors }"
+                    persistent-hint
+                    class=" title-box "
                   >
                     <span class="err mt-n8 mb-3">{{ errors[0] }}</span>
                     <vue-editor
-                        class="mt-0"
-                        placeholder="Introduction"
-                        v-model="course.introduction"
-                        :editor-toolbar="customToolbar"
+                      class="mt-0"
+                      placeholder="Introduction"
+                      v-model="course.introduction"
+                      :editor-toolbar="customToolbar"
                     />
                   </ValidationProvider>
                 </v-col>
@@ -59,19 +63,23 @@
               <!--            auto-grow-->
               <!--          ></v-textarea>-->
 
-              <v-card-actions style="margin-left: 16%">
-                <v-btn
-                    @click="discard"
-                    style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
-                >Discard</v-btn
-                >
-                <v-btn
-                    class="ma-4"
-                    @click="saveModule"
-                    style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
-                >Save</v-btn
-                >
-              </v-card-actions>
+              <v-row :style="{ 'justify-content': 'center' }">
+                <v-col cols="12" md="8">
+                  <v-card-actions>
+                    <v-btn
+                      @click="discard"
+                      style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
+                      >Discard</v-btn
+                    >
+                    <v-btn
+                      class="ma-4"
+                      @click="saveModule"
+                      style="background-color: #FF2E2E; color: #F8F8F8; height: 50px !important; width: 120px !important;"
+                      >Save</v-btn
+                    >
+                  </v-card-actions>
+                </v-col>
+              </v-row>
             </v-container>
           </v-form>
         </ValidationObserver>
@@ -79,10 +87,7 @@
 
       <section style="padding-top: 100px; padding-bottom: 100px" class="ma-4">
         <h3>Lesson Settings</h3>
-        <v-checkbox v-model="accept"
-
-                    ref="checkbox"
-                    color="red">
+        <v-checkbox v-model="accept" ref="checkbox" color="red">
           <template v-slot:label>
             Enable discussion on this lesson
           </template>
@@ -96,10 +101,10 @@
       </section>
 
       <v-card
-          flat
-          class="text-center justify-center ma-4"
-          max-width="686"
-          style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
+        flat
+        class="text-center justify-center ma-4"
+        max-width="686"
+        style="background: #F8F8F8;border-radius: 11.2578px; height: 60px;"
       >
         <v-container fluid>
           <h6 class="tip-text">
@@ -136,7 +141,7 @@ export default {
     course: {
       image: null,
       courseModuleTitle: "",
-      introduction: "",
+      introduction: ""
     },
     customToolbar: [
       ["bold", "italic", "underline"],
@@ -173,8 +178,7 @@ export default {
   },
 
   methods: {
-    handleSubmit() {
-    },
+    handleSubmit() {},
 
     handleImage(e) {
       this.image = e.target.files[0];
@@ -188,17 +192,17 @@ export default {
       this.loading = true;
 
       console.log(this.course);
-      const data = {emails: this.model};
+      const data = { emails: this.model };
 
       UserService.handleCreateCourseModule(data)
-          .then(res => {
-            console.log(res.data);
-            this.load = false;
-            this.$emit("showSplash");
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        .then(res => {
+          console.log(res.data);
+          this.load = false;
+          this.$emit("showSplash");
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
 
     discard() {
@@ -210,8 +214,8 @@ export default {
 
 <style scoped>
 .title-box {
-  width: 66%;
-  margin-left: 17%;
+  /*width: 66%;*/
+  /*margin-left: 17%;*/
   margin-top: 5%;
 }
 .tip-text {
