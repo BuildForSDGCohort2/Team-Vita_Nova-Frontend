@@ -8,15 +8,15 @@
             <v-col>
               <h1
                 style="font-style: normal;
-font-weight: 500;
-font-size: 24.0167px;
-line-height: 45px;
-/* or 188% */
+                        font-weight: 500;
+                        font-size: 24.0167px;
+                        line-height: 45px;
+                        /* or 188% */
 
 
-/* lamp-txt-1 */
+                        /* lamp-txt-1 */
 
-color: #645262;"
+                        color: #645262;"
               >
                 Untitled Module
               </h1>

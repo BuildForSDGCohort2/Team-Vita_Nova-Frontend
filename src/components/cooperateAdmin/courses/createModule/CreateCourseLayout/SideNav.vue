@@ -25,6 +25,7 @@
             <v-btn
               link
               to=""
+              @click="addModule"
               style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
               >Add Module</v-btn
             >
