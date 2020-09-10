@@ -7,7 +7,7 @@
           <v-form
             class="course-form"
             v-if="!submitted"
-            @submit.prevent="handleSubmit(handleCreateCourseModule)"
+            @submit.prevent="handleSubmit(handleAddContentText)"
           >
             <div v-if="errorMsg">
               <span class="err text-xl-center">{{ errorMsg }}</span>
@@ -160,10 +160,6 @@ export default {
     agree: false,
     submitted: false,
     rules: {
-      // email: v => !!(v || '').match(/@/) || 'Please enter a valid email',
-      // length: len => v => (v || '').length >= len || `Invalid character length, required ${len}`,
-      // password: v => !!(v || '').match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/) ||
-      //     'Password must contain an upper case letter, a numeric character, and a special character',
       required: v => !!v || "This field is required"
     },
     search: null
@@ -180,17 +176,8 @@ export default {
   methods: {
     handleSubmit() {},
 
-    handleImage(e) {
-      this.image = e.target.files[0];
-      let reader = new FileReader();
-      reader.onloadend = () => {
-        this.course.image = reader.result;
-      };
-      reader.readAsDataURL(this.image);
-    },
-    handleCreateCourseModule() {
+    handleAddContentText() {
       this.loading = true;
-
       console.log(this.course);
       const data = { emails: this.model };
 
@@ -214,8 +201,6 @@ export default {
 
 <style scoped>
 .title-box {
-  /*width: 66%;*/
-  /*margin-left: 17%;*/
   margin-top: 5%;
 }
 .tip-text {

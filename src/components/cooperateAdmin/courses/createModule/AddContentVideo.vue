@@ -30,7 +30,7 @@
                     <v-form
                       class="course-form"
                       v-if="!submitted"
-                      @submit.prevent="handleSubmit(handleCreateCourseModule)"
+                      @submit.prevent="handleSubmit(handleAddContentVideo)"
                     >
                       <div v-if="errorMsg">
                         <span class="err text-xl-center">{{ errorMsg }}</span>
@@ -68,7 +68,7 @@
                           >
                             Upload Video
                           </div>
-                          <div v-if="!course.image">
+                          <div v-if="!course.video">
                             <v-btn
                               :style="{ 'font-family': 'IBM Plex Sans' }"
                               block
@@ -88,7 +88,7 @@
                               style="display: none"
                               type="file"
                               accept=".mp4"
-                              @change="handleImage"
+                              @change="handleVideo"
                             />
                           </div>
                           <div v-else>
@@ -105,14 +105,14 @@
                               dense
                               clearable
                             >
-                              {{ image.name }}
+                              {{ video.name }}
                             </v-btn>
                             <input
                               ref="fileInput"
                               style="display: none"
                               type="file"
                               accept=".mp4"
-                              @change="handleImage"
+                              @change="handleVideo"
                             />
                           </div>
                         </v-col>
@@ -251,6 +251,7 @@
 import { VueEditor } from "vue2-editor";
 import Loader from "@/components/ui/loader/Loader";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
+import UserService from "@/services/user-services";
 
 export default {
   name: "AddContentVideos",
@@ -277,9 +278,9 @@ export default {
           max: "Must not be more than 1000 words"
         }
       },
-      image: "",
+      video: "",
       course: {
-        image: null,
+        video: null,
         title: "",
         introduction: ""
       },
@@ -313,19 +314,29 @@ export default {
       // Pass a value to the parent through the function
       this.method(this.condition);
     },
-    handleImage(e) {
-      this.image = e.target.files[0];
+    handleVideo(e) {
+      this.video = e.target.files[0];
       let reader = new FileReader();
       reader.onloadend = () => {
-        this.course.image = reader.result;
+        this.course.video = reader.result;
       };
-      reader.readAsDataURL(this.image);
+      reader.readAsDataURL(this.video);
     },
-    handleCreateCourseModule(data) {
-      const imag = this.handleImage();
-      data = (imag, this.course);
-      console.log(data);
+    handleAddContentVideo(data) {
       this.loading = true;
+      const vid = this.handleVideo();
+      data = (vid, this.course);
+      console.log(data);
+
+      UserService.handleCreateCourseModule(data)
+          .then(res => {
+            console.log(res.data);
+            this.load = false;
+            this.$emit("showSplash");
+          })
+          .catch(err => {
+            console.log(err);
+          });
 
       // const data = { courses: this.course };
     }

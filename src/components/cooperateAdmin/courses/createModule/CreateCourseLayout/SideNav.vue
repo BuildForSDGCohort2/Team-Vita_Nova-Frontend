@@ -68,7 +68,7 @@ export default {
 
     addModule() {
       this.show=true;
-      this.$router.push("/cooperate/courseModule/untitled");
+      this.$router.push("/corperate/courseModule/untitled");
     }
   }
 };

@@ -106,7 +106,7 @@ export default {
     forAssignedCourses: [
       {
         title: "Edit Course",
-        link: "/cooperate/courseModule/curriculum"
+        link: "/corperate/courseModule/curriculum"
       },
       {
         title: "Enroll to Course",

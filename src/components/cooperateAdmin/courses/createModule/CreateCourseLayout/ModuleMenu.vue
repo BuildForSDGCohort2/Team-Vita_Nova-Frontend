@@ -3,9 +3,9 @@
     <v-container style="max-width: 1000px">
       <v-card flat class="tab-navigation">
         <v-tabs background-color="white" color="#645262" class="menu">
-          <v-tab class="curriculum" to="/cooperate/courseModule/curriculum"><h3>Curriculum</h3></v-tab>
-          <v-tab class="general" to="/cooperate/courseModule/generalSettings"><h3>General Settings</h3></v-tab>
-          <v-tab class="general" to="/cooperate/courseModule/publish"><h3>Publish</h3></v-tab>
+          <v-tab class="curriculum" to="/corperate/courseModule/curriculum"><h3>Curriculum</h3></v-tab>
+          <v-tab class="general" to="/corperate/courseModule/generalSettings"><h3>General Settings</h3></v-tab>
+          <v-tab class="general" to="/corperate/courseModule/publish"><h3>Publish</h3></v-tab>
           <v-tabs-slider color="#FF2E2E"></v-tabs-slider>
         </v-tabs>
       </v-card>

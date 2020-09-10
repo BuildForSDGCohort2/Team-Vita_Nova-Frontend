@@ -228,7 +228,7 @@ export default {
                 profile => {
                   console.log(profile.data);
                   alert('Form has been submitted!');
-                  this.$router.push("/cooperate/preview-profile");
+                  this.$router.push("/corperate/preview-profile");
                 },
                 error => {
                   this.loading = false;

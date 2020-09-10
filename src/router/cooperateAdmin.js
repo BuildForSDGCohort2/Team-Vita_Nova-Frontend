@@ -4,24 +4,16 @@ import CourseModule from "@/views/cooperateAdmin/CourseModuleViews/CourseModule"
 
 export default [
   {
-    path: "/cooperate/dashboard",
+    path: "/corperate/dashboard",
     name: "Dashboard",
     component: () => import("../views/cooperateAdmin/Dashboard.vue"),
     meta: {
       requiresAuth: true
     }
   },
-  // {
-  //   path: "/cooperate/video",
-  //   component: () =>
-  //       import("@/components/cooperateAdmin/courses/createModule/AddContentVideo"),
-  //
-  //   meta: {
-  //     requiresAuth: true
-  //   }
-  // },
+
   {
-    path: "/cooperate/employee/",
+    path: "/corperate/employee/",
     name: "Employee",
     component: Employee,
     children: [
@@ -46,7 +38,7 @@ export default [
     }
   },
   {
-    path: "/cooperate/courses",
+    path: "/corperate/courses",
     name: "Courses",
     component: Courses,
     children: [
@@ -71,7 +63,7 @@ export default [
     }
   },
   {
-    path: "/cooperate/preview-profile",
+    path: "/corperate/preview-profile",
     name: "PreviewProfile",
     component: () => import("../views/cooperateAdmin/PreviewProfile"),
     meta: {
@@ -79,7 +71,7 @@ export default [
     }
   },
   {
-    path: "/cooperate/update-profile",
+    path: "/corperate/update-profile",
     name: "UpdateProfile",
     component: () => import("../views/cooperateAdmin/UpdateProfile"),
     meta: {
@@ -90,7 +82,7 @@ export default [
 
 
   {
-    path: "/cooperate/courseModule",
+    path: "/corperate/courseModule",
     name: "CourseModule",
     component: CourseModule,
     children: [

@@ -5,7 +5,7 @@
         <v-row class="ml-2 mr-3">
           <v-col cols="12" md="3">
             <v-list-item
-              to="/cooperate/courseModule/text"
+              to="/corperate/courseModule/text"
               style="color: #F8F8F8"
             >
               <v-img
@@ -20,7 +20,7 @@
 
           <v-col cols="12" md="3">
             <v-list-item
-              to="/cooperate/courseModule/video"
+              to="/corperate/courseModule/video"
               style="color: #F8F8F8"
             >
               <v-img
@@ -35,7 +35,7 @@
 
           <v-col cols="12" md="3">
             <v-list-item
-              to="/cooperate/courseModule/audio"
+              to="/corperate/courseModule/audio"
               style="color: #F8F8F8"
             >
               <v-img
@@ -49,7 +49,7 @@
           </v-col>
           <v-col cols="12" md="3">
             <v-list-item
-              to="/cooperate/courseModule/publish"
+              to="/corperate/courseModule/publish"
               style="color: #F8F8F8"
             >
               <v-img
@@ -65,7 +65,7 @@
 
         <v-row class="ml-2 mr-3">
           <v-col cols="12" md="3">
-            <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+            <v-list-item to="/corperate/courseModule" style="color: #F8F8F8">
               <v-img
                 class="mr-2"
                 src="~@/assets/exam.svg"
@@ -76,7 +76,7 @@
             </v-list-item>
           </v-col>
           <v-col cols="12" md="3">
-            <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+            <v-list-item to="/corperate/courseModule" style="color: #F8F8F8">
               <v-img
                 class="mr-2"
                 src="~@/assets/download.svg"
@@ -87,7 +87,7 @@
             </v-list-item>
           </v-col>
           <v-col cols="12" md="3">
-            <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+            <v-list-item to="/corperate/courseModule" style="color: #F8F8F8">
               <v-img
                 class="mr-2"
                 src="~@/assets/quiz.svg"
@@ -98,7 +98,7 @@
             </v-list-item>
           </v-col>
           <v-col cols="12" md="3">
-            <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+            <v-list-item to="/corperate/courseModule" style="color: #F8F8F8">
               <v-img
                 class="mr-2"
                 src="~@/assets/groupwork.svg"
@@ -112,7 +112,7 @@
 
         <v-row class="ml-2 mr-3">
           <v-col cols="12" md="3">
-            <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+            <v-list-item to="/corperate/courseModule" style="color: #F8F8F8">
               <v-img
                 class="mr-2"
                 src="~@/assets/pdf.svg"
@@ -123,7 +123,7 @@
             </v-list-item>
           </v-col>
           <v-col cols="12" md="3">
-            <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+            <v-list-item to="/corperate/courseModule" style="color: #F8F8F8">
               <v-img
                 class="mr-2"
                 src="~@/assets/project.svg"
@@ -134,7 +134,7 @@
             </v-list-item>
           </v-col>
           <v-col cols="12" md="3">
-            <v-list-item to="/cooperate/courseModule" style="color: #F8F8F8">
+            <v-list-item to="/corperate/courseModule" style="color: #F8F8F8">
               <v-img
                 class="mr-2"
                 src="~@/assets/survey.svg"

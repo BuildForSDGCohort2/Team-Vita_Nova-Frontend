@@ -9,7 +9,7 @@
       </v-col>
       <v-col cols="12" md="6">
         <div depressed class="header-button">
-          <v-btn to="/cooperate/update-profile" class="edit-button red white--text mr-sm-10"
+          <v-btn to="/corperate/update-profile" class="edit-button red white--text mr-sm-10"
             >Edit Profile</v-btn
           >
         </div>

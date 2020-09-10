@@ -30,7 +30,7 @@ color: #645262;"
                     <v-form
                       class="course-form"
                       v-if="!submitted"
-                      @submit.prevent="handleSubmit(handleCreateCourseModule)"
+                      @submit.prevent="handleSubmit(handleAddContentAudio)"
                     >
                       <div v-if="errorMsg">
                         <span class="err text-xl-center">{{ errorMsg }}</span>
@@ -68,7 +68,7 @@ color: #645262;"
                           >
                             Upload Audio
                           </div>
-                          <div v-if="!course.image">
+                          <div v-if="!course.audio">
                             <v-btn
                               :style="{ 'font-family': 'IBM Plex Sans' }"
                               block
@@ -88,7 +88,7 @@ color: #645262;"
                               style="display: none"
                               type="file"
                               accept=".mp3"
-                              @change="handleImage"
+                              @change="handleAudio"
                             />
                           </div>
                           <div v-else>
@@ -105,14 +105,14 @@ color: #645262;"
                               dense
                               clearable
                             >
-                              {{ image.name }}
+                              {{ audio.name }}
                             </v-btn>
                             <input
                               ref="fileInput"
                               style="display: none"
                               type="file"
                               accept=".mp3"
-                              @change="handleImage"
+                              @change="handleAudio"
                             />
                           </div>
                         </v-col>
@@ -160,7 +160,7 @@ color: #645262;"
                         <v-col cols="12" md="8">
                           <v-card-actions>
                             <v-btn
-                              @click="saveCourse"
+                              @click="discard"
                               :style="{ 'font-family': 'IBM Plex Sans' }"
                               style="background-color:#F8F8F8; color: #FF2E2E; height: 50px !important; width: 120px !important;"
                               >Discard</v-btn
@@ -226,6 +226,7 @@ color: #645262;"
 import { VueEditor } from "vue2-editor";
 import Loader from "@/components/ui/loader/Loader";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
+import UserService from "@/services/user-services";
 
 export default {
   name: "AddContentAudio",
@@ -252,9 +253,9 @@ export default {
           max: "Must not be more than 1000 words"
         }
       },
-      image: "",
+      audio: "",
       course: {
-        image: null,
+        audio: null,
         title: "",
         introduction: ""
       },
@@ -288,18 +289,30 @@ export default {
       // Pass a value to the parent through the function
       this.method(this.condition);
     },
-    handleImage(e) {
-      this.image = e.target.files[0];
+    handleAudio(e) {
+      this.audio = e.target.files[0];
       let reader = new FileReader();
       reader.onloadend = () => {
-        this.course.image = reader.result;
+        this.course.audio = reader.result;
       };
-      reader.readAsDataURL(this.image);
+      reader.readAsDataURL(this.audio);
     },
-    handleCreateCourseModule() {
+
+    handleAddContentAudio() {
       this.loading = true;
       console.log(this.course);
       // const data = { courses: this.course };
+      const data = { emails: this.model };
+
+      UserService.handleCreateCourseModule(data)
+          .then(res => {
+            console.log(res.data);
+            this.load = false;
+            this.$emit("showSplash");
+          })
+          .catch(err => {
+            console.log(err);
+          });
     }
   }
 };
