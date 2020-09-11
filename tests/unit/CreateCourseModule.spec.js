@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import CreateCourseModule from "@/components/cooperateAdmin/courses/createCourses/CreateCourseModule";
+import CreateCourseModule from "@/components/corporateAdmin/courses/createCourses/CreateCourseModule";
 
 const wrapper = mount(CreateCourseModule);
 //testing if the test is properly setup on the run

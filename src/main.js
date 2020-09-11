@@ -9,8 +9,8 @@ import en from 'vee-validate/dist/locale/en.json';
 import * as rules from 'vee-validate/dist/rules';
 import Login from './components/onboarding/layout/Login'
 import Register from './components/onboarding/layout/Register'
-import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
-import Header from "@/components/cooperateAdmin/layout/Header";
+import CourseCard from "@/components/corporateAdmin/courses/CourseCard";
+import Header from "@/components/corporateAdmin/layout/Header";
 
 //axios
 axios.defaults.baseURL = 'https://lamp-api.herokuapp.com';

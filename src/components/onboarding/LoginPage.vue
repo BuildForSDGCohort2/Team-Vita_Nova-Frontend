@@ -22,7 +22,7 @@
                 v-model="user.email"
                 outlined
                 color="red"
-                class="register-input"
+                class="email register-input"
               ></v-text-field>
             </ValidationProvider>
             <ValidationProvider
@@ -40,7 +40,7 @@
                 v-model="user.password"
                 outlined
                 color="red"
-                class="register-input"
+                class="password register-input"
               ></v-text-field>
             </ValidationProvider>
             <SubmitButton button-name="Login" class="login-btn" />
@@ -87,7 +87,7 @@ export default {
       if (this.user.email && this.user.password) {
         this.$store.dispatch("onboarding/userLogin", this.user).then(
           res => {
-            this.$router.push("cooperate/dashboard");
+            this.$router.push("corporate/dashboard");
           },
           error => {
             this.loading = false;

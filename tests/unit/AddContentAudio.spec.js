@@ -1,5 +1,5 @@
 import {mount} from "@vue/test-utils";
-import AddContentAudio from "@/components/cooperateAdmin/courses/createCourses/AddContentAudio";
+import AddContentAudio from "@/components/corporateAdmin/courses/createCourses/AddContentAudio";
 
 //testing if the test is properly setup on the run
 describe("AddContentAudio", () => {

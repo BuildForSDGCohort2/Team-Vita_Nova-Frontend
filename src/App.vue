@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import CooperateLayout from "./components/cooperateAdmin/layout/Header";
+import CooperateLayout from "./components/corporateAdmin/layout/Header";
 import OnboardingLayout from "./components/onboarding/layout/Header";
 
 import { mapState } from "vuex";

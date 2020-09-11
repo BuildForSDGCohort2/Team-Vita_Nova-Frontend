@@ -10,7 +10,7 @@
       <v-toolbar-items class="hidden-sm-and-down pa-3">
         <v-btn depressed to="/browseCourses" class="other-nav-button">Explore Courses</v-btn>
         <v-btn depressed to="/plans" class="other-nav-button">Plans</v-btn>
-        <v-btn depressed to="/login" class="other-nav-button">Login</v-btn>
+        <v-btn depressed to="/login" class="loginTab other-nav-button">Login</v-btn>
         <GetStarted title="Get Started" />
       </v-toolbar-items>
     </v-app-bar>

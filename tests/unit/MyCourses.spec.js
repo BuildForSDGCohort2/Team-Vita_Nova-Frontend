@@ -1,8 +1,8 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vue from "vue";
-import MyCourses from "@/components/cooperateAdmin/courses/myCourses/MyCourses";
-import CourseCard from "@/components/cooperateAdmin/courses/CourseCard";
+import MyCourses from "@/components/corporateAdmin/courses/myCourses/MyCourses";
+import CourseCard from "@/components/corporateAdmin/courses/CourseCard";
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false;

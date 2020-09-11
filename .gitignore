@@ -2,6 +2,8 @@
 node_modules/
 dist/
 
+cypress.env.json
+
 docs/_book
 
 # local env files
@@ -26,3 +28,6 @@ yarn-error.log
 *.sw?
 
 package-lock.json
+tests/e2e/screenshots/
+tests/e2e/specs/CreateCourse.js
+tests/e2e/videos/CreateCourse.js.mp4

@@ -1,4 +1,4 @@
-import EmptyDepartment from "../../src/components/cooperateAdmin/employee/departments/EmptyDepartment";
+import EmptyDepartment from "../../src/components/corporateAdmin/employee/departments/EmptyDepartment";
 import { shallowMount } from '@vue/test-utils';
 import Vue from "vue";
 import Vuetify from "vuetify";

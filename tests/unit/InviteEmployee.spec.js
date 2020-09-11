@@ -1,4 +1,4 @@
-import InviteEmployee from "../../src/components/cooperateAdmin/employee/inviteEmployee/InviteEmployeeForm"
+import InviteEmployee from "../../src/components/corporateAdmin/employee/inviteEmployee/InviteEmployeeForm"
 import { mount} from '@vue/test-utils'
 
 describe('InviteEmployee',()=>{

@@ -1,4 +1,4 @@
-import UpdateProfile from "../../src/views/cooperateAdmin/UpdateProfile";
+import UpdateProfile from "../../src/views/corporateAdmin/UpdateProfile";
 import { shallowMount } from '@vue/test-utils';
 import Vue from "vue";
 import Vuetify from "vuetify";

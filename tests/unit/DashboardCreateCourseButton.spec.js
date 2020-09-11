@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vue from "vue";
-import CreateCourse from "@/components/cooperateAdmin/dashboardPage/CreateCourse";
+import CreateCourse from "@/components/corporateAdmin/dashboardPage/CreateCourse";
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false;

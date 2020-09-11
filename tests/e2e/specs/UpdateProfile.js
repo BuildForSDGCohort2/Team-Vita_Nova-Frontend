@@ -7,13 +7,13 @@ describe('Check if test setup is working', () => {
     })
 
     it('test update-profile title header', ()=>{
-        cy.visit('http://localhost:8080/cooperate/update-profile')
+        cy.visit('http://localhost:8080/corporate/update-profile')
         cy.contains('h3', 'Edit Company Profile')
     })
 
     it('test submit button redirects when clicked', ()=>{
 
-        cy.visit('http://localhost:8080/cooperate/update-profile')
+        cy.visit('http://localhost:8080/corporate/update-profile')
 
 
     })

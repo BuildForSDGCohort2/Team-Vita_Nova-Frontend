@@ -1,4 +1,4 @@
-import PreviewProfile from "../../src/components/cooperateAdmin/companyProfile/PreviewProfile";
+import PreviewProfile from "../../src/components/corporateAdmin/companyProfile/PreviewProfile";
 import { shallowMount } from '@vue/test-utils';
 import Vue from "vue";
 import Vuetify from "vuetify";

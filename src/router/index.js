@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import onboarding from "./onboarding";
 import native from './native'
 import store from '../store'
-import cooperateAdmin from "./cooperateAdmin";
+import cooperateAdmin from "./corporateAdmin";
 
 Vue.use(VueRouter);
 
