@@ -20,8 +20,8 @@
                 <h1>Create Course</h1>
               </v-col>
             </v-row>
-            <v-row>
-              <v-col>
+            <v-row  class="align-center justify-center">
+              <v-col cols="12" md="12" sm="8">
                 <template>
                   <v-card
                       class="card mx-auto pa-6"

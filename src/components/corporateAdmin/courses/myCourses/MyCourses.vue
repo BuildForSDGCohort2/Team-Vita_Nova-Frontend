@@ -22,7 +22,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" md="6" v-if="cards.drafts.length !== 0">
+          <v-col cols="12" md="6" sm="6" v-if="cards.drafts.length !== 0">
             <div v-for="(card, index) in cards.drafts" :key="index">
               <CourseCard :cards="card"/>
             </div>
@@ -44,7 +44,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" md="6" v-if="cards.publishedCourses.length !== 0">
+          <v-col cols="12" md="6" sm="6" v-if="cards.publishedCourses.length !== 0">
             <div v-for="(card, index) in cards.publishedCourses" :key="index">
               <CourseCard :cards="card" :index="index"/>
             </div>

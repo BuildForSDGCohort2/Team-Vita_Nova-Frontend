@@ -1,10 +1,6 @@
-
-
 import Employee from "../views/corporateAdmin/Employee"
 import Courses from "../views/corporateAdmin/coursesView/Courses"
-import CourseModule from "../views/corporateAdmin/CourseModule";
-import MyCourses from "@/components/corporateAdmin/courses/myCourses/MyCourses";
-import Dashboard from "@/views/corporateAdmin/Dashboard";
+import CourseModule from "../views/corporateAdmin/CourseModuleViews/CourseModule";
 
 export default [
     {
@@ -99,27 +95,62 @@ export default [
 
     {
         path: "/corporate/courseModule",
+        name: "CourseModule",
         component: CourseModule,
         children: [
             {
                 path: "",
                 name: "courseModule",
-                redirect: { name: "courseModule.publish" }
-            }, {
-                path: "publish",
-                name: "courseModule.publish",
-                component: () =>
-                    import("../views/corporateAdmin/Publish")
-            }, {
+                redirect: { name: "courseModule.curriculum" }
+            },
+
+            {
                 path: "curriculum",
                 name: "courseModule.curriculum",
                 component: () =>
-                    import("../views/corporateAdmin/Curriculum")
+                    import("../views/corporateAdmin/CourseModuleViews/Curriculum")
             },
+
+            {
+                path: "publish",
+                name: "courseModule.publish",
+                component: () =>
+                    import("../views/corporateAdmin/CourseModuleViews/Publish")
+            },
+
+            {
+                path: "untitled",
+                name: "courseModule.untitled",
+                component: () =>
+                    import("@/components/corporateAdmin/courses/createModule/CreateCourseModule")
+            },
+
+            {
+                path: "video",
+                name: "courseModule.video",
+                component: () =>
+                    import("@/components/corporateAdmin/courses/createModule/AddContentVideo")
+            },
+
+            {
+                path: "audio",
+                name: "courseModule.audio",
+                component: () =>
+                    import("@/components/corporateAdmin/courses/createModule/AddContentAudio")
+            },
+
+            {
+                path: "text",
+                name: "courseModule.text",
+                component: () =>
+                    import("@/components/corporateAdmin/courses/createModule/AddContentText")
+            },
+
 
         ],
         meta: {
             requiresAuth: true
         }
-    }
+    },
 ]
+

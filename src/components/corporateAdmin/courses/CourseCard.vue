@@ -152,7 +152,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 .headline {
   line-height: 31px;

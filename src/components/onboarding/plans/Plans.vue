@@ -3,7 +3,7 @@
     <v-container style="max-width: 1100px" grid-list-xl>
       <div :style="{'font-family': 'IBM Plex Sans'}">
         <v-row>
-          <v-col cols="12" md="12">
+          <v-col cols="12" md="12" >
             <h1 class="selectPlan mt-7">Select A Plan</h1>
           </v-col>
         </v-row>
@@ -16,152 +16,61 @@
             </div>
           </v-col>
         </v-row>
-        <v-row :style="{'justify-content': 'center'}">
-          <v-col cols="12" md="4">
+        <v-row :style="{'justify-content': 'center'}" >
+          <v-col cols="12" md="4" sm="6" v-for="(card) in cardData">
             <template>
-              <v-card
-                  elevation="2"
-                  raised
-                  :loading="startupsLoading"
-                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
-              >
-                <template>
-                  <v-card
-                      class="subCard mx-auto pa-2 align-self-auto text-wrap"
-                      flat
-                  >
-                    <v-card-text>
-                      <div class="card-type mt-n4">startups</div>
-                      <div class="plan">N80,000</div>
-                      <div class="card-type-1 mb-n4">Monthly</div>
-                    </v-card-text>
-                  </v-card>
-                </template>
+              <v-hover v-slot:default="{ hover }">
+                <v-card
+                    elevation="2"
+                    raised
+                    :elevation="hover ? 12 : 2"
+                    :class="{ 'on-hover': hover }"
+                    style="background-size: cover"
+                    height="600"
+                    :loading=loading
+                    class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
+                >
+                  <template>
+                    <v-card
+                        class="subCard pa-2 align-self-auto text-wrap"
+                        flat
+                        height="160"
+                    >
+                      <v-card-text>
+                        <div class="card-type mt-n4">{{ card.cardTitle }}</div>
+                        <div class="plan" :style="{'color': card.color}">{{ card.title }}</div>
+                        <div class="card-type-1 mb-n4">{{ card.subtitle }}</div>
+                      </v-card-text>
+                    </v-card>
+                  </template>
 
-                <v-container fill-height fluid pa-2>
-                  <v-card-text>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                    <v-divider class="mx-4"></v-divider>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                    <v-divider class="mx-4"></v-divider>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                  </v-card-text>
-                </v-container>
-                <v-card-actions :style="{'justify-content': 'center'}">
-                  <v-btn
-                      class="btn mt-n1"
-                      large
-                      :style="{'font-size': '14px', 'height': '43px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'}"
-                      @click="startupsDemo"
-                  >
-                    <v-icon color="#fff">mdi-plus</v-icon>Request a Demo
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </template>
-          </v-col>
-          <v-col cols="12" md="4">
-            <template>
-              <v-card
-                  elevation="2"
-                  raised
-                  :loading="customLoading"
-                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
-              >
-                <template>
-                  <v-card
-                      class="subCard mx-auto pa-2 align-self-auto text-wrap"
-                      flat
-                  >
+                  <v-container fluid pa-2>
                     <v-card-text>
-                      <div class="card-type mt-n4">Custom</div>
-                      <div class="plan" style="color: #FFB403">Custom</div>
-                      <div class="card-type-1 mb-11"></div>
+                      <div class="card-text my-4">
+                        {{ card.cardContent }}
+                      </div>
+                      <v-divider class="mx-4"></v-divider>
+                      <div class="card-text my-4">
+                        {{ card.cardContent }}
+                      </div>
+                      <v-divider class="mx-4"></v-divider>
+                      <div class="card-text my-4">
+                        {{ card.cardContent }}
+                      </div>
                     </v-card-text>
-                  </v-card>
-                </template>
-
-                <v-container fill-height fluid pa-2>
-                  <v-card-text>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                    <v-divider class="mx-4"></v-divider>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                    <v-divider class="mx-4"></v-divider>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                  </v-card-text>
-                </v-container>
-                <v-card-actions :style="{'justify-content': 'center'}">
-                  <v-btn
-                      class="btn mt-n1"
-                      large
-                      :style="{'font-size': '14px', 'height': '43px', 'background': '#FFB403', 'color': '#FFF', 'font-weight': 'bold'}"
-                      @click="customDemo"
-                  >
-                    <v-icon color="#fff">mdi-plus</v-icon>Get Started
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </template>
-          </v-col>
-          <v-col cols="12" md="4">
-            <template>
-              <v-card
-                  elevation="2"
-                  raised
-                  :loading="enterpriseLoading"
-                  class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
-              >
-                <template>
-                  <v-card
-                      class="subCard mx-auto pa-2 align-self-auto text-wrap"
-                      flat
-                  >
-                    <v-card-text>
-                      <div class="card-type mt-n4">Enterprise</div>
-                      <div class="plan" style="color: #1C8AEC">N800,000</div>
-                      <div class="card-type-1 mb-n4">Monthly</div>
-                    </v-card-text>
-                  </v-card>
-                </template>
-
-                <v-container fill-height fluid pa-2>
-                  <v-card-text>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                    <v-divider class="mx-4"></v-divider>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                    <v-divider class="mx-4"></v-divider>
-                    <div class="card-text my-4">
-                      This is  the benefit  you would get in the startup plan if you registered and subscribe
-                    </div>
-                  </v-card-text>
-                </v-container>
-                <v-card-actions :style="{'justify-content': 'center'}">
-                  <v-btn
-                      class="btn mt-n1"
-                      large
-                      :style="{'font-size': '14px', 'height': '43px', 'background': '#1C8AEC', 'color': '#FFF', 'font-weight': 'bold'}"
-                      @click="enterpriseDemo"
-                  >
-                    <v-icon color="#fff">mdi-plus</v-icon>Request a Demo
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
+                  </v-container>
+                  <v-card-actions :style="{'justify-content': 'center'}">
+                    <v-btn
+                        class="btn mt-n1"
+                        large
+                        :style="{'font-size': '14px', 'height': '43px', 'background': card.color, 'color': '#FFF', 'font-weight': 'bold'}"
+                        @click="onButtonClick(card.cardTitle)"
+                    >
+                      <v-icon color="#fff">mdi-plus</v-icon>{{ card.buttonText }}
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-hover>
             </template>
           </v-col>
         </v-row>
@@ -280,27 +189,50 @@ export default {
   name: "Plans",
   data() {
     return {
-      startupsLoading: false,
-      customLoading: false,
-      enterpriseLoading: false,
+      loading: false,
       selection: 1,
+      cardData: [
+        {
+          cardTitle: 'Startups',
+          title: 'N80,000',
+          subtitle: 'Monthly',
+          cardContent: 'This is  the benefit  you would get in the startup plan if you registered and subscribe',
+          buttonText: 'Request a Demo',
+          color: '#FF2E2E',
+        },
+        {
+          cardTitle: 'Custom',
+          title: 'Custom',
+          subtitle: '',
+          cardContent: 'This is  the benefit  you would get in the startup plan if you registered and subscribe',
+          buttonText: 'Get Started',
+          color: '#FFB403',
+        },
+        {
+          cardTitle: 'Enterprise',
+          title: 'N800,000',
+          subtitle: 'Monthly',
+          cardContent: 'This is  the benefit  you would get in the startup plan if you registered and subscribe',
+          buttonText: 'Request a Demo',
+          color: '#1C8AEC',
+        },
+      ]
     }
   },
   methods: {
-    enterpriseDemo () {
-      this.enterpriseLoading = true
+    onButtonClick(cardTitle) {
+      this.loading = true
 
-      setTimeout(() => (this.enterpriseLoading = false), 2000)
-    },
-    customDemo () {
-      this.customLoading = true
-
-      setTimeout(() => (this.customLoading = false), 2000)
-    },
-    startupsDemo () {
-      this.startupsLoading = true
-
-      setTimeout(() => (this.startupsLoading = false), 2000)
+      if (cardTitle === this.cardData[2].cardTitle) {
+        setTimeout(() => (this.loading = false), 2000)
+        console.log(this.cardData[2].cardTitle)
+      } else if (cardTitle === this.cardData[1].cardTitle) {
+        setTimeout(() => (this.loading = false), 2000)
+        console.log(this.cardData[1].cardTitle)
+      }else {
+        setTimeout(() => (this.loading = false), 2000)
+        console.log(this.cardData[0].cardTitle)
+      }
     },
   },
   components: {

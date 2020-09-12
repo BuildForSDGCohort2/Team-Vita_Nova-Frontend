@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: "BusinessManagement",
+  name: "SoftwareEngineer",
   data: () => ({
     loading: false,
     selection: 1,

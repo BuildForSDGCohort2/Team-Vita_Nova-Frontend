@@ -8,7 +8,7 @@
       </keep-alive>
     </div>
     <div v-else>
-      <CooperateLayout />
+      <CorporateLayout />
     </div>
     <v-main>
       <v-container fluid class="app-container">
@@ -19,17 +19,18 @@
 </template>
 
 <script>
-import CooperateLayout from "./components/corporateAdmin/layout/Header";
+import CorporateLayout from "./components/corporateAdmin/layout/Header";
 import OnboardingLayout from "./components/onboarding/layout/Header";
 
 import { mapState } from "vuex";
+
 export default {
   props: {
     source: String
   },
   components: {
     OnboardingLayout,
-    CooperateLayout
+    CorporateLayout
   },
 
   data: () => ({

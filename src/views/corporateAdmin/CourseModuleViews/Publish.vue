@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Publish from "@/components/corporateAdmin/courses/createCourses/Publish";
+import Publish from "@/components/corporateAdmin/courses/createModule/Publish";
 export default {
   components: {
    Publish

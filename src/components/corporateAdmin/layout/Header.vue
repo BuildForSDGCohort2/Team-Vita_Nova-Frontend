@@ -15,6 +15,7 @@
       </v-avatar>
       <v-btn class="ma-2 nav-login d-none d-md-flex" outlined color="red" style="text-transform: lowercase">{{user}}</v-btn>
     </v-app-bar>
+
     <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped hide-overlay>
       <v-list nav dense>
         <v-list-item link to="/corporate/dashboard" class="dashboard-logout" color="red">

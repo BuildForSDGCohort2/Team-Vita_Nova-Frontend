@@ -5,7 +5,8 @@
 <script>
 import BrowseCourses from "@/components/onboarding/browseCourses/BrowseCourses";
 export default {
-  components: { BrowseCourses },
-  computed: {}
+  components: {
+    BrowseCourses
+  }
 };
 </script>
