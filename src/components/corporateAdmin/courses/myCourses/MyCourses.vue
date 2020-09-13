@@ -1,11 +1,11 @@
 <template>
   <v-responsive>
-    <v-container style="max-width: 1000px" grid-list-md>
+    <v-container class="container" grid-list-md>
       <div :style="{'font-family': 'IBM Plex Sans'}">
         <v-row class="mt-n5 d-flex">
           <v-col cols="12" md="8">
           </v-col>
-          <v-col cols="12" md="4" :style="{'font-size': '18px', 'justify-content': 'flex-end'}">
+          <v-col cols="12" md="4" class="create-course">
             <v-btn
                 class="btn-course"
                 large
@@ -18,7 +18,7 @@
         </v-row>
         <v-row>
           <v-col cols="12" md="6">
-            <h3 :style="{'text-transform': 'uppercase'}">Drafts</h3>
+            <h3 class="all-courses-header">Drafts</h3>
           </v-col>
         </v-row>
         <v-row>
@@ -40,7 +40,7 @@
         </v-row>
         <v-row class="all-courses">
           <v-col cols="12">
-            <h3 class="all-courses-header" :style="{'text-transform': 'uppercase'}">Published Courses</h3>
+            <h3 class="all-courses-header">Published Courses</h3>
           </v-col>
         </v-row>
         <v-row>
@@ -106,10 +106,18 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  max-width: 1000px;
+}
+.create-course {
+  font-size: 18px;
+  justify-content: flex-end;
+}
 .all-courses {
   margin-top: 4rem;
 }
 .all-courses-header {
+  text-transform: uppercase;
   color: #2B1C1C;
 }
 .btn-course {
@@ -119,7 +127,6 @@ export default {
 
   position: static;
   width: 218px;
-  height: 63px;
   left: 0;
   top: 0;
 

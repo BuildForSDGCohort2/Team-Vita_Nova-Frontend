@@ -35,7 +35,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" md="6" v-for="(card, index) in cards.assignedCourses" :key="index">
+          <v-col cols="12" md="6" sm="6" v-for="(card, index) in cards.assignedCourses" :key="index">
             <div>
               <CourseCard :cards="card" :index="index"/>
             </div>
@@ -47,7 +47,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" md="6" v-for="(card, index) in cards.existingCourses" :key="index">
+          <v-col cols="12" md="6"  sm="6" v-for="(card, index) in cards.existingCourses" :key="index">
             <div>
               <CourseCard :cards="card" :index="index"/>
             </div>
