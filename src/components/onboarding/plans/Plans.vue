@@ -17,7 +17,7 @@
           </v-col>
         </v-row>
         <v-row class="row-input">
-          <v-col cols="12" md="4" sm="6" v-for="(card) in cardData" :key="card">
+          <v-col cols="12" md="4" sm="6" v-for="(card, index) in cardData" :key="index">
             <template>
               <v-hover v-slot:default="{ hover }">
                 <v-card
