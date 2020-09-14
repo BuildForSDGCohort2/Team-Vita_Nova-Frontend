@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-container style="max-width: 1100px" grid-list-xl>
+    <v-container class="container" grid-list-xl>
       <div :style="{'font-family': 'IBM Plex Sans'}">
         <v-row>
           <v-col cols="12" md="12" >
@@ -16,8 +16,8 @@
             </div>
           </v-col>
         </v-row>
-        <v-row :style="{'justify-content': 'center'}" >
-          <v-col cols="12" md="4" sm="6" v-for="(card) in cardData">
+        <v-row class="row-input">
+          <v-col cols="12" md="4" sm="6" v-for="(card) in cardData" :key="card">
             <template>
               <v-hover v-slot:default="{ hover }">
                 <v-card
@@ -30,6 +30,7 @@
                     :loading=loading
                     class="card-style mx-auto my-10 pa-2 ml-0 align-self-stretch text-wrap"
                 >
+
                   <template>
                     <v-card
                         class="subCard pa-2 align-self-auto text-wrap"
@@ -43,7 +44,6 @@
                       </v-card-text>
                     </v-card>
                   </template>
-
                   <v-container fluid pa-2>
                     <v-card-text>
                       <div class="card-text my-4">
@@ -243,6 +243,12 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  max-width: 1100px;
+}
+.row-input {
+  justify-content: center;
+}
 .selectPlan {
   font-style: normal;
   font-weight: bold;

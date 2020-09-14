@@ -21,8 +21,8 @@
             <v-list-item>
               <v-card-text
                   v-text="soft.course.toLowerCase()"
-                  class="ml-n4"
-                  :style="{'font-family': 'IBM Plex Sans', 'line-height': '33px', 'text-transform': 'capitalize', 'font-size': '24px', 'color': '#2B1C1C', 'font-weight': 'bold'}">
+                  class="ml-n4 card-text"
+                  :style="{'font-family': 'IBM Plex Sans'}">
               </v-card-text>
             </v-list-item>
 
@@ -34,8 +34,7 @@
             </v-list-item>
             <v-footer
                 absolute
-                class="font-weight-medium my-3"
-                :style="{'color': '#FF2E2E', 'opacity': 1, 'background-color': 'rgba(0,0,0,0.0)'}"
+                class="font-weight-medium my-3 footer-style"
             >
               <v-row align="center" class="mx-0">
                 <v-rating
@@ -49,7 +48,6 @@
                 <div class="grey--text ml-4">4.5 (413)</div>
               </v-row>
             </v-footer>
-
           </v-card>
         </v-hover>
       </v-col>
@@ -115,5 +113,17 @@ v-card {
 }
 v-card:not(.on-hover) {
   opacity: 0.6;
+}
+.footer-style {
+  color: #FF2E2E;
+  opacity: 1;
+  background-color: rgba(0,0,0,0.0);
+}
+.card-text {
+  line-height: 33px;
+  text-transform: capitalize;
+  font-size: 24px;
+  color: #2B1C1C;
+  font-weight: bold;
 }
 </style>

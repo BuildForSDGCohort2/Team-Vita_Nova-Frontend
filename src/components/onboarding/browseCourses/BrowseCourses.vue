@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-container style="max-width: 1100px" grid-list-xl>
+    <v-container class="container" grid-list-xl>
       <div :style="{ 'font-family': 'IBM Plex Sans', 'justify-content': 'center' }">
         <v-row class="my-4">
           <v-col cols="2">
@@ -71,6 +71,7 @@
         </v-row>
       </div>
     </v-container>
+    <Footer />
   </v-responsive>
 </template>
 
@@ -78,9 +79,10 @@
 import SoftwareEngineering from "@/components/onboarding/browseCourses/SoftwareEngineering";
 import BusinessManagement from "@/components/onboarding/browseCourses/BusinessManagement";
 import DesignThinking from "@/components/onboarding/browseCourses/DesignThinking";
+import Footer from "@/components/onboarding/layout/Footer";
 
 export default {
-  components: { DesignThinking, BusinessManagement, SoftwareEngineering },
+  components: { DesignThinking, BusinessManagement, SoftwareEngineering, Footer },
   data: ()=> ({
     title: "BrowseCourses",
     search: '',
@@ -91,6 +93,9 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  max-width: 1100px;
+}
 .pageTitle {
   font-style: normal;
   font-weight: 300;

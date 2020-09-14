@@ -7,8 +7,7 @@
         height="250"
         :elevation="hover ? 12 : 2"
         :class="{ 'on-hover': hover }"
-        :style="{'background-image':`url(${ cards.courseImageLink })`}"
-        style="background-size: cover"
+        :style="{'background-image':`url(${ cards.courseImageLink })`, 'background-size': 'cover'}"
       >
         <div class="overlay">
           <v-list-item>

@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-container style="max-width: 1000px" grid-list-md>
+    <v-container class="container" grid-list-md>
       <div>
         <v-row >
           <v-col class="mt-n4" cols="12" md="6">
@@ -37,7 +37,7 @@
                           <span class="err text-xl-center">{{ errorMsg }}</span>
                         </div>
                         <Loader :loading="loading" :message="message" />
-                        <v-row class="mt-5" :style="{'justify-content': 'center'}">
+                        <v-row class="mt-5 row-input">
                           <v-col cols="12" md="8" class="ma-auto">
                             <div class="color-title" :style="{'font-family': 'IBM Plex Sans'}">Upload Course Image</div>
                             <ValidationProvider
@@ -59,8 +59,8 @@
                                   <v-icon class="ma-2" color="#645262">mdi-cloud-upload-outline</v-icon>
                                   Choose from files
                                 </v-btn>
-                                <input class="uploadImage" ref="fileInput" style="display: none" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
-                              <div v-else v-model="isImage" >
+                                <input class="uploadImage" ref="fileInput" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
+                              <div v-model="isImage" v-else>
                                 <v-btn
                                     :style="{'font-family': 'IBM Plex Sans', 'justify-content': 'start', 'text-decoration-line': 'underline', 'text-transform': 'capitalize'}"
                                     block
@@ -72,11 +72,11 @@
                                 >
                                   {{ image.name }}
                                 </v-btn>
-                                <input ref="fileInput" style="display: none" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
+                                <input class="uploadImage"  ref="fileInput" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
                             </ValidationProvider>
                           </v-col>
                         </v-row>
-                        <v-row :style="{'justify-content': 'center'}">
+                        <v-row class="row-input">
                           <v-col cols="12" md="8">
                             <ValidationProvider
                                 name="Course Name"
@@ -98,7 +98,7 @@
                             </ValidationProvider>
                           </v-col>
                         </v-row>
-                        <v-row :style="{'justify-content': 'center'}">
+                        <v-row class="row-input">
                           <v-col cols="12" md="8">
                             <v-combobox
                                 v-model="course.selectCategory"
@@ -131,7 +131,7 @@
                             </v-combobox>
                           </v-col>
                         </v-row>
-                        <v-row :style="{'justify-content': 'center'}">
+                        <v-row class="row-input">
                           <v-col cols="12" md="8">
                             <ValidationProvider
                                 name="Course Requirements"
@@ -150,7 +150,7 @@
                             </ValidationProvider>
                           </v-col>
                         </v-row>
-                        <v-row :style="{'justify-content': 'center'}">
+                        <v-row class="row-input">
                           <v-col cols="12" md="8">
                             <ValidationProvider
                                 name="Learning Outcomes"
@@ -168,7 +168,7 @@
                             </ValidationProvider>
                           </v-col>
                         </v-row>
-                        <v-row :style="{'justify-content': 'center'}">
+                        <v-row class="row-input">
                           <v-col cols="12" md="8">
                             <ValidationProvider
                                 name="Course Description"
@@ -188,7 +188,7 @@
                             </ValidationProvider>
                           </v-col>
                         </v-row>
-                        <v-row :style="{'justify-content': 'center'}">
+                        <v-row class="row-input">
                           <v-col cols="12" md="8">
                             <v-combobox
                                 v-model="course.addFacilitator"
@@ -220,7 +220,7 @@
                             </v-combobox>
                           </v-col>
                         </v-row>
-                        <v-row :style="{'justify-content': 'center'}">
+                        <v-row class="row-input">
                           <v-col cols="12" md="4">
                             <v-menu
                                 v-model="startDateMenu"
@@ -437,7 +437,9 @@ export default {
 
 <style>
 @import "~vue2-editor/dist/vue2-editor.css";
-
+.container {
+  max-width: 1000px;
+}
 .links {
   /* View All */
   font-weight: normal;
@@ -456,5 +458,11 @@ export default {
   display: block;
   color: #FF2E2E;
   font-size: 11px;
+}
+.row-input {
+  justify-content: center;
+}
+.uploadImage {
+  display: none;
 }
 </style>

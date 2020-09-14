@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-container style="max-width: 1000px">
+    <v-container class="container">
       <v-card flat class="tab-navigation">
         <v-tabs background-color="white" color="#FF2E2E" >
           <v-tab class="tab-item" to="/corporate/courses/myCourses">My Course</v-tab>
@@ -15,7 +15,9 @@
 .tab-navigation {
   border-bottom: 1px solid lightgrey !important;
 }
-
+.container {
+  max-width: 1000px;
+}
 .tab-item {
   text-transform: capitalize !important;
   font-size: 16px;

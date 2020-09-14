@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <v-container style="max-width: 1000px" grid-list-md>
+    <v-container class="container" grid-list-md>
       <div :style="{'font-family': 'IBM Plex Sans'}">
         <v-row>
           <v-col class="d-flex" cols="12" sm="2" md="2" >
@@ -25,13 +25,13 @@
                 label="Search by Course name"
                 solo-inverted
                 flat
-                :style="{'alignment': 'right'}"
+                class="search-box"
             ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="6">
-            <h3 :style="{'text-transform': 'uppercase'}">Assigned Courses</h3>
+            <h3 class="heading">Assigned Courses</h3>
           </v-col>
         </v-row>
         <v-row>
@@ -43,7 +43,7 @@
         </v-row>
         <v-row class="all-courses">
           <v-col cols="12">
-            <h3 class="all-courses-header" :style="{'text-transform': 'uppercase'}">Existing Courses</h3>
+            <h3 class="all-courses-header heading">Existing Courses</h3>
           </v-col>
         </v-row>
         <v-row>
@@ -140,10 +140,19 @@
 </script>
 
 <style scoped>
+.container {
+  max-width: 1000px;
+}
 .all-courses {
   margin-top: 4rem;
 }
 .all-courses-header {
   color: #2B1C1C;
+}
+.search-box {
+  alignment: right;
+}
+.heading {
+  text-transform: uppercase;
 }
 </style>
