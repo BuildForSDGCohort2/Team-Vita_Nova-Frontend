@@ -18,7 +18,7 @@
                     :style="{'color': '#fff', 'text-decoration-line': 'none'}"
                     :elevation="hover ? 12 : 2"
                     :class="{ 'on-hover': hover }"
-                    :href="cards.title"
+                    @click="courseDetails(cards)"
                   >
                     <h1
                       :style="{'font-family': 'IBM Plex Sans', 'font-size': '24px', 'line-height': '31px'}"
@@ -94,6 +94,7 @@
 
 <script>
 import ExploreCourses from "@/components/corporateAdmin/courses/exploreCourses/ExploreCourses";
+import CourseDetails from "@/components/corporateAdmin/courses/CourseDetails";
 export default {
   name: "CourseCard",
   props: {
@@ -147,6 +148,14 @@ export default {
   methods: {
     onSelect(item) {
       this.$router.push({ path: item.link });
+    },
+    courseDetails(card) {
+      console.log(card)
+      this.$router.push({
+        path: '/corporate/courses/courseDetails',
+        component: CourseDetails,
+        props: {card:card}
+      })
     }
   }
 };

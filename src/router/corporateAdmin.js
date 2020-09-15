@@ -66,6 +66,12 @@ export default [
                 name: 'courses.createCourse',
                 component: () => import("../components/corporateAdmin/courses/myCourses/CreateCourse")
             },
+            {
+                path: "courseDetails",
+                name: 'courses.courseDetails',
+                props: true,
+                component: () => import("../components/corporateAdmin/courses/CourseDetails")
+            },
         ],
         meta: {
             requiresAuth: true
