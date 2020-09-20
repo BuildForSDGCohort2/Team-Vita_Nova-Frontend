@@ -1,16 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import onboarding from "./onboarding";
-import native from './native'
 import store from '../store'
-import cooperateAdmin from "./corporateAdmin";
+import appMainView from "./appMainView";
 
 Vue.use(VueRouter);
 
 const routes = [
   ...onboarding,
-  ...cooperateAdmin,
-  ...native
+  ...appMainView,
 ];
 
 const router = new VueRouter({
@@ -29,7 +27,7 @@ router.beforeEach((to, from, next) => {
       next("/login");
     }
   } else if (user) {
-    next('corperate/dashboard')
+    next('/dashboard')
   }
   else {
     next()

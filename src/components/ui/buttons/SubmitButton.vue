@@ -19,8 +19,8 @@ export default {
 
 <style scoped>
 .submit-button-container {
-  background: #ff2e2e !important;
-  border-radius: 4px !important;
+  border: 1px solid #F56C08;
+  border-radius: 10px !important;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -30,8 +30,9 @@ export default {
   text-align: center;
   letter-spacing: 0.05em;
   text-transform: capitalize;
+  background-color: transparent !important;
 
-  color: #ffffff;
+  color: #F56C08;
   box-shadow: none !important;
 }
 

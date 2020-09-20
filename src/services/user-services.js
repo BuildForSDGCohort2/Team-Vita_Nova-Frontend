@@ -3,8 +3,8 @@ import authHeader from "./auth-header";
 const API_URL = "https://lamp-api.herokuapp.com";
 
 class UserService {
-  static getCorporateDashBoard() {
-    return axios.get("corporate", { headers: authHeader() });
+  static getDashBoard() {
+    return axios.get("dashboard", { headers: authHeader() });
   }
 
   static getDepartmentLead() {
@@ -64,7 +64,7 @@ class UserService {
         return axios.patch(API_URL + '/business/company/update_company_profile/', data, { headers: authHeader() });
     }
 
-    static handleCreateCourse(data) {
+    static handleContactUs(data) {
         return axios.post(API_URL + '/class/course/', data, { headers: authHeader()});
     }
 }

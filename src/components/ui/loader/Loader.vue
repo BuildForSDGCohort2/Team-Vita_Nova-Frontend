@@ -1,6 +1,6 @@
 <template>
   <v-overlay v-if="loading" v-show="message">
-    <v-progress-circular :size="50" color="#960C0C" indeterminate>
+    <v-progress-circular :size="100" color="#F56C08" indeterminate>
       <span class="loader-text">{{message}}</span>
     </v-progress-circular>
   </v-overlay>

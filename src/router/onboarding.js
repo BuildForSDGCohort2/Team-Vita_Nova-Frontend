@@ -1,3 +1,5 @@
+import BrowseCourses from "@/views/onboarding/contactUs";
+
 export default [
     {
         path: "/",
@@ -23,28 +25,35 @@ export default [
             import(/* webpackChunkName: "about" */ "../views/onboarding/RegisterPage")
     },
     {
-        path: "/browseCourses",
+        path: "/contactUs",
         name: "BrowseCourses",
         component: () =>
-            import(/* webpackChunkName: "about" */ "../views/onboarding/BrowseCourses")
+            import(/* webpackChunkName: "about" */ "../views/onboarding/contactUs")
     },
     {
-        path: "/plans",
+        path: "/aboutUs",
         name: "Plans",
         component: () =>
-            import(/* webpackChunkName: "about" */ "../views/onboarding/Plans")
+            import(/* webpackChunkName: "about" */ "../views/onboarding/aboutUs")
     },
     {
         path: "/success",
         name: "registration_successful",
         meta: { layout: 'Login' },
 
-    component: () => import("../components/splashPages/ConfirmEmailPage")
-  },
-  {
-    path: "/password-reset",
-    name: "reset_password",
+        component: () => import("../components/splashPages/ConfirmEmailPage")
+    },
+    {
+        path: "/verify-email",
+        name: "registration_authenticated",
+        meta: { layout: 'Login' },
 
-    component: () => import("../views/onboarding/ResetPassword")
-  }
+        component: () => import("../components/splashPages/ConfirmAuthenticated")
+    },
+    {
+        path: "/password-reset",
+        name: "reset_password",
+
+        component: () => import("../views/onboarding/ResetPassword")
+    }
 ];

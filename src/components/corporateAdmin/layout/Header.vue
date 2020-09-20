@@ -5,7 +5,7 @@
         <v-icon>{{ drawer ? 'mdi-chevron-left' : 'mdi-chevron-right' }}</v-icon>
       </v-btn>
 
-      <img src="../../../assets/semfulllogo.svg" class="logo" height="30" alt />
+      <img src="../../../assets/vitaNova/logo_vita-nova.png" class="logo" height="30" alt />
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>
@@ -18,44 +18,44 @@
 
     <v-navigation-drawer v-model="drawer" app color="#FAFAFA" clipped hide-overlay>
       <v-list nav dense>
-        <v-list-item link to="/corporate/dashboard" class="dashboard-logout" color="red">
+        <v-list-item link to="/dashboard" class="dashboard-logout" color="red">
           <v-list-item-icon>
             <v-icon>mdi-view-dashboard-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Dashboard</v-list-item-title>
         </v-list-item>
 
-        <v-list-item link to="/corporate/employee" class="menu" color="red">
+        <v-list-item link to="/employee" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-clipboard-plus-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Employees</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/corporate/courses" class="menu course" color="red">
+        <v-list-item link to="/courses" class="menu course" color="red">
           <v-list-item-icon>
             <v-icon>mdi-message-text-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Courses</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/corporate/helpCenter" class="menu" color="red">
+        <v-list-item link to="/helpCenter" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-crosshairs-question</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Help Center</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/corporate/insight" class="menu" color="red">
+        <v-list-item link to="/insight" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-google-circles</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Insights</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/corporate/preview-profile" class="menu" color="red">
+        <v-list-item link to="/preview-profile" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-format-float-left</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Company Profile</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/corporate/settings" class="menu" color="red">
+        <v-list-item link to="/settings" class="menu" color="red">
           <v-list-item-icon>
             <v-icon>mdi-cog-outline</v-icon>
           </v-list-item-icon>
@@ -90,7 +90,7 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.state.onboarding.user.email || userData.email;
+      return this.$store.state.onboarding.user.first_name || userData.first_name;
     },
     profilePicture() {
       return this.$store.state.onboarding.user.image || userData.image;

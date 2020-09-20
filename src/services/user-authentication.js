@@ -3,7 +3,7 @@ export function userLoggedIn(vueThis) {
   console.log(user);
 
   if (user) {
-    vueThis.$router.push("/cooperate/dashboard");
+    vueThis.$router.push("/dashboard");
   }
 }
 

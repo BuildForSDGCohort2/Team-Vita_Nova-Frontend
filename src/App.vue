@@ -1,14 +1,12 @@
 <template>
   <v-app id="keep">
-    <!-- <Header /> -->
-
     <div v-if="!loggedIn">
       <keep-alive>
         <component v-bind:is="currentTabComponent"></component>
       </keep-alive>
     </div>
     <div v-else>
-      <CorporateLayout />
+      <MainLayout />
     </div>
     <v-main>
       <v-container fluid class="app-container">
@@ -19,10 +17,8 @@
 </template>
 
 <script>
-import CorporateLayout from "./components/corporateAdmin/layout/Header";
+import MainLayout from "./components/corporateAdmin/layout/Header";
 import OnboardingLayout from "./components/onboarding/layout/Header";
-
-import { mapState } from "vuex";
 
 export default {
   props: {
@@ -30,7 +26,7 @@ export default {
   },
   components: {
     OnboardingLayout,
-    CorporateLayout
+    MainLayout
   },
 
   data: () => ({
@@ -49,12 +45,9 @@ export default {
 
 <style>
 * {
-  font-family: IBM Plex Sans !important;
+  font-family: IBM Plex Sans,sans-serif !important;
 }
 .app-container {
   padding: 0 0 !important;
-}
-.v-btn {
-  text-transform: none !important;
 }
 </style>

@@ -4,12 +4,16 @@
 
 <style scoped>
 .nav-button {
-  background-color: #ff2e2e !important;
-  color: #fff !important;
-  border-radius: 3px !important;
   max-height: 100% !important;
   padding: 20px 28px !important;
-  margin-right: 10% !important;
+  background-color: transparent !important;
+  margin-right: 20px !important;
+  text-transform: capitalize !important;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #F56C08;
+  border-radius: 10px !important;
+  color: #F56C08;
 }
 </style>
 

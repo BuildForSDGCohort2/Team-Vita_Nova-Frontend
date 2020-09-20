@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Plans />
+    <AboutUs />
   </div>
 </template>
 
 <script>
-import Plans from "../../components/onboarding/plans/Plans.vue";
+import AboutUs from "../../components/onboarding/aboutUs/AboutUs.vue";
 export default {
   components: {
-    Plans
+    AboutUs
   }
 };
 </script>

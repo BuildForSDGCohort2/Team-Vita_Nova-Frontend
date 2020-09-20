@@ -4,7 +4,6 @@
       <v-main class="success-container">
         <v-list-item>
           <img src="../../assets/thumbs-up-orange.svg" class="success-circle" alt=""/>
-          <!--                <v-list-item-avatar color="#FFF2C7" class="success-circle"></v-list-item-avatar>-->
         </v-list-item>
         <v-card-text class="success-title text-wrap" :style="{'font-family': 'IBM Plex Sans'}">
           <h6>
@@ -32,12 +31,13 @@ export default {
 
 <style scoped>
 .confirm-amail-background {
-  background-color: #fff0ce !important;
+  background-color: #E4F0D4 !important;
 }
 .success-top {
   /*margin-top: 5% !important;*/
   border-radius: 6px !important;
   border-bottom: 0 !important;
+  background-color: #E4F0D4 !important;
 }
 .success-container {
   margin-left: 25%;
@@ -60,7 +60,7 @@ export default {
   align-items: center;
   letter-spacing: -0.02em;
   padding: 0 !important;
-  color: #960c0c;
+  color: #F56C08;
   margin-bottom: 20px;
 }
 .success-text {

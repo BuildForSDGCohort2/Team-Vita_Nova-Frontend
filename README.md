@@ -1,4 +1,4 @@
-# lamp-app-frontend
+# vitanova-frontend
 
 ## Project setup
 ```

@@ -82,7 +82,7 @@
 <script>
 
 
-import PreviewProfile from "../../../views/corporateAdmin/PreviewProfile";
+import PreviewProfile from "../../../views/appMainView/PreviewProfile";
 import UserService from "../../../services/user-services";
 
 export default {

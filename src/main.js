@@ -13,7 +13,7 @@ import CourseCard from "@/components/corporateAdmin/courses/CourseCard";
 import Header from "@/components/corporateAdmin/layout/Header";
 
 //axios
-axios.defaults.baseURL = 'https://lamp-api.herokuapp.com';
+axios.defaults.baseURL = 'https://vitanova.herokuapp.com';
 
 Object.keys(rules).forEach(rule => {
   extend(rule, rules[rule]);
@@ -26,7 +26,7 @@ Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('Login', Login)
 Vue.component('Register', Register)
 Vue.component('CourseCard', CourseCard)
-Vue.component('CooperateLayout', Header)
+Vue.component('MainLayout', Header)
 
 Vue.config.productionTip = false;
 

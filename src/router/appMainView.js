@@ -1,13 +1,13 @@
-import Employee from "../views/corporateAdmin/Employee"
-import Courses from "../views/corporateAdmin/coursesView/Courses"
-import CourseModule from "../views/corporateAdmin/CourseModuleViews/CourseModule";
+import Employee from "../views/appMainView/Employee"
+import Courses from "../views/appMainView/coursesView/Courses"
+import CourseModule from "../views/appMainView/CourseModuleViews/CourseModule";
 
 export default [
     {
-        path: "/corporate/dashboard",
+        path: "/dashboard",
         name: "Dashboard",
         component: () =>
-            import("../views/corporateAdmin/Dashboard"),
+            import("../views/appMainView/Dashboard"),
         meta: {
             requiresAuth: true
         }
@@ -24,16 +24,16 @@ export default [
             {
                 path: "employees",
                 name: "employeeContainer",
-                component: () => import("../views/corporateAdmin/EmployeesContainer")
+                component: () => import("../views/appMainView/EmployeesContainer")
             }, {
                 path: "departments",
                 name: "departments",
-                component: () => import("../views/corporateAdmin/Departments")
+                component: () => import("../views/appMainView/Departments")
             }
             , {
                 path: "departments/:department",
                 name: "department",
-                component: () => import("../views/corporateAdmin/Department")
+                component: () => import("../views/appMainView/Department")
             }
         ],
         meta: {
@@ -54,12 +54,12 @@ export default [
             {
                 path: "exploreCourses",
                 name: "courses.exploreCourses",
-                component: () => import("../views/corporateAdmin/coursesView/ExploreCourses")
+                component: () => import("../views/appMainView/coursesView/ExploreCourses")
             },
             {
                 path: "myCourses",
                 name: 'courses.myCourses',
-                component: () => import("../views/corporateAdmin/coursesView/MyCourses")
+                component: () => import("../views/appMainView/coursesView/MyCourses")
             },
             {
                 path: "createCourse",
@@ -82,7 +82,7 @@ export default [
         path: "/corporate/preview-profile",
         name: "PreviewProfile",
         component: () =>
-            import("../views/corporateAdmin/PreviewProfile")
+            import("../views/appMainView/PreviewProfile")
         ,
         meta: {
             requiresAuth: true
@@ -92,7 +92,7 @@ export default [
         path: "/corporate/update-profile",
         name: "UpdateProfile",
         component: () =>
-            import("../views/corporateAdmin/UpdateProfile")
+            import("../views/appMainView/UpdateProfile")
         ,
         meta: {
             requiresAuth: true
@@ -114,14 +114,14 @@ export default [
                 path: "curriculum",
                 name: "courseModule.curriculum",
                 component: () =>
-                    import("../views/corporateAdmin/CourseModuleViews/Curriculum")
+                    import("../views/appMainView/CourseModuleViews/Curriculum")
             },
 
             {
                 path: "publish",
                 name: "courseModule.publish",
                 component: () =>
-                    import("../views/corporateAdmin/CourseModuleViews/Publish")
+                    import("../views/appMainView/CourseModuleViews/Publish")
             },
 
             {

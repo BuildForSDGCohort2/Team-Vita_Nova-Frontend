@@ -77,13 +77,7 @@
                       class="card-content mt-n5 pr-5"
                       :style="{'font-family': 'IBM Plex Sans', 'font-size': '15px'}"
                   >
-                    <p>Welcome	to	the	Java	programming	language	and	Java	How	to
-                      Program,	Early	Objects,	Eleventh	Edition!	This	book
-                      presents	leading-edge	computing	technologies	for	students,
-                      instructors	and	software	developers.	It’s	appropriate	for
-                      introductory	academic	and	professional	course	sequences
-                      based	on	the	curriculum	recommendations	of	the	ACM	and
-                      the	IEEE	professional	societies,1	and	for	Advanced </p>
+                    <p>{{ cards.courseDescription }}</p>
                   </v-card-text>
                 </v-list-item>
                 <v-list-item>
@@ -99,13 +93,7 @@
                       class="card-content mt-n5 pr-5"
                       :style="{'font-family': 'IBM Plex Sans', 'font-size': '15px'}"
                   >
-                    <p>Welcome	to	the	Java	programming	language	and	Java	How	to
-                      Program,	Early	Objects,	Eleventh	Edition!	This	book
-                      presents	leading-edge	computing	technologies	for	students,
-                      instructors	and	software	developers.	It’s	appropriate	for
-                      introductory	academic	and	professional	course	sequences
-                      based	on	the	curriculum	recommendations	of	the	ACM	and
-                      the	IEEE	professional	societies,1	and	for	Advanced </p>
+                    <p>{{ cards.learningOutcome }}</p>
                   </v-card-text>
                 </v-list-item>
                 <v-list-item>
@@ -121,13 +109,7 @@
                       class="card-content mt-n5 pr-5"
                       :style="{'font-family': 'IBM Plex Sans', 'font-size': '15px'}"
                   >
-                    <p>Welcome	to	the	Java	programming	language	and	Java	How	to
-                      Program,	Early	Objects,	Eleventh	Edition!	This	book
-                      presents	leading-edge	computing	technologies	for	students,
-                      instructors	and	software	developers.	It’s	appropriate	for
-                      introductory	academic	and	professional	course	sequences
-                      based	on	the	curriculum	recommendations	of	the	ACM	and
-                      the	IEEE	professional	societies,1	and	for	Advanced </p>
+                    <p>{{ cards.courseRequirements }}</p>
                   </v-card-text>
                 </v-list-item>
               </v-list-item-content>
@@ -159,7 +141,7 @@
                       class="card-content mt-n15 pr-5"
                       :style="{'font-weight': 'bold', 'font-family': 'IBM Plex Sans', 'font-size': '15px'}"
                   >
-                    <p>13 Weeks ( 8 Hours/Day)</p>
+                    <p>{{ cards.courseDuration }}</p>
                   </v-card-text>
                 </v-list-item>
                 <v-list-item>
@@ -220,13 +202,13 @@
                           class="card-content ml-n5 mt-n3 pr-5"
                           :style="{'font-family': 'IBM Plex Sans', 'font-size': '15px'}"
                       >
-                        <span :style="{'font-weight': 'bold'}">Funmi Williams</span>
+                        <span :style="{'font-weight': 'bold'}">{{ cards.reviewBy }}</span>
                       </v-card-text>
                       <v-card-text
                           class="card-content ml-n5 mt-n7 pr-5"
                           :style="{'font-family': 'IBM Plex Sans', 'font-size': '14px'}"
                       >
-                        <p>This is the best Course ever i literally took this course for my junior brother so he passed his exams without me oma gan i dont understand why, gbogbo rubbish yen ko neccessary now</p>
+                        <p>{{ cards.courseReview }}</p>
                       </v-card-text>
                     </v-col>
                   </v-row>
@@ -250,7 +232,7 @@ export default {
 
   },
   data: () => ({
-    rating: 5,
+    rating: Math.round(4.8),
   }),
   methods: {
     routeTo() {
@@ -266,7 +248,33 @@ export default {
         subtitle: "21 Modules",
         company: "Hobo Tech",
         courseImageLink: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-        rank: 4.8
+        rank: 4.8,
+        courseReview: 'This is the best Course ever i literally took this course for my junior brother so he passed his exams without me oma gan i dont understand why, gbogbo rubbish yen ko neccessary now',
+        reviewBy: 'Funmi Williams',
+        courseDuration: '13 Weeks ( 8 Hours/Day)',
+        courseRequirements: 'Welcome\tto\tthe\tJava\tprogramming\tlanguage\tand\tJava\tHow\tto\n' +
+            '                      Program,\tEarly\tObjects,\tEleventh\tEdition!\tThis\tbook\n' +
+            '                      presents\tleading-edge\tcomputing\ttechnologies\tfor\tstudents,\n' +
+            '                      instructors\tand\tsoftware\tdevelopers.\tIt’s\tappropriate\tfor\n' +
+            '                      introductory\tacademic\tand\tprofessional\tcourse\tsequences\n' +
+            '                      based\ton\tthe\tcurriculum\trecommendations\tof\tthe\tACM\tand\n' +
+            '                      the\tIEEE\tprofessional\tsocieties,1\tand\tfor\tAdvanced',
+        learningOutcome: 'Welcome\tto\tthe\tJava\tprogramming\tlanguage\tand\tJava\tHow\tto\n' +
+            '                      Program,\tEarly\tObjects,\tEleventh\tEdition!\tThis\tbook\n' +
+            '                      presents\tleading-edge\tcomputing\ttechnologies\tfor\tstudents,\n' +
+            '                      instructors\tand\tsoftware\tdevelopers.\tIt’s\tappropriate\tfor\n' +
+            '                      introductory\tacademic\tand\tprofessional\tcourse\tsequences\n' +
+            '                      based\ton\tthe\tcurriculum\trecommendations\tof\tthe\tACM\tand\n' +
+            '                      the\tIEEE\tprofessional\tsocieties,1\tand\tfor\tAdvanced',
+        courseDescription: 'Welcome\tto\tthe\tJava\tprogramming\tlanguage\tand\tJava\tHow\tto\n' +
+            '                      Program,\tEarly\tObjects,\tEleventh\tEdition!\tThis\tbook\n' +
+            '                      presents\tleading-edge\tcomputing\ttechnologies\tfor\tstudents,\n' +
+            '                      instructors\tand\tsoftware\tdevelopers.\tIt’s\tappropriate\tfor\n' +
+            '                      introductory\tacademic\tand\tprofessional\tcourse\tsequences\n' +
+            '                      based\ton\tthe\tcurriculum\trecommendations\tof\tthe\tACM\tand\n' +
+            '                      the\tIEEE\tprofessional\tsocieties,1\tand\tfor\tAdvanced',
+
+
       };
     },
   }

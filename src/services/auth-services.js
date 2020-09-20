@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://lamp-api.herokuapp.com";
+const API_URL = "https://vitanova.herokuapp.com";
 
 export const login = async (user) => {
     return await axios
@@ -36,10 +36,6 @@ export const register = user => {
     password: user.password,
     first_name: user.first_name,
     last_name: user.last_name,
-    company_name: user.company_name,
-    website: user.website,
-    role: user.role,
-    corporate: user.corporate
   });
 };
 
