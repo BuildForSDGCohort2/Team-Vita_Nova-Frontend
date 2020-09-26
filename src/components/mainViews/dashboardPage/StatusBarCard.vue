@@ -2,7 +2,7 @@
   <v-responsive>
     <v-container>
       <div :style="{'font-family': 'IBM Plex Sans'}">
-        <v-row class="solution mt-n8">
+        <v-row class="solution">
           <v-col cols="12" md="4" sm="8" class="">
             <template>
               <v-hover v-slot:default="{ hover }">
@@ -95,4 +95,11 @@ export default {
 </script>
 
 <style scoped>
+.headline {
+  line-height: 31px;
+  font-style: normal;
+  font-weight: bold;
+  color: #F56C08;
+  text-align: justify;
+}
 </style>

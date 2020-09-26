@@ -9,6 +9,15 @@ export default [
         }
     },
     {
+        path: "/send-orders",
+        name: "SendOrders",
+        component: () =>
+            import("../views/appMainView/SendOrder"),
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
         path: "/corporate/preview-profile",
         name: "PreviewProfile",
         component: () =>
