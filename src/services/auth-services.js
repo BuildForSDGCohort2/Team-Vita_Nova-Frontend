@@ -39,6 +39,6 @@ export const register = user => {
   });
 };
 
-export const verifyEmail = () => {
+export const verifyEmail = (key) => {
   return axios.post(API_URL + "/api/accounts/verify-registration/", key);
 };

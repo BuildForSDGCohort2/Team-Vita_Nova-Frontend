@@ -26,13 +26,13 @@ export default [
     },
     {
         path: "/contactUs",
-        name: "BrowseCourses",
+        name: "ContactUs",
         component: () =>
             import(/* webpackChunkName: "about" */ "../views/onboarding/contactUs")
     },
     {
         path: "/aboutUs",
-        name: "Plans",
+        name: "AboutUs",
         component: () =>
             import(/* webpackChunkName: "about" */ "../views/onboarding/aboutUs")
     },
@@ -44,16 +44,15 @@ export default [
         component: () => import("../components/splashPages/ConfirmEmailPage")
     },
     {
-        path: "/verify-email",
-        name: "registration_authenticated",
-        meta: { layout: 'Login' },
-
-        component: () => import("../components/splashPages/ConfirmAuthenticated")
-    },
-    {
         path: "/password-reset",
         name: "reset_password",
 
         component: () => import("../views/onboarding/ResetPassword")
-    }
+    },
+    {
+        path: "/verify-email/",
+        name: "VerifyEmail",
+        component: () =>
+            import("../components/onboarding/VerifyEmail")
+    },
 ];

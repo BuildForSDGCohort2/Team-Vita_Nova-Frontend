@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PreviewProfile from "../../components/corporateAdmin/companyProfile/PreviewProfile";
+import PreviewProfile from "../../components/mainViews/companyProfile/PreviewProfile";
 import UserService from "../../services/user-services";
 export default {
   components: {

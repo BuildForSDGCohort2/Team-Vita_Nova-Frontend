@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import MainLayout from "./components/corporateAdmin/layout/Header";
+import MainLayout from "./components/mainViews/layout/Header";
 import OnboardingLayout from "./components/onboarding/layout/Header";
 
 export default {

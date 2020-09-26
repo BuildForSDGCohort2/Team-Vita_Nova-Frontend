@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import UpdateProfile from "../../components/corporateAdmin/companyProfile/UpdateProfile";
+    import UpdateProfile from "../../components/mainViews/companyProfile/UpdateProfile";
     export default {
         components:{
             UpdateProfile

@@ -98,10 +98,10 @@ export default {
       setTimeout(() => (this.loading = false), 2000);
     },
     handleSender() {
-      this.$router.push({ path: '/sender' });
+      this.$router.push({ path: '/login' });
     },
     handleDistributor() {
-      this.$router.push({ path: '/distributor' });
+      this.$router.push({ path: '/login' });
     },
   }
 };
