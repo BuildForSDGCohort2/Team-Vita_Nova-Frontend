@@ -9,7 +9,7 @@ import en from 'vee-validate/dist/locale/en.json';
 import * as rules from 'vee-validate/dist/rules';
 import Login from './components/onboarding/layout/Login'
 import Register from './components/onboarding/layout/Register'
-import Header from "@/components/mainViews/layout/Header";
+import MainLayout from "./components/mainViews/layout/Header";
 
 //axios
 axios.defaults.baseURL = 'https://vitanova.herokuapp.com';
@@ -24,7 +24,7 @@ Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('Login', Login)
 Vue.component('Register', Register)
-Vue.component('MainLayout', Header)
+Vue.component('MainLayout', MainLayout)
 
 Vue.config.productionTip = false;
 
