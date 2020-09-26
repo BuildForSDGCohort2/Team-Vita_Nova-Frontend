@@ -1,5 +1,3 @@
-import BrowseCourses from "@/views/onboarding/contactUs";
-
 export default [
     {
         path: "/",

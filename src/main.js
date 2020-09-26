@@ -9,7 +9,7 @@ import en from 'vee-validate/dist/locale/en.json';
 import * as rules from 'vee-validate/dist/rules';
 import Login from './components/onboarding/layout/Login'
 import Register from './components/onboarding/layout/Register'
-import MainLayout from "./components/mainViews/layout/Header";
+import MainLayout from "./components/mainViews/layout/MainHeader";
 
 //axios
 axios.defaults.baseURL = 'https://vitanova.herokuapp.com';
