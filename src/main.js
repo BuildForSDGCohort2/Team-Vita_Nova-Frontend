@@ -24,7 +24,7 @@ Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('Login', Login)
 Vue.component('Register', Register)
-Vue.component('MainLayout', MainLayout)
+// Vue.component('MainLayout', MainLayout)
 
 Vue.config.productionTip = false;
 
