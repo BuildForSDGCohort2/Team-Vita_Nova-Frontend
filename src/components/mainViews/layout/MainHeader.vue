@@ -20,50 +20,50 @@
 
     <v-navigation-drawer v-model="drawer" app color="#E4F0D4" clipped hide-overlay>
       <v-list nav dense>
-        <v-list-item link to="/dashboard" class="dashboard-logout" color="F56C08">
+        <v-list-item link to="/dashboard" class="dashboard-logout" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-view-dashboard-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Dashboard</v-list-item-title>
         </v-list-item>
 
-        <v-list-item link to="/wallet" class="menu" color="red">
+        <v-list-item link to="/wallet" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-wallet</v-icon>
           </v-list-item-icon>
           <v-list-item-title>My Wallet</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/profile" class="menu" color="red">
+        <v-list-item link to="/profile" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-face-profile</v-icon>
           </v-list-item-icon>
           <v-list-item-title>View Profile</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/send-orders" class="menu" color="red">
+        <v-list-item link to="/send-orders" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-send</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Send Orders</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/distributor-orders" class="menu" color="red">
+        <v-list-item link to="/distributor-orders" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-truck-delivery</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Distributor Orders</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/get-verified" class="menu" color="red">
+        <v-list-item link to="/get-verified" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-shield-check</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Get Verified</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/transaction-history" class="menu" color="red">
+        <v-list-item link to="/transaction-history" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-history</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Transaction History</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/feedback" class="menu" color="red">
+        <v-list-item link to="/feedback" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-message</v-icon>
           </v-list-item-icon>

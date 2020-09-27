@@ -18,6 +18,15 @@ export default [
         }
     },
     {
+        path: "/distributor-orders",
+        name: "DistributorOrders",
+        component: () =>
+            import("../views/appMainView/DistributorOrder"),
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
         path: "/corporate/preview-profile",
         name: "PreviewProfile",
         component: () =>

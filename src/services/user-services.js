@@ -10,6 +10,11 @@ class UserService {
         console.log(data)
         return axios.patch(API_URL + '/sender/post_send_order/', data, { headers: authHeader() });
     }
+    static handleCreateDistributorRequest(data) {
+        console.log(data)
+        return axios.patch(API_URL + '/distributor/post_distributor_request/', data, { headers: authHeader() });
+    }
+
 
   static getProfile() {
     return axios.get(API_URL + '/business/company/get_company_profile/', { headers: authHeader() });

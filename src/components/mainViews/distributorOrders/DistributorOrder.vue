@@ -6,7 +6,7 @@
           <div class="headline ml-0 mt-8">
             <h1
                 :style="{'font-family': 'IBM Plex Sans', 'font-size': '38px', 'line-height': '56px'}"
-            >Send Order</h1>
+            >Distributor Order</h1>
           </div>
         </v-row>
         <v-row  class="align-center justify-center">
@@ -21,86 +21,40 @@
                   <v-form
                       class="course-form"
                       v-if="!submitted"
-                      @submit.prevent="handleSubmit(handleCreateSendOrder)">
+                      @submit.prevent="handleSubmit(handleCreateDistributorRequest)">
                     <div v-if="errorMsg">
                       <span class="err text-xl-center">{{ errorMsg }}</span>
                     </div>
                     <Loader :loading="loading" :message="message" />
                     <v-row class="solution mt-6">
                       <v-col  md="5" sm="8" :loading="loading">
-                        <v-row class="mt-5 row-input">
+                        <v-row class="row-input">
                           <v-col cols="12" md="12" class="ma-auto">
-                            <div class="color-title" :style="{'font-family': 'IBM Plex Sans'}">Upload Image of Goods</div>
-                            <ValidationProvider
-                                name="Upload Image of Goods"
-                                rules="required"
-                                v-slot="{ errors }"
-                            >
-                              <span class="err mt-2 mb-2">{{ errors[0] }}</span>
-                              <div v-if="!order.image">
-                                <v-btn
-                                    :style="{'font-family': 'IBM Plex Sans', 'text-transform': 'capitalize'}"
-                                    block
-                                    x-large
-                                    class="imageUpload #2B1C1C black--text mt-4"
-                                    @click="$refs.fileInput.click()"
-                                    dense
-                                    clearable
-                                >
-                                  <v-icon class="ma-2" color="#645262">mdi-cloud-upload-outline</v-icon>
-                                  Choose from files
-                                </v-btn>
-                                <input class="uploadImage" ref="fileInput" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
-                              <div v-model="isImage" v-else>
-                                <v-btn
-                                    :style="{'font-family': 'IBM Plex Sans', 'justify-content': 'start', 'text-decoration-line': 'underline', 'text-transform': 'capitalize'}"
-                                    block
-                                    x-large
-                                    class="imageUpload #2B1C1C black--text mt-4"
-                                    @click="$refs.fileInput.click()"
-                                    dense
-                                    clearable
-                                >
-                                  {{ image.name }}
-                                </v-btn>
-                                <input class="uploadImage"  ref="fileInput" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
-                            </ValidationProvider>
+                            <v-switch
+                                inset
+                                v-model="request.active_distributor"
+                                label="Active Distributor"
+                                color="green"
+                                :value=request.active_distributor
+                                hide-details
+                            ></v-switch>
                           </v-col>
                         </v-row>
                         <v-row class="row-input">
                           <v-col cols="12" md="12">
                             <ValidationProvider
-                                name="Description of Goods"
-                                rules="required|max:1000"
-                                v-slot="{ errors }"
-                            >
-                              <span class="err mt-0 mb-8">{{ errors[0] }}</span>
-                              <v-textarea
-                                  v-model="order.description"
-                                  outlined
-                                  name="orderDesc"
-                                  label="Description of Goods"
-                                  class="course-req mt-n5"
-                                  color="#FF2E2E"
-                              ></v-textarea>
-                            </ValidationProvider>
-                          </v-col>
-                        </v-row>
-                        <v-row class="row-input mt-n10">
-                          <v-col cols="12" md="12">
-                            <ValidationProvider
-                                name="Departure"
+                                name="Departure location"
                                 rules="required"
                                 v-slot="{ errors }"
                             >
                               <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                               <v-text-field
-                                  v-model="order.departure"
+                                  v-model="request.departure"
                                   class="course-name mt-3"
-                                  label="Departure"
+                                  label="Departure location"
                                   outlined
                                   color="#FF2E2E"
-                                  name="orderDep"
+                                  name="DepartureLoc"
                                   chips
                                   clearable
                                   multiple
@@ -117,7 +71,7 @@
                             >
                               <span class="err mt-2 mb-2">{{ errors[0] }}</span>
                               <v-text-field
-                                  v-model="order.destination"
+                                  v-model="request.destination"
                                   class="course-name mt-3"
                                   label="Destination"
                                   outlined
@@ -130,17 +84,54 @@
                             </ValidationProvider>
                           </v-col>
                         </v-row>
+                        <v-row class="row-input mt-n10">
+                          <v-col cols="12" md="12">
+                            <v-text-field
+                                v-model="request.purpose_of_travel"
+                                class="course-name mt-3"
+                                label="Purpose of Travel"
+                                outlined
+                                color="#FF2E2E"
+                                name="purposeOfTravel"
+                                chips
+                                clearable
+                                multiple
+                            ></v-text-field>
+                          </v-col>
+                        </v-row>
+                        <v-row class="row-input mt-n10">
+                          <v-col cols="12" md="12">
+                            <ValidationProvider
+                                name="Active Contact"
+                                rules="required"
+                                v-slot="{ errors }"
+                            >
+                              <span class="err mt-2 mb-2">{{ errors[0] }}</span>
+                              <v-text-field
+                                  v-model="request.active_contact_number"
+                                  class="course-name mt-3"
+                                  label="Active Contact"
+                                  outlined
+                                  color="#FF2E2E"
+                                  name="activeContact"
+                                  chips
+                                  clearable
+                                  multiple
+                              ></v-text-field>
+                            </ValidationProvider>
+                          </v-col>
+                        </v-row>
                       </v-col>
                       <v-col  md="1" sm="8">
                       </v-col>
-                      <v-col class="mt-5"  md="5" sm="8" :loading="loading">
+                      <v-col class="mt-9"  md="5" sm="8" :loading="loading">
                         <v-row class="row-input mt-16">
                           <v-col cols="12" md="12">
                             <v-combobox
-                                v-model="order.selectCategory"
-                                :items="goodsCategories"
-                                name="Goods Category"
-                                label="Goods Category"
+                                v-model="request.mode_of_travel"
+                                :items="modeOfTravel"
+                                name="Mode of Travel"
+                                label="Mode of Travel"
                                 multiple
                                 outlined
                                 clearable
@@ -192,7 +183,7 @@
                                 ></v-text-field>
                               </template>
                               <v-date-picker
-                                  v-model="order.date"
+                                  v-model="request.date"
                                   locale="en-in"
                                   no-title
                                   @input="dateMenu = false"
@@ -202,41 +193,16 @@
                             </v-menu>
                           </v-col>
                         </v-row>
-                        <v-row class="row-input mt-n10">
+                        <v-row class="row-input">
                           <v-col cols="12" md="12">
-                            <ValidationProvider
-                                name="Delivery Contact"
-                                rules="required"
-                                v-slot="{ errors }"
-                            >
-                              <span class="err mt-2 mb-2">{{ errors[0] }}</span>
-                              <v-text-field
-                                  v-model="order.deliveryContact"
-                                  class="course-name mt-3"
-                                  label="Delivery Contact"
-                                  outlined
-                                  color="#FF2E2E"
-                                  name="courseTitle"
-                                  chips
-                                  clearable
-                                  multiple
-                              ></v-text-field>
-                            </ValidationProvider>
-                          </v-col>
-                        </v-row>
-                        <v-row class="row-input mt-n10">
-                          <v-col cols="12" md="12">
-                            <v-text-field
-                                v-model="order.budget"
-                                class="course-name mt-3"
-                                label="Budget"
+                            <v-textarea
+                                v-model="request.additional_comment"
                                 outlined
+                                name="orderDesc"
+                                label="Additional Comment"
+                                class="course-req mt-n5"
                                 color="#FF2E2E"
-                                name="Budget"
-                                chips
-                                clearable
-                                multiple
-                            ></v-text-field>
+                            ></v-textarea>
                           </v-col>
                         </v-row>
                       </v-col>
@@ -283,25 +249,24 @@ export default {
       },
       fields: {
       },
-      isImage: false,
-      image: '',
-      order: {
-        image: null,
-        destination: '',
+     image: '',
+      request: {
+        active_distributor: true,
         departure: '',
-        description: '',
-        selectCategory: [],
-        deliveryContact: '',
-        budget: null,
-        date: '',
+        destination: '',
+        purpose_of_travel: '',
+        active_contact_number: '',
+        mode_of_travel: [],
+        additional_comment: '',
+        travel_schedule: '',
       },
 
       style: {'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'},
-      goodsCategories: [
-        'Cash crop', 'Vegetable', 'Fruits'
+      modeOfTravel: [
+        'Commercial', 'Private'
       ],
       dateMenu: false,
-      minDate: "2019-5-7",
+      minDate: "2020-26-9",
       submitted: false,
       errorMsg: "",
       message: ".",
@@ -310,46 +275,31 @@ export default {
   },
   computed: {
     dateDisplay() {
-      return this.order.date;
+      return this.request.date;
     },
   },
   methods: {
-    handleImage() {
-      let file = document
-          .querySelector('input[type=file]')
-          .files[0];
-      this.image = file;
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        this.order.image = e.target.result;
-      };
-      reader.onerror = function(error) {
-        alert(error);
-      };
-      reader.readAsDataURL(file);
-      this.isImage = true;
-    },
-    handleCreateSendOrder() {
-      if (!this.order.date) {
-        alert('Please select a travel schedule');
+    handleCreateDistributorRequest() {
+      if (!this.request.active_distributor) {
+        alert('Sorry, you have to activate "active distributor" to place a request');
         return;
       }
-      if (date) {
+      if (!this.request.date) {
         alert('Please select a travel schedule');
         return;
       }
       this.loading = true;
-      let order = {
-        destination: this.order.destination,
-        departure: this.order.departure,
-        goods_image: this.order.image,
-        budget: this.order.budget,
-        delivery_contact_number: this.order.deliveryContact,
-        goods_category: this.order.selectCategory[0],
-        description_of_goods: this.order.description,
-        travel_schedule: this.order.date,
+      let request = {
+        active_distributor: this.request.active_distributor,
+        departure: this.request.departure,
+        destination: this.request.destination,
+        purpose_of_travel: this.request.purpose_of_travel,
+        active_contact_number: this.request.active_contact_number,
+        mode_of_travel: this.request.mode_of_travel[0],
+        additional_comment: this.request.additional_comment,
+        travel_schedule: this.request.travel_schedule,
       };
-      UserService.handleCreateSendOrder(order).then(
+      UserService.handleCreateDistributorRequest(request).then(
           res => {
             console.log(res.data);
             // this.$router.push({ path: '/corporate/courses' });
