@@ -1,5 +1,5 @@
 <template>
-  <v-app id="keep">
+  <v-app id="keep" class="app">
     <div v-if="!loggedIn">
       <keep-alive>
         <component v-bind:is="currentTabComponent"></component>
@@ -46,8 +46,10 @@ export default {
 <style>
 * {
   font-family: IBM Plex Sans,sans-serif !important;
+
 }
 .app-container {
   padding: 0 0 !important;
+  background-color: #E4F0D4;
 }
 </style>

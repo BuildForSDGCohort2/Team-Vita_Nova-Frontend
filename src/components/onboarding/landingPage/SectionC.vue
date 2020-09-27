@@ -62,7 +62,6 @@
                 <ValidationObserver v-slot="{ handleSubmit }">
                   <v-form
                       class="course-form"
-                      v-if="!submitted"
                       @submit.prevent="handleSubmit(handleDistributor)">
                     <div>
                       <SubmitButton button-name="Become a Distributor" />
@@ -88,7 +87,6 @@ export default {
   },
   data() {
     return {
-      submitted: false,
       loading: false,
     }
   },
@@ -98,10 +96,10 @@ export default {
       setTimeout(() => (this.loading = false), 2000);
     },
     handleSender() {
-      this.$router.push({ path: '/login' });
+      this.$router.push({ path: '/register' });
     },
     handleDistributor() {
-      this.$router.push({ path: '/login' });
+      this.$router.push({ path: '/register' });
     },
   }
 };

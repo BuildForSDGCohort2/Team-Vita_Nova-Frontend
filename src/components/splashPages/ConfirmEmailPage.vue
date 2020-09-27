@@ -3,7 +3,7 @@
     <v-card width="450" height="550px" class="success-top ma-auto">
       <v-main class="success-container">
         <v-list-item>
-          <img src="../../assets/thumbs-up-orange.svg" class="success-circle" alt=""/>
+          <img src="../../assets/vitaNova/thumbs-up-orange.svg" class="success-circle" alt=""/>
         </v-list-item>
         <v-card-text class="success-title text-wrap" :style="{'font-family': 'IBM Plex Sans'}">
           <h6>

@@ -12,12 +12,7 @@
           <v-btn depressed to="/aboutUs" class="other-nav-button">About Us</v-btn>
           <v-btn depressed to="/contactUs" class="other-nav-button">Contact Us</v-btn>
           <v-btn depressed to="/login" class="loginTab other-nav-button">Login</v-btn>
-          <div v-if="!detectDevice">
-            <v-btn depressed to="/register" class="signupBtn other-nav-button">Signup</v-btn>
-          </div>
-          <div v-else>
-            <GetStarted title="Get Started" class="signupBtn other-nav-button" />
-          </div>
+          <GetStarted title="Get Started" class="signupBtn other-nav-button" />
         </v-toolbar-items>
       </v-app-bar>
       <v-navigation-drawer v-model="drawer"app color="#E4F0D4" temporary hide-overlay>

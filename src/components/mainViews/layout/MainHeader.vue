@@ -43,13 +43,13 @@
           <v-list-item-icon>
             <v-icon>mdi-send</v-icon>
           </v-list-item-icon>
-          <v-list-item-title>Send Orders</v-list-item-title>
+          <v-list-item-title>Senders</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/distributor-orders" class="menu" color="#F56C08">
+        <v-list-item link to="/distributor" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-truck-delivery</v-icon>
           </v-list-item-icon>
-          <v-list-item-title>Distributor Orders</v-list-item-title>
+          <v-list-item-title>Distributors</v-list-item-title>
         </v-list-item>
         <v-list-item link to="/get-verified" class="menu" color="#F56C08">
           <v-list-item-icon>

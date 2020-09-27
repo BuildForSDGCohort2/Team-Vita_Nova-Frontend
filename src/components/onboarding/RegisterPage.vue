@@ -90,7 +90,8 @@
 <script>
 import SubmitButton from "../ui/buttons/SubmitButton";
 import Loader from "../ui/loader/Loader";
-import { localize } from "vee-validate";
+import {localize} from "vee-validate";
+
 export default {
   name: "RegisterPage",
   components: {
@@ -135,15 +136,15 @@ export default {
       this.loading = true;
       console.log(this.user);
       this.$store.dispatch("onboarding/userRegister", this.user).then(
-        data => {
-          console.log(data);
-          this.$router.push("/success");
-        },
-        error => {
-          this.loading = false;
-          console.log(error);
-          this.errorMsg = error.response.data.detail;
-        }
+          data => {
+            console.log(data);
+            this.$router.push("/success");
+          },
+          error => {
+            this.loading = false;
+            console.log(error);
+            this.errorMsg = error.response.data.detail;
+          }
       );
     }
   }

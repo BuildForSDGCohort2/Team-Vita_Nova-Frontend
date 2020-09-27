@@ -1,3 +1,5 @@
+import Distributor from "../views/appMainView/Distributor"
+
 export default [
     {
         path: "/dashboard",
@@ -18,13 +20,44 @@ export default [
         }
     },
     {
-        path: "/distributor-orders",
-        name: "DistributorOrders",
-        component: () =>
-            import("../views/appMainView/DistributorOrder"),
+        path: "/distributor",
+        name: "distributor",
+        component: Distributor,
+        children: [
+            {
+                path: '',
+                name: 'distributorRedirect',
+                redirect: { name: 'distributor.distributorOrders' }
+            },
+            {
+                path: "interested-senders",
+                name: "distributor.interestedSenders",
+                component: () => import("../views/appMainView/InterestedSender")
+            },
+            {
+                path: "distributor-orders",
+                name: "distributor.distributorOrders",
+                component: () => import("../views/appMainView/DistributorOrder")
+            },
+            {
+                path: "/request-order-done",
+                name: "post_request_successful",
+                component: () => import("../components/splashPages/Requested"),
+            },
+        ],
         meta: {
             requiresAuth: true
         }
+    },
+    {
+        path: "/send-order-done",
+        name: "post_send_order_successful",
+        component: () => import("../components/splashPages/Sent"),
+        meta: {
+            layout: 'Dashboard',
+            requiresAuth: true
+        },
+
     },
     {
         path: "/corporate/preview-profile",

@@ -8,11 +8,18 @@ class UserService {
     }
     static handleCreateSendOrder(data) {
         console.log(data)
-        return axios.patch(API_URL + '/sender/post_send_order/', data, { headers: authHeader() });
+        return axios.post(API_URL + '/logic/sender/post_send_order/', data, { headers: authHeader() });
     }
     static handleCreateDistributorRequest(data) {
         console.log(data)
-        return axios.patch(API_URL + '/distributor/post_distributor_request/', data, { headers: authHeader() });
+        return axios.post(API_URL + '/logic/distributor/post_distributor_request/', data, { headers: authHeader() });
+    }
+    static getDistributorRequest() {
+        return axios.get(API_URL + '/logic/distributor/get_distributors/', { headers: authHeader() });
+    }
+    static getSendOrders() {
+        return axios.get(API_URL + '/logic/sender/get_booked_send_orders/',
+            { headers: authHeader() });
     }
 
 

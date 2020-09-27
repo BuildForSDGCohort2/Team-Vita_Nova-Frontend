@@ -27,8 +27,8 @@
                     </div>
                     <Loader :loading="loading" :message="message" />
                     <v-row class="solution mt-6">
-                      <v-col  md="5" sm="8" :loading="loading">
-                        <v-row class="row-input">
+                      <v-col cols="12"  md="5" sm="8" :loading="loading">
+                        <v-row class="mt-5 row-input">
                           <v-col cols="12" md="12" class="ma-auto">
                             <v-switch
                                 inset
@@ -53,7 +53,7 @@
                                   class="course-name mt-3"
                                   label="Departure location"
                                   outlined
-                                  color="#FF2E2E"
+                                  color="#F56C08"
                                   name="DepartureLoc"
                                   chips
                                   clearable
@@ -75,7 +75,7 @@
                                   class="course-name mt-3"
                                   label="Destination"
                                   outlined
-                                  color="#FF2E2E"
+                                  color="#F56C08"
                                   name="orderDest"
                                   chips
                                   clearable
@@ -91,7 +91,7 @@
                                 class="course-name mt-3"
                                 label="Purpose of Travel"
                                 outlined
-                                color="#FF2E2E"
+                                color="#F56C08"
                                 name="purposeOfTravel"
                                 chips
                                 clearable
@@ -102,7 +102,7 @@
                         <v-row class="row-input mt-n10">
                           <v-col cols="12" md="12">
                             <ValidationProvider
-                                name="Active Contact"
+                                name="Active Contact Number"
                                 rules="required"
                                 v-slot="{ errors }"
                             >
@@ -110,9 +110,9 @@
                               <v-text-field
                                   v-model="request.active_contact_number"
                                   class="course-name mt-3"
-                                  label="Active Contact"
+                                  label="Active Contact Number"
                                   outlined
-                                  color="#FF2E2E"
+                                  color="#F56C08"
                                   name="activeContact"
                                   chips
                                   clearable
@@ -122,21 +122,19 @@
                           </v-col>
                         </v-row>
                       </v-col>
-                      <v-col  md="1" sm="8">
-                      </v-col>
-                      <v-col class="mt-9"  md="5" sm="8" :loading="loading">
-                        <v-row class="row-input mt-16">
+                      <v-col class="mt-lg-14" cols="12"  md="5" sm="8" :loading="loading">
+                        <v-row class="row-input mt-lg-16 mt-md-16 mt-sm-n16">
                           <v-col cols="12" md="12">
                             <v-combobox
                                 v-model="request.mode_of_travel"
                                 :items="modeOfTravel"
                                 name="Mode of Travel"
                                 label="Mode of Travel"
-                                multiple
+                                :multiple=false
                                 outlined
                                 clearable
                                 class="course-cat mt-n5"
-                                color="#FF2E2E"
+                                color="#F56C08"
                                 persistent-hint
                             >
                               <template v-slot:selection="data">
@@ -172,18 +170,18 @@
                               <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
                                     v-on="on"
-                                    append-icon="mdi-chevron-down"
+                                    append-icon="mdi-calendar"
                                     label="Travel Schedule"
                                     readonly
                                     outlined
                                     :value="dateDisplay"
                                     class="mt-n5"
-                                    color="#FF2E2E"
+                                    color="#F56C08"
                                     v-bind="attrs"
                                 ></v-text-field>
                               </template>
                               <v-date-picker
-                                  v-model="request.date"
+                                  v-model="request.travel_schedule"
                                   locale="en-in"
                                   no-title
                                   @input="dateMenu = false"
@@ -195,13 +193,49 @@
                         </v-row>
                         <v-row class="row-input">
                           <v-col cols="12" md="12">
+                            <v-menu
+                                ref="menu"
+                                v-model="menu2"
+                                :close-on-content-click="false"
+                                :nudge-right="40"
+                                :return-value.sync="request.time"
+                                transition="scale-transition"
+                                offset-y
+                                max-width="290px"
+                                min-width="290px"
+                            >
+                              <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="request.time"
+                                    label="Time of Travel"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    color="#F56C08"
+                                    append-icon="mdi-clock-time-four-outline"
+                                    outlined
+                                    :value="timeDisplay"
+                                    class="mt-n7"
+                                ></v-text-field>
+                              </template>
+                              <v-time-picker
+                                  v-if="menu2"
+                                  v-model="request.time"
+                                  full-width
+                                  @click:minute="$refs.menu.save(request.time)"
+                              ></v-time-picker>
+                            </v-menu>
+                          </v-col>
+                        </v-row>
+                        <v-row class="row-input">
+                          <v-col cols="12" md="12">
                             <v-textarea
                                 v-model="request.additional_comment"
                                 outlined
                                 name="orderDesc"
                                 label="Additional Comment"
-                                class="course-req mt-n5"
-                                color="#FF2E2E"
+                                class="course-req mt-n7"
+                                color="#F56C08"
                             ></v-textarea>
                           </v-col>
                         </v-row>
@@ -256,26 +290,30 @@ export default {
         destination: '',
         purpose_of_travel: '',
         active_contact_number: '',
-        mode_of_travel: [],
+        mode_of_travel: '',
         additional_comment: '',
         travel_schedule: '',
+        time: null,
       },
-
-      style: {'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'},
+      style: {'font-size': '18px', 'height': '53px', 'background': '#F56C08', 'color': '#E4F0D4', 'font-weight': 'bold'},
       modeOfTravel: [
         'Commercial', 'Private'
       ],
       dateMenu: false,
-      minDate: "2020-26-9",
+      minDate: "2019-30-12",
       submitted: false,
       errorMsg: "",
       message: ".",
       loading: false,
+      menu2: false,
     };
   },
   computed: {
     dateDisplay() {
-      return this.request.date;
+      return this.request.travel_schedule;
+    },
+    timeDisplay() {
+      return this.request.time;
     },
   },
   methods: {
@@ -284,25 +322,32 @@ export default {
         alert('Sorry, you have to activate "active distributor" to place a request');
         return;
       }
-      if (!this.request.date) {
+      if (!this.request.travel_schedule) {
         alert('Please select a travel schedule');
         return;
       }
+      if (!this.request.time) {
+        alert('Please select a travel time');
+        return;
+      }
       this.loading = true;
+      console.log(this.request.travel_schedule+'T'+this.request.time)
       let request = {
         active_distributor: this.request.active_distributor,
         departure: this.request.departure,
         destination: this.request.destination,
         purpose_of_travel: this.request.purpose_of_travel,
         active_contact_number: this.request.active_contact_number,
-        mode_of_travel: this.request.mode_of_travel[0],
+        mode_of_travel: this.request.mode_of_travel,
         additional_comment: this.request.additional_comment,
-        travel_schedule: this.request.travel_schedule,
+        travel_schedule: this.request.travel_schedule+'T'+this.request.time,
       };
       UserService.handleCreateDistributorRequest(request).then(
           res => {
             console.log(res.data);
-            // this.$router.push({ path: '/corporate/courses' });
+            this.$router.push("/request-order-done");
+            this.submitted = true;
+            setTimeout(() => (this.$router.push("/distributor/interested-senders")), 3000);
           },
           error => {
             this.loading = false;
@@ -337,7 +382,7 @@ v-card:not(.on-hover) {
   justify-content: center;
 }
 .card {
-  background: #E4F0D4;
+  background-color: #E4F0D5;
   border: 2px solid #F8F8F8;
   box-sizing: border-box;
   box-shadow: 0 2px 3px rgba(43, 28, 28, 0.15);
@@ -350,8 +395,5 @@ v-card:not(.on-hover) {
 }
 .row-input {
   justify-content: center;
-}
-.uploadImage {
-  display: none;
 }
 </style>

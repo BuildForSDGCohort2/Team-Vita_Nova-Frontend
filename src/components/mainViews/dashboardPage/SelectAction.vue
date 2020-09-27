@@ -85,7 +85,7 @@ export default {
       this.$router.push({ path: '/send-orders' });
     },
     handleDistributor() {
-      this.$router.push({ path: '/distributor-orders' });
+      this.$router.push({ path: '/distributor/distributor-orders' });
     },
   }
 };

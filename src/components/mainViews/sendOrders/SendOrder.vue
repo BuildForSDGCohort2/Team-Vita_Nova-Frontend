@@ -27,7 +27,7 @@
                     </div>
                     <Loader :loading="loading" :message="message" />
                     <v-row class="solution mt-6">
-                      <v-col  md="5" sm="8" :loading="loading">
+                      <v-col cols="12"  md="5" sm="8" :loading="loading">
                         <v-row class="mt-5 row-input">
                           <v-col cols="12" md="12" class="ma-auto">
                             <div class="color-title" :style="{'font-family': 'IBM Plex Sans'}">Upload Image of Goods</div>
@@ -47,7 +47,7 @@
                                     dense
                                     clearable
                                 >
-                                  <v-icon class="ma-2" color="#645262">mdi-cloud-upload-outline</v-icon>
+                                  <v-icon class="ma-2" color="#F56C08">mdi-cloud-upload-outline</v-icon>
                                   Choose from files
                                 </v-btn>
                                 <input class="uploadImage" ref="fileInput" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
@@ -81,7 +81,7 @@
                                   name="orderDesc"
                                   label="Description of Goods"
                                   class="course-req mt-n5"
-                                  color="#FF2E2E"
+                                  color="#F56C08"
                               ></v-textarea>
                             </ValidationProvider>
                           </v-col>
@@ -99,7 +99,7 @@
                                   class="course-name mt-3"
                                   label="Departure"
                                   outlined
-                                  color="#FF2E2E"
+                                  color="#F56C08"
                                   name="orderDep"
                                   chips
                                   clearable
@@ -121,7 +121,7 @@
                                   class="course-name mt-3"
                                   label="Destination"
                                   outlined
-                                  color="#FF2E2E"
+                                  color="#F56C08"
                                   name="orderDest"
                                   chips
                                   clearable
@@ -131,21 +131,19 @@
                           </v-col>
                         </v-row>
                       </v-col>
-                      <v-col  md="1" sm="8">
-                      </v-col>
-                      <v-col class="mt-5"  md="5" sm="8" :loading="loading">
-                        <v-row class="row-input mt-16">
+                      <v-col class="mt-5" cols="12" md="5" sm="8" :loading="loading">
+                        <v-row class="row-input mt-lg-16 mt-md-16 mt-sm-n16">
                           <v-col cols="12" md="12">
                             <v-combobox
                                 v-model="order.selectCategory"
                                 :items="goodsCategories"
                                 name="Goods Category"
                                 label="Goods Category"
-                                multiple
+                                :multiple=false
                                 outlined
                                 clearable
                                 class="course-cat mt-n5"
-                                color="#FF2E2E"
+                                color="#F56C08"
                                 persistent-hint
                             >
                               <template v-slot:selection="data">
@@ -181,13 +179,13 @@
                               <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
                                     v-on="on"
-                                    append-icon="mdi-chevron-down"
+                                    append-icon="mdi-calendar"
                                     label="Travel Schedule"
                                     readonly
                                     outlined
                                     :value="dateDisplay"
                                     class="mt-n5"
-                                    color="#FF2E2E"
+                                    color="#F56C08"
                                     v-bind="attrs"
                                 ></v-text-field>
                               </template>
@@ -199,6 +197,42 @@
                                   :min="minDate"
                               >
                               </v-date-picker>
+                            </v-menu>
+                          </v-col>
+                        </v-row>
+                        <v-row class="row-input">
+                          <v-col cols="12" md="12">
+                            <v-menu
+                                ref="menu"
+                                v-model="menu2"
+                                :close-on-content-click="false"
+                                :nudge-right="40"
+                                :return-value.sync="order.time"
+                                transition="scale-transition"
+                                offset-y
+                                max-width="290px"
+                                min-width="290px"
+                            >
+                              <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="order.time"
+                                    label="Time of Travel"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    color="#F56C08"
+                                    append-icon="mdi-clock-time-four-outline"
+                                    outlined
+                                    :value="timeDisplay"
+                                    class="mt-n7"
+                                ></v-text-field>
+                              </template>
+                              <v-time-picker
+                                  v-if="menu2"
+                                  v-model="order.time"
+                                  full-width
+                                  @click:minute="$refs.menu.save(order.time)"
+                              ></v-time-picker>
                             </v-menu>
                           </v-col>
                         </v-row>
@@ -215,7 +249,7 @@
                                   class="course-name mt-3"
                                   label="Delivery Contact"
                                   outlined
-                                  color="#FF2E2E"
+                                  color="#F56C08"
                                   name="courseTitle"
                                   chips
                                   clearable
@@ -231,7 +265,7 @@
                                 class="course-name mt-3"
                                 label="Budget"
                                 outlined
-                                color="#FF2E2E"
+                                color="#F56C08"
                                 name="Budget"
                                 chips
                                 clearable
@@ -276,7 +310,7 @@ export default {
   },
   props: {
   },
-  data: function () {
+  data() {
     return {
       en: {
         messages: {}
@@ -290,13 +324,13 @@ export default {
         destination: '',
         departure: '',
         description: '',
-        selectCategory: [],
+        selectCategory: '',
         deliveryContact: '',
         budget: null,
         date: '',
+        time: null,
       },
-
-      style: {'font-size': '18px', 'height': '53px', 'background': '#FF2E2E', 'color': '#FFF', 'font-weight': 'bold'},
+      style: {'font-size': '18px', 'height': '53px', 'background': '#F56C08', 'color': '#FFF', 'font-weight': 'bold'},
       goodsCategories: [
         'Cash crop', 'Vegetable', 'Fruits'
       ],
@@ -306,11 +340,15 @@ export default {
       errorMsg: "",
       message: ".",
       loading: false,
+      menu2: false,
     };
   },
   computed: {
     dateDisplay() {
       return this.order.date;
+    },
+    timeDisplay() {
+      return this.order.time;
     },
   },
   methods: {
@@ -334,8 +372,8 @@ export default {
         alert('Please select a travel schedule');
         return;
       }
-      if (date) {
-        alert('Please select a travel schedule');
+      if (!this.order.time) {
+        alert('Please select a travel time');
         return;
       }
       this.loading = true;
@@ -345,14 +383,16 @@ export default {
         goods_image: this.order.image,
         budget: this.order.budget,
         delivery_contact_number: this.order.deliveryContact,
-        goods_category: this.order.selectCategory[0],
+        goods_category: this.order.selectCategory,
         description_of_goods: this.order.description,
-        travel_schedule: this.order.date,
+        travel_schedule: this.order.date+'T'+this.order.time,
       };
       UserService.handleCreateSendOrder(order).then(
           res => {
             console.log(res.data);
-            // this.$router.push({ path: '/corporate/courses' });
+            this.$router.push("/send-order-done");
+            this.submitted = true;
+            setTimeout(() => (this.$router.push("/dashboard")), 5000);
           },
           error => {
             this.loading = false;
