@@ -31,7 +31,46 @@ export default function Footer(props) {
       <div className={classes.container}>
         <div className={classes.left}>
           <List className={classes.list}>
+            <ListItem className={classes.inlineBlock}>
+              <a 
+                href="#"
+                className={classes.block}
+                target="_blank"
+              >
+                Terms & Conditions
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a
+                href="#"
+                className={classes.block}
+                target="_blank"
+              >
+                Privacy Policy
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a
+                href="#"
+                className={classes.block}
+                target="_blank"
+              >
+                Cookie Policy
+              </a>
+            </ListItem>
           </List>
+        </div>
+        <div className={classes.right}>
+          &copy; {1900 + new Date().getYear()},
+          made with{" "}
+          <favorite className={classes.icon} /> by{" "}
+          <a
+            href="#"
+            className={aClasses}
+            target="_blank"
+          >
+            Vita Nova
+          </a>
         </div>
       </div>
     </footer>
