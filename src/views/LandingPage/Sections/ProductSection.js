@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Send from "@material-ui/icons/Send";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import AccessibilityNewIcon from "@material-ui/icons/AccessibilityNew";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 // core components
 import GridContainer from "../../../components/Grid/GridContainer.js";
