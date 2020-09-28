@@ -3,8 +3,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
+import Send from "@material-ui/icons/Send";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
+import AccessibilityNewIcon from "@material-ui/icons/AccessibilityNew";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 // core components
 import GridContainer from "../../../components/Grid/GridContainer.js";
@@ -37,8 +38,8 @@ export default function ProductSection() {
             <InfoArea
               title=""
               description="Users are able to become Senders of goods from their location to the desired destination for a lesser fee by leveraging on the network of available distributors."
-              icon={Chat}
-              iconColor="info"
+              icon={Send}
+              iconColor="success"
               vertical
             />
             <Button
@@ -56,7 +57,7 @@ export default function ProductSection() {
             <InfoArea
               title=""
               description="We provide users the opportunity to become Distributors where they earn by traveling and delivering farm produce and other goods to their travel destinations on request."
-              icon={VerifiedUser}
+              icon={AccessibilityNewIcon}
               iconColor="success"
               vertical
             />
