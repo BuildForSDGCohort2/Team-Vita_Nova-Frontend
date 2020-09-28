@@ -9,7 +9,7 @@
             >Interested Senders</h1>
           </div>
         </v-row>
-        <div style="height: 500px">
+        <div style="height: 1000px; background-color: #E4F0D4;">
           <div v-for="order in orders" v-if="orders.length !== 0">
             <v-row  class="align-center justify-center mt-8">
               <v-col cols="12" md="12" sm="8">
