@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode development",
     "start": "webpack-dev-server --mode development --open --hot",
-     "build-package-css": "node-sass src/assets/scss/material-kit-react.scss dist/material-kit-react.css",
+    "build-package-css": "node-sass src/assets/scss/material-kit-react.scss dist/material-kit-react.css",
     "build-package": "npm run build-package-css && babel src --out-dir dist",
     "compile-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css",
     "minify-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.min.css --output-style compressed",
@@ -29,10 +29,13 @@
     "react": "^16.13.1",
     "react-datetime": "^3.0.3",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-slick": "^0.27.11",
-    "react-swipeable-views": "^0.13.9"
+    "react-swipeable-views": "^0.13.9",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -47,6 +50,7 @@
     "gulp-append-prepend": "^1.0.8",
     "html-webpack-plugin": "^4.4.1",
     "prettier": "^2.1.2",
+    "redux-immutable-state-invariant": "^2.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
