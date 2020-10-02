@@ -1,7 +1,9 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = "localhost:/";
+const registerUrl = "https://vitanova.herokuapp.com/api/accounts/register/";
+const loginUrl = "https://vitanova.herokuapp.com/api/token/jwt";
+
 export const signIn = (user) => {
-  return fetch(baseUrl, {
+  return fetch(loginUrl, {
     method: "POST",
     header: {
       "content-type": "application/json",
@@ -13,7 +15,7 @@ export const signIn = (user) => {
 };
 
 export const signUp = (user) => {
-  return fetch(baseUrl, {
+  return fetch(registerUrl, {
     method: "POST",
     header: {
       "content-type": "application/json",
