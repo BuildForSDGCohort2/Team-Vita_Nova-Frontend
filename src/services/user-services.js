@@ -17,22 +17,28 @@ class UserService {
     static getDistributorRequest() {
         return axios.get(API_URL + '/logic/distributor/get_distributors/', { headers: authHeader() });
     }
-    static getSendOrders() {
+    static getBookedSendOrders() {
         return axios.get(API_URL + '/logic/sender/get_booked_send_orders/',
             { headers: authHeader() });
     }
-
-
-  static getProfile() {
-    return axios.get(API_URL + '/business/company/get_company_profile/', { headers: authHeader() });
-  }
+    static getActiveSendOrders() {
+        return axios.get(API_URL + '/logic/sender/get_active_send_orders/',
+            { headers: authHeader() });
+    }
+    static getSendOrders() {
+        return axios.get(API_URL + '/logic/sender/get_send_orders/',
+            { headers: authHeader() });
+    }
+    static getProfile() {
+        return axios.get(API_URL + '/api/profile/get_profile/', { headers: authHeader() });
+    }
     static Profile(data) {
         console.log(data)
-        return axios.patch(API_URL + '/business/company/update_company_profile/', data, { headers: authHeader() });
+        return axios.patch(API_URL + '/api/profile/update_profile/', data, { headers: authHeader() });
     }
 
     static handleContactUs(data) {
-        return axios.post(API_URL + '/class/course/', data,);
+        return axios.post(API_URL + '/contact_us/', data,);
     }
 }
 export default UserService;

@@ -39,7 +39,7 @@
           </v-list-item-icon>
           <v-list-item-title>View Profile</v-list-item-title>
         </v-list-item>
-        <v-list-item link to="/send-orders" class="menu" color="#F56C08">
+        <v-list-item link to="/sender" class="menu" color="#F56C08">
           <v-list-item-icon>
             <v-icon>mdi-send</v-icon>
           </v-list-item-icon>

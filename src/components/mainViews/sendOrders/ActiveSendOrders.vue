@@ -3,17 +3,17 @@
     <v-container grid-list-xl>
       <div :style="{'font-family': 'IBM Plex Sans'}">
         <v-row class="d-flex mx-5">
-          <div class="headline ml-0 mt-8">
+          <div class="headline ml-2 mt-8 mb-5">
             <h1
                 :style="{'font-family': 'IBM Plex Sans', 'font-size': '38px', 'line-height': '56px'}"
-            >Interested Senders</h1>
+            >Active Send Orders</h1>
           </div>
         </v-row>
         <div v-if="orders.length === 0" style="height: 450px; background-color: #E4F0D4;">
         </div>
         <div v-else style="background-color: #E4F0D4;">
-          <div v-for="order in orders" v-if="orders.message === ''">
-            <v-row  class="align-center justify-center mt-8">
+          <div v-for="order in orders" v-if="orders.length !== 0">
+            <v-row  class="align-center justify-center mt-n2">
               <v-col cols="12" md="12" sm="8">
                 <v-card
                     class="card mx-auto pa-2"
@@ -27,7 +27,7 @@
                     </v-col>
                     <v-col cols="12" md="5" sm="8" class="ml-lg-n10 mr-lg-10 mt-n3">
                       <v-list-item class="card-text" :style="{'font-family': 'IBM Plex Sans'}">
-                        Name :  {{ order.user.first_name + ' ' + order.user.last_name}}
+                        Distributor's Name :  {{ order.user() + ' ' + order.user.last_name}}
                       </v-list-item>
                       <v-list-item class="card-text mt-n3" :style="{'font-family': 'IBM Plex Sans'}">
                         Schedule :  {{ order.travel_schedule }}
@@ -100,21 +100,10 @@
               </v-col>
             </v-row>
           </div>
-          <div v-else style="height: 450px; ">
+          <div v-else>
             <v-row  class="align-center justify-center">
               <v-col cols="12" md="12" sm="8">
-                <v-card
-                    class="card mx-auto pa-2"
-                    max-width="1000"
-                    outlined
-                    rounded="lg"
-                >
-                  <v-row>
-                    <v-col cols="12" md="8" sm="10" class="ml-lg-10 mr-lg-10">
-                      {{ orders.message }}
-                    </v-col>
-                  </v-row>
-                </v-card>
+                {{ orders.message }}
               </v-col>
             </v-row>
           </div>
@@ -148,19 +137,19 @@ export default {
   computed: {
   },
   methods:{
-    getBookedSendOrders(){
+    getActiveSendOrders(){
       this.loading = true;
-      UserService.getBookedSendOrders()
-        .then(res =>{
-          console.log(res.data)
-          this.orders = res.data;
-          },
-          error => {
-            this.loading = false;
-            console.log(error.response);
-            this.errorMsg = error.response.data.detail;
-          }
-        )
+      UserService.getActiveSendOrders()
+          .then(res =>{
+                console.log(res.data)
+                this.orders = res.data;
+              },
+              error => {
+                this.loading = false;
+                console.log(error.response);
+                this.errorMsg = error.response.data.detail;
+              }
+          )
     },
     handleViewProfile() {
       this.$router.push({ path: '/' });
@@ -174,9 +163,15 @@ export default {
     handleDecline() {
       this.$router.push({ path: '/' });
     },
+    handleCreateSendOrder() {
+      this.$router.push({ path: '/sender/create-send-order' });
+    },
+    handleViewActiveSendOrders() {
+      this.$router.push({ path: '/sender/active-send-order' });
+    }
   },
   created() {
-    this.getBookedSendOrders()
+    this.getActiveSendOrders()
   }
 };
 </script>

@@ -1,4 +1,5 @@
 import Distributor from "../views/appMainView/Distributor"
+import Sender from "../views/appMainView/Sender"
 
 export default [
     {
@@ -6,15 +7,6 @@ export default [
         name: "Dashboard",
         component: () =>
             import("../views/appMainView/Dashboard"),
-        meta: {
-            requiresAuth: true
-        }
-    },
-    {
-        path: "/send-orders",
-        name: "SendOrders",
-        component: () =>
-            import("../views/appMainView/SendOrder"),
         meta: {
             requiresAuth: true
         }
@@ -50,14 +42,44 @@ export default [
         }
     },
     {
-        path: "/send-order-done",
-        name: "post_send_order_successful",
-        component: () => import("../components/splashPages/Sent"),
+        path: "/sender",
+        name: "Sender",
+        component: Sender,
+        children: [
+            {
+                path: '',
+                name: 'senderRedirect',
+                redirect: { name: 'sender.senderOrders' }
+            },
+            {
+                path: "active-distributors",
+                name: "sender.activeDistributors",
+                component: () => import("../views/appMainView/ActiveDistributors")
+            },
+            {
+                path: "sender-orders",
+                name: "sender.senderOrders",
+                component: () => import("../views/appMainView/SenderOrders")
+            },
+            {
+                path: "create-send-order",
+                name: "sender.createSendOrder",
+                component: () => import("@/components/mainViews/sendOrders/SendOrder.vue")
+            },
+            {
+                path: "active-send-order",
+                name: "sender.activeSendOrder",
+                component: () => import("@/components/mainViews/sendOrders/ActiveSendOrders.vue")
+            },
+            {
+                path: "/send-order-done",
+                name: "post_send_order_successful",
+                component: () => import("../components/splashPages/Sent"),
+            },
+        ],
         meta: {
-            layout: 'Dashboard',
             requiresAuth: true
-        },
-
+        }
     },
     {
         path: "/corporate/preview-profile",

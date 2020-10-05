@@ -1,14 +1,14 @@
 <template>
   <div>
-    <SendOrder />
+    <SenderOrders />
   </div>
 </template>
 
 <script>
-import SendOrder from "../../components/mainViews/sendOrders/SendOrder";
+import SenderOrders from "../../components/mainViews/sendOrders/SenderOrders";
 export default {
   components: {
-    SendOrder
+    SenderOrders
   },
   data() {
     return {

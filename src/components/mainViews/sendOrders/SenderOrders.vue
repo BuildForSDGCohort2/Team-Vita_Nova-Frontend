@@ -2,18 +2,51 @@
   <v-responsive class="component-container">
     <v-container grid-list-xl>
       <div :style="{'font-family': 'IBM Plex Sans'}">
+        <v-row>
+          <v-col cols="12" md="3" sm="8">
+            <v-row>
+              <v-col class="mt-n5 ml-lg-9">
+                <ValidationObserver v-slot="{ handleSubmit }">
+                  <v-form
+                      class="course-form"
+                      @submit.prevent="handleSubmit(handleViewActiveSendOrders)">
+                    <div>
+                      <SubmitButton button-name="Active Send Orders" />
+                    </div>
+                  </v-form>
+                </ValidationObserver>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col cols="12" md="3" sm="8">
+            <v-row>
+              <v-col class="mt-n5 mr-lg-5">
+                <ValidationObserver v-slot="{ handleSubmit }">
+                  <v-form
+                      class="course-form mx-3"
+                      @submit.prevent="handleSubmit(handleCreateSendOrder)">
+                    <div>
+                      <SubmitButton button-name="Create Send Order" />
+                    </div>
+                  </v-form>
+                </ValidationObserver>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
         <v-row class="d-flex mx-5">
-          <div class="headline ml-0 mt-8">
+          <div class="headline ml-2 mt-8 mb-5">
             <h1
                 :style="{'font-family': 'IBM Plex Sans', 'font-size': '38px', 'line-height': '56px'}"
-            >Interested Senders</h1>
+            >Sender Orders</h1>
           </div>
         </v-row>
         <div v-if="orders.length === 0" style="height: 450px; background-color: #E4F0D4;">
         </div>
         <div v-else style="background-color: #E4F0D4;">
-          <div v-for="order in orders" v-if="orders.message === ''">
-            <v-row  class="align-center justify-center mt-8">
+          <div v-for="order in orders" v-if="orders.length !== 0">
+            <v-row  class="align-center justify-center mt-n2">
               <v-col cols="12" md="12" sm="8">
                 <v-card
                     class="card mx-auto pa-2"
@@ -23,12 +56,9 @@
                 >
                   <v-row>
                     <v-col cols="12" md="3" sm="6">
-                      <v-img :src="order.user.image" alt="" max-height="177" max-width="203"/>
+                      <v-img :src="order.goods_image" alt="" max-height="177" max-width="203"/>
                     </v-col>
-                    <v-col cols="12" md="5" sm="8" class="ml-lg-n10 mr-lg-10 mt-n3">
-                      <v-list-item class="card-text" :style="{'font-family': 'IBM Plex Sans'}">
-                        Name :  {{ order.user.first_name + ' ' + order.user.last_name}}
-                      </v-list-item>
+                    <v-col cols="12" md="5" sm="8" class="ml-lg-n10 mr-lg-10 mt-0">
                       <v-list-item class="card-text mt-n3" :style="{'font-family': 'IBM Plex Sans'}">
                         Schedule :  {{ order.travel_schedule }}
                       </v-list-item>
@@ -48,20 +78,9 @@
                           <ValidationObserver v-slot="{ handleSubmit }">
                             <v-form
                                 class="course-form"
-                                @submit.prevent="handleSubmit(handleViewProfile)">
+                                @submit.prevent="handleSubmit(handleEditOrder)">
                               <div>
-                                <SubmitButton button-name="View Profile" />
-                              </div>
-                            </v-form>
-                          </ValidationObserver>
-                        </v-col>
-                        <v-col class="mt-n5">
-                          <ValidationObserver v-slot="{ handleSubmit }">
-                            <v-form
-                                class="course-form"
-                                @submit.prevent="handleSubmit(handleGoodsDetails)">
-                              <div>
-                                <SubmitButton button-name="Goods Details" />
+                                <SubmitButton button-name="Edit Order" />
                               </div>
                             </v-form>
                           </ValidationObserver>
@@ -74,20 +93,9 @@
                           <ValidationObserver v-slot="{ handleSubmit }">
                             <v-form
                                 class="course-form"
-                                @submit.prevent="handleSubmit(handleAccept)">
+                                @submit.prevent="handleSubmit(handleGoodsDetails)">
                               <div>
-                                <SubmitButton button-name="Accept" />
-                              </div>
-                            </v-form>
-                          </ValidationObserver>
-                        </v-col>
-                        <v-col class="mt-n5">
-                          <ValidationObserver v-slot="{ handleSubmit }">
-                            <v-form
-                                class="course-form"
-                                @submit.prevent="handleSubmit(handleDecline)">
-                              <div>
-                                <SubmitButton button-name="Decline" />
+                                <SubmitButton button-name="Goods Details" />
                               </div>
                             </v-form>
                           </ValidationObserver>
@@ -148,35 +156,35 @@ export default {
   computed: {
   },
   methods:{
-    getBookedSendOrders(){
+    getSendOrders(){
       this.loading = true;
-      UserService.getBookedSendOrders()
-        .then(res =>{
-          console.log(res.data)
-          this.orders = res.data;
-          },
-          error => {
-            this.loading = false;
-            console.log(error.response);
-            this.errorMsg = error.response.data.detail;
-          }
-        )
+      UserService.getSendOrders()
+          .then(res =>{
+                console.log(res.data)
+                this.orders = res.data;
+              },
+              error => {
+                this.loading = false;
+                console.log(error.response);
+                this.errorMsg = error.response.data.detail;
+              }
+          )
     },
-    handleViewProfile() {
+    handleEditOrder() {
       this.$router.push({ path: '/' });
     },
     handleGoodsDetails() {
       this.$router.push({ path: '/' });
     },
-    handleAccept() {
-      this.$router.push({ path: '/' });
+    handleCreateSendOrder() {
+      this.$router.push({ path: '/sender/create-send-order' });
     },
-    handleDecline() {
-      this.$router.push({ path: '/' });
-    },
+    handleViewActiveSendOrders() {
+      this.$router.push({ path: '/sender/active-send-order' });
+    }
   },
   created() {
-    this.getBookedSendOrders()
+    this.getSendOrders()
   }
 };
 </script>

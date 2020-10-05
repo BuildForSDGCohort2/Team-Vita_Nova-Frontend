@@ -10,7 +10,7 @@
 <script>
 import DistributorTabs from "../../components/mainViews/distributorOrders/DistributorTabs";
 export default {
-  name: "Courses",
+  name: "Distributors",
   components: {
     DistributorTabs
   }

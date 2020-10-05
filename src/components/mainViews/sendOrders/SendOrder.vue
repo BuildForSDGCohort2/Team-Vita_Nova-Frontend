@@ -2,8 +2,16 @@
   <v-responsive class="component-container">
     <v-container grid-list-xl>
       <div :style="{'font-family': 'IBM Plex Sans'}">
-        <v-row class="solution">
-          <div class="headline ml-0 mt-8">
+        <v-row class="mx-1">
+          <v-col class="mx-16 mt-n4" cols="12" md="6">
+            <h4>
+              <a class="links" @click="routeTo" :style="{'color': '#645262'}">Sender</a> /
+              <a :style="{'color': '#F56C08'}">Create Send Order</a>
+            </h4>
+          </v-col>
+        </v-row>
+        <v-row class="d-flex mx-16">
+          <div class="headline ml-2 mt-8">
             <h1
                 :style="{'font-family': 'IBM Plex Sans', 'font-size': '38px', 'line-height': '56px'}"
             >Send Order</h1>
@@ -61,7 +69,12 @@
                                     dense
                                     clearable
                                 >
-                                  {{ image.name }}
+                                  <div v-if="image.name.length < 30">
+                                    {{ image.name}}
+                                  </div>
+                                  <div v-else>
+                                    {{ image.name.substring(0,30)+"..." }}
+                                  </div>
                                 </v-btn>
                                 <input class="uploadImage"  ref="fileInput" type="file" @change="handleImage" name="photo" accept="image/*"/></div>
                             </ValidationProvider>
@@ -352,6 +365,9 @@ export default {
     },
   },
   methods: {
+    routeTo() {
+      this.$router.push({ path: '/sender' });
+    },
     handleImage() {
       let file = document
           .querySelector('input[type=file]')
@@ -392,7 +408,7 @@ export default {
             console.log(res.data);
             this.$router.push("/send-order-done");
             this.submitted = true;
-            setTimeout(() => (this.$router.push("/dashboard")), 5000);
+            setTimeout(() => (this.$router.push("/sender")), 5000);
           },
           error => {
             this.loading = false;

@@ -2,7 +2,7 @@
   <v-responsive class="component-container">
     <v-container grid-list-xl>
       <div :style="{'font-family': 'IBM Plex Sans'}">
-        <v-row class="solution">
+        <v-row class="d-flex mx-5">
           <div class="headline ml-0 mt-8">
             <h1
                 :style="{'font-family': 'IBM Plex Sans', 'font-size': '38px', 'line-height': '56px'}"
